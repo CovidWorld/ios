@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+	<key>CFBundlePackageType</key>
+	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Bluetooth always</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Bluetooth</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Poppins-ThinItalic.otf</string>
+		<string>Poppins-Thin.otf</string>
+		<string>Poppins-SemiBoldItalic.otf</string>
+		<string>Poppins-SemiBold.otf</string>
+		<string>Poppins-Regular.otf</string>
+		<string>Poppins-MediumItalic.otf</string>
+		<string>Poppins-Medium.otf</string>
+		<string>Poppins-LightItalic.otf</string>
+		<string>Poppins-Light.otf</string>
+		<string>Poppins-Italic.otf</string>
+		<string>Poppins-ExtraLightItalic.otf</string>
+		<string>Poppins-ExtraLight.otf</string>
+		<string>Poppins-ExtraBoldItalic.otf</string>
+		<string>Poppins-ExtraBold.otf</string>
+		<string>Poppins-BoldItalic.otf</string>
+		<string>Poppins-Bold.otf</string>
+		<string>Poppins-BlackItalic.otf</string>
+		<string>Poppins-Black.otf</string>
+		<string>Inter.otf</string>
+		<string>Inter-V.otf</string>
+		<string>Inter-UI-Regular.otf</string>
+		<string>Inter-UI-MediumItalic.otf</string>
+		<string>Inter-UI-Medium.otf</string>
+		<string>Inter-UI-Italic.otf</string>
+		<string>Inter-UI-BoldItalic.otf</string>
+		<string>Inter-UI-Bold.otf</string>
+		<string>Inter-UI-BlackItalic.otf</string>
+		<string>Inter-UI-Black.otf</string>
+		<string>Inter-LightItalic.otf</string>
+		<string>Inter-Light.otf</string>
+		<string>Inter-Italic.otf</string>
+		<string>Inter-ExtraLightItalic.otf</string>
+		<string>Inter-ExtraLight.otf</string>
+		<string>Inter-ExtraBoldItalic.otf</string>
+		<string>Inter-ExtraBold.otf</string>
+		<string>Inter-BoldItalic.otf</string>
+		<string>Inter-Bold.otf</string>
+		<string>Inter-Black.otf</string>
+		<string>Inter-BlackItalic.otf</string>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>bluetooth-central</string>
+		<string>fetch</string>
+		<string>location</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDarkContent</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
+</dict>
+</plist>
