@@ -25,6 +25,11 @@
 		0FBA451F24218F2D00816388 /* Disk+InternalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA451E24218F2D00816388 /* Disk+InternalHelpers.swift */; };
 		0FBA45212421916B00816388 /* Disk+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA45202421916B00816388 /* Disk+Helpers.swift */; };
 		0FBA45232421919200816388 /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA45222421919200816388 /* Disk+Errors.swift */; };
+		0FCB4F0924238BDC00389493 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB4F0824238BDC00389493 /* StatsViewController.swift */; };
+		0FCB4F0B2423B3D400389493 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB4F0A2423B3D400389493 /* PrivacyViewController.swift */; };
+		0FCB4F0F2423D89300389493 /* BT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB4F0C2423D89300389493 /* BT.swift */; };
+		0FCB4F102423D89300389493 /* BTScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB4F0D2423D89300389493 /* BTScanner.swift */; };
+		0FCB4F112423D89300389493 /* BTAdvertiser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB4F0E2423D89300389493 /* BTAdvertiser.swift */; };
 		0FF4F21B241AEF8100643297 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F219241AEF8100643297 /* HTTPRequest.swift */; };
 		0FF4F21C241AEF8100643297 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F21A241AEF8100643297 /* NetworkService.swift */; };
 		0FF4F21E241AEFBC00643297 /* CovidService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F21D241AEFBB00643297 /* CovidService.swift */; };
@@ -108,6 +113,11 @@
 		0FBA451E24218F2D00816388 /* Disk+InternalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+InternalHelpers.swift"; sourceTree = "<group>"; };
 		0FBA45202421916B00816388 /* Disk+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Helpers.swift"; sourceTree = "<group>"; };
 		0FBA45222421919200816388 /* Disk+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Errors.swift"; sourceTree = "<group>"; };
+		0FCB4F0824238BDC00389493 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		0FCB4F0A2423B3D400389493 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
+		0FCB4F0C2423D89300389493 /* BT.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BT.swift; sourceTree = "<group>"; };
+		0FCB4F0D2423D89300389493 /* BTScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTScanner.swift; sourceTree = "<group>"; };
+		0FCB4F0E2423D89300389493 /* BTAdvertiser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BTAdvertiser.swift; sourceTree = "<group>"; };
 		0FF4F219241AEF8100643297 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		0FF4F21A241AEF8100643297 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0FF4F21D241AEFBB00643297 /* CovidService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
@@ -204,26 +214,16 @@
 		0F11813B2416C70500213533 /* Covid */ = {
 			isa = PBXGroup;
 			children = (
+				0FCB4F0724238BA700389493 /* MainScreen */,
+				0FCB4F0624238B7700389493 /* Quarantine */,
 				0F62927C241D4C6C00FF5E14 /* LocationServices */,
 				0FF4F218241AEF8100643297 /* Networking */,
-				0F11813C2416C70500213533 /* AppDelegate.swift */,
-				0F1181402416C70500213533 /* MainViewController.swift */,
 				0F1181422416C70500213533 /* Main.storyboard */,
 				0F1181472416C70900213533 /* LaunchScreen.storyboard */,
+				0F11813C2416C70500213533 /* AppDelegate.swift */,
 				0F247F07241A63F000986740 /* WelcomeViewController.swift */,
 				0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */,
-				C0091573241EBCD10012F557 /* CountryCodeViewController.swift */,
-				C0091577241ED36F0012F557 /* VerificationCodeViewController.swift */,
-				C0091579241EF1FE0012F557 /* SelectAddressInfoViewController.swift */,
-				C06E2088241E651B00F3B0BF /* MapViewController.swift */,
-				6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */,
-				C009157B241EF7610012F557 /* AddressConfirmationViewController.swift */,
-				0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */,
-				C0F99628241FB387009C6BF5 /* ForeignDecisionViewController.swift */,
-				C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */,
-				C0F9962E241FCBB2009C6BF5 /* PreventionViewController.swift */,
-				C0F99634241FE632009C6BF5 /* SymptomsViewController.swift */,
-				C0642FB72420DA7200967E05 /* ChooseDateViewController.swift */,
+				0FCB4F0A2423B3D400389493 /* PrivacyViewController.swift */,
 				0F247F04241A617000986740 /* Resources */,
 			);
 			path = Covid;
@@ -248,6 +248,9 @@
 				0F629285241D4F6F00FF5E14 /* BeaconManager.swift */,
 				0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */,
 				0F62927F241D4F4700FF5E14 /* LocationTracker.swift */,
+				0FCB4F0C2423D89300389493 /* BT.swift */,
+				0FCB4F0E2423D89300389493 /* BTAdvertiser.swift */,
+				0FCB4F0D2423D89300389493 /* BTScanner.swift */,
 				0FBA4517242183EE00816388 /* LocationReporter.swift */,
 			);
 			path = LocationServices;
@@ -263,6 +266,34 @@
 				0FBA451E24218F2D00816388 /* Disk+InternalHelpers.swift */,
 			);
 			path = Disk;
+			sourceTree = "<group>";
+		};
+		0FCB4F0624238B7700389493 /* Quarantine */ = {
+			isa = PBXGroup;
+			children = (
+				C0091573241EBCD10012F557 /* CountryCodeViewController.swift */,
+				C0091577241ED36F0012F557 /* VerificationCodeViewController.swift */,
+				C0091579241EF1FE0012F557 /* SelectAddressInfoViewController.swift */,
+				C06E2088241E651B00F3B0BF /* MapViewController.swift */,
+				6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */,
+				C009157B241EF7610012F557 /* AddressConfirmationViewController.swift */,
+				C0642FB72420DA7200967E05 /* ChooseDateViewController.swift */,
+			);
+			path = Quarantine;
+			sourceTree = "<group>";
+		};
+		0FCB4F0724238BA700389493 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				0F1181402416C70500213533 /* MainViewController.swift */,
+				0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */,
+				C0F99628241FB387009C6BF5 /* ForeignDecisionViewController.swift */,
+				C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */,
+				C0F9962E241FCBB2009C6BF5 /* PreventionViewController.swift */,
+				C0F99634241FE632009C6BF5 /* SymptomsViewController.swift */,
+				0FCB4F0824238BDC00389493 /* StatsViewController.swift */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		0FF4F218241AEF8100643297 /* Networking */ = {
@@ -535,9 +566,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F629282241D4F5A00FF5E14 /* LocationTracker.swift in Sources */,
+				0FCB4F112423D89300389493 /* BTAdvertiser.swift in Sources */,
 				C0F9962D241FCB04009C6BF5 /* PreventionTableViewCell.swift in Sources */,
 				C0F99635241FE632009C6BF5 /* SymptomsViewController.swift in Sources */,
 				C009157A241EF1FE0012F557 /* SelectAddressInfoViewController.swift in Sources */,
+				0FCB4F0924238BDC00389493 /* StatsViewController.swift in Sources */,
 				0FF4F21C241AEF8100643297 /* NetworkService.swift in Sources */,
 				0F247F08241A63F000986740 /* WelcomeViewController.swift in Sources */,
 				C0091578241ED36F0012F557 /* VerificationCodeViewController.swift in Sources */,
@@ -552,18 +585,21 @@
 				0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */,
 				0FBA451F24218F2D00816388 /* Disk+InternalHelpers.swift in Sources */,
 				0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */,
+				0FCB4F0B2423B3D400389493 /* PrivacyViewController.swift in Sources */,
 				C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */,
 				0FBA45232421919200816388 /* Disk+Errors.swift in Sources */,
 				C06E2089241E651B00F3B0BF /* MapViewController.swift in Sources */,
 				C009157C241EF7610012F557 /* AddressConfirmationViewController.swift in Sources */,
 				0FF4F21E241AEFBC00643297 /* CovidService.swift in Sources */,
 				0FF4F224241AF61600643297 /* APIRequests.swift in Sources */,
+				0FCB4F102423D89300389493 /* BTScanner.swift in Sources */,
 				0F1181412416C70500213533 /* MainViewController.swift in Sources */,
 				0F629286241D4F6F00FF5E14 /* BeaconManager.swift in Sources */,
 				C0F9962F241FCBB2009C6BF5 /* PreventionViewController.swift in Sources */,
 				0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */,
 				0FF4F220241AF21200643297 /* APIResponses.swift in Sources */,
 				0F11813D2416C70500213533 /* AppDelegate.swift in Sources */,
+				0FCB4F0F2423D89300389493 /* BT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

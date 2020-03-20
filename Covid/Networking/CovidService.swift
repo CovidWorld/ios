@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 final class CovidService: NetworkService<CovidEndpoint> {
     func registerUserProfile(profileRequestData: RegisterProfileRequestData, completion: @escaping (Result<RegisterProfileResponseData, Error>) -> Void) {
@@ -104,7 +104,9 @@ enum CovidEndpoint: NetworkServiceEndpoint {
     case areaExit(areaExitRequestData: AreaExitRequestData)
     case locations(locationsRequestData: LocationsRequestData)
     
-    static let serverDomain = "https://coronagateway.azurewebsites.net"
+    static var serverDomain: String = {
+        return (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?.configValue(forKey: "apiHost").stringValue ?? "https://covid-gateway.azurewebsites.net"
+    }()
     var serverScript: String { return "/api" }
     var contentTypeHeader: HTTPRequest.MIMEType { return .json }
     var method: HTTPRequest.Method {

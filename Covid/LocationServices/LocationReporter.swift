@@ -17,6 +17,14 @@ class LocationReporter {
     
     private init() { }
     
+    func didEnterRegion(_ region: CLRegion) {
+        
+    }
+    
+    func didExitRegion(_ region: CLRegion) {
+        
+    }
+    
     func reportLocation(_ location: CLLocation) {
         guard let quarantineLatitude = Defaults.quarantineLatitude, let quarantineLongitude = Defaults.quarantineLongitude, Defaults.quarantineActive else { return }
         

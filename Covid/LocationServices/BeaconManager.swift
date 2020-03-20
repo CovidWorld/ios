@@ -8,25 +8,35 @@ class BeaconManager: NSObject {
     private var myRegion: CLBeaconRegion?
     private let locationManager = CLLocationManager()
     private let regionUUID = UUID(uuidString: "fb4f89f2-4b6c-48c5-9cc1-e70a6ef5cfdb")!
-    private let major : CLBeaconMajorValue = UInt16.random(in: 0 ... 65535)
-    private let minor : CLBeaconMinorValue = UInt16.random(in: 0 ... 65535)
-    private let beaconID = "device-\(["a", "b", "c", "d", "e", "f"].randomElement()!)"
+    private let major: CLBeaconMajorValue = 0//UInt16.random(in: 0 ... 65535)
+    private let minor: CLBeaconMinorValue = 0//UInt16.random(in: 0 ... 65535)
+    private var beaconID = ""
     private var count = 0
     
     private var peripheralManager: CBPeripheralManager?
     
+    private let btScanner = BTScanner()
+    private let btAdvertiser = BTAdvertiser()
+    
     private override init() {
         super.init()
-//        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestAlwaysAuthorization()
-//        locationManager.pausesLocationUpdatesAutomatically = false
-//        locationManager.allowsBackgroundLocationUpdates = true
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        beaconID = "device-\(major)-\(minor)"
+//        locationManager.requestAlwaysAuthorization()
+        locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.allowsBackgroundLocationUpdates = true
+//        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.delegate = self
-        
+        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
+
         createBeaconRegions()
-//        peripheralManager = CBPeripheralManager(delegate: self, queue: nil)
-        
+    }
+    
+//    func start() {
+//        btAdvertiser.start()
+//        btScanner.start()
+//    }
+    
+    func startMonitoring() {
         if let monitoringRegion = monitoringRegion {
             locationManager.startMonitoring(for: monitoringRegion)
 //            locationManager.startUpdatingLocation()
@@ -36,8 +46,8 @@ class BeaconManager: NSObject {
     func advertiseDevice() {
         guard let myRegion = myRegion else { return }
         if !peripheralManager!.isAdvertising && peripheralManager!.state == .poweredOn {
-            let peripheralData = myRegion.peripheralData(withMeasuredPower: nil)
-            peripheralManager?.startAdvertising(((peripheralData as NSDictionary) as! [String : Any]))
+            let peripheralData = [CBAdvertisementDataServiceUUIDsKey: "jozo-\(major)-\(minor)"]; myRegion.peripheralData(withMeasuredPower: nil)
+            peripheralManager?.startAdvertising(peripheralData)//((peripheralData as NSDictionary) as! [String : Any]))
         }
     }
 }
@@ -73,10 +83,8 @@ extension BeaconManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("exit \(region)")
         if let reg = monitoringRegion {
-            locationManager.stopRangingBeacons(in: reg)
-            locationManager.stopMonitoring(for: reg)
+            locationManager.startRangingBeacons(in: reg)
         }
         
     }
@@ -84,7 +92,6 @@ extension BeaconManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print(region)
         if let reg = monitoringRegion {
-            locationManager.startMonitoring(for: reg)
             locationManager.startRangingBeacons(in: reg)
         }
     }

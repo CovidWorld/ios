@@ -17,12 +17,10 @@ class VerificationCodeViewController: UIViewController {
         showLoadingIndicator()
         updateUser()
         
-        activationCodeTextField.tintColor = .clear // zmazame kurzor
-        activationCodeTextField.delegate = self
         if #available(iOS 12.0, *) {
             activationCodeTextField.font = UIFont.monospacedSystemFont(ofSize: 40, weight: .medium)
         }
-        activationCodeTextField.text = "_ _ _ _ _ _"
+//        activationCodeTextField.text = "_ _ _ _ _ _"
     }
 }
 
@@ -44,7 +42,19 @@ extension VerificationCodeViewController {
             switch result {
             case .success:
                 self?.requestToken()
-            case .failure: break
+            case .failure:
+                DispatchQueue.main.async {
+                    let message = "Chyba pri overovaní čísla. Skúsiť znovu?"
+                    let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                    let editAction = UIAlertAction(title: "Nie", style: .cancel, handler: nil)
+                    let yesAction = UIAlertAction(title: "Áno", style: .default) { [weak self] (_) in
+                        self?.updateUser()
+                    }
+                    alert.addAction(editAction)
+                    alert.addAction(yesAction)
+                    
+                    self?.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -57,7 +67,19 @@ extension VerificationCodeViewController {
                     self?.navigationItem.rightBarButtonItem = nil
                     self?.activationCodeTextField.becomeFirstResponder()
                 }
-            case .failure: break
+            case .failure:
+                DispatchQueue.main.async {
+                    let message = "Chyba pri vyžiadaní overovacieho kódu. Skúsiť znovu?"
+                    let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                    let editAction = UIAlertAction(title: "Nie", style: .cancel, handler: nil)
+                    let yesAction = UIAlertAction(title: "Áno", style: .default) { [weak self] (_) in
+                        self?.requestToken()
+                    }
+                    alert.addAction(editAction)
+                    alert.addAction(yesAction)
+                    
+                    self?.present(alert, animated: true, completion: nil)
+                }
             }
         }
     }
@@ -91,47 +113,31 @@ extension VerificationCodeViewController {
 extension VerificationCodeViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        // ak pridavame
-        if string.count > 0 {
-            if let text = textField.text as NSString?, text.contains("_"), let customRange = (textField.text as NSString?)?.range(of: "_") {
-                textField.text = text.replacingCharacters(in: customRange, with: string) as String
+        if let text = textField.text,
+           let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange,
+                                                       with: string)
+            let text = updatedText.replacingOccurrences(of: " ", with: "")
+            if text.count > 6 {
+                return false
             }
-        } else { // mazeme
-            if let text = textField.text as NSString? {
-                var customRange: NSRange? = nil
-                for i in 1...text.length {
-                    let opositeSide = text.length-i
-                    let iRange = NSRange(location: opositeSide, length: 1)
-                    if text.containsNumber(range: iRange) {
-                        customRange = NSRange(location: opositeSide, length: 1)
-                        break
-                    }
-                }
-                if let customRange = customRange {
-                    textField.text = text.replacingCharacters(in: customRange, with: "_") as String
-                }
+            textField.text = text.components(withLength: 1).joined(separator: " ")
+            if text.count == 6 {
+                didFillNumbers()
+                return false
             }
+            return false
         }
-        
-        // vsetky vyplnene
-        if let text = textField.text as NSString?, text.contains("_") == false {
-            didFillNumbers()
-        }
-        
-        return false
+        return true
     }
 }
 
-extension NSString {
-    static let numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    func containsNumber(range: NSRange) -> Bool {
-        for number in NSString.numbers {
-            if self.substring(with: range) == number {
-                return true
-            }
+extension String {
+    func components(withLength length: Int) -> [String] {
+        return stride(from: 0, to: self.count, by: length).map {
+            let start = self.index(self.startIndex, offsetBy: $0)
+            let end = self.index(start, offsetBy: length, limitedBy: self.endIndex) ?? self.endIndex
+            return String(self[start..<end])
         }
-        
-        return false
     }
 }

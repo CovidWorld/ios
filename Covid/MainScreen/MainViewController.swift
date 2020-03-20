@@ -43,6 +43,8 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        BeaconManager.shared.startMonitoring()
+        BeaconManager.shared.advertiseDevice()
         if Defaults.quarantineActive {
             LocationTracker.shared.startLocationTracking()
         }
