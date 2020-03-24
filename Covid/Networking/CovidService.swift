@@ -39,6 +39,17 @@ final class CovidService: NetworkService<CovidEndpoint> {
         }
     }
     
+    func requestMFATokenPhone(mfaTokenPhoneRequestData: MFATokenPhoneRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+        request(.mfaTokenPhone(mfaTokenPhoneRequestData: mfaTokenPhoneRequestData)) { (response) in
+            switch response {
+            case .success(let data, _):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     func requestQuarantine(quarantineRequestData: QuarantineRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
         request(.quarantine(quarantineRequestData: quarantineRequestData)) { (response) in
             switch response {
@@ -99,6 +110,7 @@ enum CovidEndpoint: NetworkServiceEndpoint {
     case profile(profileRequestData: RegisterProfileRequestData)
     case contacts(uploadConnectionsRequestData: UploadConnectionsRequestData)
     case mfaToken(mfaTokenRequestData: BasicRequestData)
+    case mfaTokenPhone(mfaTokenPhoneRequestData: MFATokenPhoneRequestData)
     case quarantine(quarantineRequestData: QuarantineRequestData)
     case quarantineStatus(quarantineRequestData: BasicRequestData)
     case areaExit(areaExitRequestData: AreaExitRequestData)
@@ -111,7 +123,7 @@ enum CovidEndpoint: NetworkServiceEndpoint {
     var contentTypeHeader: HTTPRequest.MIMEType { return .json }
     var method: HTTPRequest.Method {
         switch self {
-        case .profile:
+        case .profile, .mfaTokenPhone:
             return .PUT
         case .contacts, .mfaToken, .quarantine, .areaExit, .locations:
             return .POST
@@ -132,7 +144,7 @@ enum CovidEndpoint: NetworkServiceEndpoint {
             return "profile"
         case .contacts:
             return "profile/contacts"
-        case .mfaToken:
+        case .mfaToken, .mfaTokenPhone:
             return "profile/mfatoken"
         case .quarantineStatus, .quarantine:
             return "profile/quarantine"
@@ -151,6 +163,8 @@ enum CovidEndpoint: NetworkServiceEndpoint {
             return uploadConnectionsRequestData.dictionary
         case .mfaToken(let mfaTokenRequestData):
             return mfaTokenRequestData.dictionary
+        case .mfaTokenPhone(let mfaTokenPhoneRequestData):
+            return mfaTokenPhoneRequestData.dictionary
         case .quarantine(let quarantineRequestData):
             return quarantineRequestData.dictionary
         case .quarantineStatus(let quarantineRequestData):

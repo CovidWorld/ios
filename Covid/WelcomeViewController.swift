@@ -23,18 +23,7 @@ class WelcomeViewController: UIViewController {
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        if #available(iOS 13.0, *) {
-            return .darkContent
-        } else {
-            return .default
-        }
-    }
-    
     @IBAction func agreeDidTap(_ sender: Any) {
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
-        UIApplication.shared.keyWindow?.rootViewController = viewController
         Defaults.didRunApp = true
     }
 }

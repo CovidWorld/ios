@@ -7,6 +7,7 @@ class CountryCodeViewController: UIViewController {
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var countryButton: UIButton!
+    @IBOutlet var disclaimerLabel: UILabel!
     
     private var countryCodes: [(String, String)] = []
     
@@ -23,11 +24,17 @@ class CountryCodeViewController: UIViewController {
         loadJSONToArray()
         
         title = "Overenie čísla"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(didTapDone))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ďalej", style: .done, target: self, action: #selector(didTapDone))
         
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(didTapView))
         view.addGestureRecognizer(tapRecognizer)
+        
+        if presentingViewController != nil {
+            let leftBarItem = UIBarButtonItem(title: "Preskočiť", style: .plain, target: self, action: #selector(didTapSkip(_:)))
+            navigationItem.leftBarButtonItem = leftBarItem
+            disclaimerLabel.isHidden = false
+        }
     }
     
     @IBAction func didTapCountryButton(_ sender: Any) {
@@ -37,6 +44,14 @@ class CountryCodeViewController: UIViewController {
 }
 
 extension CountryCodeViewController {
+    
+    @objc
+    func didTapSkip(_ sender: UIBarButtonItem) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+    }
     
     @objc
     private func didTapDone() {
@@ -59,7 +74,7 @@ extension CountryCodeViewController {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         let editAction = UIAlertAction(title: "Nie", style: .cancel, handler: nil)
         let yesAction = UIAlertAction(title: "Áno", style: .default) { [weak self] (_) in
-            Defaults.phoneNumber = number.replacingOccurrences(of: " ", with: "")
+            Defaults.tempPhoneNumber = number.replacingOccurrences(of: " ", with: "")
             self?.performSegue(withIdentifier: "verification", sender: nil)
         }
         alert.addAction(editAction)

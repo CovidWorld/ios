@@ -20,11 +20,6 @@ struct QuarantineStatusResponseData: Codable {
 }
 
 struct StatsResponseData: Codable {
-    let activeCases: Double
-    let newCases: Double
-    let newDeaths: Double
-    let seriousCritical: Double
-    let topCases: Double
     let totalCases: Double
     let totalDeaths: Double
     let totalRecovered: Double

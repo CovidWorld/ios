@@ -16,7 +16,6 @@ import SwiftyUserDefaults
 class MainViewController: UIViewController {
 
     @IBOutlet var protectView: UIView!
-    @IBOutlet var symptomsView: UIView!
     @IBOutlet var emergencyButton: UIButton!
     @IBOutlet var diagnosedButton: UIButton!
     @IBOutlet var quarantineView: UIView!
@@ -37,16 +36,17 @@ class MainViewController: UIViewController {
             }
         })
         
-        registerUser()
+        tabBarController?.view.backgroundColor = view.backgroundColor
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        registerUser()
         
-        BeaconManager.shared.startMonitoring()
-        BeaconManager.shared.advertiseDevice()
         if Defaults.quarantineActive {
-            LocationTracker.shared.startLocationTracking()
+            diagnosedButton.isHidden = true
+        } else {
+            diagnosedButton.isHidden = false
         }
     }
     
@@ -78,8 +78,6 @@ class MainViewController: UIViewController {
 
         protectView.layer.cornerRadius = 20
         protectView.layer.masksToBounds = true
-        symptomsView.layer.cornerRadius = 20
-        symptomsView.layer.masksToBounds = true
         emergencyButton.layer.cornerRadius = 20
         emergencyButton.layer.masksToBounds = true
         diagnosedButton.layer.cornerRadius = 20
@@ -89,15 +87,12 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func emergencyDidTap(_ sender: Any) {
-        var emergencyNumber = Defaults.emergencyNumber
-        if let configValue = remoteConfigValue(),
-            let json = configValue.jsonValue as? [String: Any],
-            let strNumber = json["SK"] as? String,
+        var emergencyNumber = "0800221234"
+        if let configValue = remoteConfigValue()?.jsonValue as? [String: Any],
+            let strNumber = configValue["SK"] as? String,
             !strNumber.isEmpty {
             // user started the app offline and RemoteConfig has not been fetched
             emergencyNumber = strNumber
-        } else {
-            Defaults.needsFetchRemoteConfig = true
         }
 
         guard let number = URL(string: "tel://\(emergencyNumber)") else { return }
@@ -120,6 +115,10 @@ extension MainViewController {
                     switch result {
                     case .success(let profile):
                         Defaults.profileId = profile.profileId
+                        DispatchQueue.main.async {
+                            BeaconManager.shared.advertiseDevice(beacon: BeaconId(id: UInt32(profile.profileId)))
+                            BeaconManager.shared.startMonitoring()
+                        }
                     case .failure: break
                     }
                 }

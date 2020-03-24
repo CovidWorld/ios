@@ -16,6 +16,7 @@ extension DefaultsKeys {
     var deviceId: DefaultsKey<String> { return .init("deviceId", defaultValue: "") }
     var profileId: DefaultsKey<Int?> { return .init("profileId") }
     var pushToken: DefaultsKey<String?> { return .init("pushToken") }
+    var tempPhoneNumber: DefaultsKey<String?> { return .init("tempPhoneNumber") }
     var phoneNumber: DefaultsKey<String?> { return .init("phoneNumber") }
     var mfaToken: DefaultsKey<String?> { return .init("mfaToken") }
     
@@ -26,9 +27,9 @@ extension DefaultsKeys {
     var quarantineStart: DefaultsKey<Date?> { return .init("quarantineStart") }
     var quarantineEnd: DefaultsKey<Date?> { return .init("quarantineEnd") }
     var quarantineActive: DefaultsKey<Bool> { return .init("quarantineActive", defaultValue: false) }
-
-    var needsFetchRemoteConfig: DefaultsKey<Bool> { return .init("needsFetchRemoteConfig", defaultValue: false) }
-    var emergencyNumber: DefaultsKey<String> { return .init("emergencyNumber", defaultValue: "0800221234") }
     
     var lastLocationUpdate: DefaultsKey<Double?> { return .init("lastLocationUpdate") }
+    var lastConnectionsUpdate: DefaultsKey<Double?> { return .init("lastConnectionsUpdate") }
+    
+    var lastQuarantineUpdate: DefaultsKey<Double?> { return .init("lastQuarantineUpdate") }
 }

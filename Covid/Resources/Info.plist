@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Covid-19 SR</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -21,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Bluetooth always</string>
+	<string>Používame Váš bluetooth s cieľom ochrany pred šírením vírusu COVID-19 za účelom zistenia potenciálneho výskytu v blízkosti nakazeného pacienta.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Bluetooth</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>

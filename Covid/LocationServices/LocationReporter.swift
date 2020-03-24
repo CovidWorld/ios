@@ -17,22 +17,59 @@ class LocationReporter {
     
     private init() { }
     
-    func didEnterRegion(_ region: CLRegion) {
-        
+    func didRangeBeacons(_ beacons: [CLBeacon], at location: CLLocation?) {
+        let timestamp = Int(Date().timeIntervalSince1970)
+        let connections = beacons.compactMap { (beacon) -> Connection in
+            let beaconId = BeaconId(major: beacon.major.uint16Value, minor: beacon.minor.uint16Value)
+            let approxLatitude = Double(round(10000 * (location?.coordinate.latitude ?? 0)) / 10000)
+            let approxLongitude = Double(round(10000 * (location?.coordinate.longitude ?? 0)) / 10000)
+            
+            return Connection(seenProfileId: Int(beaconId.id), timestamp: timestamp, duration: "", latitude: approxLatitude, longitude: approxLongitude, accuracy: 100)
+        }
+        try? Disk.append(connections, to: "connections.json", in: .applicationSupport)
+        sendConnections()
     }
     
-    func didExitRegion(_ region: CLRegion) {
+    func sendConnections() {
+        let batchTime = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
+        let currentTimestamp = Date().timeIntervalSince1970
+        let lastTimestamp = Defaults.lastConnectionsUpdate ?? Date().timeIntervalSince1970
         
+        if Defaults.lastConnectionsUpdate == nil || currentTimestamp - lastTimestamp > Double(batchTime * 60) {
+            guard var connections = try? Disk.retrieve("connections.json", from: .applicationSupport, as: [Connection].self), connections.count > 0 else { return }
+            
+            connections = connections.sorted(by: {abs($0.latitude) > abs($1.latitude)})
+            connections = Array(Set(connections))
+            
+            networkService.uploadConnections(uploadConnectionsRequestData: UploadConnectionsRequestData(connections: connections)) { (result) in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        Defaults.lastConnectionsUpdate = currentTimestamp
+                        try? Disk.remove("connections.json", from: .applicationSupport)
+                    }
+                case .failure: print("batch failed")
+                }
+            }
+        }
     }
     
     func reportLocation(_ location: CLLocation) {
         guard let quarantineLatitude = Defaults.quarantineLatitude, let quarantineLongitude = Defaults.quarantineLongitude, Defaults.quarantineActive else { return }
+        
+        let quarantineLocationPeriodMinutes = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["quarantineLocationPeriodMinutes"].numberValue?.intValue ?? 5
+        let currentTimestamp = Date().timeIntervalSince1970
+        let lastTimestamp = Defaults.lastQuarantineUpdate ?? 0
+        
+        guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return }
         
         let quarantineLocation = CLLocation(latitude: quarantineLatitude, longitude: quarantineLongitude)
         //TODO: nicer
         let distance = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["desiredPositionAccuracy"].numberValue?.doubleValue ?? 100.0
         let treshold = max(location.horizontalAccuracy * 2, distance)
         let message = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["quarantineLeftMessage"].stringValue ?? "Opustili ste zónu domácej karatnény. Pre ochranu Vášho zdravia a zdravia Vašich blízkych, Vás žiadame o striktné dodržiavanie nariadenej karantény."
+        
+         Defaults.lastQuarantineUpdate = currentTimestamp
         
         if quarantineLocation.distance(from: location) > treshold {
             if UIApplication.shared.applicationState == .active {
@@ -70,15 +107,15 @@ class LocationReporter {
     }
     
     private func sendLocationUpdate(_ location: CLLocation) {
-        let location = Location(recordTimestamp: Int(Date().timeIntervalSince1970), latitude: location.coordinate.latitude, longitude: location.coordinate.latitude, accuracy: location.horizontalAccuracy)
+        let location = Location(recordTimestamp: Int(Date().timeIntervalSince1970), latitude: location.coordinate.latitude, longitude: location.coordinate.longitude, accuracy: location.horizontalAccuracy)
         try? Disk.append(location, to: "locations.json", in: .applicationSupport)
         
         let batchTime = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
         
         let currentTimestamp = Date().timeIntervalSince1970
-        let lastTimestamp = Defaults.lastLocationUpdate ?? Date().timeIntervalSince1970
+        let lastTimestamp = Defaults.lastLocationUpdate ?? 0
         
-        if Defaults.lastLocationUpdate == nil || currentTimestamp - lastTimestamp > Double(batchTime * 60) {
+        if currentTimestamp - lastTimestamp > Double(batchTime * 60) {
             guard let locations = try? Disk.retrieve("locations.json", from: .applicationSupport, as: [Location].self) else { return }
             
             networkService.requestLocations(locationsRequestData: LocationsRequestData(locations: locations)) { (result) in
@@ -92,6 +129,5 @@ class LocationReporter {
                 }
             }
         }
-        
     }
 }

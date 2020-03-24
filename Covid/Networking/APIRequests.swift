@@ -62,6 +62,18 @@ struct QuarantineRequestData: Codable {
     }
 }
 
+struct MFATokenPhoneRequestData: Codable {
+    let deviceId: String
+    let profileId: Int
+    let mfaToken: String
+    
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, mfaToken: String? = Defaults.mfaToken) {
+        self.deviceId = deviceId
+        self.profileId = profileId ?? 0
+        self.mfaToken = mfaToken ?? ""
+    }
+}
+
 struct AreaExitRequestData: Codable {
     let deviceId: String
     let profileId: Int
@@ -96,6 +108,12 @@ struct UploadConnectionsRequestData: Codable {
     let sourceDeviceId: String
     let sourceProfileId: Int
     let connections: [Connection]
+    
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, connections: [Connection]) {
+        sourceDeviceId = deviceId
+        sourceProfileId = profileId ?? 0
+        self.connections = connections
+    }
 }
 
 struct Location: Codable {
@@ -105,13 +123,21 @@ struct Location: Codable {
     let accuracy : Double
 }
 
-struct Connection: Codable {
+struct Connection: Codable, Hashable, Equatable {
     let seenProfileId: Int
     let timestamp: Int
     let duration: String
     let latitude: Double
     let longitude: Double
     let accuracy : Double
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(seenProfileId)
+    }
+    
+    static func ==(lhs: Connection, rhs: Connection) -> Bool {
+        return lhs.seenProfileId == rhs.seenProfileId
+    }
 }
 
 struct Position: Codable {

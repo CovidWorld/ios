@@ -41,7 +41,7 @@ class LocationTracker: NSObject {
             manager.requestAlwaysAuthorization()
             manager.startUpdatingLocation(interval: timeInternal, acceptableLocationAccuracy: accuracy)
         } else if CLLocationManager.authorizationStatus() == .denied{
-            let alertController = UIAlertController(title: "Nastavenia", message: "Máte zakázané využívanie lokalizačných služieb. Pre správne fungovanie si upravte nastavenia", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Nastavenia", message: "Máte zakázané využívanie lokalizačných služieb. Pre správne fungovanie si zmeňte nastavenia", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
             let settingsAction = UIAlertAction(title: "Nastavenia", style: .default) { (_) in
                 if let url = URL(string: UIApplication.openSettingsURLString) {
