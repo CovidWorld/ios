@@ -23,10 +23,10 @@
 
 import UIKit
 
-class SelectAddressInfoViewController: UIViewController {
+final class SelectAddressInfoViewController: UIViewController {
 
-    @IBOutlet weak var selectButton: UIButton!
-    
+    @IBOutlet private weak var selectButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +35,7 @@ class SelectAddressInfoViewController: UIViewController {
 }
 
 extension SelectAddressInfoViewController {
-    
+
     private func setupUI() {
         let substring1 = "Vybrať adresu mojej\n"
         let substring2 = "karantény"
@@ -49,8 +49,8 @@ extension SelectAddressInfoViewController {
         let attrString1 = NSMutableAttributedString(string: substring1, attributes: attributes)
         let attrString2 = NSMutableAttributedString(string: substring2, attributes: attributes)
         attrString1.append(attrString2)
-        
-        selectButton?.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping;
+
+        selectButton?.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         selectButton?.setAttributedTitle(attrString1, for: [])
     }
 }

@@ -24,36 +24,36 @@
 import UIKit
 import SwiftyUserDefaults
 
-class ChooseDateViewController: UIViewController {
+final class ChooseDateViewController: UIViewController {
 
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var dateTextField: UITextField!
-    @IBOutlet weak var continueButton: UIButton!
-    @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var editImageView: UIImageView!
-    @IBOutlet weak var textFieldBackgroundView: UIView!
-    @IBOutlet weak var pickerContainerView: UIView!
-    @IBOutlet var pickerBottomConstraint: NSLayoutConstraint!
-    
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var dateTextField: UITextField!
+    @IBOutlet private weak var continueButton: UIButton!
+    @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var editImageView: UIImageView!
+    @IBOutlet private weak var textFieldBackgroundView: UIView!
+    @IBOutlet private weak var pickerContainerView: UIView!
+    @IBOutlet private var pickerBottomConstraint: NSLayoutConstraint!
+
     override func loadView() {
         super.loadView()
 
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(didTapView))
         view.addGestureRecognizer(tapRecognizer)
-        
+
         setupUI()
     }
-    
-    @IBAction func didTapDone(_ sender: Any) {
+
+    @IBAction private func didTapDone(_ sender: Any) {
         didTapView()
     }
-    
-    @IBAction func didTapContinue(_ sender: Any) {
+
+    @IBAction private func didTapContinue(_ sender: Any) {
         Defaults.quarantineStart = datePicker.date
     }
-    
-    @IBAction func didChangePickerValue() {
+
+    @IBAction private func didChangePickerValue() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateTextField.text = dateFormatter.string(from: datePicker.date)
@@ -61,11 +61,11 @@ class ChooseDateViewController: UIViewController {
 }
 
 extension ChooseDateViewController {
-    
+
     @objc
     private func didTapView() {
         dateTextField.resignFirstResponder()
-        
+
         let topOffset = CGPoint(x: 0, y: 0)
         scrollView.setContentOffset(topOffset, animated: true)
         pickerContainerView.isHidden = true
@@ -74,7 +74,7 @@ extension ChooseDateViewController {
         continueButton.isEnabled = !(dateTextField.text?.isEmpty ?? false)
         editImageView.isHidden = dateTextField.text?.isEmpty ?? false
     }
-    
+
     private func setupUI() {
         pickerContainerView.isHidden = true
         pickerBottomConstraint.constant = -260
@@ -84,20 +84,20 @@ extension ChooseDateViewController {
         editImageView.isHidden = true
         textFieldBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
         dateTextField.inputView = pickerContainerView
-        
+
         let font: UIFont = UIFont(name: "Inter-Light", size: 15) ?? UIFont.systemFont(ofSize: 15, weight: .light)
         let attributes = [NSMutableAttributedString.Key.font: font,
-                           .foregroundColor: UIColor(red: 76/255, green: 86/255, blue: 252/255, alpha: 1)]
+                           .foregroundColor: UIColor(red: 76 / 255, green: 86 / 255, blue: 252 / 255, alpha: 1)]
         let attrPlaceholder = NSMutableAttributedString(string: "Kliknite pre výber dátumu", attributes: attributes)
-        
+
         dateTextField.attributedPlaceholder = attrPlaceholder
         dateTextField.tintColor = .clear // zmazame kurzor
-        
+
         let calendar = Calendar.current
         let currentDate = Date()
         var components = DateComponents()
         let quarantineDuration = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["quarantineDuration"].stringValue ?? "14"
-        
+
         components.calendar = Calendar.current
         components.day = -(Int(quarantineDuration) ?? 14) + 1
         let minDate = calendar.date(byAdding: components, to: currentDate)
@@ -109,7 +109,7 @@ extension ChooseDateViewController {
 }
 
 extension ChooseDateViewController: UITextFieldDelegate {
-    
+
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if scrollView.contentSize.height > scrollView.bounds.height {
             let bottomOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.bounds.size.height)
@@ -119,7 +119,7 @@ extension ChooseDateViewController: UITextFieldDelegate {
         pickerContainerView.isHidden = false
         pickerBottomConstraint.constant = 0
         continueButton.isHidden = true
-        
+
         return false
     }
 }

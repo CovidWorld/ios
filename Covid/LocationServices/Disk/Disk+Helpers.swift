@@ -19,11 +19,12 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+// swiftlint:disable line_length
 
 import Foundation
 
 public extension Disk {
-    
+
     /// Get URL for existing file
     ///
     /// - Parameters:
@@ -40,7 +41,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Construct URL for a potentially existing or non-existent file (Note: replaces `getURL(for:in:)` which would throw an error if file does not exist)
     ///
     /// - Parameters:
@@ -56,7 +57,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Clear directory by removing all files
     ///
     /// - Parameter directory: directory to clear
@@ -72,7 +73,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Remove file from the file system
     ///
     /// - Parameters:
@@ -87,20 +88,16 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Remove file from the file system
     ///
     /// - Parameters:
     ///   - url: URL of file in filesystem
     /// - Throws: Error if file could not be removed
     static func remove(_ url: URL) throws {
-        do {
-            try FileManager.default.removeItem(at: url)
-        } catch {
-            throw error
-        }
+        try FileManager.default.removeItem(at: url)
     }
-    
+
     /// Checks if a file exists
     ///
     /// - Parameters:
@@ -108,24 +105,18 @@ public extension Disk {
     ///   - directory: directory where file is located
     /// - Returns: Bool indicating whether file exists
     static func exists(_ path: String, in directory: Directory) -> Bool {
-        if let _ = try? getExistingFileURL(for: path, in: directory) {
-            return true
-        }
-        return false
+        (try? getExistingFileURL(for: path, in: directory)) != nil
     }
-    
+
     /// Checks if a file exists
     ///
     /// - Parameters:
     ///   - url: URL of file in filesystem
     /// - Returns: Bool indicating whether file exists
     static func exists(_ url: URL) -> Bool {
-        if FileManager.default.fileExists(atPath: url.path) {
-            return true
-        }
-        return false
+        FileManager.default.fileExists(atPath: url.path)
     }
-    
+
     /// Sets the 'do not backup' attribute of the file or folder on disk to true. This ensures that the file holding the object data does not get deleted when the user's device has low storage, but prevents this file from being stored in any backups made of the device on iTunes or iCloud.
     /// This is only useful for excluding cache and other application support files which are not needed in a backup. Some operations commonly made to user documents will cause the 'do not backup' property to be reset to false and so this should not be used on user documents.
     /// Warning: You must ensure that you will purge and handle any files created with this attribute appropriately, as these files will persist on the user's disk even in low storage situtations. If you don't handle these files appropriately, then you aren't following Apple's file system guidlines and can face App Store rejection.
@@ -142,7 +133,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Sets the 'do not backup' attribute of the file or folder on disk to true. This ensures that the file holding the object data does not get deleted when the user's device has low storage, but prevents this file from being stored in any backups made of the device on iTunes or iCloud.
     /// This is only useful for excluding cache and other application support files which are not needed in a backup. Some operations commonly made to user documents will cause the 'do not backup' property to be reset to false and so this should not be used on user documents.
     /// Warning: You must ensure that you will purge and handle any files created with this attribute appropriately, as these files will persist on the user's disk even in low storage situtations. If you don't handle these files appropriately, then you aren't following Apple's file system guidlines and can face App Store rejection.
@@ -158,7 +149,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Sets the 'do not backup' attribute of the file or folder on disk to false. This is the default behaviour so you don't have to use this function unless you already called doNotBackup(name:directory:) on a specific file.
     /// This default backing up behaviour allows anything in the .documents and .caches directories to be stored in backups made of the user's device (on iCloud or iTunes)
     ///
@@ -173,7 +164,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Sets the 'do not backup' attribute of the file or folder on disk to false. This is the default behaviour so you don't have to use this function unless you already called doNotBackup(name:directory:) on a specific file.
     /// This default backing up behaviour allows anything in the .documents and .caches directories to be stored in backups made of the user's device (on iCloud or iTunes)
     ///
@@ -187,7 +178,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Move file to a new directory
     ///
     /// - Parameters:
@@ -207,7 +198,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Move file to a new directory
     ///
     /// - Parameters:
@@ -223,7 +214,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Rename a file
     ///
     /// - Parameters:
@@ -237,7 +228,7 @@ public extension Disk {
             let justDirectoryPath = try createURL(for: nil, in: directory).absoluteString
             var currentFilePath = currentUrl.absoluteString.replacingOccurrences(of: justDirectoryPath, with: "")
             if isFolder(currentUrl) && currentFilePath.suffix(1) != "/" {
-                currentFilePath = currentFilePath + "/"
+                currentFilePath += "/"
             }
             let currentValidFilePath = try getValidFilePath(from: path)
             let newValidFilePath = try getValidFilePath(from: newPath)
@@ -249,7 +240,7 @@ public extension Disk {
             throw error
         }
     }
-    
+
     /// Check if file at a URL is a folder
     static func isFolder(_ url: URL) -> Bool {
         var isDirectory: ObjCBool = false

@@ -30,29 +30,30 @@
 
 import UIKit
 
-class StatsViewController: UIViewController {
-    
-    @IBOutlet var positiveCasesLabel: UILabel!
-    @IBOutlet var healedCasesLabel: UILabel!
-    @IBOutlet var deathsLabel: UILabel!
-    
+final class StatsViewController: UIViewController {
+
+    @IBOutlet private var positiveCasesLabel: UILabel!
+    @IBOutlet private var healedCasesLabel: UILabel!
+    @IBOutlet private var deathsLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super .viewDidAppear(animated)
-        
+
         reloadData()
     }
-    
+
     @objc
     private func reloadData() {
-        let urlString = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["statsUrl"].stringValue ?? "https://corona-stats-sk.herokuapp.com/combined"
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let urlString = appDelegate?.remoteConfig?["statsUrl"].stringValue ?? "https://corona-stats-sk.herokuapp.com/combined"
         if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
@@ -64,7 +65,7 @@ class StatsViewController: UIViewController {
                             self?.deathsLabel.text = String(Int(result.totalDeaths))
                         }
                     }
-                }catch let error {
+                } catch let error {
                     print(error)
                 }
             }

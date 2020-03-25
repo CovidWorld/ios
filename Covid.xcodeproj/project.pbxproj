@@ -429,6 +429,7 @@
 				0F1181372416C70500213533 /* Resources */,
 				B27A818B38D9B7B823051851 /* [CP] Embed Pods Frameworks */,
 				0F745771241D985E000546FA /* FabricCrashlytics */,
+				21C8FB92242C07B3003668D8 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -547,6 +548,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    find ${DWARF_DSYM_FOLDER_PATH} -name \"*.dSYM\" | xargs -I \\{\\} $PODS_ROOT/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/GoogleService-Info.plist -p ios \\{\\}\nfi\n";
+		};
+		21C8FB92242C07B3003668D8 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint lint --config .swiftlint.yml\nelse\necho \"warning: SwiftLint not installed, run brew install swiftlint\"\nfi\n";
 		};
 		39E547CCBE512E292A6A0400 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

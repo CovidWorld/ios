@@ -38,19 +38,19 @@ extension RegionInfo: MKAnnotation {
         }
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
-    
+
     var title: String? {
-        return region
+        region
     }
-    
+
     var subtitle: String? {
-        return "Počet prípadov: \(cases ?? 0)" 
+        "Počet prípadov: \(cases ?? 0)"
     }
 }
 
-class SpreadMapViewController: UIViewController {
-    @IBOutlet var mapView: MKMapView!
-    
+final class SpreadMapViewController: UIViewController {
+    @IBOutlet private var mapView: MKMapView!
+
     var data = [RegionInfo]() {
         didSet {
             mapView.removeAnnotations(mapView.annotations)

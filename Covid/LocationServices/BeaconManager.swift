@@ -28,13 +28,13 @@ struct BeaconId {
     let minor: UInt16
     let major: UInt16
     let id: UInt32
-    
+
     init(id: UInt32) {
         major = UInt16((id >> 16) & 0xFFFF)
         minor = UInt16(id & 0xFFFF)
         self.id = id
     }
-    
+
     init(major: UInt16, minor: UInt16) {
         var value: UInt32 = 0
         value = value | UInt32(major)
@@ -46,21 +46,21 @@ struct BeaconId {
     }
 }
 
-class BeaconManager: NSObject {
+final class BeaconManager: NSObject {
     static var shared = BeaconManager()
-    
+
     private var monitoringRegion: CLBeaconRegion?
     private var myRegion: CLBeaconRegion?
     private let locationManager = CLLocationManager()
     private let regionUUID = UUID(uuidString: "fb4f89f2-4b6c-48c5-9cc1-e70a6ef5cfdb")!
-    
+
     private var peripheralManager: CBPeripheralManager!
     private var advertisingBeacon: BeaconId?
     private var lastLocation: CLLocation?
-    
-    private override init() {
+
+    override private init() {
         super.init()
-        
+
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.allowsBackgroundLocationUpdates = true
@@ -70,7 +70,7 @@ class BeaconManager: NSObject {
             delegate: self,
             queue: nil,
             options: [
-                CBPeripheralManagerOptionShowPowerAlertKey: true,
+                CBPeripheralManagerOptionShowPowerAlertKey: true
 //                CBPeripheralManagerOptionRestoreIdentifierKey: "advertiserIdentifier"
             ]
         )
@@ -83,11 +83,11 @@ class BeaconManager: NSObject {
             print("start monitor")
         }
     }
-    
+
     func advertiseDevice(beacon: BeaconId) {
         setupAdvertisingRegion(beacon: beacon)
         guard let myRegion = myRegion else { return }
-         
+
         if !peripheralManager.isAdvertising {
             advertisingBeacon = beacon
             if peripheralManager.state == .poweredOn, let peripheralData = myRegion.peripheralData(withMeasuredPower: nil) as? [String: Any] {
@@ -105,7 +105,7 @@ extension BeaconManager {
             monitoringRegion = CLBeaconRegion(proximityUUID: regionUUID, identifier: "monitoring")
         }
     }
-    
+
     private func setupAdvertisingRegion(beacon: BeaconId) {
         let beaconID = "beacon-\(beacon.major)-\(beacon.minor)"
         if #available(iOS 13.0, *) {
@@ -127,7 +127,7 @@ extension BeaconManager: CBPeripheralManagerDelegate {
 //    func peripheralManager(_ peripheral: CBPeripheralManager, willRestoreState dict: [String : Any]) {
 //        print("STATE REST: \(dict)")
 //    }
-    
+
     func peripheralManagerDidStartAdvertising(_ peripheral: CBPeripheralManager, error: Error?) {
         if let error = error {
             print("Advertising ERROR: \(error.localizedDescription)")
@@ -141,7 +141,7 @@ extension BeaconManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastLocation = locations.last
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         print("exit")
         if let reg = monitoringRegion {
@@ -150,7 +150,7 @@ extension BeaconManager: CLLocationManagerDelegate {
             lastLocation = nil
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("enter")
         if let reg = monitoringRegion {
@@ -162,11 +162,11 @@ extension BeaconManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         LocationReporter.shared.didRangeBeacons(beacons, at: lastLocation)
     }
-    
+
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
       print("Failed monitoring region: \(error.localizedDescription)")
     }
-      
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
       print("Location manager failed: \(error.localizedDescription)")
     }

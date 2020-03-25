@@ -30,15 +30,15 @@
 
 import UIKit
 
-class AdditionalInfoViewController: UIViewController {
-    
-    @IBOutlet var protectView: UIView!
-    @IBOutlet var symptomsView: UIView!
-    @IBOutlet var howItWorksView: UIView!
-    
+final class AdditionalInfoViewController: UIViewController {
+
+    @IBOutlet private var protectView: UIView!
+    @IBOutlet private var symptomsView: UIView!
+    @IBOutlet private var howItWorksView: UIView!
+
     override func loadView() {
         super.loadView()
-        
+
         protectView.layer.cornerRadius = 20
         protectView.layer.masksToBounds = true
         symptomsView.layer.cornerRadius = 20

@@ -30,9 +30,9 @@
 
 import UIKit
 
-class PrivacyViewController: UIViewController {
-    
-    @IBAction func closeDidTap(_ sender: Any) {
+final class PrivacyViewController: UIViewController {
+
+    @IBAction private func closeDidTap(_ sender: Any) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

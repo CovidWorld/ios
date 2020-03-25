@@ -34,7 +34,7 @@ import SwiftyUserDefaults
 import FirebaseCrashlytics
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var remoteConfig: RemoteConfig?
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         setupFirebaseConfig()
         Crashlytics.crashlytics().setUserID(Defaults.deviceId)
-        
+
         if !Defaults.didRunApp {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let exampleViewController = mainStoryboard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController
@@ -65,7 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             LocationReporter.shared.sendConnections()
             BeaconManager.shared.advertiseDevice(beacon: BeaconId(id: UInt32(profileId)))
             BeaconManager.shared.startMonitoring()
-            
+
             if Defaults.quarantineActive {
                 LocationTracker.shared.startLocationTracking()
             }
@@ -75,12 +75,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         completionHandler(.noData)
     }
 
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data){
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let token = deviceToken.reduce("") { $0 + String(format: "%02.2hhx", $1) }
         Defaults.pushToken = token
     }
-    
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if application.applicationState == .active {
             var message: String?
             if let aps = userInfo["aps"] as? NSDictionary {
@@ -90,11 +92,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }
-            
+
             let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
             alertController.addAction(cancelAction)
-            
+
             window?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
         completionHandler(.noData)
@@ -103,7 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         setupFirebaseConfig()
     }
-    
+
     func visibleViewController(_ rootViewController: UIViewController? = nil) -> UIViewController? {
 
         var rootVC = rootViewController
@@ -112,27 +114,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         if rootVC?.presentedViewController == nil {
-            if rootVC?.isKind(of: UINavigationController.self) ?? false {
-                let navigationController = rootVC as! UINavigationController
-                return visibleViewController(navigationController.viewControllers.last!)
+            if let navigationController = rootVC as? UINavigationController {
+                return visibleViewController(navigationController.viewControllers.last)
             }
-            
-            if rootVC?.isKind(of: UITabBarController.self) ?? false {
-                let tabBarController = rootVC as! UITabBarController
-                return visibleViewController(tabBarController.selectedViewController!)
+
+            if let tabBarController = rootVC as? UITabBarController {
+                return visibleViewController(tabBarController.selectedViewController)
             }
-            
+
             return rootVC
         }
 
         if let presented = rootVC?.presentedViewController {
-            if presented.isKind(of: UINavigationController.self) {
-                let navigationController = presented as! UINavigationController
+            if let navigationController = presented as? UINavigationController {
                 return navigationController.viewControllers.last
             }
 
-            if presented.isKind(of: UITabBarController.self) {
-                let tabBarController = presented as! UITabBarController
+            if let tabBarController = presented as? UITabBarController {
                 return tabBarController.selectedViewController
             }
 
@@ -146,17 +144,17 @@ extension AppDelegate {
     private func setupFirebaseConfig() {
         remoteConfig = RemoteConfig.remoteConfig()
         guard let remoteConfig = remoteConfig else { return }
-        
+
         let defaults: [String: NSObject] = ["quarantineDuration": NSString(string: "14"),
                                             "desiredPositionAccuracy": NSNumber(value: 100),
-                                            "quarantineLeftMessage": NSString(string: "Opustili ste zónu domácej karatnény. Pre ochranu Vášho zdravia a zdravia Vašich blízkych, Vás žiadame o striktné dodržiavanie nariadenej karantény."),
+                                            "quarantineLeftMessage": NSString(string: "Opustili ste zónu domácej karantény. Pre ochranu Vášho zdravia a zdravia Vašich blízkych, Vás žiadame o striktné dodržiavanie nariadenej karantény."),
                                             "batchSendingFrequency": NSNumber(value: 60),
                                             "quarantineLocationPeriodMinutes": NSNumber(value: 5),
                                             "minConnectionDuration": NSNumber(value: 300),
                                             "mapStatsUrl": NSString(string: "https://portal.minv.sk/gis/rest/services/PROD/ESISPZ_GIS_PORTAL_CovidPublic/MapServer/4/query?where=POTVRDENI%20%3E%200&f=json&outFields=IDN3%2C%20NM3%2C%20IDN2%2C%20NM2%2C%20POTVRDENI%2C%20VYLIECENI%2C%20MRTVI%2C%20AKTIVNI%2C%20CAKAJUCI%2C%20OTESTOVANI_NEGATIVNI%2C%20DATUM_PLATNOST&returnGeometry=false&orderByFields=POTVRDENI%20DESC"),
                                             "apiHost": NSString(string: "https://covid-gateway.azurewebsites.net"),
                                             "statsUrl": NSString(string: "https://corona-stats-sk.herokuapp.com/combined")]
-        
+
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
@@ -164,9 +162,7 @@ extension AppDelegate {
         remoteConfig.fetch { (status, error) -> Void in
           if status == .success {
             print("Config fetched!")
-            self.remoteConfig?.activate(completionHandler: { (error) in
-              // ...
-            })
+            self.remoteConfig?.activate { _ in }
           } else {
             print("Config not fetched")
             print("Error: \(error?.localizedDescription ?? "No error available.")")
@@ -174,4 +170,3 @@ extension AppDelegate {
         }
     }
 }
-

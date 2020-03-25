@@ -36,8 +36,11 @@ struct RegisterProfileRequestData: Codable {
     let locale: String
     let pushToken: String?
     let phoneNumber: String?
-    
-    init(deviceId: String = Defaults.deviceId, locale: String = (Locale.current.regionCode ?? "SK"), pushToken: String? = Defaults.pushToken, phoneNumber: String? = Defaults.phoneNumber) {
+
+    init(deviceId: String = Defaults.deviceId,
+         locale: String = (Locale.current.regionCode ?? "SK"),
+         pushToken: String? = Defaults.pushToken,
+         phoneNumber: String? = Defaults.phoneNumber) {
         self.deviceId = deviceId
         self.locale = locale
         self.pushToken = pushToken
@@ -48,7 +51,7 @@ struct RegisterProfileRequestData: Codable {
 struct BasicRequestData: Codable {
     let deviceId: String
     let profileId: Int
-    
+
     init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
@@ -60,14 +63,14 @@ struct QuarantineRequestData: Codable {
     let profileId: Int
     let duration: String
     let mfaToken: String
-    
+
     init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, duration: String? = nil, mfaToken: String? = Defaults.mfaToken) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
         self.mfaToken = mfaToken ?? ""
-        
+
         let quarantineDuration = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["quarantineDuration"].stringValue ?? "14"
-        
+
         guard let date = Defaults.quarantineStart else {
             self.duration = quarantineDuration
             return
@@ -88,7 +91,7 @@ struct MFATokenPhoneRequestData: Codable {
     let deviceId: String
     let profileId: Int
     let mfaToken: String
-    
+
     init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, mfaToken: String? = Defaults.mfaToken) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
@@ -103,7 +106,7 @@ struct AreaExitRequestData: Codable {
     let longitude: Double
     let accuracy: Int
     let recordTimestamp: Int
-    
+
     init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, latitude: Double, longitude: Double, accuracy: Int) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
@@ -118,7 +121,7 @@ struct LocationsRequestData: Codable {
     let deviceId: String
     let profileId: Int
     let locations: [Location]
-    
+
     init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, locations: [Location]) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
@@ -130,7 +133,7 @@ struct UploadConnectionsRequestData: Codable {
     let sourceDeviceId: String
     let sourceProfileId: Int
     let connections: [Connection]
-    
+
     init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, connections: [Connection]) {
         sourceDeviceId = deviceId
         sourceProfileId = profileId ?? 0
@@ -142,7 +145,7 @@ struct Location: Codable {
     let recordTimestamp: Int
     let latitude: Double
     let longitude: Double
-    let accuracy : Double
+    let accuracy: Double
 }
 
 struct Connection: Codable, Hashable, Equatable {
@@ -151,14 +154,14 @@ struct Connection: Codable, Hashable, Equatable {
     let duration: String
     let latitude: Double
     let longitude: Double
-    let accuracy : Double
-    
+    let accuracy: Double
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(seenProfileId)
     }
-    
-    static func ==(lhs: Connection, rhs: Connection) -> Bool {
-        return lhs.seenProfileId == rhs.seenProfileId
+
+    static func == (lhs: Connection, rhs: Connection) -> Bool {
+        lhs.seenProfileId == rhs.seenProfileId
     }
 }
 
@@ -167,5 +170,5 @@ struct Position: Codable {
     let deviceId: String
     let latitude: Double
     let longitude: Double
-    let accuracy : Double
+    let accuracy: Double
 }
