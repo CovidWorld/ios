@@ -31,9 +31,9 @@
 import UIKit
 import SwiftyUserDefaults
 
-class IdentityViewController: UIViewController {
-    @IBOutlet var idLabel: UILabel!
-    
+final class IdentityViewController: UIViewController {
+    @IBOutlet private var idLabel: UILabel!
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if let profileId = Defaults.profileId {

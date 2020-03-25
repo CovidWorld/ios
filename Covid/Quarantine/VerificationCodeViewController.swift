@@ -24,30 +24,30 @@
 import UIKit
 import SwiftyUserDefaults
 
-class VerificationCodeViewController: UIViewController {
+final class VerificationCodeViewController: UIViewController {
 
-    @IBOutlet weak var activationCodeTextField: UITextField!
-    
+    @IBOutlet private weak var activationCodeTextField: UITextField!
+
     var phoneNumber: String? = Defaults.tempPhoneNumber
 
     private let networkService = CovidService()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = phoneNumber
-        
+
         showLoadingIndicator()
-        
+
         updateUser()
-        
+
         if #available(iOS 13.0, *) {
             activationCodeTextField.font = UIFont.monospacedSystemFont(ofSize: 40, weight: .medium)
         }
     }
 }
 
-//MARK: - Private
+// MARK: - Private
 extension VerificationCodeViewController {
     private func showLoadingIndicator() {
         let indicator: UIActivityIndicatorView
@@ -59,7 +59,7 @@ extension VerificationCodeViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator)
         indicator.startAnimating()
     }
-    
+
     private func updateUser() {
         networkService.registerUserProfile(profileRequestData: RegisterProfileRequestData(phoneNumber: phoneNumber)) { [weak self] (result) in
             switch result {
@@ -78,13 +78,13 @@ extension VerificationCodeViewController {
                     }
                     alert.addAction(editAction)
                     alert.addAction(yesAction)
-                    
+
                     self?.present(alert, animated: true, completion: nil)
                 }
             }
         }
     }
-    
+
     private func requestToken() {
         networkService.requestMFAToken(mfaTokenRequestData: BasicRequestData()) { [weak self] (result) in
             DispatchQueue.main.async {
@@ -101,17 +101,17 @@ extension VerificationCodeViewController {
                         }
                         alert.addAction(editAction)
                         alert.addAction(yesAction)
-                        
+
                         self?.present(alert, animated: true, completion: nil)
                 }
             }
         }
     }
-    
+
     private func didFillNumbers() {
         let tempToken = activationCodeTextField.text?.replacingOccurrences(of: " ", with: "")
         activationCodeTextField.resignFirstResponder()
-        
+
         if presentingViewController != nil {
             networkService.requestMFATokenPhone(mfaTokenPhoneRequestData: MFATokenPhoneRequestData(mfaToken: tempToken)) { [weak self] (result) in
                 DispatchQueue.main.async {
@@ -130,7 +130,7 @@ extension VerificationCodeViewController {
             }
             return
         }
-        
+
         networkService.requestQuarantine(quarantineRequestData: QuarantineRequestData(mfaToken: tempToken)) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -145,7 +145,7 @@ extension VerificationCodeViewController {
             }
         }
     }
-    
+
     private func requestFailed() {
         let alertController = UIAlertController(title: "Chyba", message: "Zadané údaje sú nesprávne. Skúste znova.", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel) { (_) in
@@ -158,7 +158,7 @@ extension VerificationCodeViewController {
 }
 
 extension VerificationCodeViewController: UITextFieldDelegate {
-    
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let text = textField.text,
            let textRange = Range(range, in: text) {
@@ -181,7 +181,7 @@ extension VerificationCodeViewController: UITextFieldDelegate {
 
 extension String {
     func components(withLength length: Int) -> [String] {
-        return stride(from: 0, to: self.count, by: length).map {
+        stride(from: 0, to: self.count, by: length).map {
             let start = self.index(self.startIndex, offsetBy: $0)
             let end = self.index(start, offsetBy: length, limitedBy: self.endIndex) ?? self.endIndex
             return String(self[start..<end])

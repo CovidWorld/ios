@@ -31,21 +31,21 @@
 import UIKit
 import SwiftyUserDefaults
 
-class WelcomeViewController: UIViewController {
-    @IBOutlet var agreeButton: UIButton!
-    
+final class WelcomeViewController: UIViewController {
+    @IBOutlet private var agreeButton: UIButton!
+
     override func loadView() {
         super.loadView()
-        
+
         agreeButton.layer.cornerRadius = 20
         agreeButton.layer.masksToBounds = true
-        
+
         if Defaults.deviceId.isEmpty {
             Defaults.deviceId = UUID().uuidString
         }
     }
-    
-    @IBAction func agreeDidTap(_ sender: Any) {
+
+    @IBAction private func agreeDidTap(_ sender: Any) {
         Defaults.didRunApp = true
     }
 }

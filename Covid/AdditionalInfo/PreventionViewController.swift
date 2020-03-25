@@ -23,7 +23,7 @@
 
 import UIKit
 
-class PreventionViewController: UIViewController {
+final class PreventionViewController: UIViewController {
 
     let datasource = [
         ("prevention01", "Často si umývajte ruky mydlom a vodou, najmenej po dobu 20 sekúnd. Môžete použiť dezinfekčný prostriedok na ruky na báze alkoholu."),
@@ -32,20 +32,21 @@ class PreventionViewController: UIViewController {
         ("prevention04", "Vyhýbajte sa blízkemu kontaktu s ľuďmi, ktorí javia príznak nádchy alebo chrípky."),
         ("prevention05", "Noste ochrannú masku v prípade, že sa u Vás alebo u osôb vo Vašej blízkosti prejavujú respiračné symptómy."),
         ("prevention06", "Pravidelne čistite a dezinfikujte povrchy a objekty s ktorými ste Vy a Vaše okolie v pravidelnom kontakte."),
-        ("prevention07", "Ak ste chorý, liečte sa doma.") 
+        ("prevention07", "Ak ste chorý, liečte sa doma.")
     ]
 }
 
 extension PreventionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { datasource.count }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PreventionTableViewCell.self), for: indexPath) as? PreventionTableViewCell else { return UITableViewCell() }
-        
+        let identifier = String(describing: PreventionTableViewCell.self)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? PreventionTableViewCell else { return UITableViewCell() }
+
         cell.iconImageView.image = UIImage(named: datasource[indexPath.row].0)
         cell.titleLabel.text = datasource[indexPath.row].1
         cell.selectionStyle = .none
-        
+
         return cell
     }
 }

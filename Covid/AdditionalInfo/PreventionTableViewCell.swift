@@ -20,14 +20,15 @@
 * THE SOFTWARE.
 *
 */
+// swiftlint:disable private_outlet
 
 import UIKit
 
-class PreventionTableViewCell: UITableViewCell {
+final class PreventionTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var iconImageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet private(set) weak var iconImageView: UIImageView!
+    @IBOutlet private(set) weak var titleLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
 

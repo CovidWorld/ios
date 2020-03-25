@@ -25,17 +25,17 @@ import UIKit
 import CoreLocation
 import SwiftyUserDefaults
 
-class AddressConfirmationViewController: UIViewController {
-    
-    @IBOutlet weak var streetLabel: UILabel!
-    @IBOutlet weak var cityLabel: UILabel!
-    
-    var streetText: String? = nil
-    var cityText: String? = nil
-    var location: CLLocationCoordinate2D? = nil
-    
+final class AddressConfirmationViewController: UIViewController {
+
+    @IBOutlet private weak var streetLabel: UILabel!
+    @IBOutlet private weak var cityLabel: UILabel!
+
+    var streetText: String?
+    var cityText: String?
+    var location: CLLocationCoordinate2D?
+
     private let networkService = CovidService()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,12 +43,12 @@ class AddressConfirmationViewController: UIViewController {
         cityLabel.text = cityText
     }
 
-    @IBAction func didTapConfirmButton(_ sender: Any) {
+    @IBAction private func didTapConfirmButton(_ sender: Any) {
         Defaults.quarantineCity = cityText
         Defaults.quarantineAddress = streetText
         Defaults.quarantineLatitude = location?.latitude
         Defaults.quarantineLongitude = location?.longitude
-        
+
         if Defaults.phoneNumber != nil, let token = Defaults.mfaToken {
             networkService.requestQuarantine(quarantineRequestData: QuarantineRequestData(mfaToken: token)) { [weak self] (result) in
                     DispatchQueue.main.async {
@@ -70,8 +70,8 @@ class AddressConfirmationViewController: UIViewController {
             performSegue(withIdentifier: "quarantineVerifyNumber", sender: self)
         }
     }
-    
-    @IBAction func didTapChangeButton(_ sender: Any) {
+
+    @IBAction private func didTapChangeButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 }
