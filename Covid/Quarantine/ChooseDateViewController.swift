@@ -1,3 +1,26 @@
+/*-
+* Copyright (c) 2020 Sygic
+*
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+ * The above copyright notice and this permission notice shall be included in
+* copies or substantial portions of the Software.
+*
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+* THE SOFTWARE.
+*
+*/
+
 import UIKit
 import SwiftyUserDefaults
 
@@ -10,6 +33,7 @@ class ChooseDateViewController: UIViewController {
     @IBOutlet weak var editImageView: UIImageView!
     @IBOutlet weak var textFieldBackgroundView: UIView!
     @IBOutlet weak var pickerContainerView: UIView!
+    @IBOutlet var pickerBottomConstraint: NSLayoutConstraint!
     
     override func loadView() {
         super.loadView()
@@ -45,6 +69,7 @@ extension ChooseDateViewController {
         let topOffset = CGPoint(x: 0, y: 0)
         scrollView.setContentOffset(topOffset, animated: true)
         pickerContainerView.isHidden = true
+        pickerBottomConstraint.constant = -260
         continueButton.isHidden = false
         continueButton.isEnabled = !(dateTextField.text?.isEmpty ?? false)
         editImageView.isHidden = dateTextField.text?.isEmpty ?? false
@@ -52,11 +77,13 @@ extension ChooseDateViewController {
     
     private func setupUI() {
         pickerContainerView.isHidden = true
+        pickerBottomConstraint.constant = -260
         continueButton.isHidden = false
         continueButton.isEnabled = false
         scrollView.isScrollEnabled = false
         editImageView.isHidden = true
         textFieldBackgroundView.layer.borderColor = UIColor.lightGray.cgColor
+        dateTextField.inputView = pickerContainerView
         
         let font: UIFont = UIFont(name: "Inter-Light", size: 15) ?? UIFont.systemFont(ofSize: 15, weight: .light)
         let attributes = [NSMutableAttributedString.Key.font: font,
@@ -90,6 +117,7 @@ extension ChooseDateViewController: UITextFieldDelegate {
         }
         didChangePickerValue()
         pickerContainerView.isHidden = false
+        pickerBottomConstraint.constant = 0
         continueButton.isHidden = true
         
         return false

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cEZ-hQ-bIJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cEZ-hQ-bIJ">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -130,9 +130,9 @@ Cg
                             <constraint firstItem="1DS-wO-aX9" firstAttribute="centerY" secondItem="iYD-9O-gRa" secondAttribute="centerY" constant="50" id="dN8-qC-DVH"/>
                             <constraint firstItem="Ygo-Z1-8tJ" firstAttribute="top" secondItem="U8W-n2-gb2" secondAttribute="bottom" constant="16" id="dnD-ho-ONk"/>
                             <constraint firstItem="U8W-n2-gb2" firstAttribute="top" secondItem="ZHn-5p-QSn" secondAttribute="bottom" constant="24" id="eX3-ap-SFt"/>
+                            <constraint firstItem="ieU-Bo-giF" firstAttribute="top" secondItem="Iez-DI-UrW" secondAttribute="top" constant="100" id="ftY-oz-HK3"/>
                             <constraint firstItem="1DS-wO-aX9" firstAttribute="centerX" secondItem="iYD-9O-gRa" secondAttribute="centerX" constant="80" id="fxN-5S-i2M"/>
                             <constraint firstItem="Iez-DI-UrW" firstAttribute="trailing" secondItem="ieU-Bo-giF" secondAttribute="trailing" constant="24" id="kQ2-os-NdP"/>
-                            <constraint firstItem="ieU-Bo-giF" firstAttribute="top" secondItem="Iez-DI-UrW" secondAttribute="top" constant="100" id="l8I-mC-Tpi"/>
                             <constraint firstItem="ieU-Bo-giF" firstAttribute="leading" secondItem="Iez-DI-UrW" secondAttribute="leading" constant="24" id="wig-mC-UXF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iez-DI-UrW"/>
@@ -1320,15 +1320,15 @@ Bratislava, marec 2020
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="82.666666666666671"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info-icon" translatesAutoresizingMaskIntoConstraints="NO" id="a50-eh-WPm">
-                                                <rect key="frame" x="16" y="23.333333333333343" width="36" height="36"/>
+                                                <rect key="frame" x="16" y="25.333333333333343" width="32" height="32"/>
                                                 <color key="tintColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="36" id="ukE-Wq-fol"/>
-                                                    <constraint firstAttribute="width" constant="36" id="wIM-iS-dSC"/>
+                                                    <constraint firstAttribute="height" constant="32" id="ukE-Wq-fol"/>
+                                                    <constraint firstAttribute="width" constant="32" id="wIM-iS-dSC"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dôležité informácie" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="OW1-X6-NZV">
-                                                <rect key="frame" x="68" y="15.999999999999996" width="211" height="50.666666666666657"/>
+                                                <rect key="frame" x="64" y="15.999999999999996" width="215" height="50.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="20"/>
                                                 <color key="textColor" red="0.23529411764705882" green="0.32156862745098036" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1508,7 +1508,7 @@ Bratislava, marec 2020
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-select-location" translatesAutoresizingMaskIntoConstraints="NO" id="Biw-H2-gq1">
-                                <rect key="frame" x="132.66666666666666" y="356" width="110" height="114"/>
+                                <rect key="frame" x="160" y="384.66666666666669" width="55" height="57"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1552,32 +1552,35 @@ Bratislava, marec 2020
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjZ-DR-BoW">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjZ-DR-BoW">
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptómy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-s6-Qww">
-                                        <rect key="frame" x="24" y="24" width="327" height="42"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
-                                        <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rozlišujte príznaky" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-QM-ZMH">
-                                        <rect key="frame" x="24" y="82" width="327" height="24"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
-                                        <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-Ot-h5u">
-                                        <rect key="frame" x="24" y="113.99999999999999" width="327" height="36.333333333333329"/>
-                                        <string key="text">COVID-19 zasahuje dolné dýchacie
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-D1-4Ov">
+                                        <rect key="frame" x="24" y="0.0" width="327" height="560"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptómy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-s6-Qww">
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="42"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
+                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rozlišujte príznaky" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-QM-ZMH">
+                                                <rect key="frame" x="0.0" y="58" width="327" height="24"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
+                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-Ot-h5u">
+                                                <rect key="frame" x="0.0" y="90" width="327" height="36.333333333333343"/>
+                                                <string key="text">COVID-19 zasahuje dolné dýchacie
 cesty. Prejavuje sa:</string>
-                                        <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
-                                        <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-oK-fQ4">
-                                        <rect key="frame" x="24" y="158.33333333333337" width="327" height="345"/>
-                                        <string key="text">suchým, zadúšavým, dráždivým
+                                                <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
+                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-oK-fQ4">
+                                                <rect key="frame" x="0.0" y="134.33333333333337" width="327" height="345"/>
+                                                <string key="text">suchým, zadúšavým, dráždivým
 kašľom bez hlienov
 
 bolestami hlavy, kĺbov a svalov
@@ -1594,43 +1597,47 @@ aj vysoko za hranicou 38 stupňov,
 v kombinácii s kašľom a zvyškom
 uvedených príznakov sú taktiež
 príznakom ochorenia.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03D-UA-gZZ">
-                                        <rect key="frame" x="24" y="511.33333333333343" width="327" height="72.666666666666686"/>
-                                        <string key="text">Nádcha, bolesti prínosových dutín,
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03D-UA-gZZ">
+                                                <rect key="frame" x="0.0" y="487.33333333333343" width="327" height="72.666666666666686"/>
+                                                <string key="text">Nádcha, bolesti prínosových dutín,
 hlieny v nose, aj keď s bolesťou v hrdle,
 s najväčšou pravdepodobnosťou
 nie je COVID-19.</string>
-                                        <fontDescription key="fontDescription" name="Inter_Bold" family="Inter" pointSize="15"/>
-                                        <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                                <fontDescription key="fontDescription" name="Inter_Bold" family="Inter" pointSize="15"/>
+                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="03D-UA-gZZ" secondAttribute="bottom" id="2Zw-UQ-T5b"/>
+                                            <constraint firstItem="pmT-s6-Qww" firstAttribute="top" secondItem="9Fi-D1-4Ov" secondAttribute="top" id="71e-XO-B63"/>
+                                            <constraint firstItem="Vb9-oK-fQ4" firstAttribute="top" secondItem="9RP-Ot-h5u" secondAttribute="bottom" constant="8" symbolic="YES" id="8H6-lH-uiA"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vb9-oK-fQ4" secondAttribute="trailing" id="AaA-Ni-NtU"/>
+                                            <constraint firstAttribute="trailing" secondItem="9RP-Ot-h5u" secondAttribute="trailing" id="BeP-gv-6R3"/>
+                                            <constraint firstAttribute="trailing" secondItem="pmT-s6-Qww" secondAttribute="trailing" id="HPR-7w-mRd"/>
+                                            <constraint firstItem="9RP-Ot-h5u" firstAttribute="top" secondItem="tHn-QM-ZMH" secondAttribute="bottom" constant="8" id="Izh-0g-fSy"/>
+                                            <constraint firstItem="tHn-QM-ZMH" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="P4a-Mc-a2u"/>
+                                            <constraint firstAttribute="trailing" secondItem="03D-UA-gZZ" secondAttribute="trailing" id="Qep-s8-Fae"/>
+                                            <constraint firstItem="pmT-s6-Qww" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="R2y-6A-Z0i"/>
+                                            <constraint firstItem="03D-UA-gZZ" firstAttribute="top" secondItem="Vb9-oK-fQ4" secondAttribute="bottom" constant="8" id="aFE-W7-v3c"/>
+                                            <constraint firstItem="tHn-QM-ZMH" firstAttribute="top" secondItem="pmT-s6-Qww" secondAttribute="bottom" constant="16" id="afy-AW-9v1"/>
+                                            <constraint firstItem="Vb9-oK-fQ4" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="bc9-FF-xNh"/>
+                                            <constraint firstAttribute="trailing" secondItem="pmT-s6-Qww" secondAttribute="trailing" id="d3M-jj-Uud"/>
+                                            <constraint firstAttribute="trailing" secondItem="tHn-QM-ZMH" secondAttribute="trailing" id="hgo-cK-AMY"/>
+                                            <constraint firstItem="9RP-Ot-h5u" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="mSq-yQ-Z8d"/>
+                                            <constraint firstItem="03D-UA-gZZ" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="tgH-mf-4io"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="tHn-QM-ZMH" firstAttribute="leading" secondItem="H4i-ny-C4Z" secondAttribute="leading" constant="24" id="1Nm-4D-q0J"/>
-                                    <constraint firstItem="pmT-s6-Qww" firstAttribute="leading" secondItem="5Nt-Ss-evS" secondAttribute="leading" constant="24" id="1QD-lu-RWW"/>
-                                    <constraint firstItem="tHn-QM-ZMH" firstAttribute="top" secondItem="pmT-s6-Qww" secondAttribute="bottom" constant="16" id="1uj-Gr-0Ck"/>
-                                    <constraint firstItem="Vb9-oK-fQ4" firstAttribute="leading" secondItem="H4i-ny-C4Z" secondAttribute="leading" constant="24" id="5v3-SH-wqj"/>
-                                    <constraint firstItem="pmT-s6-Qww" firstAttribute="leading" secondItem="H4i-ny-C4Z" secondAttribute="leading" constant="24" id="6nF-Xt-k13"/>
-                                    <constraint firstItem="5Nt-Ss-evS" firstAttribute="bottom" secondItem="03D-UA-gZZ" secondAttribute="bottom" constant="24" id="HHw-yD-4T2"/>
-                                    <constraint firstItem="Vb9-oK-fQ4" firstAttribute="top" secondItem="9RP-Ot-h5u" secondAttribute="bottom" constant="8" symbolic="YES" id="IG4-vX-5b1"/>
-                                    <constraint firstItem="9RP-Ot-h5u" firstAttribute="top" secondItem="tHn-QM-ZMH" secondAttribute="bottom" constant="8" id="LPz-o8-CvH"/>
-                                    <constraint firstItem="H4i-ny-C4Z" firstAttribute="trailing" secondItem="pmT-s6-Qww" secondAttribute="trailing" constant="24" id="Phc-1p-mwQ"/>
-                                    <constraint firstItem="03D-UA-gZZ" firstAttribute="top" secondItem="Vb9-oK-fQ4" secondAttribute="bottom" constant="8" id="R4U-bF-S83"/>
-                                    <constraint firstItem="pmT-s6-Qww" firstAttribute="top" secondItem="5Nt-Ss-evS" secondAttribute="top" constant="24" id="WAg-A5-lij"/>
-                                    <constraint firstItem="H4i-ny-C4Z" firstAttribute="trailing" secondItem="tHn-QM-ZMH" secondAttribute="trailing" constant="24" id="XqB-6j-qcG"/>
-                                    <constraint firstItem="H4i-ny-C4Z" firstAttribute="trailing" secondItem="03D-UA-gZZ" secondAttribute="trailing" constant="24" id="dHM-Xi-dAF"/>
-                                    <constraint firstItem="5Nt-Ss-evS" firstAttribute="trailing" secondItem="pmT-s6-Qww" secondAttribute="trailing" constant="24" id="pai-9a-8hB"/>
-                                    <constraint firstItem="03D-UA-gZZ" firstAttribute="leading" secondItem="H4i-ny-C4Z" secondAttribute="leading" constant="24" id="vFi-IE-PPL"/>
-                                    <constraint firstItem="H4i-ny-C4Z" firstAttribute="trailing" secondItem="9RP-Ot-h5u" secondAttribute="trailing" constant="24" id="w6P-w7-Tkx"/>
-                                    <constraint firstItem="9RP-Ot-h5u" firstAttribute="leading" secondItem="H4i-ny-C4Z" secondAttribute="leading" constant="24" id="yVv-et-a5B"/>
-                                    <constraint firstItem="H4i-ny-C4Z" firstAttribute="trailing" secondItem="Vb9-oK-fQ4" secondAttribute="trailing" constant="24" id="zGM-oB-Cfi"/>
+                                    <constraint firstAttribute="bottom" secondItem="9Fi-D1-4Ov" secondAttribute="bottom" constant="16" id="9O6-fC-RpK"/>
+                                    <constraint firstItem="9Fi-D1-4Ov" firstAttribute="top" secondItem="zjZ-DR-BoW" secondAttribute="top" id="RSo-kJ-mrn"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="5Nt-Ss-evS"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="H4i-ny-C4Z"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1638,7 +1645,9 @@ nie je COVID-19.</string>
                             <constraint firstItem="zjZ-DR-BoW" firstAttribute="leading" secondItem="1VN-VM-DZe" secondAttribute="leading" id="4SZ-bq-dR3"/>
                             <constraint firstItem="mHw-HS-Pxm" firstAttribute="bottom" secondItem="zjZ-DR-BoW" secondAttribute="bottom" id="7hM-SW-N1z"/>
                             <constraint firstItem="zjZ-DR-BoW" firstAttribute="top" secondItem="mHw-HS-Pxm" secondAttribute="top" id="LLH-81-HKM"/>
+                            <constraint firstItem="9Fi-D1-4Ov" firstAttribute="leading" secondItem="mHw-HS-Pxm" secondAttribute="leading" constant="24" id="TJJ-Ys-t0P"/>
                             <constraint firstItem="zjZ-DR-BoW" firstAttribute="trailing" secondItem="1VN-VM-DZe" secondAttribute="trailing" id="cph-LG-wwX"/>
+                            <constraint firstItem="mHw-HS-Pxm" firstAttribute="trailing" secondItem="9Fi-D1-4Ov" secondAttribute="trailing" constant="24" id="ovr-vW-VNb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mHw-HS-Pxm"/>
                     </view>
@@ -1805,7 +1814,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="_ _ _  _ _ _" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7B-JV-gDl">
-                                <rect key="frame" x="42.666666666666657" y="199" width="290" height="48"/>
+                                <rect key="frame" x="42.666666666666657" y="199" width="290" height="49.666666666666657"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="Eh8-Ia-mfg"/>
@@ -2290,7 +2299,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
             </objects>
             <point key="canvasLocation" x="2198" y="-293"/>
         </scene>
-        <!--Ako funguje aplikácia-->
+        <!--O aplikácií-->
         <scene sceneID="nEF-Qi-h7Z">
             <objects>
                 <viewController id="Oql-Ag-hxX" sceneMemberID="viewController">
@@ -2330,8 +2339,7 @@ Veľa z nás nákazu zvládne svojou imunitou. Sú ale takí, ktorí majú iné 
 Preto je nesmierne dôležité prejaviť ľudskosť mladých voči starým, zdravých voči chorým a poraziť Covid-19, spoločne.
 
 
-Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív IT dobrovoľníkov okolo Sygic, Turn.sk, DigitalLegal, Jozef Benko
-
+Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Daniel Kožík, Tomáš Michálek, Turn.sk, Jozef Benko, DigitalLegal, Slovensko.Digital, Hackvirus.sk
 Širší odborný tím spoluautorov:  doc. JUDr. MUDr. Peter Kováč, PhD. et. PhD, MUDr. Vanda Martišková, MUDr. Karolína Bašová, MDDr. Peter Czakó, MUDr. Martin Čaprnda, PhD., prof. MUDr. Dušan Meško, PhD., MUDr. Peter Herman, MUDr. Gabriela Ďuricová, PhD., MUDr. Igor Krupa, MUDr. Gabriela Ďuricová, PhD., MUDr. Alžbeta Reviczká, MUDr. Andrej Daňo, MUDr. Veronika Pružincová, Juraj Novosad, Nicolas Hason, Maroš Lukáč</string>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -2347,7 +2355,7 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q8l-cq-jpg"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Ako funguje aplikácia" id="WWn-0h-3qV"/>
+                    <navigationItem key="navigationItem" title="O aplikácií" id="WWn-0h-3qV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSC-vT-HeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2484,78 +2492,79 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
                                     <constraint firstAttribute="width" constant="1200" id="ub5-8E-qG2"/>
                                 </constraints>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4g-mu-6Mg">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4g-mu-6Mg">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zadajte dátum, kedy ste sa vrátili zo zahraničia, alebo deň, v ktorom Vám bola nariadená karanténa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyJ-gV-LXt">
-                                        <rect key="frame" x="32" y="32" width="311" height="252"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
-                                        <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K46-fv-tVA">
-                                        <rect key="frame" x="32" y="300" width="311" height="56"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                                <real key="value" value="0.5"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vr0-T8-eR2">
-                                        <rect key="frame" x="48" y="300" width="295" height="56"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBv-Y5-gpA">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="390.66666666666669"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zadajte dátum, kedy ste sa vrátili zo zahraničia, alebo deň, v ktorom Vám bola nariadená karanténa" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyJ-gV-LXt">
+                                                <rect key="frame" x="52" y="20" width="271" height="274.66666666666669"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="28"/>
+                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K46-fv-tVA">
+                                                <rect key="frame" x="52" y="310.66666666666669" width="271" height="56"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <real key="value" value="0.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vr0-T8-eR2">
+                                                <rect key="frame" x="68" y="310.66666666666669" width="255" height="56"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="Atc-Fj-Xrx"/>
+                                                </constraints>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="WZm-1e-vuR" id="vUd-WP-947"/>
+                                                </connections>
+                                            </textField>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YW1-0J-ehE">
+                                                <rect key="frame" x="279" y="324.66666666666669" width="28" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="YW1-0J-ehE" secondAttribute="height" multiplier="1:1" id="W36-X2-xx6"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="Atc-Fj-Xrx"/>
+                                            <constraint firstItem="K46-fv-tVA" firstAttribute="bottom" secondItem="Vr0-T8-eR2" secondAttribute="bottom" id="0lo-vf-Jzh"/>
+                                            <constraint firstAttribute="trailing" secondItem="vyJ-gV-LXt" secondAttribute="trailing" constant="52" id="8YI-58-iIK"/>
+                                            <constraint firstItem="YW1-0J-ehE" firstAttribute="top" secondItem="Vr0-T8-eR2" secondAttribute="top" constant="14" id="HRU-EW-4Tj"/>
+                                            <constraint firstItem="K46-fv-tVA" firstAttribute="top" secondItem="Vr0-T8-eR2" secondAttribute="top" id="Lxr-Vj-aKm"/>
+                                            <constraint firstItem="Vr0-T8-eR2" firstAttribute="trailing" secondItem="YW1-0J-ehE" secondAttribute="trailing" constant="16" id="Mpc-hR-x9v"/>
+                                            <constraint firstItem="Vr0-T8-eR2" firstAttribute="top" secondItem="vyJ-gV-LXt" secondAttribute="bottom" constant="16" id="Ujh-bz-FQp"/>
+                                            <constraint firstAttribute="trailing" secondItem="Vr0-T8-eR2" secondAttribute="trailing" constant="52" id="WBQ-BQ-v4t"/>
+                                            <constraint firstItem="vyJ-gV-LXt" firstAttribute="leading" secondItem="eBv-Y5-gpA" secondAttribute="leading" constant="52" id="cJG-Qe-1fF"/>
+                                            <constraint firstItem="vyJ-gV-LXt" firstAttribute="top" secondItem="eBv-Y5-gpA" secondAttribute="top" constant="20" id="czb-RW-gN2"/>
+                                            <constraint firstAttribute="trailing" secondItem="K46-fv-tVA" secondAttribute="trailing" constant="52" id="d5y-J1-UXd"/>
+                                            <constraint firstItem="Vr0-T8-eR2" firstAttribute="leading" secondItem="eBv-Y5-gpA" secondAttribute="leading" constant="68" id="jVV-5H-jTk"/>
+                                            <constraint firstItem="Vr0-T8-eR2" firstAttribute="bottom" secondItem="YW1-0J-ehE" secondAttribute="bottom" constant="14" id="k8X-Be-3m3"/>
+                                            <constraint firstAttribute="trailing" secondItem="vyJ-gV-LXt" secondAttribute="trailing" constant="52" id="oSP-GQ-ZuK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vr0-T8-eR2" secondAttribute="bottom" constant="24" id="q7D-7x-bRv"/>
+                                            <constraint firstItem="vyJ-gV-LXt" firstAttribute="leading" secondItem="eBv-Y5-gpA" secondAttribute="leading" constant="52" id="r8w-Ji-uiQ"/>
+                                            <constraint firstItem="K46-fv-tVA" firstAttribute="leading" secondItem="eBv-Y5-gpA" secondAttribute="leading" constant="52" id="w0x-j0-6hE"/>
                                         </constraints>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="WZm-1e-vuR" id="vUd-WP-947"/>
-                                        </connections>
-                                    </textField>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit-icon" translatesAutoresizingMaskIntoConstraints="NO" id="YW1-0J-ehE">
-                                        <rect key="frame" x="299" y="314" width="28" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="YW1-0J-ehE" secondAttribute="height" multiplier="1:1" id="W36-X2-xx6"/>
-                                        </constraints>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3l3-uM-ccY">
-                                        <rect key="frame" x="0.0" y="372" width="375" height="280"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="K46-fv-tVA" firstAttribute="leading" secondItem="TIc-TZ-8pN" secondAttribute="leading" constant="32" id="0Jn-am-zb6"/>
-                                    <constraint firstItem="TIc-TZ-8pN" firstAttribute="trailing" secondItem="3l3-uM-ccY" secondAttribute="trailing" id="21o-ND-uuP"/>
-                                    <constraint firstItem="Vr0-T8-eR2" firstAttribute="leading" secondItem="TIc-TZ-8pN" secondAttribute="leading" constant="48" id="7ut-4b-ed6"/>
-                                    <constraint firstItem="Vr0-T8-eR2" firstAttribute="top" secondItem="vyJ-gV-LXt" secondAttribute="bottom" constant="16" id="FPi-iZ-7Xu"/>
-                                    <constraint firstItem="vyJ-gV-LXt" firstAttribute="leading" secondItem="TIc-TZ-8pN" secondAttribute="leading" constant="32" id="GRi-TY-4wX"/>
-                                    <constraint firstItem="K46-fv-tVA" firstAttribute="bottom" secondItem="Vr0-T8-eR2" secondAttribute="bottom" id="Ktr-1v-WM7"/>
-                                    <constraint firstItem="TIc-TZ-8pN" firstAttribute="trailing" secondItem="Vr0-T8-eR2" secondAttribute="trailing" constant="32" id="Lfa-02-L3c"/>
-                                    <constraint firstItem="3l3-uM-ccY" firstAttribute="leading" secondItem="TIc-TZ-8pN" secondAttribute="leading" id="NKq-UZ-zmZ"/>
-                                    <constraint firstItem="eAN-zR-gVf" firstAttribute="trailing" secondItem="vyJ-gV-LXt" secondAttribute="trailing" constant="32" id="No2-lT-rgB"/>
-                                    <constraint firstItem="Vr0-T8-eR2" firstAttribute="trailing" secondItem="YW1-0J-ehE" secondAttribute="trailing" constant="16" id="PgB-lR-sKd"/>
-                                    <constraint firstItem="YW1-0J-ehE" firstAttribute="top" secondItem="Vr0-T8-eR2" secondAttribute="top" constant="14" id="XIU-GB-3Z7"/>
-                                    <constraint firstItem="Vr0-T8-eR2" firstAttribute="bottom" secondItem="YW1-0J-ehE" secondAttribute="bottom" constant="14" id="YX8-dZ-CIi"/>
-                                    <constraint firstItem="3l3-uM-ccY" firstAttribute="top" secondItem="Vr0-T8-eR2" secondAttribute="bottom" constant="16" id="a7P-lw-wYt"/>
-                                    <constraint firstItem="K46-fv-tVA" firstAttribute="top" secondItem="Vr0-T8-eR2" secondAttribute="top" id="fNc-cM-zqV"/>
-                                    <constraint firstItem="TIc-TZ-8pN" firstAttribute="trailing" secondItem="K46-fv-tVA" secondAttribute="trailing" constant="32" id="fjg-Hl-Emf"/>
-                                    <constraint firstItem="vyJ-gV-LXt" firstAttribute="leading" secondItem="eAN-zR-gVf" secondAttribute="leading" constant="32" id="i2G-3J-1BX"/>
-                                    <constraint firstItem="eAN-zR-gVf" firstAttribute="bottom" secondItem="3l3-uM-ccY" secondAttribute="bottom" id="k2A-3W-fBP"/>
-                                    <constraint firstItem="vyJ-gV-LXt" firstAttribute="top" secondItem="eAN-zR-gVf" secondAttribute="top" constant="32" id="mDZ-6f-5m1"/>
-                                    <constraint firstItem="TIc-TZ-8pN" firstAttribute="trailing" secondItem="vyJ-gV-LXt" secondAttribute="trailing" constant="32" id="y08-Kq-bwt"/>
+                                    <constraint firstItem="eBv-Y5-gpA" firstAttribute="top" secondItem="j4g-mu-6Mg" secondAttribute="top" id="T9r-4m-9mW"/>
+                                    <constraint firstAttribute="bottom" secondItem="eBv-Y5-gpA" secondAttribute="bottom" id="a6L-8a-A5D"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="eAN-zR-gVf"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="TIc-TZ-8pN"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuQ-uw-92o">
-                                <rect key="frame" x="0.0" y="498" width="375" height="280"/>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuQ-uw-92o">
+                                <rect key="frame" x="0.0" y="778" width="375" height="260"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXe-1q-LhZ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2577,7 +2586,7 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Yob-v0-uc4" secondAttribute="bottom" constant="20" symbolic="YES" id="MK5-2t-D4d"/>
+                                    <constraint firstAttribute="bottom" secondItem="Yob-v0-uc4" secondAttribute="bottom" id="7Zf-Vk-OZZ"/>
                                     <constraint firstAttribute="trailing" secondItem="Yob-v0-uc4" secondAttribute="trailing" constant="20" symbolic="YES" id="Pdk-DX-X37"/>
                                     <constraint firstItem="GXe-1q-LhZ" firstAttribute="leading" secondItem="uuQ-uw-92o" secondAttribute="leading" symbolic="YES" id="QXs-K5-kAw"/>
                                     <constraint firstItem="Yob-v0-uc4" firstAttribute="top" secondItem="GXe-1q-LhZ" secondAttribute="bottom" symbolic="YES" id="R7d-kQ-TTo"/>
@@ -2610,19 +2619,22 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="eBv-Y5-gpA" firstAttribute="leading" secondItem="lgK-BN-N7p" secondAttribute="leading" id="9IM-Gd-sKx"/>
                             <constraint firstItem="lgK-BN-N7p" firstAttribute="trailing" secondItem="uuQ-uw-92o" secondAttribute="trailing" id="9YB-nX-W4i"/>
                             <constraint firstItem="lgK-BN-N7p" firstAttribute="bottom" secondItem="lJc-cG-RxN" secondAttribute="bottom" constant="16" id="9y2-Ka-tFV"/>
+                            <constraint firstItem="eBv-Y5-gpA" firstAttribute="height" secondItem="OJi-hq-ecf" secondAttribute="height" priority="250" id="JfI-1R-kmo"/>
                             <constraint firstItem="j4g-mu-6Mg" firstAttribute="top" secondItem="lgK-BN-N7p" secondAttribute="top" id="Jkd-Yj-r5g"/>
                             <constraint firstItem="Uru-HK-ja7" firstAttribute="centerY" secondItem="OJi-hq-ecf" secondAttribute="centerY" constant="50" id="OnN-V8-AQI"/>
                             <constraint firstItem="uuQ-uw-92o" firstAttribute="leading" secondItem="lgK-BN-N7p" secondAttribute="leading" id="PxW-dS-vPG"/>
-                            <constraint firstItem="lgK-BN-N7p" firstAttribute="bottom" secondItem="uuQ-uw-92o" secondAttribute="bottom" id="Q5b-PZ-Bzq"/>
+                            <constraint firstItem="lgK-BN-N7p" firstAttribute="bottom" secondItem="uuQ-uw-92o" secondAttribute="bottom" constant="-260" id="Q5b-PZ-Bzq"/>
                             <constraint firstItem="Uru-HK-ja7" firstAttribute="centerX" secondItem="OJi-hq-ecf" secondAttribute="centerX" constant="80" id="Qoe-le-FoC"/>
+                            <constraint firstItem="eBv-Y5-gpA" firstAttribute="trailing" secondItem="lgK-BN-N7p" secondAttribute="trailing" id="YAn-ef-jNv"/>
+                            <constraint firstItem="j4g-mu-6Mg" firstAttribute="width" secondItem="OJi-hq-ecf" secondAttribute="width" id="d6Q-9K-uhT"/>
                             <constraint firstItem="lJc-cG-RxN" firstAttribute="leading" secondItem="lgK-BN-N7p" secondAttribute="leading" constant="32" id="f4B-bM-haU"/>
                             <constraint firstItem="lgK-BN-N7p" firstAttribute="trailing" secondItem="lJc-cG-RxN" secondAttribute="trailing" constant="32" id="lfO-8G-2DD"/>
                             <constraint firstAttribute="trailing" secondItem="j4g-mu-6Mg" secondAttribute="trailing" id="nwG-24-WR7"/>
-                            <constraint firstItem="3l3-uM-ccY" firstAttribute="height" secondItem="uuQ-uw-92o" secondAttribute="height" id="uln-RE-dP1"/>
+                            <constraint firstItem="j4g-mu-6Mg" firstAttribute="bottom" secondItem="uuQ-uw-92o" secondAttribute="top" id="xaT-DT-uQP"/>
                             <constraint firstItem="j4g-mu-6Mg" firstAttribute="leading" secondItem="OJi-hq-ecf" secondAttribute="leading" id="yh8-S7-eyd"/>
-                            <constraint firstItem="lgK-BN-N7p" firstAttribute="bottom" secondItem="j4g-mu-6Mg" secondAttribute="bottom" id="yyf-sT-eRN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lgK-BN-N7p"/>
                     </view>
@@ -2632,6 +2644,7 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
                         <outlet property="datePicker" destination="Yob-v0-uc4" id="5Mp-Rg-q63"/>
                         <outlet property="dateTextField" destination="Vr0-T8-eR2" id="oON-oN-lxW"/>
                         <outlet property="editImageView" destination="YW1-0J-ehE" id="UF2-Dm-xLv"/>
+                        <outlet property="pickerBottomConstraint" destination="Q5b-PZ-Bzq" id="n3U-6n-TNb"/>
                         <outlet property="pickerContainerView" destination="uuQ-uw-92o" id="in8-Tb-h0O"/>
                         <outlet property="scrollView" destination="j4g-mu-6Mg" id="ZxL-BZ-fWT"/>
                         <outlet property="textFieldBackgroundView" destination="K46-fv-tVA" id="s8T-XX-PIV"/>
@@ -2639,7 +2652,7 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtY-0M-Qnx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-594" y="1203"/>
+            <point key="canvasLocation" x="-594.39999999999998" y="1202.9556650246307"/>
         </scene>
         <!--Stats View Controller-->
         <scene sceneID="lWL-RW-gIG">
@@ -3000,7 +3013,7 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="bZy-Q3-a4v"/>
+                        <viewLayoutGuide key="safeArea" id="xpx-JF-qSI"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="qir-cs-EG3" id="hDH-uh-fd4"/>
@@ -3011,6 +3024,10 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
             <point key="canvasLocation" x="180" y="-790"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="03C-rP-IWv"/>
+        <segue reference="LCD-tO-Hlk"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ID" width="26" height="27"/>
         <image name="ID-character" width="106" height="117"/>
@@ -3028,8 +3045,4 @@ Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou v
         <image name="slide-map" width="15" height="21"/>
         <image name="symptomes" width="77" height="77"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="03C-rP-IWv"/>
-        <segue reference="LCD-tO-Hlk"/>
-    </inferredMetricsTieBreakers>
 </document>
