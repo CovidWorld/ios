@@ -58,3 +58,26 @@ final class SpreadMapViewController: UIViewController {
         }
     }
 }
+
+extension SpreadMapViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+      guard let annotation = annotation as? RegionInfo else { return nil }
+      let identifier = "region"
+        if #available(iOS 11.0, *) {
+            var view: MKMarkerAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                as? MKMarkerAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+            } else {
+                view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: 0, y: 15)
+                view.rightCalloutAccessoryView = UIView()
+            }
+            return view
+        } else {
+            return MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        }
+    }
+}

@@ -37,9 +37,11 @@ import FirebaseRemoteConfig
 final class MainViewController: UIViewController {
 
     @IBOutlet private var protectView: UIView!
+    @IBOutlet private var symptomesView: UIView!
     @IBOutlet private var emergencyButton: UIButton!
     @IBOutlet private var diagnosedButton: UIButton!
     @IBOutlet private var quarantineView: UIView!
+    @IBOutlet private var statsView: UIView!
 
     private let networkService = CovidService()
     private var observer: DefaultsDisposable?
@@ -64,20 +66,17 @@ final class MainViewController: UIViewController {
         super.viewDidAppear(animated)
         registerUser()
 
-        if Defaults.quarantineActive {
-            diagnosedButton.isHidden = true
-        } else {
-            diagnosedButton.isHidden = false
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         quarantineView?.isHidden = !Defaults.quarantineActive
+        statsView?.isHidden = Defaults.quarantineActive
         diagnosedButton?.isHidden = Defaults.quarantineActive
-        quarantineObserver = Defaults.observe(\.quarantineActive) { [quarantineView, diagnosedButton] update in
+        quarantineObserver = Defaults.observe(\.quarantineActive) { [quarantineView, diagnosedButton, statsView] update in
             DispatchQueue.main.async {
                 quarantineView?.isHidden = !(update.newValue ?? true)
+                statsView?.isHidden = update.newValue ?? false
                 diagnosedButton?.isHidden = update.newValue ?? false
             }
         }
@@ -97,6 +96,10 @@ final class MainViewController: UIViewController {
         super.loadView()
         emergencyButton.isHidden = false
 
+        protectView.layer.cornerRadius = 20
+        protectView.layer.masksToBounds = true
+        symptomesView.layer.cornerRadius = 20
+        symptomesView.layer.masksToBounds = true
         protectView.layer.cornerRadius = 20
         protectView.layer.masksToBounds = true
         emergencyButton.layer.cornerRadius = 20
@@ -145,9 +148,8 @@ extension MainViewController {
                 }
             }
 
-            if Defaults.pushToken != nil {
-                action()
-            } else {
+            action()
+            if Defaults.pushToken == nil {
                 observer = Defaults.observe(\.pushToken) { _ in
                     DispatchQueue.main.async {
                         action()

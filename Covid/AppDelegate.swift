@@ -32,6 +32,7 @@ import UIKit
 import Firebase
 import SwiftyUserDefaults
 import FirebaseCrashlytics
+import FirebaseRemoteConfig
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,7 +45,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         setupFirebaseConfig()
         Crashlytics.crashlytics().setUserID(Defaults.deviceId)
-
+        UITabBar.appearance().unselectedItemTintColor = UIColor(red: 150 / 255.0, green: 161 / 255.0, blue: 205 / 255.0, alpha: 1)
         if !Defaults.didRunApp {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let exampleViewController = mainStoryboard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController

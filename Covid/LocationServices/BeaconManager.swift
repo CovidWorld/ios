@@ -149,6 +149,7 @@ extension BeaconManager: CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             lastLocation = nil
         }
+        LocationReporter.shared.sendConnections()
     }
 
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {

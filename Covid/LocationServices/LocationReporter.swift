@@ -104,7 +104,8 @@ final class LocationReporter {
         // TODO: nicer
         let distance = appDelegate?.remoteConfig?["desiredPositionAccuracy"].numberValue?.doubleValue ?? 100.0
         let treshold = max(location.horizontalAccuracy * 2, distance)
-        let message = appDelegate?.remoteConfig?["quarantineLeftMessage"].stringValue ?? "Opustili ste zónu domácej karantény. Pre ochranu Vášho zdravia a zdravia Vašich blízkych, Vás žiadame o striktné dodržiavanie nariadenej karantény."
+        let defaultMessage = "Opustili ste zónu domácej karantény. Pre ochranu Vášho zdravia a zdravia Vašich blízkych, Vás žiadame o striktné dodržiavanie nariadenej karantény."
+        let message = appDelegate?.remoteConfig?["quarantineLeftMessage"].stringValue ?? defaultMessage
 
         Defaults.lastQuarantineUpdate = currentTimestamp
 

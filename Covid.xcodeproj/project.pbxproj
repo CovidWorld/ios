@@ -17,6 +17,7 @@
 		0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */; };
 		0F629286241D4F6F00FF5E14 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629285241D4F6F00FF5E14 /* BeaconManager.swift */; };
 		0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */; };
+		0F69C78E242D57E300CBE342 /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B3242013CB00B3A204 /* Poppins-Bold.otf */; };
 		0F745770241D9342000546FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F74576F241D9342000546FA /* GoogleService-Info.plist */; };
 		0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */; };
 		0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA4517242183EE00816388 /* LocationReporter.swift */; };
@@ -27,7 +28,6 @@
 		0FBA45232421919200816388 /* Disk+Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA45222421919200816388 /* Disk+Errors.swift */; };
 		0FCB4F0924238BDC00389493 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB4F0824238BDC00389493 /* StatsViewController.swift */; };
 		0FCB4F0B2423B3D400389493 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCB4F0A2423B3D400389493 /* PrivacyViewController.swift */; };
-		0FD28B122426D51E0015F7E7 /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD28B112426D51E0015F7E7 /* AdditionalInfoViewController.swift */; };
 		0FD28B152426EB850015F7E7 /* SpreadMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD28B142426EB850015F7E7 /* SpreadMapViewController.swift */; };
 		0FD28B172426EBD30015F7E7 /* SpreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD28B162426EBD30015F7E7 /* SpreadViewController.swift */; };
 		0FD28B1924278C230015F7E7 /* SpreadListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD28B1824278C230015F7E7 /* SpreadListTableViewController.swift */; };
@@ -59,7 +59,6 @@
 		C03E09EB242013CB00B3A204 /* Poppins-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B0242013CA00B3A204 /* Poppins-Thin.otf */; };
 		C03E09EC242013CB00B3A204 /* Poppins-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B1242013CA00B3A204 /* Poppins-MediumItalic.otf */; };
 		C03E09ED242013CB00B3A204 /* Poppins-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B2242013CA00B3A204 /* Poppins-LightItalic.otf */; };
-		C03E09EE242013CB00B3A204 /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B3242013CB00B3A204 /* Poppins-Bold.otf */; };
 		C03E09EF242013CB00B3A204 /* Poppins-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B4242013CB00B3A204 /* Poppins-Black.otf */; };
 		C03E09F0242013CB00B3A204 /* Poppins-BlackItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B5242013CB00B3A204 /* Poppins-BlackItalic.otf */; };
 		C03E09F1242013CB00B3A204 /* Poppins-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B6242013CB00B3A204 /* Poppins-Regular.otf */; };
@@ -119,7 +118,6 @@
 		0FBA45222421919200816388 /* Disk+Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disk+Errors.swift"; sourceTree = "<group>"; };
 		0FCB4F0824238BDC00389493 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		0FCB4F0A2423B3D400389493 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
-		0FD28B112426D51E0015F7E7 /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
 		0FD28B142426EB850015F7E7 /* SpreadMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadMapViewController.swift; sourceTree = "<group>"; };
 		0FD28B162426EBD30015F7E7 /* SpreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadViewController.swift; sourceTree = "<group>"; };
 		0FD28B1824278C230015F7E7 /* SpreadListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpreadListTableViewController.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 		0FD28B102426D4FF0015F7E7 /* AdditionalInfo */ = {
 			isa = PBXGroup;
 			children = (
-				0FD28B112426D51E0015F7E7 /* AdditionalInfoViewController.swift */,
 				C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */,
 				C0F9962E241FCBB2009C6BF5 /* PreventionViewController.swift */,
 				C0F99634241FE632009C6BF5 /* SymptomsViewController.swift */,
@@ -496,7 +493,6 @@
 				C03E0A16242013CB00B3A204 /* Inter-BoldItalic.otf in Resources */,
 				C03E0A00242013CB00B3A204 /* Inter-UI-BoldItalic.otf in Resources */,
 				0F247F06241A61AC00986740 /* Assets.xcassets in Resources */,
-				C03E09EE242013CB00B3A204 /* Poppins-Bold.otf in Resources */,
 				0F745770241D9342000546FA /* GoogleService-Info.plist in Resources */,
 				C03E09E9242013CB00B3A204 /* Poppins-SemiBold.otf in Resources */,
 				C03E09E1242013CB00B3A204 /* Poppins-SemiBoldItalic.otf in Resources */,
@@ -506,6 +502,7 @@
 				C03E09FE242013CB00B3A204 /* Inter-ExtraLightItalic.otf in Resources */,
 				C03E09F0242013CB00B3A204 /* Poppins-BlackItalic.otf in Resources */,
 				C03E0A11242013CB00B3A204 /* Inter-ExtraLight.otf in Resources */,
+				0F69C78E242D57E300CBE342 /* Poppins-Bold.otf in Resources */,
 				C03E09FC242013CB00B3A204 /* Inter-Light.otf in Resources */,
 				C03E09E4242013CB00B3A204 /* Poppins-ThinItalic.otf in Resources */,
 				C03E09F4242013CB00B3A204 /* Inter-Bold.otf in Resources */,
@@ -631,7 +628,6 @@
 				0FD28B152426EB850015F7E7 /* SpreadMapViewController.swift in Sources */,
 				0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */,
 				6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */,
-				0FD28B122426D51E0015F7E7 /* AdditionalInfoViewController.swift in Sources */,
 				0FBA451C24218EF100816388 /* Disk+Codable.swift in Sources */,
 				0FBA45212421916B00816388 /* Disk+Helpers.swift in Sources */,
 				0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */,

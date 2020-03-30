@@ -121,10 +121,10 @@ extension NetworkServiceEndpoint {
 class NetworkService<Endpoint: NetworkServiceEndpoint> {
     /// Requests an API call to web service. Response is passed in completion closure.
     var runningTasks = [URLSessionDataTask]()
-    let reachability = try! Reachability()
+    let reachability = try? Reachability()
 
     func request(_ endpoint: Endpoint, using request: HTTPRequest.Type = HTTPRequest.self, completion: @escaping (NetworkServiceResponse) -> Void) {
-        guard reachability.connection != .unavailable else {
+        guard reachability?.connection != .unavailable else {
             completion(.failure(.notConnected))
             return
         }

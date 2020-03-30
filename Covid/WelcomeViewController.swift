@@ -33,6 +33,7 @@ import SwiftyUserDefaults
 
 final class WelcomeViewController: UIViewController {
     @IBOutlet private var agreeButton: UIButton!
+    @IBOutlet private var cooperationLabel: UILabel!
 
     override func loadView() {
         super.loadView()
@@ -43,6 +44,15 @@ final class WelcomeViewController: UIViewController {
         if Defaults.deviceId.isEmpty {
             Defaults.deviceId = UUID().uuidString
         }
+
+        let text = "Tento projekt vznikol\nako spojenie dobrovoľnej iniciatívy\nZostanZdravy a Sygic"
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Poppins-Regular", size: 15.0)!, .foregroundColor: UIColor.darkGray]
+        let attributedString = NSMutableAttributedString(string: text, attributes: attributes)
+        let zostanRange = (attributedString.string as NSString).range(of: "ZostanZdravy")
+        let sygicRange = (attributedString.string as NSString).range(of: "Sygic")
+        attributedString.setAttributes([.font: UIFont(name: "Poppins-Bold", size: 15.0)!], range: zostanRange)
+        attributedString.setAttributes([.font: UIFont(name: "Poppins-Bold", size: 15.0)!], range: sygicRange)
+        cooperationLabel.attributedText = attributedString
     }
 
     @IBAction private func agreeDidTap(_ sender: Any) {

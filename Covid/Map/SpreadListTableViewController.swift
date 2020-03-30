@@ -30,31 +30,28 @@
 
 import UIKit
 
-final class StatsHeaderView: UITableViewHeaderFooterView {
-    let region = UILabel()
-    let cases = UILabel()
-
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-
-        contentView.addSubview(region)
-        contentView.addSubview(cases)
-        region.translatesAutoresizingMaskIntoConstraints = false
-        cases.translatesAutoresizingMaskIntoConstraints = false
-        region.font = UIFont(name: "Poppins-Medium", size: 17)
-        cases.font = UIFont(name: "Poppins-Medium", size: 17)
-
-        NSLayoutConstraint.activate([
-            region.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            cases.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            region.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            contentView.trailingAnchor.constraint(equalTo: cases.trailingAnchor, constant: 16)
-        ])
-
-    }
+final class RegionCell: UITableViewCell {
+    let regionLabel = UILabel()
+    let casesLabel = UILabel()
 
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+
+        contentView.addSubview(regionLabel)
+        contentView.addSubview(casesLabel)
+        regionLabel.translatesAutoresizingMaskIntoConstraints = false
+        casesLabel.translatesAutoresizingMaskIntoConstraints = false
+        regionLabel.font = UIFont(name: "Poppins-Light", size: 15)
+        casesLabel.font = UIFont(name: "Poppins-Bold", size: 15)
+        regionLabel.textColor = textLabel?.textColor
+        casesLabel.textColor = textLabel?.textColor
+
+        NSLayoutConstraint.activate([
+            casesLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            contentView.trailingAnchor.constraint(equalTo: casesLabel.trailingAnchor, constant: 34),
+            regionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            regionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 34)
+        ])
     }
 }
 
@@ -70,27 +67,12 @@ final class SpreadListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RegionCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RegionCell", for: indexPath) as? RegionCell
 
-        cell.textLabel?.text = data[indexPath.row].region
-        cell.detailTextLabel?.text = String((data[indexPath.row].cases ?? 0))
+        cell?.regionLabel.text = data[indexPath.row].region
+        cell?.casesLabel.text = String((data[indexPath.row].cases ?? 0))
 
-        return cell
+        return cell ?? UITableViewCell()
     }
 
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        44
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header: StatsHeaderView
-        if let dequeuedHeader = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as? StatsHeaderView {
-            header = dequeuedHeader
-        } else {
-            header = StatsHeaderView(reuseIdentifier: "header")
-        }
-        header.region.text = "Okres"
-        header.cases.text = "Počet prípadov"
-        return header
-    }
 }

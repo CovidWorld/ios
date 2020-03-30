@@ -32,20 +32,30 @@ import UIKit
 
 final class StatsViewController: UIViewController {
 
+    @IBOutlet private var positiveView: UIView!
+    @IBOutlet private var healedView: UIView!
     @IBOutlet private var positiveCasesLabel: UILabel!
     @IBOutlet private var healedCasesLabel: UILabel!
-    @IBOutlet private var deathsLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: UIApplication.willEnterForegroundNotification, object: nil)
+        reloadData()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super .viewDidAppear(animated)
+    override func loadView() {
+        super.loadView()
+        let borderColor = UIColor(red: 217 / 255.0, green: 221 / 255.0, blue: 238 / 255.0, alpha: 1).cgColor
 
-        reloadData()
+        positiveView.layer.cornerRadius = 10
+        positiveView.layer.masksToBounds = true
+        positiveView.layer.borderWidth = 0.5
+        positiveView.layer.borderColor = borderColor
+        healedView.layer.cornerRadius = 10
+        healedView.layer.masksToBounds = true
+        healedView.layer.borderWidth = 0.5
+        healedView.layer.borderColor = borderColor
     }
 
     @objc
@@ -62,7 +72,6 @@ final class StatsViewController: UIViewController {
                         DispatchQueue.main.async {
                             self?.positiveCasesLabel.text = String(Int(result.totalCases))
                             self?.healedCasesLabel.text = String(Int(result.totalRecovered))
-                            self?.deathsLabel.text = String(Int(result.totalDeaths))
                         }
                     }
                 } catch let error {
