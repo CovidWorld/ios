@@ -42,6 +42,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     var backgroundTaskID: UIBackgroundTaskIdentifier?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        #if DEBUG
+        guard !isRunningUnitTests else {
+            window = nil
+            return true
+        }
+        #endif
+
         FirebaseApp.configure()
         setupFirebaseConfig()
         Crashlytics.crashlytics().setUserID(Defaults.deviceId)
@@ -171,3 +179,16 @@ extension AppDelegate {
         }
     }
 }
+
+// MARK: Test target
+
+#if DEBUG
+extension AppDelegate {
+
+    private var isRunningUnitTests: Bool {
+        let env = ProcessInfo.processInfo.environment
+        print("ENV KEYS: \(env.keys)")
+        return env.keys.contains("XCInjectBundleInto")
+    }
+}
+#endif
