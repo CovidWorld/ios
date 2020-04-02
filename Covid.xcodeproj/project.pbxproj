@@ -40,6 +40,7 @@
 		0FF4F220241AF21200643297 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F21F241AF21200643297 /* APIResponses.swift */; };
 		0FF4F224241AF61600643297 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F223241AF61600643297 /* APIRequests.swift */; };
 		1EACF742EFBC189662F2C060 /* Pods_Covid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E1E3496C8614E26AC81B2B /* Pods_Covid.framework */; };
+		21DE1B4D2435DA7500746CE8 /* iengine.lic in Resources */ = {isa = PBXBuildFile; fileRef = 21DE1B4C2435DA7500746CE8 /* iengine.lic */; };
 		6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */; };
 		C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0091573241EBCD10012F557 /* CountryCodeViewController.swift */; };
 		C0091576241EC10B0012F557 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = C0091575241EC10B0012F557 /* CountryCodes.json */; };
@@ -129,6 +130,7 @@
 		0FF4F21D241AEFBB00643297 /* CovidService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		0FF4F21F241AF21200643297 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		0FF4F223241AF61600643297 /* APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
+		21DE1B4C2435DA7500746CE8 /* iengine.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iengine.lic; sourceTree = "<group>"; };
 		6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapViewController.swift; sourceTree = "<group>"; };
 		C0091573241EBCD10012F557 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewController.swift; sourceTree = "<group>"; };
 		C0091575241EC10B0012F557 /* CountryCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 		0F1181302416C70500213533 = {
 			isa = PBXGroup;
 			children = (
+				21DE1B4C2435DA7500746CE8 /* iengine.lic */,
 				0F74576F241D9342000546FA /* GoogleService-Info.plist */,
 				0F11813B2416C70500213533 /* Covid */,
 				0F11813A2416C70500213533 /* Products */,
@@ -499,6 +502,7 @@
 				C03E09EA242013CB00B3A204 /* Poppins-Italic.otf in Resources */,
 				C03E0A02242013CB00B3A204 /* Inter-UI-Bold.otf in Resources */,
 				0FD28B1B242827330015F7E7 /* okresy.json in Resources */,
+				21DE1B4D2435DA7500746CE8 /* iengine.lic in Resources */,
 				C03E09FE242013CB00B3A204 /* Inter-ExtraLightItalic.otf in Resources */,
 				C03E09F0242013CB00B3A204 /* Poppins-BlackItalic.otf in Resources */,
 				C03E0A11242013CB00B3A204 /* Inter-ExtraLight.otf in Resources */,
@@ -795,6 +799,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -816,6 +821,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

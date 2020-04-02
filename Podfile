@@ -1,5 +1,8 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '10.0'
+platform :ios, '10.1'
+
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/innovatrics/innovatrics-podspecs'
 
 target 'Covid' do
   use_frameworks!
@@ -10,6 +13,7 @@ target 'Covid' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Crashlytics'
   pod 'Firebase/RemoteConfig'
-  # Pods for Covid
+
+  pod 'dot'
 
 end
