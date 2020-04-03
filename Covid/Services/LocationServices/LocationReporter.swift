@@ -58,7 +58,7 @@ final class LocationReporter {
     }
 
     func sendConnections() {
-        let batchTime = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
+        let batchTime = Firebase.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastConnectionsUpdate ?? Date().timeIntervalSince1970
 
@@ -149,7 +149,7 @@ final class LocationReporter {
                                 accuracy: location.horizontalAccuracy)
         try? Disk.append(location, to: "locations.json", in: .applicationSupport)
 
-        let batchTime = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
+        let batchTime = Firebase.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
 
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastLocationUpdate ?? 0

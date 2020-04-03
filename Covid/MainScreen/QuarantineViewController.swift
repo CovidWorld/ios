@@ -104,7 +104,7 @@ extension QuarantineViewController {
         let days: String
 
         if numberOfDays == 1 {
-            days = "ďeň"
+            days = "deň"
         } else if numberOfDays >= 2 && numberOfDays <= 4 {
             days = "dni"
         } else {

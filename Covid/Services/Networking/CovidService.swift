@@ -140,7 +140,7 @@ enum CovidEndpoint: NetworkServiceEndpoint {
     case locations(locationsRequestData: LocationsRequestData)
 
     static var serverDomain: String = {
-        (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?.configValue(forKey: "apiHost").stringValue ?? "https://covid-gateway.azurewebsites.net"
+        Firebase.remoteConfig?.configValue(forKey: "apiHost").stringValue ?? "https://covid-gateway.azurewebsites.net"
     }()
     var serverScript: String { "/api" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }

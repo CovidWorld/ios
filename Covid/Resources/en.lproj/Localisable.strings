@@ -1,0 +1,76 @@
+"face_capture.title" = "Enrollment";
+
+"face_capture.hint.centerFace" = "Center your face into the circle";
+"face_capture.hint.light" = "Rotate face towards light source";
+"face_capture.hint.done" = "That's it!";
+"face_capture.hint.start" = "Start";
+"face_capture.hint.title" = "Instructions";
+
+"face_capture.instruction_step.light.first" = "Move towards light";
+"face_capture.instruction_step.light.second" = "Rotate your face towards the light";
+"face_capture.instruction_step.capture" = "Stay still!";
+
+"face_capture.instruction_step.position.simple" = "Center your face into the circle";
+"face_capture.instruction_step.position.andvancedTitle" = "Center your face";
+"face_capture.instruction_step.position.andvancedText" = "Hold the device at eye level.\n Align your face to the center of the circle.\nAdjust the distance between your device and your face.";
+
+"face_capture.instruction_step.light.simple" = "Rotate face towards light source";
+"face_capture.instruction_step.light.andvancedTitle" = "Rotate towards light";
+"face_capture.instruction_step.light.andvancedText" = "Find a front light source.\nAvoid lights casting strong shadows on your face (top or side lights).\nAvoid strong back-light.";
+
+"face_capture.done" = "That\'s it!";
+
+"face_capture.alert.camera.title" = "Camera usage not allowed";
+"face_capture.alert.camera.message" = "Go to Settings?";
+"face_capture.alert.camera.option.settings" = "Settings";
+"face_capture.alert.camera.option.cancel" = "Cancel";
+
+"face_capture.confirmation.title" = "Verify resulting photo";
+"face_capture.confirmation.accept" = "Accept";
+"face_capture.confirmation.tryAgain" = "Try again";
+
+"face_capture.failedTitle" = "Enrollment";
+"face_capture.failed" = "Enrollment failed";
+"face_capture.failedTip" = "Please read the following tips:";
+
+"liveness.title" = "Liveness Detection";
+"liveness.instruction_step.light" = "Rotate face towards light source";
+"liveness.instruction_step.eyePosition" = "Hold the phone at the eye level";
+"liveness.instruction_step.glasses" = "Remove your glasses";
+"liveness.instruction_step.start" = "START";
+
+
+
+"face_capture.instruction_step.center.first" = "Center your face";
+"face_capture.instruction_step.center.second" = "Move your face to the center of the circle";
+"face_capture.instruction_step.close.first" = "Move back";
+"face_capture.instruction_step.close.second" = "Move your device away from your face";
+"face_capture.instruction_step.far.first" = "Move closer";
+"face_capture.instruction_step.far.second" = "Move your device closer to your face";
+"face_capture.instruction_step.light.first" = "Move towards light";
+"face_capture.instruction_step.light.second" = "Rotate your face towards the light";
+"face_capture.instruction_step.capture" = "Stay still!";
+
+"liveness.watchObject" = "Watch the object";
+"liveness.state.lowQuality" = "Move towards light";
+"liveness.state.multiFace" = "";
+"liveness.state.noFace" = "Look straight";
+"liveness.state.templateNotMatching" = "";
+"liveness.state.tooClose" = "Move back";
+"liveness.state.tooFar" = "Move closer";
+
+"document_capture.type_front.side" = "Front Side";
+"document_capture.type_front.hint" = "Take picture of front side";
+"document_capture.type_back.side" = "Back Side";
+"document_capture.type_back.hint" = "Take picture of back side";
+
+"document_review.info_bar.uncertainItems" = "%d";
+"document_review.info_bar.ok" = "All items recognized";
+"document_review.title.uncertain" = "Please verify all the data.";
+"document_review.title.ok" = "Please verify all the data.";
+"document_review.subtitle.uncertain" = "Uncertain items require special attention.";
+"document_review.subtitle.ok" = "All items were recognized successfully.";
+"document_review.allCorrenct" = "All correct";
+
+
+

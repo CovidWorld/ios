@@ -34,7 +34,7 @@ import CoreBluetooth
 import SwiftyUserDefaults
 import FirebaseRemoteConfig
 
-final class MainViewController: UIViewController {
+final class MainViewController: UIViewController, NotificationCenterObserver {
 
     @IBOutlet private var protectView: UIView!
     @IBOutlet private var symptomesView: UIView!
@@ -47,8 +47,17 @@ final class MainViewController: UIViewController {
     private var observer: DefaultsDisposable?
     private var quarantineObserver: DefaultsDisposable?
 
+    private var faceCaptureCoordinator: FaceCaptureCoordinator?
+    var notificationTokens: [NotificationToken] = []
+
+    deinit {
+        unobserveNotifications()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        observeFaceIDRegistrationNotification()
 
         UIApplication.shared.registerForRemoteNotifications()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
@@ -66,6 +75,7 @@ final class MainViewController: UIViewController {
         super.viewDidAppear(animated)
         registerUser()
 
+        startFaceIDVerificationIfNeeded()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -128,7 +138,7 @@ final class MainViewController: UIViewController {
 extension MainViewController {
 
     private func remoteConfigValue() -> RemoteConfigValue? {
-        (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?.configValue(forKey: "hotlines")
+        Firebase.remoteConfig?.configValue(forKey: "hotlines")
     }
 
     private func registerUser() {
@@ -156,6 +166,68 @@ extension MainViewController {
                     }
                 }
             }
+        }
+    }
+}
+
+extension MainViewController {
+
+    // MARK: FaceID Flow
+
+    func observeFaceIDRegistrationNotification() {
+        observeNotification(withName: .startFaceIDRegistration) { [weak self] (notification) in
+            let navigationController = StartFaceIDRegistrationNotification.navigationController(from: notification)
+            let completion = StartFaceIDRegistrationNotification.completion(from: notification)
+
+            if let navigationController = navigationController, let completion = completion {
+                self?.showFaceRegistration(in: navigationController, completion: completion)
+            }
+        }
+    }
+
+    private func showFaceRegistration(in navigationController: UINavigationController, completion: @escaping () -> Void) {
+        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .registerFace)
+        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
+            switch result {
+            case .success:
+                self?.faceCaptureCoordinator = nil
+                self?.navigationController?.popToRootViewController(animated: true)
+            case .failure:
+                break
+            }
+
+            completion()
+        }
+        faceCaptureCoordinator?.showOnboarding(in: navigationController)
+    }
+
+    private func showFaceVerification() {
+        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
+        let viewController = faceCaptureCoordinator!.startFaceCapture()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        faceCaptureCoordinator?.navigationController = navigationController
+
+        faceCaptureCoordinator?.onAlert = { alertControler in
+            navigationController.present(alertControler, animated: true, completion: nil)
+        }
+        faceCaptureCoordinator?.onCoordinatorResolution = { _ in
+            navigationController.dismiss(animated: true, completion: nil)
+        }
+        present(navigationController, animated: true, completion: nil)
+    }
+
+    // TODO: remove this func and key from Settings.bundle once the feature is ready
+    private func startFaceIDVerificationIfNeeded() {
+
+        guard
+            Defaults.quarantineActive == true,
+            FaceIDStorage().referenceFaceData != nil,
+            Defaults.allowVerifyFaceId == true else {
+            return
+        }
+        after(.seconds(1)) { [weak self] in
+            self?.showFaceVerification()
         }
     }
 }

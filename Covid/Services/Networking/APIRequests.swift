@@ -69,7 +69,7 @@ struct QuarantineRequestData: Codable {
         self.profileId = profileId ?? 0
         self.mfaToken = mfaToken ?? ""
 
-        let quarantineDuration = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["quarantineDuration"].stringValue ?? "14"
+        let quarantineDuration = Firebase.remoteConfig?["quarantineDuration"].stringValue ?? "14"
 
         guard let date = Defaults.quarantineStart else {
             self.duration = quarantineDuration

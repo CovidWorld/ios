@@ -96,7 +96,7 @@ extension ChooseDateViewController {
         let calendar = Calendar.current
         let currentDate = Date()
         var components = DateComponents()
-        let quarantineDuration = (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig?["quarantineDuration"].stringValue ?? "14"
+        let quarantineDuration = Firebase.remoteConfig?["quarantineDuration"].stringValue ?? "14"
 
         components.calendar = Calendar.current
         components.day = -(Int(quarantineDuration) ?? 14) + 1

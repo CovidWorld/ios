@@ -1526,7 +1526,7 @@ ZostanZdravy a Sygic</string>
                                 </state>
                                 <connections>
                                     <action selector="agreeDidTap:" destination="Zak-E9-be5" eventType="touchUpInside" id="OWJ-bf-Mv3"/>
-                                    <segue destination="WZm-1e-vuR" kind="show" identifier="initQuarantine" id="VjG-x2-bdJ"/>
+                                    <segue destination="WZm-1e-vuR" kind="show" identifier="initQuarantine" id="8Dv-9x-mau"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1787,24 +1787,24 @@ nie je COVID-19.</string>
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="g0Z-rl-3mo" customClass="CountryCodeViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1p-t3-Va7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím zadajte vaše telefónne číslo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfE-tc-XI3">
-                                <rect key="frame" x="16" y="72" width="343" height="21"/>
+                                <rect key="frame" x="16" y="104" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7L-hd-bKY">
-                                <rect key="frame" x="0.0" y="101" width="375" height="0.6666666666666714"/>
+                                <rect key="frame" x="0.0" y="133" width="375" height="0.66666666666665719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="Hg9-Z5-F3b"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srM-E7-BiE">
-                                <rect key="frame" x="0.0" y="101.66666666666667" width="375" height="44.000000000000014"/>
+                                <rect key="frame" x="0.0" y="133.66666666666666" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SM0-re-rVv"/>
                                 </constraints>
@@ -1818,14 +1818,14 @@ nie je COVID-19.</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nK-Me-UkN">
-                                <rect key="frame" x="16" y="145.66666666666666" width="359" height="0.33333333333334281"/>
+                                <rect key="frame" x="16" y="177.66666666666666" width="359" height="0.33333333333334281"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="fAI-PA-YrB"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+421" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OER-7S-eH6">
-                                <rect key="frame" x="15.999999999999996" y="146" width="46.666666666666657" height="44"/>
+                                <rect key="frame" x="15.999999999999996" y="178" width="46.666666666666657" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0SO-Zp-d7M"/>
                                 </constraints>
@@ -1834,31 +1834,31 @@ nie je COVID-19.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-Bg-IRH">
-                                <rect key="frame" x="78.666666666666671" y="146" width="0.6666666666666714" height="44.666666666666657"/>
+                                <rect key="frame" x="78.666666666666671" y="178" width="0.6666666666666714" height="44.666666666666657"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="0.5" id="4k4-6O-gDW"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3P-q4-fCl">
-                                <rect key="frame" x="0.0" y="190" width="375" height="0.66666666666665719"/>
+                                <rect key="frame" x="0.0" y="222" width="375" height="0.66666666666665719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="9d6-uU-c2y"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="000 000 000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksH-i2-uOu">
-                                <rect key="frame" x="95.333333333333343" y="146" width="263.66666666666663" height="44"/>
+                                <rect key="frame" x="95.333333333333343" y="178" width="263.66666666666663" height="44"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
                             </textField>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4h-qm-X3u">
-                                <rect key="frame" x="0.0" y="508" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="562" width="375" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-mx-VPD">
-                                <rect key="frame" x="24" y="230.66666666666663" width="327" height="119"/>
+                                <rect key="frame" x="24" y="262.66666666666669" width="327" height="119"/>
                                 <string key="text">Pre zvýšenie Vašej ochrany prosím zadajte osobné telefónne číslo. 
 Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v kontakte s infikovanou osobou.</string>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -1920,23 +1920,23 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="FXd-Oq-pKb" customClass="VerificationCodeViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fwW-KG-Gx2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Na vaše telefónne číslo sme poslali SMS s aktivačným kódom." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgM-re-VLw">
-                                <rect key="frame" x="16" y="72" width="343" height="42"/>
+                                <rect key="frame" x="16" y="104" width="343" height="42"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zadajte prosím 6 miestny aktivačný kód:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-ZR-NIX">
-                                <rect key="frame" x="16" y="130" width="343" height="21"/>
+                                <rect key="frame" x="16" y="162" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="_ _ _  _ _ _" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7B-JV-gDl">
-                                <rect key="frame" x="42.666666666666657" y="167" width="290" height="49.666666666666657"/>
+                                <rect key="frame" x="42.666666666666657" y="199" width="290" height="49.666666666666657"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="Eh8-Ia-mfg"/>
@@ -2402,7 +2402,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hgO-J6-TO3">
                                 <rect key="frame" x="16" y="88" width="343" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <mutableString key="text">Aplikácia Covid-19 bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.
+                                <string key="text">Aplikácia Covid-19 bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.
 
 Jednou z najzákernejších prejavov Covid-19 je jej inkubačná doba, kedy pacient chorobu šíri až 14-dní bez jej viditeľných symptómov. Tým sa vírus šíri rýchlejšie ako obyčajná chrípka a ťažké stavy tak prehltia zdravotnícky systém, ktorý v žiadnej krajine nebol pripravený na takýto nárast nákazy. Cieľom aplikácie je výrazne spomaliť nástup a rýchlejšie otestovať potenciálne nakazených ľudí a tým predísť šíreniu choroby bez ich vedomia. Tým ochránime infikované osoby, ich blízkych a celý zdravotnícky systém, ktorému zostane kapacita pred exponenciálnym nárastom prípadov. 
 
@@ -2433,7 +2433,7 @@ Preto je nesmierne dôležité prejaviť ľudskosť mladých voči starým, zdra
 Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Štefan Marinčák, Daniel Kožík, Tomáš Michálek, Turn.sk, Jozef Benko, DigitalLegal, Slovensko.Digital, Hackvirus.sk
 Širší odborný tím spoluautorov:  doc. JUDr. MUDr. Peter Kováč, PhD. et. PhD, MUDr. Vanda Martišková, MUDr. Karolína Bašová, MDDr. Peter Czakó, MUDr. Martin Čaprnda, PhD., prof. MUDr. Dušan Meško, PhD., MUDr. Peter Herman, MUDr. Gabriela Ďuricová, PhD., MUDr. Igor Krupa, MUDr. Gabriela Ďuricová, PhD., MUDr. Alžbeta Reviczká, MUDr. Andrej Daňo, MUDr. Veronika Pružincová, Juraj Novosad, Nicolas Hason, Maroš Lukáč
 
-Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</mutableString>
+Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2971,10 +2971,183 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</mutableString>
             </objects>
             <point key="canvasLocation" x="-1490.4000000000001" y="-1068.4729064039409"/>
         </scene>
+        <!--Face Capture Onboarding View Controller-->
+        <scene sceneID="uYl-2E-qaY">
+            <objects>
+                <viewController storyboardIdentifier="faceCaptureOnboarding" id="NRD-w8-YSR" customClass="FaceCaptureOnboardingViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KVg-yd-xs9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V1-dX-8zJ">
+                                <rect key="frame" x="35" y="79" width="325" height="84"/>
+                                <string key="text">Skenovanie tváre
+pre karanténu</string>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHf-bD-Ik1">
+                                <rect key="frame" x="35" y="199" width="325" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="iD4-gm-zHu"/>
+                                </constraints>
+                                <string key="text">Prosím naskenujte Vašu tvár pre
+prípadnú verifikáciu pri dodržiavaní
+povinnej karantény.</string>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tento krok je povinný." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5z-gS-Pnp">
+                                <rect key="frame" x="35" y="288" width="325" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ScF-rr-cw4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ii9-ry-Tj4">
+                                <rect key="frame" x="35" y="350" width="325" height="45"/>
+                                <string key="text">Dáta sú uložené výhradne
+na Vašom zariadení.</string>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-io-p5H">
+                                <rect key="frame" x="35" y="692" width="305" height="70"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="tba-TO-eDQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                <state key="normal" title="Štart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="start:" destination="NRD-w8-YSR" eventType="touchUpInside" id="EFH-oJ-lxI"/>
+                                    <action selector="start:" destination="9aP-WU-k0t" eventType="touchUpInside" id="icq-cF-LRx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Hdf-sr-LVt" firstAttribute="trailing" secondItem="cCw-io-p5H" secondAttribute="trailing" constant="35" id="3zv-ut-naL"/>
+                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="leading" secondItem="SHf-bD-Ik1" secondAttribute="leading" id="6Au-Ey-rbS"/>
+                            <constraint firstItem="cCw-io-p5H" firstAttribute="bottom" secondItem="Hdf-sr-LVt" secondAttribute="bottom" constant="-16" id="8gz-iI-KGE"/>
+                            <constraint firstItem="4V1-dX-8zJ" firstAttribute="leading" secondItem="Hdf-sr-LVt" secondAttribute="leading" constant="35" id="FtS-xl-I8a"/>
+                            <constraint firstItem="4V1-dX-8zJ" firstAttribute="top" secondItem="Hdf-sr-LVt" secondAttribute="top" constant="35" id="Jmg-Ir-JGR"/>
+                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="top" secondItem="SHf-bD-Ik1" secondAttribute="bottom" constant="8" id="M96-wj-OGD"/>
+                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="trailing" secondItem="SHf-bD-Ik1" secondAttribute="trailing" id="PAX-SO-ZMO"/>
+                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="trailing" secondItem="4V1-dX-8zJ" secondAttribute="trailing" id="PD4-C0-mEa"/>
+                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="top" secondItem="O5z-gS-Pnp" secondAttribute="bottom" constant="18" id="PLC-VF-X4T"/>
+                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="SCE-SX-hyZ"/>
+                            <constraint firstItem="Hdf-sr-LVt" firstAttribute="trailing" secondItem="4V1-dX-8zJ" secondAttribute="trailing" constant="15" id="Tqc-eo-gbF"/>
+                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="trailing" secondItem="O5z-gS-Pnp" secondAttribute="trailing" id="VhL-Va-SFb"/>
+                            <constraint firstItem="cCw-io-p5H" firstAttribute="leading" secondItem="Hdf-sr-LVt" secondAttribute="leading" constant="35" id="W7m-dM-wbL"/>
+                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="cn6-MS-jZm"/>
+                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="top" secondItem="4V1-dX-8zJ" secondAttribute="bottom" constant="36" id="cw3-Gi-gIY"/>
+                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="leading" secondItem="4V1-dX-8zJ" secondAttribute="leading" id="eGv-uF-O5f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hdf-sr-LVt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1ue-uL-EDx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j1R-hA-T50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="9aP-WU-k0t" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1322.4000000000001" y="1922.6600985221676"/>
+        </scene>
+        <!--Face Capture Completed View Controller-->
+        <scene sceneID="IKO-UF-nOG">
+            <objects>
+                <viewController storyboardIdentifier="faceCaptureComplete" id="4C2-Qs-Uvi" customClass="FaceCaptureCompletedViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GUj-3h-oN9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waa-GN-1h0">
+                                <rect key="frame" x="15" y="440" width="345" height="45"/>
+                                <string key="text">Dodržiavajte dôsledne domácu karanténu.
+Zabránite tak šíreniu vírusu COVID-19.</string>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ďakujeme" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rX6-QD-bSe">
+                                <rect key="frame" x="15" y="390" width="345" height="42"/>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fbx-RM-V7E">
+                                <rect key="frame" x="35" y="692" width="305" height="70"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="psB-9s-hEx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                <state key="normal" title="Pokračovať">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="faceCaptureCompleted:" destination="4C2-Qs-Uvi" eventType="touchUpInside" id="aGm-bz-1bn"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mUC-mh-OPH">
+                                <rect key="frame" x="153" y="304" width="69" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="Q8z-mS-ogu"/>
+                                    <constraint firstAttribute="height" constant="69" id="QQD-eA-rRA"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="rza-aA-Hc9" firstAttribute="trailing" secondItem="rX6-QD-bSe" secondAttribute="trailing" constant="15" id="3HH-fD-4wf"/>
+                            <constraint firstItem="Waa-GN-1h0" firstAttribute="leading" secondItem="rX6-QD-bSe" secondAttribute="leading" id="5ar-jS-yaG"/>
+                            <constraint firstItem="Waa-GN-1h0" firstAttribute="trailing" secondItem="rX6-QD-bSe" secondAttribute="trailing" id="FwW-5V-xUj"/>
+                            <constraint firstItem="rX6-QD-bSe" firstAttribute="leading" secondItem="rza-aA-Hc9" secondAttribute="leading" constant="15" id="J3G-we-1hH"/>
+                            <constraint firstItem="Fbx-RM-V7E" firstAttribute="leading" secondItem="rza-aA-Hc9" secondAttribute="leading" constant="35" id="MXS-6L-ruk"/>
+                            <constraint firstItem="rX6-QD-bSe" firstAttribute="centerY" secondItem="rza-aA-Hc9" secondAttribute="centerY" id="MnT-Jl-zqb"/>
+                            <constraint firstItem="rX6-QD-bSe" firstAttribute="top" secondItem="mUC-mh-OPH" secondAttribute="bottom" constant="17" id="fMA-6X-EKQ"/>
+                            <constraint firstItem="rza-aA-Hc9" firstAttribute="trailing" secondItem="Fbx-RM-V7E" secondAttribute="trailing" constant="35" id="fcU-pq-Ney"/>
+                            <constraint firstItem="mUC-mh-OPH" firstAttribute="centerX" secondItem="rza-aA-Hc9" secondAttribute="centerX" id="m7S-Ph-Yps"/>
+                            <constraint firstItem="Waa-GN-1h0" firstAttribute="top" secondItem="rX6-QD-bSe" secondAttribute="bottom" constant="8" id="neL-xG-pZm"/>
+                            <constraint firstItem="rza-aA-Hc9" firstAttribute="bottom" secondItem="Fbx-RM-V7E" secondAttribute="bottom" constant="16" id="vr1-Cr-oFc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rza-aA-Hc9"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="xjy-kF-LTc"/>
+                    <connections>
+                        <outlet property="actionButton" destination="Fbx-RM-V7E" id="0qq-Ih-4en"/>
+                        <outlet property="descriptionLabel" destination="Waa-GN-1h0" id="Yon-jc-53o"/>
+                        <outlet property="iconView" destination="mUC-mh-OPH" id="z2v-D2-aHg"/>
+                        <outlet property="thankYouLabel" destination="rX6-QD-bSe" id="3pC-cl-bWx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XvP-YK-Lfx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-548" y="1922.6600985221676"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="W0W-pe-yxJ"/>
-        <segue reference="7KV-ak-2k6"/>
+        <segue reference="tft-S4-wx5"/>
+        <segue reference="03C-rP-IWv"/>
         <segue reference="Rme-BJ-GTw"/>
     </inferredMetricsTieBreakers>
     <resources>
