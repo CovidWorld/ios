@@ -610,7 +610,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n#   bitrise uploads dsyms\n#    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n#    find ${DWARF_DSYM_FOLDER_PATH} -name \"*.dSYM\" | xargs -I \\{\\} $PODS_ROOT/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/GoogleService-Info.plist -p ios \\{\\}\nfi\n";
+			shellScript = "#   bitrise uploads dsyms\n#if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n#    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n#    find ${DWARF_DSYM_FOLDER_PATH} -name \"*.dSYM\" | xargs -I \\{\\} $PODS_ROOT/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/GoogleService-Info.plist -p ios \\{\\}\n#fi\n";
 		};
 		21C8FB92242C07B3003668D8 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
