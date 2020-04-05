@@ -37,16 +37,6 @@ protocol LivenessStepDelegate: class {
     func liveness(_ step: LivenessStepCoordinator, didFailed score: Float, capturedSegmentImages segmentImages: [SegmentImage])
     func livenessdidFailedWithEyesNotDetected(_ step: LivenessStepCoordinator)
     func livenessFailed(_ step: LivenessStepCoordinator)
-    func livenessInterrupted(_ step: LivenessStepCoordinator)
-    func livenessIncompatibleTemplate(_ step: LivenessStepCoordinator)
-    func livenessTemplateNotMatching(_ step: LivenessStepCoordinator)
-}
-
-extension LivenessStepDelegate {
-    func livenessFailed(_ step: LivenessStepCoordinator) {}
-    func livenessInterrupted(_ step: LivenessStepCoordinator) {}
-    func livenessIncompatibleTemplate(_ step: LivenessStepCoordinator) {}
-    func livenessTemplateNotMatching(_ step: LivenessStepCoordinator) {}
 }
 
 final class LivenessStepCoordinator {
@@ -113,7 +103,8 @@ extension LivenessStepCoordinator: LivenessCheckControllerDelegate {
 
     func livenessCheck(_ controller: LivenessCheckController, checkDoneWith score: Float, capturedSegmentImages segmentImagesList: [SegmentImage]) {
         debugPrint(#function, segmentImagesList.count)
-        restartVerifying()
+        controller.restartTransitionView()
+        controller.startLivenessCheck()
 
         if score > 0.95 {
             delegate?.liveness(self, didSucceed: score, capturedSegmentImages: segmentImagesList)
@@ -129,6 +120,9 @@ extension LivenessStepCoordinator: LivenessCheckControllerDelegate {
             failCount += 1
             if failCount == Self.maxFailCount {
                 failCount = 0
+                controller.restartTransitionView()
+                controller.stopLivenessCheck()
+                delegate?.livenessFailed(self)
             } else {
                 restartVerifying()
             }
