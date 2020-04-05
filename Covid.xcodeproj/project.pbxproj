@@ -610,7 +610,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    find ${DWARF_DSYM_FOLDER_PATH} -name \"*.dSYM\" | xargs -I \\{\\} $PODS_ROOT/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/GoogleService-Info.plist -p ios \\{\\}\nfi\n";
+			shellScript = "#   bitrise uploads dsyms\n#if [ \"${CONFIGURATION}\" = \"Release\" ]; then\n#    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n#    find ${DWARF_DSYM_FOLDER_PATH} -name \"*.dSYM\" | xargs -I \\{\\} $PODS_ROOT/FirebaseCrashlytics/upload-symbols -gsp ${PROJECT_DIR}/GoogleService-Info.plist -p ios \\{\\}\n#fi\n";
 		};
 		21C8FB92242C07B3003668D8 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -898,7 +898,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "Apple Distribution: Narodne centrum zdravotnickych informacii (SJNG272QAP)";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
@@ -910,7 +910,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_NAME = "Covid-19_SR";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Covid AppStore";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
