@@ -105,12 +105,12 @@ PODS:
   - SwiftyUserDefaults (5.0.0)
 
 DEPENDENCIES:
-  - dot
-  - Firebase/Analytics
-  - Firebase/Crashlytics
-  - Firebase/RemoteConfig
-  - ReachabilitySwift (~> 5.0)
-  - SwiftyUserDefaults (~> 5.0)
+  - dot (= 2.14.2)
+  - Firebase/Analytics (= 6.21.0)
+  - Firebase/Crashlytics (= 6.21.0)
+  - Firebase/RemoteConfig (= 6.21.0)
+  - ReachabilitySwift (= 5.0.0)
+  - SwiftyUserDefaults (= 5.0.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -162,6 +162,6 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
 
-PODFILE CHECKSUM: 3a595001d1d8ee1e6d9e0b0aea645355ddc1855d
+PODFILE CHECKSUM: 90562c5111a55195058e99ca9cb3919ff460e01d
 
 COCOAPODS: 1.9.1
