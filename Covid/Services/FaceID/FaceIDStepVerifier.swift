@@ -166,7 +166,6 @@ extension LivenessStepCoordinator {
     }
 }
 
-#if DEBUG
 extension LivenessStepCoordinator {
     func livenessCheckCameraInitFailed(_ controller: LivenessCheckController) {
         debugPrint(#function)
@@ -196,4 +195,3 @@ extension LivenessStepCoordinator {
         debugPrint(#function)
     }
 }
-#endif
