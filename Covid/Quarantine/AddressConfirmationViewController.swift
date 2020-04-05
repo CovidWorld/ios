@@ -1,25 +1,25 @@
 /*-
-* Copyright (c) 2020 Sygic
-*
+ * Copyright (c) 2020 Sygic
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-*
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
  * The above copyright notice and this permission notice shall be included in
-* copies or substantial portions of the Software.
-*
+ * copies or substantial portions of the Software.
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-* THE SOFTWARE.
-*
-*/
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ */
 
 import UIKit
 import CoreLocation
@@ -33,6 +33,7 @@ final class AddressConfirmationViewController: UIViewController {
     var streetText: String?
     var cityText: String?
     var location: CLLocationCoordinate2D?
+    var faceCaptureCoordinator: FaceCaptureCoordinator?
 
     private let networkService = CovidService()
 
@@ -51,21 +52,24 @@ final class AddressConfirmationViewController: UIViewController {
 
         if Defaults.phoneNumber != nil, let token = Defaults.mfaToken {
             networkService.requestQuarantine(quarantineRequestData: QuarantineRequestData(mfaToken: token)) { [weak self] (result) in
-                    DispatchQueue.main.async {
-                        switch result {
-                        case .success:
-                                LocationTracker.shared.startLocationTracking()
-                                self?.navigationController?.popToRootViewController(animated: true)
-                        case .failure:
-                            let alertController = UIAlertController(title: "Chyba", message: "Problém pri overovaní čisla.", preferredStyle: .alert)
-                            let cancelAction = UIAlertAction(title: "Overiť znova", style: .cancel) { (_) in
-                                self?.performSegue(withIdentifier: "quarantineVerifyNumber", sender: self)
-                            }
-                            alertController.addAction(cancelAction)
-                            self?.present(alertController, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success:
+                        LocationTracker.shared.startLocationTracking()
+
+                        // show face id
+                        self?.registerFaceId()
+
+                    case .failure:
+                        let alertController = UIAlertController(title: "Chyba", message: "Problém pri overovaní čisla.", preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "Overiť znova", style: .cancel) { (_) in
+                            self?.performSegue(withIdentifier: "quarantineVerifyNumber", sender: self)
                         }
+                        alertController.addAction(cancelAction)
+                        self?.present(alertController, animated: true, completion: nil)
                     }
                 }
+            }
         } else {
             performSegue(withIdentifier: "quarantineVerifyNumber", sender: self)
         }
@@ -73,5 +77,14 @@ final class AddressConfirmationViewController: UIViewController {
 
     @IBAction private func didTapChangeButton(_ sender: Any) {
         navigationController?.popViewController(animated: true)
+    }
+
+    private func registerFaceId() {
+        if let navigationController = navigationController {
+            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) {}
+            NotificationCenter.default.post(notification)
+        } else {
+            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
+        }
     }
 }

@@ -1,0 +1,213 @@
+
+/* Class = "UILabel"; text = "Nádcha, bolesti prínosových dutín,\nhlieny v nose, aj keď s bolesťou v hrdle,\ns najväčšou pravdepodobnosťou\nnie je COVID-19."; ObjectID = "03D-UA-gZZ"; */
+"03D-UA-gZZ.text" = "Nádcha, bolesti prínosových dutín,\nhlieny v nose, aj keď s bolesťou v hrdle,\ns najväčšou pravdepodobnosťou\nnie je COVID-19.";
+
+/* Class = "UILabel"; text = "Táto adresa bude po dobu 14-dni Vašim miestom karantény. Adresu nie je možné zmeniť. "; ObjectID = "0ey-9b-f60"; */
+"0ey-9b-f60.text" = "Táto adresa bude po dobu 14-dni Vašim miestom karantény. Adresu nie je možné zmeniť. ";
+
+/* Class = "UILabel"; text = "Tento projekt vznikol\nako spojenie dobrovoľnej iniciatívy\nZostanZdravy a Sygic"; ObjectID = "1BJ-AW-Qcl"; */
+"1BJ-AW-Qcl.text" = "Tento projekt vznikol\nako spojenie dobrovoľnej iniciatívy\nZostanZdravy a Sygic";
+
+/* Class = "UILabel"; text = "Vážený užívateľ, vyberte prosím miesto v ktorom sa budete zdržiavať nasledujúcich 14 dní počas karantény."; ObjectID = "2MI-rx-GXw"; */
+"2MI-rx-GXw.text" = "Vážený užívateľ, vyberte prosím miesto v ktorom sa budete zdržiavať nasledujúcich 14 dní počas karantény.";
+
+/* Class = "UILabel"; text = "Ako sa chrániť"; ObjectID = "2s9-Is-ANv"; */
+"2s9-Is-ANv.text" = "Ako sa chrániť";
+
+/* Class = "UILabel"; text = "Skenovanie tváre\npre karanténu"; ObjectID = "4V1-dX-8zJ"; */
+"4V1-dX-8zJ.text" = "Skenovanie tváre\npre karanténu";
+
+/* Class = "UIBarButtonItem"; title = "Zatvoriť"; ObjectID = "5Yf-vN-ryf"; */
+"5Yf-vN-ryf.title" = "Zatvoriť";
+
+/* Class = "UINavigationItem"; title = "Miesto výskytu"; ObjectID = "5e4-dA-WEI"; */
+"5e4-dA-WEI.title" = "Miesto výskytu";
+
+/* Class = "UINavigationItem"; title = "Ochrana osobných údajov"; ObjectID = "7Ob-yz-3pP"; */
+"7Ob-yz-3pP.title" = "Ochrana osobných údajov";
+
+/* Class = "UILabel"; text = "COVID-19 zasahuje dolné dýchacie\ncesty. Prejavuje sa:"; ObjectID = "9RP-Ot-h5u"; */
+"9RP-Ot-h5u.text" = "COVID-19 zasahuje dolné dýchacie\ncesty. Prejavuje sa:";
+
+/* Class = "UIButton"; normalTitle = "Nie"; ObjectID = "9gt-yK-Pij"; */
+"9gt-yK-Pij.normalTitle" = "Nie";
+
+/* Class = "UILabel"; text = "Vaša adresa"; ObjectID = "AVc-Gr-6xs"; */
+"AVc-Gr-6xs.text" = "Vaša adresa";
+
+/* Class = "UILabel"; text = "Tento projekt vznikol\nako spojenie dobrovoľnej iniciatívy\nZostanZdravy a Sygic"; ObjectID = "AhD-Re-c2V"; */
+"AhD-Re-c2V.text" = "Tento projekt vznikol\nako spojenie dobrovoľnej iniciatívy\nZostanZdravy a Sygic";
+
+/* Class = "UILabel"; text = "Vybrali ste si adresu:"; ObjectID = "DAx-Mp-bpf"; */
+"DAx-Mp-bpf.text" = "Vybrali ste si adresu:";
+
+/* Class = "UIButton"; normalTitle = "Áno"; ObjectID = "DEj-OA-lRP"; */
+"DEj-OA-lRP.normalTitle" = "Áno";
+
+/* Class = "UILabel"; text = "Pohnutím mapy upresníte polohu"; ObjectID = "E2z-Ml-vmv"; */
+"E2z-Ml-vmv.text" = "Pohnutím mapy upresníte polohu";
+
+/* Class = "UILabel"; text = "14"; ObjectID = "Eyt-lN-0m0"; */
+"Eyt-lN-0m0.text" = "14";
+
+/* Class = "UIButton"; normalTitle = "Pokračovať"; ObjectID = "Fbx-RM-V7E"; */
+"Fbx-RM-V7E.normalTitle" = "Pokračovať";
+
+/* Class = "UILabel"; text = "Chorí"; ObjectID = "FlI-bZ-ZO8"; */
+"FlI-bZ-ZO8.text" = "Chorí";
+
+/* Class = "UILabel"; text = "Dáta sú uložené výhradne\nna Vašom zariadení."; ObjectID = "Ii9-ry-Tj4"; */
+"Ii9-ry-Tj4.text" = "Dáta sú uložené výhradne\nna Vašom zariadení.";
+
+/* Class = "UILabel"; text = "Pre zvýšenie Vašej ochrany prosím zadajte osobné telefónne číslo. \nVďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v kontakte s infikovanou osobou."; ObjectID = "JrM-mx-VPD"; */
+"JrM-mx-VPD.text" = "Pre zvýšenie Vašej ochrany prosím zadajte osobné telefónne číslo. \nVďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v kontakte s infikovanou osobou.";
+
+/* Class = "UIButton"; normalTitle = "Infolinka"; ObjectID = "KVT-lI-6eS"; */
+"KVT-lI-6eS.normalTitle" = "Infolinka";
+
+/* Class = "UIButton"; normalTitle = "Potvrdiť"; ObjectID = "LsQ-We-Qh1"; */
+"LsQ-We-Qh1.normalTitle" = "Potvrdiť";
+
+/* Class = "UILabel"; text = "Prosím zadajte vaše telefónne číslo"; ObjectID = "NfE-tc-XI3"; */
+"NfE-tc-XI3.text" = "Prosím zadajte vaše telefónne číslo";
+
+/* Class = "UIButton"; normalTitle = "Bol som v zahraničí alebo musím zostať v karanténe"; ObjectID = "Njg-l9-GFw"; */
+"Njg-l9-GFw.normalTitle" = "Bol som v zahraničí alebo musím zostať v karanténe";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "NvS-dx-Cw0"; */
+"NvS-dx-Cw0.text" = "Title";
+
+/* Class = "UILabel"; text = "Tento krok je povinný."; ObjectID = "O5z-gS-Pnp"; */
+"O5z-gS-Pnp.text" = "Tento krok je povinný.";
+
+/* Class = "UILabel"; text = "+421"; ObjectID = "OER-7S-eH6"; */
+"OER-7S-eH6.text" = "+421";
+
+/* Class = "UILabel"; text = "O aplikácií"; ObjectID = "Rd6-ic-Nty"; */
+"Rd6-ic-Nty.text" = "O aplikácií";
+
+/* Class = "UILabel"; text = "Prosím naskenujte Vašu tvár pre\nprípadnú verifikáciu pri dodržiavaní\npovinnej karantény."; ObjectID = "SHf-bD-Ik1"; */
+"SHf-bD-Ik1.text" = "Prosím naskenujte Vašu tvár pre\nprípadnú verifikáciu pri dodržiavaní\npovinnej karantény.";
+
+/* Class = "UILabel"; text = "Uzdravení"; ObjectID = "SIl-rd-N1Z"; */
+"SIl-rd-N1Z.text" = "Uzdravení";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TJR-ZP-1Lb"; */
+"TJR-ZP-1Lb.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "TW5-rY-n19"; */
+"TW5-rY-n19.title" = "Item";
+
+/* Class = "UIButton"; normalTitle = "Pokračovať"; ObjectID = "U8W-n2-gb2"; */
+"U8W-n2-gb2.normalTitle" = "Pokračovať";
+
+/* Class = "UILabel"; text = "suchým, zadúšavým, dráždivým\nkašľom bez hlienov\n\nbolestami hlavy, kĺbov a svalov\n\ncelkovou vyčerpanosťou\n\npocitom ťažoby a pichaním na\nhrudníku alebo pocitom tzv.\n“nedostatočného nádychu”.\n\nvysoká teplota na hranici, alebo tesne\nza hranicou 38 stupňov, ale rovnako\naj vysoko za hranicou 38 stupňov,\nv kombinácii s kašľom a zvyškom\nuvedených príznakov sú taktiež\npríznakom ochorenia."; ObjectID = "Vb9-oK-fQ4"; */
+"Vb9-oK-fQ4.text" = "suchým, zadúšavým, dráždivým\nkašľom bez hlienov\n\nbolestami hlavy, kĺbov a svalov\n\ncelkovou vyčerpanosťou\n\npocitom ťažoby a pichaním na\nhrudníku alebo pocitom tzv.\n“nedostatočného nádychu”.\n\nvysoká teplota na hranici, alebo tesne\nza hranicou 38 stupňov, ale rovnako\naj vysoko za hranicou 38 stupňov,\nv kombinácii s kašľom a zvyškom\nuvedených príznakov sú taktiež\npríznakom ochorenia.";
+
+/* Class = "UIButton"; normalTitle = "Zmeniť adresu"; ObjectID = "Vsq-UH-1ES"; */
+"Vsq-UH-1ES.normalTitle" = "Zmeniť adresu";
+
+/* Class = "UINavigationItem"; title = "O aplikácií"; ObjectID = "WWn-0h-3qV"; */
+"WWn-0h-3qV.title" = "O aplikácií";
+
+/* Class = "UILabel"; text = "Dodržiavajte dôsledne domácu karanténu.\nZabránite tak šíreniu vírusu COVID-19."; ObjectID = "Waa-GN-1h0"; */
+"Waa-GN-1h0.text" = "Dodržiavajte dôsledne domácu karanténu.\nZabránite tak šíreniu vírusu COVID-19.";
+
+/* Class = "UIButton"; normalTitle = "Info o spracovaní osobných údajov"; ObjectID = "Ygo-Z1-8tJ"; */
+"Ygo-Z1-8tJ.normalTitle" = "Info o spracovaní osobných údajov";
+
+/* Class = "UILabel"; text = "Ako sa chrániť pred koronavírom"; ObjectID = "ZZn-WK-s7b"; */
+"ZZn-WK-s7b.text" = "Ako sa chrániť pred koronavírom";
+
+/* Class = "UIButton"; normalTitle = "Zavrieť"; ObjectID = "aio-gY-WHt"; */
+"aio-gY-WHt.normalTitle" = "Zavrieť";
+
+/* Class = "UILabel"; text = "Dôležité"; ObjectID = "b1g-AG-qiQ"; */
+"b1g-AG-qiQ.text" = "Dôležité";
+
+/* Class = "UIButton"; normalTitle = "Štart"; ObjectID = "cCw-io-p5H"; */
+"cCw-io-p5H.normalTitle" = "Štart";
+
+/* Class = "UILabel"; text = "Toto miesto nie je možné následne zmeniť, preto sa ubezpečte, že ste správne zvolili adresu karantény."; ObjectID = "fki-PZ-62i"; */
+"fki-PZ-62i.text" = "Toto miesto nie je možné následne zmeniť, preto sa ubezpečte, že ste správne zvolili adresu karantény.";
+
+/* Class = "UIButton"; normalTitle = "Info o spracovaní osobných údajov"; ObjectID = "hZc-EL-gSi"; */
+"hZc-EL-gSi.normalTitle" = "Info o spracovaní osobných údajov";
+
+/* Class = "UITextView"; text = "Aplikácia Covid-19 bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.\n\nJednou z najzákernejších prejavov Covid-19 je jej inkubačná doba, kedy pacient chorobu šíri až 14-dní bez jej viditeľných symptómov. Tým sa vírus šíri rýchlejšie ako obyčajná chrípka a ťažké stavy tak prehltia zdravotnícky systém, ktorý v žiadnej krajine nebol pripravený na takýto nárast nákazy. Cieľom aplikácie je výrazne spomaliť nástup a rýchlejšie otestovať potenciálne nakazených ľudí a tým predísť šíreniu choroby bez ich vedomia. Tým ochránime infikované osoby, ich blízkych a celý zdravotnícky systém, ktorému zostane kapacita pred exponenciálnym nárastom prípadov. \n\nAplikácia funguje na nasledovnom princípe.\n\nPo inštalácii aplikácie je potrebné povoliť senzory Bluetooth, GPS a notifikácii, ktoré informujú pacienta. Bluetooth je technológia na rozoznanie blízkosti kontaktu od 1-20 metrov a je možné prostredníctvom nej analyzovať presnú vzdialenosť iných zariadení v jej okolí. Táto technológia na rozdiel od GPS výborne funguje v bytoch, budovách, obchodných domoch, lietadlách, letiskách, autobusoch, električkách a iných uzavretých priestoroch, dokonca až na úroveň konkrétnej miestnosti. \n\nV prípade, že telefón rozozná iné Bluetooth zariadenie v jeho blízkosti a táto doba prekročí určitú dĺžku, zapíše si rozptýlenú GPS pozíciu a anonymný údaj oboch zariadení na server. Rozptýlená GPS pozícia je dôležitá pre hygienikov na analýzu šírenia ochorenia. Bluetooth informácia iného zariadenia je potrebná na spätné identifikovanie zariadenia a zasielanie notifikácii takémuto zariadeniu, ktorého majiteľ mohol byť vstavený ochoreniu.\n\nAkonáhle akýkoľvek človek zistí, že bol infikovaný vírusom Covid-19 a mal nainštalovanú aplikáciu, zobrazí hygienikovi svoje unikátne kódované číslo. Toto číslo zadá hygienik do systému a všetkým zariadeniam, ktorých majitelia boli v kontakte s takto infikovanou osobou bude zaslaná notifikácia, alebo SMS. Správa bude obsahovať, že bol človek potenciálne vystavený nákaze. Takýmto spôsobom dokážu zdravotní pracovníci trasovať možné prenosy za posledných 14-dní aj pri kontaktoch, ktoré človek nedokáže identifikovať. V budovách, pri prepážke v obchode, vo verejnej doprave a podobne. Tým budú ľudia cielenejšie testovaní, a len Tí, ktorí boli vo veľmi tesnej blízkosti infikovanej osoby po určitú dobu. \n\nV dnešnej dobe fungujú zdravotníci pýtaním sa, s kým sa človek stretol, a na základe toho osobne kontaktujú ľudí, ktorí mohli byť vystavení ochoreniu. Nedokážu ale odhaliť ľudí, ktorí boli v kontakte v obchode, alebo verejnej doprave, či vo výťahu. Táto aplikácia tak dokáže rýchlejšie nájsť takéto osoby, otestovať ich, výrazne znížiť manuálnu prácu zdravotníkov a hygienikov a tým rýchlejšie predísť šíreniu nákazy na ostatných členov rodiny, kolegov, či náhodne okoloidúcich. \n\nNeoddeliteľnou súčasťou prekonania nákazy Covid-19 je aj izolácia chorých od ostatnej populácie. Na tento účel funguje karanténa. V prípade, že človek prišiel zo zahraničia, alebo bol potenciálne vystavený infekcii, je vyhláškou prikázané zostať v karanténe po celú dobu inkubačnej doby. Pri tejto chorobe 14-dní. Mobilný operátori majú informácie o ľuďoch, ktorí prišli zo zahraničia a takýmto ľuďom by mala prísť SMS, aby zostali v karanténe. Následne človek v aplikácii oznámi, že mu bola nariadená karanténa a označí si miesto, v ktorom sa bude zdržiavať nasledujúcich 14-dní. Zároveň oznámi dátum, od ktorého mu bola karanténa nariadená. Po tomto úkone ho aplikácia bude varovať pri každom porušení karantény. Akonáhle je človek mimo karantény dlhšie ako určitý čas, aplikácia ho upozorní, aby sa vrátil do karantény. Táto funkcionalita sa snaží predísť porušovaniu karantény od ľudí, ktorým bola nariadená.\n\nAplikácia zároveň zobrazuje mapu a najnovšie informácie o nákazách v jednotlivých okresoch na Slovensku. Jej účelom nie je identifikovať chorých, ani nijako týmito informáciami nedisponuje. Mapa zobrazuje len štatistický počet zaznamenaných ľudí s ochorením na Covid-19 v danom okrese. \n\nZároveň aplikácia disponuje štatistickými informáciami o počte nakazených, vyliečených a počte úmrtí na území Slovenskej republiky. Obsahuje aj dôležité informácie ako sa chrániť, ako rozpoznať symptómy a zobrazuje rýchlu infolinku.\n\nAplikáciu budeme neustále zlepšovať a prinášať ďalšie funkcionality, ktoré pomôžu rýchlejšie zvládnuť nákazu Covid-19. Všetky dáta sú automaticky mazané po uplynutí 21-dní. Táto doba je nevyhnutná na odhalenie možných ohnísk nákaz, ktoré nebolo možné odhaliť konvenčným spôsobom.\n\nNikdy nebolo dôležitejšie neochorieť, aby sme zachránili druhých, tak ako dnes. Tým, že zostaneme zdraví a nebudeme vírus šíriť, budú mať naši blízky väčšiu šancu na záchranu, pretože zdravotníctvo im bude schopné poskytnúť pomoc, ktorú potrebujú. Ak ochorieme, svojím šírením zaťažujeme zdravotný systém. Zároveň doktori a zdravotný personál bude preťažení a tým náchylnejší na ochorenie. V prípade, že ochorejú nebudú môcť pomáhať aj v úplne odlišných prípadoch, ktorý sa tejto nákazy netýka. Tí, ktorí nákazu sami nezvládnu, nebudú mať šancu na záchranu. Ak budú chorí doktori, nikto z nás nebude môcť dostať akúkoľvek pomoc, či je to obyčajný úraz, operácia, alebo iný vážnejší stav. \n\nVeľa z nás nákazu zvládne svojou imunitou. Sú ale takí, ktorí majú iné vážne ochorenia, či mladí, či starí a budú potrebovať pomoc zdravotníctva. \n\nPreto je nesmierne dôležité prejaviť ľudskosť mladých voči starým, zdravých voči chorým a poraziť Covid-19, spoločne.\n\nVeľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Štefan Marinčák, Daniel Kožík, Tomáš Michálek, Turn.sk, Jozef Benko, DigitalLegal, Slovensko.Digital, Hackvirus.sk\nŠirší odborný tím spoluautorov:  doc. JUDr. MUDr. Peter Kováč, PhD. et. PhD, MUDr. Vanda Martišková, MUDr. Karolína Bašová, MDDr. Peter Czakó, MUDr. Martin Čaprnda, PhD., prof. MUDr. Dušan Meško, PhD., MUDr. Peter Herman, MUDr. Gabriela Ďuricová, PhD., MUDr. Igor Krupa, MUDr. Gabriela Ďuricová, PhD., MUDr. Alžbeta Reviczká, MUDr. Andrej Daňo, MUDr. Veronika Pružincová, Juraj Novosad, Nicolas Hason, Maroš Lukáč\n\nAplikácia vznikla s podporou projektu ZostaňZdravý a Sygic."; ObjectID = "hgO-J6-TO3"; */
+"hgO-J6-TO3.text" = "Aplikácia Covid-19 bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.\n\nJednou z najzákernejších prejavov Covid-19 je jej inkubačná doba, kedy pacient chorobu šíri až 14-dní bez jej viditeľných symptómov. Tým sa vírus šíri rýchlejšie ako obyčajná chrípka a ťažké stavy tak prehltia zdravotnícky systém, ktorý v žiadnej krajine nebol pripravený na takýto nárast nákazy. Cieľom aplikácie je výrazne spomaliť nástup a rýchlejšie otestovať potenciálne nakazených ľudí a tým predísť šíreniu choroby bez ich vedomia. Tým ochránime infikované osoby, ich blízkych a celý zdravotnícky systém, ktorému zostane kapacita pred exponenciálnym nárastom prípadov. \n\nAplikácia funguje na nasledovnom princípe.\n\nPo inštalácii aplikácie je potrebné povoliť senzory Bluetooth, GPS a notifikácii, ktoré informujú pacienta. Bluetooth je technológia na rozoznanie blízkosti kontaktu od 1-20 metrov a je možné prostredníctvom nej analyzovať presnú vzdialenosť iných zariadení v jej okolí. Táto technológia na rozdiel od GPS výborne funguje v bytoch, budovách, obchodných domoch, lietadlách, letiskách, autobusoch, električkách a iných uzavretých priestoroch, dokonca až na úroveň konkrétnej miestnosti. \n\nV prípade, že telefón rozozná iné Bluetooth zariadenie v jeho blízkosti a táto doba prekročí určitú dĺžku, zapíše si rozptýlenú GPS pozíciu a anonymný údaj oboch zariadení na server. Rozptýlená GPS pozícia je dôležitá pre hygienikov na analýzu šírenia ochorenia. Bluetooth informácia iného zariadenia je potrebná na spätné identifikovanie zariadenia a zasielanie notifikácii takémuto zariadeniu, ktorého majiteľ mohol byť vstavený ochoreniu.\n\nAkonáhle akýkoľvek človek zistí, že bol infikovaný vírusom Covid-19 a mal nainštalovanú aplikáciu, zobrazí hygienikovi svoje unikátne kódované číslo. Toto číslo zadá hygienik do systému a všetkým zariadeniam, ktorých majitelia boli v kontakte s takto infikovanou osobou bude zaslaná notifikácia, alebo SMS. Správa bude obsahovať, že bol človek potenciálne vystavený nákaze. Takýmto spôsobom dokážu zdravotní pracovníci trasovať možné prenosy za posledných 14-dní aj pri kontaktoch, ktoré človek nedokáže identifikovať. V budovách, pri prepážke v obchode, vo verejnej doprave a podobne. Tým budú ľudia cielenejšie testovaní, a len Tí, ktorí boli vo veľmi tesnej blízkosti infikovanej osoby po určitú dobu. \n\nV dnešnej dobe fungujú zdravotníci pýtaním sa, s kým sa človek stretol, a na základe toho osobne kontaktujú ľudí, ktorí mohli byť vystavení ochoreniu. Nedokážu ale odhaliť ľudí, ktorí boli v kontakte v obchode, alebo verejnej doprave, či vo výťahu. Táto aplikácia tak dokáže rýchlejšie nájsť takéto osoby, otestovať ich, výrazne znížiť manuálnu prácu zdravotníkov a hygienikov a tým rýchlejšie predísť šíreniu nákazy na ostatných členov rodiny, kolegov, či náhodne okoloidúcich. \n\nNeoddeliteľnou súčasťou prekonania nákazy Covid-19 je aj izolácia chorých od ostatnej populácie. Na tento účel funguje karanténa. V prípade, že človek prišiel zo zahraničia, alebo bol potenciálne vystavený infekcii, je vyhláškou prikázané zostať v karanténe po celú dobu inkubačnej doby. Pri tejto chorobe 14-dní. Mobilný operátori majú informácie o ľuďoch, ktorí prišli zo zahraničia a takýmto ľuďom by mala prísť SMS, aby zostali v karanténe. Následne človek v aplikácii oznámi, že mu bola nariadená karanténa a označí si miesto, v ktorom sa bude zdržiavať nasledujúcich 14-dní. Zároveň oznámi dátum, od ktorého mu bola karanténa nariadená. Po tomto úkone ho aplikácia bude varovať pri každom porušení karantény. Akonáhle je človek mimo karantény dlhšie ako určitý čas, aplikácia ho upozorní, aby sa vrátil do karantény. Táto funkcionalita sa snaží predísť porušovaniu karantény od ľudí, ktorým bola nariadená.\n\nAplikácia zároveň zobrazuje mapu a najnovšie informácie o nákazách v jednotlivých okresoch na Slovensku. Jej účelom nie je identifikovať chorých, ani nijako týmito informáciami nedisponuje. Mapa zobrazuje len štatistický počet zaznamenaných ľudí s ochorením na Covid-19 v danom okrese. \n\nZároveň aplikácia disponuje štatistickými informáciami o počte nakazených, vyliečených a počte úmrtí na území Slovenskej republiky. Obsahuje aj dôležité informácie ako sa chrániť, ako rozpoznať symptómy a zobrazuje rýchlu infolinku.\n\nAplikáciu budeme neustále zlepšovať a prinášať ďalšie funkcionality, ktoré pomôžu rýchlejšie zvládnuť nákazu Covid-19. Všetky dáta sú automaticky mazané po uplynutí 21-dní. Táto doba je nevyhnutná na odhalenie možných ohnísk nákaz, ktoré nebolo možné odhaliť konvenčným spôsobom.\n\nNikdy nebolo dôležitejšie neochorieť, aby sme zachránili druhých, tak ako dnes. Tým, že zostaneme zdraví a nebudeme vírus šíriť, budú mať naši blízky väčšiu šancu na záchranu, pretože zdravotníctvo im bude schopné poskytnúť pomoc, ktorú potrebujú. Ak ochorieme, svojím šírením zaťažujeme zdravotný systém. Zároveň doktori a zdravotný personál bude preťažení a tým náchylnejší na ochorenie. V prípade, že ochorejú nebudú môcť pomáhať aj v úplne odlišných prípadoch, ktorý sa tejto nákazy netýka. Tí, ktorí nákazu sami nezvládnu, nebudú mať šancu na záchranu. Ak budú chorí doktori, nikto z nás nebude môcť dostať akúkoľvek pomoc, či je to obyčajný úraz, operácia, alebo iný vážnejší stav. \n\nVeľa z nás nákazu zvládne svojou imunitou. Sú ale takí, ktorí majú iné vážne ochorenia, či mladí, či starí a budú potrebovať pomoc zdravotníctva. \n\nPreto je nesmierne dôležité prejaviť ľudskosť mladých voči starým, zdravých voči chorým a poraziť Covid-19, spoločne.\n\nVeľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Štefan Marinčák, Daniel Kožík, Tomáš Michálek, Turn.sk, Jozef Benko, DigitalLegal, Slovensko.Digital, Hackvirus.sk\nŠirší odborný tím spoluautorov:  doc. JUDr. MUDr. Peter Kováč, PhD. et. PhD, MUDr. Vanda Martišková, MUDr. Karolína Bašová, MDDr. Peter Czakó, MUDr. Martin Čaprnda, PhD., prof. MUDr. Dušan Meško, PhD., MUDr. Peter Herman, MUDr. Gabriela Ďuricová, PhD., MUDr. Igor Krupa, MUDr. Gabriela Ďuricová, PhD., MUDr. Alžbeta Reviczká, MUDr. Andrej Daňo, MUDr. Veronika Pružincová, Juraj Novosad, Nicolas Hason, Maroš Lukáč\n\nAplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hxf-QG-FHs"; */
+"hxf-QG-FHs.text" = "Label";
+
+/* Class = "UILabel"; text = "Bojujme\nproti Covid-19\nspoločne"; ObjectID = "ieU-Bo-giF"; */
+"ieU-Bo-giF.text" = "Bojujme\nproti Covid-19\nspoločne";
+
+/* Class = "UINavigationItem"; title = "Potvrdenie"; ObjectID = "jjt-mc-NEZ"; */
+"jjt-mc-NEZ.title" = "Potvrdenie";
+
+/* Class = "UILabel"; text = "Vaša domáca adresa"; ObjectID = "k5B-hS-xNK"; */
+"k5B-hS-xNK.text" = "Vaša domáca adresa";
+
+/* Class = "UITextField"; placeholder = "000 000 000"; ObjectID = "ksH-i2-uOu"; */
+"ksH-i2-uOu.placeholder" = "000 000 000";
+
+/* Class = "UIButton"; normalTitle = "Pokračovať"; ObjectID = "lJc-cG-RxN"; */
+"lJc-cG-RxN.normalTitle" = "Pokračovať";
+
+/* Class = "UILabel"; text = "Na vaše telefónne číslo sme poslali SMS s aktivačným kódom."; ObjectID = "lgM-re-VLw"; */
+"lgM-re-VLw.text" = "Na vaše telefónne číslo sme poslali SMS s aktivačným kódom.";
+
+/* Class = "UILabel"; text = "Symptómy"; ObjectID = "m5O-iZ-S2T"; */
+"m5O-iZ-S2T.text" = "Symptómy";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mCk-EC-Ch7"; */
+"mCk-EC-Ch7.normalTitle" = "Button";
+
+/* Class = "UISearchBar"; placeholder = "Hľadať"; ObjectID = "mzL-fT-ejL"; */
+"mzL-fT-ejL.placeholder" = "Hľadať";
+
+/* Class = "UISearchBar"; mzL-fT-ejL.scopeButtonTitles[0] = "Title"; ObjectID = "mzL-fT-ejL"; */
+"mzL-fT-ejL.scopeButtonTitles[0]" = "Title";
+
+/* Class = "UISearchBar"; mzL-fT-ejL.scopeButtonTitles[1] = "Title"; ObjectID = "mzL-fT-ejL"; */
+"mzL-fT-ejL.scopeButtonTitles[1]" = "Title";
+
+/* Class = "UILabel"; text = "Povinná karanténa, zostáva:"; ObjectID = "n8w-ns-4pC"; */
+"n8w-ns-4pC.text" = "Povinná karanténa, zostáva:";
+
+/* Class = "UILabel"; text = "Symptómy"; ObjectID = "pmT-s6-Qww"; */
+"pmT-s6-Qww.text" = "Symptómy";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "qh3-bS-jNm"; */
+"qh3-bS-jNm.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Ďakujeme"; ObjectID = "rX6-QD-bSe"; */
+"rX6-QD-bSe.text" = "Ďakujeme";
+
+/* Class = "UILabel"; text = "Zadajte prosím 6 miestny aktivačný kód:"; ObjectID = "rsQ-ZR-NIX"; */
+"rsQ-ZR-NIX.text" = "Zadajte prosím 6 miestny aktivačný kód:";
+
+/* Class = "UIButton"; normalTitle = "Slovakia"; ObjectID = "srM-E7-BiE"; */
+"srM-E7-BiE.normalTitle" = "Slovakia";
+
+/* Class = "UILabel"; text = "Rozlišujte príznaky"; ObjectID = "tHn-QM-ZMH"; */
+"tHn-QM-ZMH.text" = "Rozlišujte príznaky";
+
+/* Class = "UITextField"; placeholder = "_ _ _  _ _ _"; ObjectID = "v7B-JV-gDl"; */
+"v7B-JV-gDl.placeholder" = "_ _ _  _ _ _";
+
+/* Class = "UILabel"; text = "Zadajte dátum, kedy ste sa vrátili zo zahraničia, alebo deň, v ktorom Vám bola nariadená karanténa"; ObjectID = "vyJ-gV-LXt"; */
+"vyJ-gV-LXt.text" = "Zadajte dátum, kedy ste sa vrátili zo zahraničia, alebo deň, v ktorom Vám bola nariadená karanténa";
+
+/* Class = "UILabel"; text = "Vrátili ste sa zo zahraničia, alebo máte ostať v karanténe?"; ObjectID = "xdr-Sz-bS6"; */
+"xdr-Sz-bS6.text" = "Vrátili ste sa zo zahraničia, alebo máte ostať v karanténe?";
+
+/* Class = "UISegmentedControl"; y01-TP-X2l.segmentTitles[0] = "Mapa"; ObjectID = "y01-TP-X2l"; */
+"y01-TP-X2l.segmentTitles[0]" = "Mapa";
+
+/* Class = "UISegmentedControl"; y01-TP-X2l.segmentTitles[1] = "Zoznam"; ObjectID = "y01-TP-X2l"; */
+"y01-TP-X2l.segmentTitles[1]" = "Zoznam";
+
+/* Class = "UILabel"; text = "Môj identifikátor pre potrebu zdravotníkov a hygienikov:"; ObjectID = "zYs-OQ-iLa"; */
+"zYs-OQ-iLa.text" = "Môj identifikátor pre potrebu zdravotníkov a hygienikov:";

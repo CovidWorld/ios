@@ -1,0 +1,54 @@
+"face_capture.hint.centerFace" = "Vycentrujte tvár na stred kruhu";
+"face_capture.hint.light" = "Nasmerujte tvár k svetlu!";
+"face_capture.hint.done" = "Správne";
+"face_capture.hint.start" = "Začnite";
+"face_capture.hint.title" = "Inštrukcie";
+
+"face_capture.instruction_step.center.first" = "Vycentrujte tvár";
+"face_capture.instruction_step.center.second" = "Posuňte tvár smerom k stredu kruhu";
+"face_capture.instruction_step.close.first" = "Posuňte sa späť";
+"face_capture.instruction_step.close.second" = "Posuňte zariadenie ďalej od tváre";
+"face_capture.instruction_step.far.first" = "Bližšie, prosím";
+"face_capture.instruction_step.far.second" = "Posuňte zariadenie bližšie k tvári";
+"face_capture.instruction_step.light.first" = "Prisuňte sa bližšie k svetlu";
+"face_capture.instruction_step.light.second" = "Natočte tvár smerom k svetlu";
+"face_capture.instruction_step.capture" = "Nehýbte sa!";
+
+
+"face_capture.instruction_step.light.first" = "Prisuňte sa bližšie k svetlu";
+"face_capture.instruction_step.light.second" = "Natočte tvár smerom k svetlu";
+"face_capture.instruction_step.capture" = "Nehýbte sa!";
+
+"face_capture.instruction_step.position.simple" = "Vycentrujte tvár na stred kruhu";
+"face_capture.instruction_step.position.andvancedTitle" = "Vycentrujte tvár";
+"face_capture.instruction_step.position.andvancedText" = "Držte zariadenie v úrovni očí.\n Vycentrujte tvár na stred kruhu.\nUpravte vzdialenosť tváre a zariadenia.";
+
+"face_capture.instruction_step.light.simple" = "Nasmerujte tvár k svetlu";
+"face_capture.instruction_step.light.andvancedTitle" = "Rotate towards light";
+"face_capture.instruction_step.light.andvancedText" = "Vyhľadajte predný zdroj svetla.\nVyhnite sa svetlu vrhajúcemu ostré tiene (vrchné alebo bočné svetlo).\nVyhýbajte sa zadnému zdroju svetla.";
+
+"face_capture.alert.camera.title" = "Nie je povolená kamera";
+"face_capture.alert.camera.message" = "Vstúpiť do nastavení?";
+"face_capture.alert.camera.option.settings" = "Nastavenia";
+"face_capture.alert.camera.option.cancel" = "Zrušiť";
+
+"face_capture.confirmation.title" = "Skontrolujte výslednú fotografiu";
+"face_capture.confirmation.accept" = "Potvrdiť";
+"face_capture.confirmation.tryAgain" = "Skúsiť znova";
+
+"face_capture.failedTitle" = "Zaznamenávanie";
+"face_capture.failed" = "Zaznamenávanie zlyhalo";
+"face_capture.failedTip" = "Prečítajte si tipy:";
+
+"liveness.title" = "Overovanie identity";
+"liveness.instruction_step.light" = "Natočte tvár smerom k svetlu";
+"liveness.instruction_step.eyePosition" = "Držte zariadenie na úrovni očí";
+"liveness.instruction_step.glasses" = "Zložte si okuliare";
+
+"liveness.watchObject" = "Sledujte pohyblivý bod";
+"liveness.state.lowQuality" = "Prisuňte sa bližšie k svetlu";
+"liveness.state.multiFace" = "";
+"liveness.state.noFace" = "Pozerajte sa priamo na bod";
+"liveness.state.templateNotMatching" = "";
+"liveness.state.tooClose" = "Posuňte sa dozadu";
+"liveness.state.tooFar" = "Posuňte sa bližšie";

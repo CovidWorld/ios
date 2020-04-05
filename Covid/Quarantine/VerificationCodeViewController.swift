@@ -108,6 +108,13 @@ extension VerificationCodeViewController {
         }
     }
 
+    private func showMain() {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+    }
+
     private func didFillNumbers() {
         let tempToken = activationCodeTextField.text?.replacingOccurrences(of: " ", with: "")
         activationCodeTextField.resignFirstResponder()
@@ -119,10 +126,8 @@ extension VerificationCodeViewController {
                     case .success:
                             Defaults.phoneNumber = self?.phoneNumber
                             Defaults.mfaToken = tempToken
-                            self?.presentingViewController?.dismiss(animated: true, completion: nil)
-                            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
-                            UIApplication.shared.keyWindow?.rootViewController = viewController
+                            self?.showMain()
+
                     case .failure:
                         self?.requestFailed()
                     }
@@ -138,7 +143,8 @@ extension VerificationCodeViewController {
                         Defaults.phoneNumber = self?.phoneNumber
                         Defaults.mfaToken = tempToken
                         LocationTracker.shared.startLocationTracking()
-                        self?.navigationController?.popToRootViewController(animated: true)
+                        self?.registerFaceId()
+
                 case .failure:
                     self?.requestFailed()
                 }
@@ -154,6 +160,19 @@ extension VerificationCodeViewController {
         }
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+extension VerificationCodeViewController {
+    private func registerFaceId() {
+        if let navigationController = navigationController {
+            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) { [weak self] in
+                self?.navigationController?.popToRootViewController(animated: true)
+            }
+            NotificationCenter.default.post(notification)
+        } else {
+            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
+        }
     }
 }
 
