@@ -51,15 +51,12 @@ final class FaceCaptureCoordinator {
     var onCoordinatorResolution: ((Result<Bool, Error>) -> Void)?
     var onAlert: ((UIAlertController) -> Void)?
 
-    private var coordinator: LivenessStepCoordinator?
-
     private(set) var step: FaceCaptureCoordinatorStep = .initialised
     private var retryCaptureCount = 0
     private var retryVerifyCount = 0
 
     deinit {
-        coordinator = nil
-        print("deallocated")
+        debugPrint("deallocated")
     }
 
     init(useCase: FaceIDUseCase) {
@@ -106,18 +103,16 @@ extension FaceCaptureCoordinator {
             case .registerFace:
                 // store reference face
                 FaceIDStorage().saveReferenceFace(face)
-
-                // liveness check
-                startVerifying()
+                completeFaceCapture(didSuccess: true)
             case .verifyFace:
                 verifyFace(face)
             }
 
         case .failedToCaptureFace:
-            print("failed to capture face")
+            debugPrint("failed to capture face")
 
         case .failedToGiveCameraPermission:
-            print("failed to give camera permission")
+            debugPrint("failed to give camera permission")
         }
     }
 
@@ -125,9 +120,8 @@ extension FaceCaptureCoordinator {
         let result = faceIdValidator.validateCapturedFaceToReferenceTemplate(face)
         switch result {
         case .success:
-            print("verify: success")
-            // liveness check
-            startVerifying()
+            debugPrint("verify: success")
+            completeFaceCapture(didSuccess: true)
 
         case .failure(let error):
             switch error {
@@ -137,10 +131,10 @@ extension FaceCaptureCoordinator {
             case .noCaptureTemplateDataFound,
                  .noReferenceFaceDataFound,
                  .underlyingError:
-                print("failed to verify: ", error.localizedDescription)
+                debugPrint("failed to verify: ", error.localizedDescription)
             }
 
-            print("failed to verify")
+            debugPrint("failed to verify")
         }
     }
 
@@ -170,72 +164,6 @@ extension FaceCaptureCoordinator {
         alertController.addAction(retryAction)
         alertController.addAction(cancelAction)
         onAlert?(alertController)
-    }
-}
-
-// MARK: Verification
-
-extension FaceCaptureCoordinator {
-
-    private func startVerifying() {
-        coordinator = LivenessStepCoordinator()
-        coordinator?.delegate = self
-        if let controller = coordinator?.createVerifyController(transitionType: .move) {
-            controller.title = useCase.verifyTitle
-            controller.navigationItem.hidesBackButton = true
-            navigationController?.pushViewController(controller, animated: true)
-            step = .faceVerification
-        }
-    }
-}
-
-extension FaceCaptureCoordinator: LivenessStepDelegate {
-
-    private func validateSegmentImages(_ segmentImages: [SegmentImage]) {
-        let result = faceIdValidator.validateSegmentImagesToReferenceTemplate(segmentImages)
-        switch result {
-        case .success:
-            print("verify: success")
-            completeFaceCapture(didSuccess: true)
-        default:
-            break
-        }
-    }
-
-    func liveness(_ step: LivenessStepCoordinator, didSucceed score: Float, capturedSegmentImages segmentImages: [SegmentImage]) {
-        debugPrint(#function)
-        validateSegmentImages(segmentImages)
-        step.stopVerifying()
-    }
-
-    func liveness(_ step: LivenessStepCoordinator, didFailed score: Float, capturedSegmentImages segmentImages: [SegmentImage]) {
-        debugPrint(#function)
-        validateSegmentImages(segmentImages)
-    }
-
-    func livenessdidFailedWithEyesNotDetected(_ step: LivenessStepCoordinator) {
-        debugPrint(#function)
-        livenessFailed(step)
-    }
-
-    func livenessFailed(_ step: LivenessStepCoordinator) {
-        switch useCase {
-        case .registerFace:
-            askToVerifyAgain { _ in
-                step.restartVerifying()
-            }
-
-        case .verifyFace:
-            guard retryVerifyCount < 1 else {
-                completeFaceCapture(didSuccess: false)
-                return
-            }
-
-            retryVerifyCount += 1
-            askToVerifyAgain { _ in
-                step.restartVerifying()
-            }
-        }
     }
 }
 
