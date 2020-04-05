@@ -73,7 +73,7 @@ extension FaceCaptureCoordinator {
     // MARK: Onboarding
 
     func showOnboarding(in navigationController: UINavigationController) {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let storyboard = UIStoryboard.main
         if let viewController = storyboard.instantiateViewController(withIdentifier: "faceCaptureOnboarding") as? FaceCaptureOnboardingViewController {
             viewController.onStart = { [weak self] in
                 if let controller = self?.startFaceCapture() {
@@ -191,8 +191,7 @@ extension FaceCaptureCoordinator {
 
 extension FaceCaptureCoordinator: LivenessStepDelegate {
 
-    func liveness(_ step: LivenessStepCoordinator, didSucceed score: Float, capturedSegmentImages segmentImages: [SegmentImage]) {
-        print("didSucceed")
+    private func validateSegmentImages(_ segmentImages: [SegmentImage]) {
         let result = faceIdValidator.validateSegmentImagesToReferenceTemplate(segmentImages)
         switch result {
         case .success:
@@ -201,22 +200,25 @@ extension FaceCaptureCoordinator: LivenessStepDelegate {
         default:
             break
         }
+    }
+
+    func liveness(_ step: LivenessStepCoordinator, didSucceed score: Float, capturedSegmentImages segmentImages: [SegmentImage]) {
+        debugPrint(#function)
+        validateSegmentImages(segmentImages)
         step.stopVerifying()
     }
 
     func liveness(_ step: LivenessStepCoordinator, didFailed score: Float, capturedSegmentImages segmentImages: [SegmentImage]) {
-        print("didFailed")
-
-        let result = faceIdValidator.validateSegmentImagesToReferenceTemplate(segmentImages)
-        switch result {
-        case .success:
-            print("verify: success")
-        default:
-            break
-        }
+        debugPrint(#function)
+        validateSegmentImages(segmentImages)
     }
 
     func livenessdidFailedWithEyesNotDetected(_ step: LivenessStepCoordinator) {
+        debugPrint(#function)
+        livenessFailed(step)
+    }
+
+    func livenessFailed(_ step: LivenessStepCoordinator) {
         switch useCase {
         case .registerFace:
             askToVerifyAgain { _ in
@@ -234,7 +236,6 @@ extension FaceCaptureCoordinator: LivenessStepDelegate {
                 step.restartVerifying()
             }
         }
-        print(#function)
     }
 }
 
