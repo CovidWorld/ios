@@ -36,7 +36,7 @@ struct FaceID {
 
     static var faceIDMatchThreshold: Int {
         guard let treshold = Firebase.remoteConfig?.configValue(forKey: "faceIDMatchThreshold").numberValue else {
-            return 85
+            return 75
         }
         return treshold.intValue
     }
