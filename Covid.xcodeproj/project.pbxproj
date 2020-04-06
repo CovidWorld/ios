@@ -48,7 +48,6 @@
 		2189714D24368B5C009987EA /* FaceIDCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189714C24368B5C009987EA /* FaceIDCapture.swift */; };
 		2189714F24369949009987EA /* FaceIDValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189714E24369949009987EA /* FaceIDValidator.swift */; };
 		2189715124369980009987EA /* FaceIDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189715024369980009987EA /* FaceIDStorage.swift */; };
-		2189715324369CE5009987EA /* FaceIDStepVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189715224369CE5009987EA /* FaceIDStepVerifier.swift */; };
 		21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */; };
 		21B0F7B12438A68C00552491 /* FaceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B02438A68C00552491 /* FaceID.swift */; };
 		21B0F7B52438ACCC00552491 /* FaceCaptureOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */; };
@@ -157,6 +156,7 @@
 		0FF4F21D241AEFBB00643297 /* CovidService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		0FF4F21F241AF21200643297 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		0FF4F223241AF61600643297 /* APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
+		21355B35243A7B660087ADCB /* FaceIDVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDVerification.swift; sourceTree = "<group>"; };
 		213B74DC2437E7BE005BB14F /* FaceCaptureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCoordinator.swift; sourceTree = "<group>"; };
 		213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCompletedViewController.swift; sourceTree = "<group>"; };
 		21591AE62439E18500495263 /* settings_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = settings_version.sh; sourceTree = "<group>"; };
@@ -413,6 +413,7 @@
 				21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */,
 				21B0F8912438D37D00552491 /* FaceIDNotification.swift */,
 				21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */,
+				21355B35243A7B660087ADCB /* FaceIDVerification.swift */,
 			);
 			path = FaceID;
 			sourceTree = "<group>";
@@ -803,7 +804,6 @@
 				0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */,
 				6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */,
 				2189714F24369949009987EA /* FaceIDValidator.swift in Sources */,
-				2189715324369CE5009987EA /* FaceIDStepVerifier.swift in Sources */,
 				21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */,
 				213B74DF2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift in Sources */,
 				0FBA451C24218EF100816388 /* Disk+Codable.swift in Sources */,
