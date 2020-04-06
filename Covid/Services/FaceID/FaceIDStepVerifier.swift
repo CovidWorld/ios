@@ -106,7 +106,7 @@ extension LivenessStepCoordinator: LivenessCheckControllerDelegate {
         controller.restartTransitionView()
         controller.startLivenessCheck()
 
-        if score > 0.95 {
+        if score > 0.99 {
             delegate?.liveness(self, didSucceed: score, capturedSegmentImages: segmentImagesList)
         } else {
             delegate?.liveness(self, didFailed: score, capturedSegmentImages: segmentImagesList)

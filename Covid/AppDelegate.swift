@@ -34,7 +34,6 @@ import SwiftyUserDefaults
 import FirebaseCrashlytics
 import FirebaseRemoteConfig
 
-
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -165,7 +164,7 @@ extension AppDelegate {
                                             "apiHost": NSString(string: "https://covid-gateway.azurewebsites.net"),
                                             "statsUrl": NSString(string: "https://corona-stats-sk.herokuapp.com/combined"),
                                             "faceIDConfidenceThreshold": NSNumber(value: 600),
-                                            "faceIDMatchThreshold": NSNumber(value: 85)]
+                                            "faceIDMatchThreshold": NSNumber(value: 75)]
 
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
