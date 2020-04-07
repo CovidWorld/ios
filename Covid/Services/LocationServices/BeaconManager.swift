@@ -76,7 +76,7 @@ final class BeaconManager: NSObject {
             ]
         )
     }
-    
+
     func activateLocationTrackingForBeacons() {
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters

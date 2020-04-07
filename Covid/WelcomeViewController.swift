@@ -31,9 +31,16 @@
 import UIKit
 import SwiftyUserDefaults
 
+extension WelcomeViewController: HasStoryBoardIdentifier {
+    static let storyboardIdentifier = "WelcomeViewController"
+}
+
 final class WelcomeViewController: UIViewController {
+
     @IBOutlet private var agreeButton: UIButton!
     @IBOutlet private var cooperationLabel: UILabel!
+
+    var onAgree: (() -> Void)?
 
     override func loadView() {
         super.loadView()
@@ -56,6 +63,6 @@ final class WelcomeViewController: UIViewController {
     }
 
     @IBAction private func agreeDidTap(_ sender: Any) {
-        Defaults.didRunApp = true
+        onAgree?()
     }
 }

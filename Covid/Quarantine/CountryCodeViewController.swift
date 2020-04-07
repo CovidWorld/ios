@@ -71,9 +71,7 @@ extension CountryCodeViewController {
     @objc
     func didTapSkip(_ sender: UIBarButtonItem) {
         presentingViewController?.dismiss(animated: true, completion: nil)
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as UIViewController
-        UIApplication.shared.keyWindow?.rootViewController = viewController
+        UIApplication.shared.keyWindow?.rootViewController = UIStoryboard.controller(ofType: MainViewController.self)
     }
 
     @objc
@@ -98,7 +96,7 @@ extension CountryCodeViewController {
         let editAction = UIAlertAction(title: "Nie", style: .cancel, handler: nil)
         let yesAction = UIAlertAction(title: "Áno", style: .default) { [weak self] (_) in
             Defaults.tempPhoneNumber = number.replacingOccurrences(of: " ", with: "")
-            self?.performSegue(withIdentifier: "verification", sender: nil)
+            self?.performSegue(.phoneNumberVerification)
         }
         alert.addAction(editAction)
         alert.addAction(yesAction)

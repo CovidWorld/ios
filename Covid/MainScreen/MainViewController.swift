@@ -34,6 +34,10 @@ import CoreBluetooth
 import SwiftyUserDefaults
 import FirebaseRemoteConfig
 
+extension MainViewController: HasStoryBoardIdentifier {
+    static let storyboardIdentifier = "MainViewController"
+}
+
 final class MainViewController: UIViewController, NotificationCenterObserver {
 
     @IBOutlet private var protectView: UIView!
@@ -58,16 +62,6 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
         super.viewDidLoad()
 
         observeFaceIDRegistrationNotification()
-
-        UIApplication.shared.registerForRemoteNotifications()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
-            DispatchQueue.main.async {
-                if !Defaults.didShowForeignAlert {
-                    self?.performSegue(withIdentifier: "foreignAlert", sender: nil)
-                }
-            }
-        }
-
         tabBarController?.view.backgroundColor = view.backgroundColor
     }
 
@@ -80,9 +74,12 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         quarantineView?.isHidden = !Defaults.quarantineActive
         statsView?.isHidden = Defaults.quarantineActive
         diagnosedButton?.isHidden = Defaults.quarantineActive
+        navigationController?.isNavigationBarHidden = true
+
         quarantineObserver = Defaults.observe(\.quarantineActive) { [quarantineView, diagnosedButton, statsView] update in
             DispatchQueue.main.async {
                 quarantineView?.isHidden = !(update.newValue ?? true)
@@ -90,7 +87,8 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
                 diagnosedButton?.isHidden = update.newValue ?? false
             }
         }
-        navigationController?.isNavigationBarHidden = true
+
+        showWelcomeScreenIfNeeded()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -118,6 +116,35 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
         diagnosedButton.layer.masksToBounds = true
 
         diagnosedButton.titleLabel?.textAlignment = .center
+    }
+
+    // MARK: Welcome screen
+
+    private func showWelcomeScreenIfNeeded() {
+        guard !Defaults.didRunApp else { return }
+
+        let welcomeViewController = UIStoryboard.controller(ofType: WelcomeViewController.self)
+        welcomeViewController?.modalPresentationStyle = .fullScreen
+        welcomeViewController?.onAgree = {
+            Defaults.didRunApp = true
+            welcomeViewController?.dismiss(animated: true) { [weak self] in
+                self?.registerForPushNotifications()
+            }
+        }
+        present(welcomeViewController!, animated: false, completion: nil)
+    }
+
+    // MARK: Permissions
+
+    private func registerForPushNotifications() {
+        UIApplication.shared.registerForRemoteNotifications()
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
+            DispatchQueue.main.async {
+                if !Defaults.didShowForeignAlert {
+                    self?.performSegue(.foreignAlert)
+                }
+            }
+        }
     }
 
     @IBAction private func emergencyDidTap(_ sender: Any) {
@@ -158,13 +185,14 @@ extension MainViewController {
                 }
             }
 
-            action()
             if Defaults.pushToken == nil {
                 observer = Defaults.observe(\.pushToken) { _ in
                     DispatchQueue.main.async {
                         action()
                     }
                 }
+            } else {
+                action()
             }
         }
     }
@@ -188,17 +216,37 @@ extension MainViewController {
     private func showFaceRegistration(in navigationController: UINavigationController, completion: @escaping () -> Void) {
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .registerFace)
         faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
-            switch result {
-            case .success:
-                self?.faceCaptureCoordinator = nil
-                self?.navigationController?.popToRootViewController(animated: true)
-            case .failure:
-                break
-            }
+            guard let self = self else { return }
 
-            completion()
+            self.registerForQuarantine { [weak self] in
+                switch result {
+                case .success:
+                    self?.faceCaptureCoordinator = nil
+                    self?.navigationController?.popToRootViewController(animated: true)
+                case .failure:
+                    break
+                }
+                completion()
+            }
         }
         faceCaptureCoordinator?.showOnboarding(in: navigationController)
+    }
+
+    private func registerForQuarantine(_ completion: @escaping () -> Void) {
+        // Call only if we're registering
+        let data = QuarantineRequestData(mfaToken: Defaults.mfaToken)
+        networkService.requestQuarantine(quarantineRequestData: data) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    LocationTracker.shared.startLocationTracking()
+
+                case .failure:
+                    break
+                }
+                completion()
+            }
+        }
     }
 
     private func showFaceVerification() {

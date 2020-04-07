@@ -49,7 +49,7 @@ final class MapViewController: UIViewController {
         locationManager.requestLocation()
 
         if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            performSegue(withIdentifier: "search", sender: self)
+            performSegue(.searchAddress)
         }
 
         mapView.delegate = self
@@ -192,7 +192,7 @@ extension MapViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status != .notDetermined {
-            performSegue(withIdentifier: "search", sender: self)
+            performSegue(.searchAddress)
         }
     }
 }
