@@ -152,8 +152,8 @@ struct Connection: Codable, Hashable, Equatable {
     let seenProfileId: Int
     let timestamp: Int
     let duration: String
-    let latitude: Double
-    let longitude: Double
+    let latitude: Double?
+    let longitude: Double?
     let accuracy: Double
 
     func hash(into hasher: inout Hasher) {

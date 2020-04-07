@@ -23,6 +23,7 @@
 
 import CoreLocation
 import CoreBluetooth
+import SwiftyUserDefaults
 
 struct BeaconId {
     let minor: UInt16
@@ -61,10 +62,10 @@ final class BeaconManager: NSObject {
     override private init() {
         super.init()
 
-        locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        locationManager.allowsBackgroundLocationUpdates = true
         locationManager.delegate = self
+        if (Firebase.remoteConfig?.configValue(forKey: "ibeaconLocationAccuracy").numberValue ?? -1) != -1 {
+            activateLocationTrackingForBeacons()
+        }
 
         peripheralManager = CBPeripheralManager(
             delegate: self,
@@ -74,6 +75,12 @@ final class BeaconManager: NSObject {
 //                CBPeripheralManagerOptionRestoreIdentifierKey: "advertiserIdentifier"
             ]
         )
+    }
+    
+    func activateLocationTrackingForBeacons() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        locationManager.allowsBackgroundLocationUpdates = true
     }
 
     func startMonitoring() {

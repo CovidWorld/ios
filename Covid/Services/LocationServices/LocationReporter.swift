@@ -41,17 +41,24 @@ final class LocationReporter {
 
     func didRangeBeacons(_ beacons: [CLBeacon], at location: CLLocation?) {
         let timestamp = Int(Date().timeIntervalSince1970)
+        let accuracy = Firebase.remoteConfig?.configValue(forKey: "ibeaconLocationAccuracy").numberValue ?? -1
+        var approxLatitude: Double?
+        var approxLongitude: Double?
+        var accuracyFactor = 0.0
         let connections = beacons.compactMap { (beacon) -> Connection in
             let beaconId = BeaconId(major: beacon.major.uint16Value, minor: beacon.minor.uint16Value)
-            let approxLatitude = Double(round(10000 * (location?.coordinate.latitude ?? 0)) / 10000)
-            let approxLongitude = Double(round(10000 * (location?.coordinate.longitude ?? 0)) / 10000)
+            if accuracy != -1 {
+                accuracyFactor = Double(truncating: pow(10, accuracy.intValue) as NSNumber)
+                approxLatitude = Double(round(accuracyFactor * (location?.coordinate.latitude ?? 0)) / accuracyFactor)
+                approxLongitude = Double(round(accuracyFactor * (location?.coordinate.longitude ?? 0)) / accuracyFactor)
+            }
 
             return Connection(seenProfileId: Int(beaconId.id),
                               timestamp: timestamp,
                               duration: "",
                               latitude: approxLatitude,
                               longitude: approxLongitude,
-                              accuracy: 100)
+                              accuracy: accuracyFactor)
         }
         try? Disk.append(connections, to: "connections.json", in: .applicationSupport)
         sendConnections()
@@ -70,7 +77,7 @@ final class LocationReporter {
                 connections.count > 0
                 else { return }
 
-            connections = connections.sorted { abs($0.latitude) > abs($1.latitude) }
+            connections = connections.sorted { abs($0.latitude ?? 0) > abs($1.latitude ?? 0) }
             connections = Array(Set(connections))
 
             networkService.uploadConnections(uploadConnectionsRequestData: UploadConnectionsRequestData(connections: connections)) { (result) in
