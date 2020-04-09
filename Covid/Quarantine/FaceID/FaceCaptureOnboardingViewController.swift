@@ -31,6 +31,10 @@
 import Foundation
 import UIKit
 
+extension FaceCaptureOnboardingViewController: HasStoryBoardIdentifier {
+    static let storyboardIdentifier = "faceCaptureOnboarding"
+}
+
 final class FaceCaptureOnboardingViewController: UIViewController {
 
     var onStart: (() -> Void)?

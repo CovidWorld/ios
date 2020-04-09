@@ -55,6 +55,7 @@
 		21B0F85B2438D0AA00552491 /* NotificationCenterObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */; };
 		21B0F8922438D37D00552491 /* FaceIDNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8912438D37D00552491 /* FaceIDNotification.swift */; };
 		21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8932439194100552491 /* UIStoryBoard.swift */; };
+		21C12B33243D21EF0086AF8B /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C12B32243D21EF0086AF8B /* Segue.swift */; };
 		21DE1B4D2435DA7500746CE8 /* iengine.lic in Resources */ = {isa = PBXBuildFile; fileRef = 21DE1B4C2435DA7500746CE8 /* iengine.lic */; };
 		21DE1B552435F5C700746CE8 /* CovidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1B542435F5C700746CE8 /* CovidTests.swift */; };
 		6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */; };
@@ -173,6 +174,7 @@
 		21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterObserver.swift; sourceTree = "<group>"; };
 		21B0F8912438D37D00552491 /* FaceIDNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDNotification.swift; sourceTree = "<group>"; };
 		21B0F8932439194100552491 /* UIStoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryBoard.swift; sourceTree = "<group>"; };
+		21C12B32243D21EF0086AF8B /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		21DE1B4C2435DA7500746CE8 /* iengine.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iengine.lic; sourceTree = "<group>"; };
 		21DE1B522435F5C700746CE8 /* CovidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21DE1B542435F5C700746CE8 /* CovidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidTests.swift; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 				0FCB4F0624238B7700389493 /* Quarantine */,
 				0F247F04241A617000986740 /* Resources */,
 				213B74D82437E69F005BB14F /* Services */,
+				21C12B32243D21EF0086AF8B /* Segue.swift */,
 			);
 			path = Covid;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				0F629282241D4F5A00FF5E14 /* LocationTracker.swift in Sources */,
 				C0F9962D241FCB04009C6BF5 /* PreventionTableViewCell.swift in Sources */,
 				2189714D24368B5C009987EA /* FaceIDCapture.swift in Sources */,
+				21C12B33243D21EF0086AF8B /* Segue.swift in Sources */,
 				213B74DD2437E7BE005BB14F /* FaceCaptureCoordinator.swift in Sources */,
 				C0F99635241FE632009C6BF5 /* SymptomsViewController.swift in Sources */,
 				0FD28B172426EBD30015F7E7 /* SpreadViewController.swift in Sources */,

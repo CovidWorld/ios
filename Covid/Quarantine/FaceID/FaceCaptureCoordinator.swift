@@ -70,17 +70,16 @@ extension FaceCaptureCoordinator {
     // MARK: Onboarding
 
     func showOnboarding(in navigationController: UINavigationController) {
-        let storyboard = UIStoryboard.main
-        if let viewController = storyboard.instantiateViewController(withIdentifier: "faceCaptureOnboarding") as? FaceCaptureOnboardingViewController {
-            viewController.onStart = { [weak self] in
-                if let controller = self?.startFaceCapture() {
-                    navigationController.pushViewController(controller, animated: true)
-                }
+        guard let viewController = UIStoryboard.controller(ofType: FaceCaptureOnboardingViewController.self) else { return }
+
+        viewController.onStart = { [weak self] in
+            if let controller = self?.startFaceCapture() {
+                navigationController.pushViewController(controller, animated: true)
             }
-            self.navigationController = navigationController
-            navigationController.pushViewController(viewController, animated: true)
-            step = .onboarding
         }
+        self.navigationController = navigationController
+        navigationController.pushViewController(viewController, animated: true)
+        step = .onboarding
     }
 
     // MARK: Face Capture

@@ -54,12 +54,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         setupFirebaseConfig()
         Crashlytics.crashlytics().setUserID(Defaults.deviceId)
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 150 / 255.0, green: 161 / 255.0, blue: 205 / 255.0, alpha: 1)
-        if !Defaults.didRunApp {
-            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let exampleViewController = mainStoryboard.instantiateViewController(withIdentifier: "WelcomeViewController") as? WelcomeViewController
-            self.window?.rootViewController = exampleViewController
-            self.window?.makeKeyAndVisible()
-        }
 
         application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         if let profileId = Defaults.profileId {

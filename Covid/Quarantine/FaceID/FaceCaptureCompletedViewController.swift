@@ -31,6 +31,10 @@
 import Foundation
 import UIKit
 
+extension FaceCaptureCompletedViewController: HasStoryBoardIdentifier {
+    static let storyboardIdentifier = "faceCaptureComplete"
+}
+
 final class FaceCaptureCompletedViewController: UIViewController {
 
     var useCase: FaceIDUseCase = .registerFace
@@ -44,7 +48,7 @@ final class FaceCaptureCompletedViewController: UIViewController {
     @IBOutlet private weak var iconView: UIImageView!
 
     static func show(using presentationBlock: @escaping (FaceCaptureCompletedViewController) -> Void, onCompletion: @escaping () -> Void) {
-        if let viewController = UIStoryboard.main.instantiateViewController(withIdentifier: "faceCaptureComplete") as? FaceCaptureCompletedViewController {
+        if let viewController = UIStoryboard.controller(ofType: Self.self) {
             viewController.onCompletion = onCompletion
             presentationBlock(viewController)
         }

@@ -31,9 +31,17 @@
 import Foundation
 import UIKit
 
+protocol HasStoryBoardIdentifier {
+    static var storyboardIdentifier: String { get }
+}
+
 extension UIStoryboard {
 
     static var main: UIStoryboard {
         UIStoryboard(name: "Main", bundle: nil)
+    }
+
+    class func controller<T: UIViewController>(ofType type: T.Type) -> T? where T: HasStoryBoardIdentifier {
+        main.instantiateViewController(withIdentifier: type.storyboardIdentifier) as? T
     }
 }

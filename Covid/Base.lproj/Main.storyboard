@@ -67,7 +67,6 @@
                                 </state>
                                 <connections>
                                     <action selector="agreeDidTap:" destination="Zak-E9-be5" eventType="touchUpInside" id="Dsz-R3-kcx"/>
-                                    <segue destination="RZt-J8-9gU" kind="presentation" id="uA0-Yv-kpI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieU-Bo-giF">
@@ -1139,22 +1138,6 @@ Bratislava, marec 2020
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Mv-iq-J64" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2198" y="-1068"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="EaK-Kf-jat">
-            <objects>
-                <navigationController id="RZt-J8-9gU" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aaW-fY-6o2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="g0Z-rl-3mo" kind="relationship" relationship="rootViewController" id="7KV-ak-2k6"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6jw-vr-P4L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3265" y="-1068"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wx9-dr-UMF">
@@ -3147,8 +3130,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="tft-S4-wx5"/>
-        <segue reference="03C-rP-IWv"/>
-        <segue reference="Rme-BJ-GTw"/>
+        <segue reference="LCD-tO-Hlk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ID" width="26" height="27"/>

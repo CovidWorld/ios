@@ -36,7 +36,7 @@ final class ForeignDecisionViewController: UIViewController {
         // TODO: delegate
         presentingViewController?.dismiss(animated: true) {
             if let controller = (UIApplication.shared.delegate as? AppDelegate)?.visibleViewController() {
-                controller.performSegue(withIdentifier: "initQuarantine", sender: nil)
+                controller.performSegue(.startQuarantineFlow)
             }
         }
     }
