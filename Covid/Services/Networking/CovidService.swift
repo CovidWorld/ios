@@ -90,7 +90,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
             case .success(let data, _):
                 do {
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .formatted(dateFormatter)
 
