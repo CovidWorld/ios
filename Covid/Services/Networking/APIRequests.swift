@@ -35,16 +35,13 @@ struct RegisterProfileRequestData: Codable {
     let deviceId: String
     let locale: String
     let pushToken: String?
-    let phoneNumber: String?
 
     init(deviceId: String = Defaults.deviceId,
          locale: String = (Locale.current.regionCode ?? "SK"),
-         pushToken: String? = Defaults.pushToken,
-         phoneNumber: String? = Defaults.phoneNumber) {
+         pushToken: String? = Defaults.pushToken) {
         self.deviceId = deviceId
         self.locale = locale
         self.pushToken = pushToken
-        self.phoneNumber = phoneNumber
     }
 }
 
@@ -61,42 +58,46 @@ struct BasicRequestData: Codable {
 struct QuarantineRequestData: Codable {
     let deviceId: String
     let profileId: Int
-    let duration: String
-    let mfaToken: String
+    let startDate: String
+    let endDate: String
+    let covidPass: String
 
-    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, duration: String? = nil, mfaToken: String? = Defaults.mfaToken) {
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, startDate: String, endDate: String, covidPass: String) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
-        self.mfaToken = mfaToken ?? ""
+        self.startDate = startDate
+        self.endDate = endDate
+        self.covidPass = covidPass
 
-        let quarantineDuration = Firebase.remoteConfig?["quarantineDuration"].stringValue ?? "14"
-
-        guard let date = Defaults.quarantineStart else {
-            self.duration = quarantineDuration
-            return
-        }
-        let currentCalendar = Calendar.current
-        let currentDate = Date()
-
-        let days = currentCalendar.dateComponents([.day], from: date, to: currentDate)
-        if let remainingDays = Int(quarantineDuration), let days = days.day {
-            self.duration = String(remainingDays - days)
-        } else {
-            self.duration = quarantineDuration
-        }
+        // TODO: toto
+//        let quarantineDuration = Firebase.remoteDoubleValue(for: .quarantineDuration)
+//
+//        guard let date = Defaults.quarantineStart else {
+//            self.duration = String(quarantineDuration)
+//            return
+//        }
+//        let currentCalendar = Calendar.current
+//        let currentDate = Date()
+//
+//        let days = currentCalendar.dateComponents([.day], from: date, to: currentDate)
+//        if let days = days.day {
+//            self.duration = String(Int(quarantineDuration) - days)
+//        } else {
+//            self.duration = String(quarantineDuration)
+//        }
     }
 }
 
 struct MFATokenPhoneRequestData: Codable {
-    let deviceId: String
-    let profileId: Int
-    let mfaToken: String
-
-    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, mfaToken: String? = Defaults.mfaToken) {
-        self.deviceId = deviceId
-        self.profileId = profileId ?? 0
-        self.mfaToken = mfaToken ?? ""
-    }
+//    let deviceId: String
+//    let profileId: Int
+//    let mfaToken: String
+//
+//    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, mfaToken: String? = Defaults.mfaToken) {
+//        self.deviceId = deviceId
+//        self.profileId = profileId ?? 0
+//        self.mfaToken = mfaToken ?? ""
+//    }
 }
 
 struct AreaExitRequestData: Codable {
@@ -171,4 +172,14 @@ struct Position: Codable {
     let latitude: Double
     let longitude: Double
     let accuracy: Double
+}
+
+// MARK: - NCZI Services -
+struct OTPSendRequestData: Codable {
+    let vPhoneNumber: String
+}
+
+struct OTPValidateRequestData: Codable {
+    let vPhoneNumber: String
+    let nOtp: String
 }

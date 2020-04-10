@@ -63,7 +63,7 @@ final class BeaconManager: NSObject {
         super.init()
 
         locationManager.delegate = self
-        if (Firebase.remoteConfig?.configValue(forKey: "ibeaconLocationAccuracy").numberValue ?? -1) != -1 {
+        if Firebase.remoteDoubleValue(for: .iBeaconLocationAccuracy) != -1 {
             activateLocationTrackingForBeacons()
         }
 

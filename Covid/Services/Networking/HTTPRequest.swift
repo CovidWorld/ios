@@ -49,13 +49,12 @@ final class HTTPRequest {
         case httpError(Int)
         /// Indicate no response
         case noResponse
-        // TODO: pridat mozno nejake specifickejsie errors podla NSURLErrorDomain
     }
 
     /// Response returned from HTTP request
     enum Response {
         case success(Data?)
-        case failure(Error)
+        case failure(Error, Data?)
     }
 
     /// HTTP method
@@ -80,14 +79,13 @@ final class HTTPRequest {
     class func start(with urlRequest: URLRequest, networkSession: NetworkSession, completion: @escaping (Response) -> Void) -> URLSessionDataTask {
         networkSession.loadData(for: urlRequest) { (data, urlResponse, error) in
             if let error = error {
-                // TODO: mozno spracovat error a vratit rozne stavy podla NSURLErrorDomain
-                completion(.failure(.urlError(error as? URLError)))
+                completion(.failure(.urlError(error as? URLError), data))
                 return
             }
 
             guard let urlResponse = urlResponse as? HTTPURLResponse else {
                 print("---- NO HTTPURLResponse")
-                completion(.failure(.noResponse))
+                completion(.failure(.noResponse, data))
                 return
             }
 
@@ -96,7 +94,7 @@ final class HTTPRequest {
                 completion(.success(data))
             default:
                 print("---- UNHANDLED STATUS CODE: \(urlResponse.statusCode)")
-                completion(.failure(.httpError(urlResponse.statusCode)))
+                completion(.failure(.httpError(urlResponse.statusCode), data))
             }
         }
     }

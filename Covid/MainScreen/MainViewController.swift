@@ -148,14 +148,7 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
     }
 
     @IBAction private func emergencyDidTap(_ sender: Any) {
-        var emergencyNumber = "0800221234"
-        if let configValue = remoteConfigValue()?.jsonValue as? [String: Any],
-            let strNumber = configValue["SK"] as? String,
-            !strNumber.isEmpty {
-            // user started the app offline and RemoteConfig has not been fetched
-            emergencyNumber = strNumber
-        }
-
+        let emergencyNumber = Firebase.remoteDictionaryValue(for: .hotlines)["SK"] as? String ?? ""
         guard let number = URL(string: "tel://\(emergencyNumber)") else { return }
         UIApplication.shared.open(number)
     }
@@ -163,10 +156,6 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
 
 // MARK: - Private
 extension MainViewController {
-
-    private func remoteConfigValue() -> RemoteConfigValue? {
-        Firebase.remoteConfig?.configValue(forKey: "hotlines")
-    }
 
     private func registerUser() {
         if Defaults.profileId == nil {
@@ -185,14 +174,13 @@ extension MainViewController {
                 }
             }
 
+            action()
             if Defaults.pushToken == nil {
                 observer = Defaults.observe(\.pushToken) { _ in
                     DispatchQueue.main.async {
                         action()
                     }
                 }
-            } else {
-                action()
             }
         }
     }
@@ -202,7 +190,7 @@ extension MainViewController {
 
     // MARK: FaceID Flow
 
-    func observeFaceIDRegistrationNotification() {
+    private func observeFaceIDRegistrationNotification() {
         observeNotification(withName: .startFaceIDRegistration) { [weak self] (notification) in
             let navigationController = StartFaceIDRegistrationNotification.navigationController(from: notification)
             let completion = StartFaceIDRegistrationNotification.completion(from: notification)
@@ -234,19 +222,19 @@ extension MainViewController {
 
     private func registerForQuarantine(_ completion: @escaping () -> Void) {
         // Call only if we're registering
-        let data = QuarantineRequestData(mfaToken: Defaults.mfaToken)
-        networkService.requestQuarantine(quarantineRequestData: data) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    LocationTracker.shared.startLocationTracking()
-
-                case .failure:
-                    break
-                }
-                completion()
-            }
-        }
+//        let data = QuarantineRequestData(mfaToken: Defaults.mfaToken)
+//        networkService.requestQuarantine(quarantineRequestData: data) { (result) in
+//            DispatchQueue.main.async {
+//                switch result {
+//                case .success:
+//                    LocationTracker.shared.startLocationTracking()
+//
+//                case .failure:
+//                    break
+//                }
+//                completion()
+//            }
+//        }
     }
 
     private func showFaceVerification() {

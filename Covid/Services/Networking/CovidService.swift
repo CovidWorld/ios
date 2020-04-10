@@ -34,7 +34,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
                 } catch let error {
                     completion(.failure(error))
                 }
-            case .failure(let error):
+            case .failure(let error, _):
                 completion(.failure(error))
             }
         }
@@ -45,7 +45,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
             switch response {
             case .success(let data, _):
                 completion(.success(data))
-            case .failure(let error):
+            case .failure(let error, _):
                 completion(.failure(error))
             }
         }
@@ -56,7 +56,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
             switch response {
             case .success(let data, _):
                 completion(.success(data))
-            case .failure(let error):
+            case .failure(let error, _):
                 completion(.failure(error))
             }
         }
@@ -67,7 +67,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
             switch response {
             case .success(let data, _):
                 completion(.success(data))
-            case .failure(let error):
+            case .failure(let error, _):
                 completion(.failure(error))
             }
         }
@@ -78,7 +78,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
             switch response {
             case .success(let data, _):
                 completion(.success(data))
-            case .failure(let error):
+            case .failure(let error, _):
                 completion(.failure(error))
             }
         }
@@ -99,7 +99,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
                 } catch let error {
                     completion(.failure(error))
                 }
-            case .failure(let error):
+            case .failure( let error, _):
                 completion(.failure(error))
             }
         }
@@ -110,7 +110,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
             switch response {
             case .success(let data, _):
                 completion(.success(data))
-            case .failure(let error):
+            case .failure(let error, _):
                 completion(.failure(error))
             }
         }
@@ -121,7 +121,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
             switch response {
             case .success(let data, _):
                 completion(.success(data))
-            case .failure(let error):
+            case .failure(let error, _):
                 completion(.failure(error))
             }
         }
@@ -139,9 +139,7 @@ enum CovidEndpoint: NetworkServiceEndpoint {
     case areaExit(areaExitRequestData: AreaExitRequestData)
     case locations(locationsRequestData: LocationsRequestData)
 
-    static var serverDomain: String = {
-        Firebase.remoteConfig?.configValue(forKey: "apiHost").stringValue ?? "https://covid-gateway.azurewebsites.net"
-    }()
+    static var serverDomain: String = { Firebase.remoteStringValue(for: .apiHost) }()
     var serverScript: String { "/api" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }
     var method: HTTPRequest.Method {

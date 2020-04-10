@@ -36,6 +36,7 @@ final class QuarantineViewController: UIViewController {
     @IBOutlet private var quarantineUntilLabel: UILabel!
 
     private let networkService = CovidService()
+    private var didLoad = false
 
     private var quarantineData: QuarantineStatusResponseData? {
         didSet {
@@ -46,6 +47,7 @@ final class QuarantineViewController: UIViewController {
             } else {
                 Defaults.quarantineStart = nil
                 Defaults.quarantineEnd = nil
+                Defaults.covidPass = nil
             }
 
             DispatchQueue.main.async {
@@ -54,13 +56,31 @@ final class QuarantineViewController: UIViewController {
         }
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        guard Defaults.profileId != nil else { return }
+
+        updateView()
+        updateQuarantineStatus()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         guard Defaults.profileId != nil else { return }
 
-        updateView()
+        if didLoad {
+            updateView()
+            updateQuarantineStatus()
+        } else {
+            didLoad = true
+        }
+    }
+}
 
+extension QuarantineViewController {
+    private func updateQuarantineStatus() {
         networkService.requestQuarantineStatus(quarantineRequestData: BasicRequestData()) { [weak self] (result) in
             switch result {
             case .success(let response):
@@ -71,9 +91,7 @@ final class QuarantineViewController: UIViewController {
             }
         }
     }
-}
 
-extension QuarantineViewController {
     private func updateTracking() {
         if Defaults.quarantineActive {
             LocationTracker.shared.startLocationTracking()

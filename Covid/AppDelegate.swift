@@ -148,18 +148,11 @@ extension AppDelegate {
         remoteConfig = RemoteConfig.remoteConfig()
         guard let remoteConfig = remoteConfig else { return }
 
-        let defaults: [String: NSObject] = ["quarantineDuration": NSString(string: "14"),
-                                            "desiredPositionAccuracy": NSNumber(value: 100),
-                                            "quarantineLeftMessage": NSString(string: "Opustili ste zónu domácej karantény. Pre ochranu Vášho zdravia a zdravia Vašich blízkych, Vás žiadame o striktné dodržiavanie nariadenej karantény."),
-                                            "batchSendingFrequency": NSNumber(value: 60),
-                                            "quarantineLocationPeriodMinutes": NSNumber(value: 5),
-                                            "minConnectionDuration": NSNumber(value: 300),
-                                            "mapStatsUrl": NSString(string: "https://portal.minv.sk/gis/rest/services/PROD/ESISPZ_GIS_PORTAL_CovidPublic/MapServer/4/query?where=POTVRDENI%20%3E%200&f=json&outFields=IDN3%2C%20NM3%2C%20IDN2%2C%20NM2%2C%20POTVRDENI%2C%20VYLIECENI%2C%20MRTVI%2C%20AKTIVNI%2C%20CAKAJUCI%2C%20OTESTOVANI_NEGATIVNI%2C%20DATUM_PLATNOST&returnGeometry=false&orderByFields=POTVRDENI%20DESC"),
-                                            "apiHost": NSString(string: "https://covid-gateway.azurewebsites.net"),
-                                            "statsUrl": NSString(string: "https://corona-stats-sk.herokuapp.com/combined"),
-                                            "faceIDConfidenceThreshold": NSNumber(value: 600),
-                                            "faceIDMatchThreshold": NSNumber(value: 75),
-                                            "iBeaconLocationAccuracy": NSNumber(value: -1)]
+        let defaults: [String: NSObject] = RemoteConfigKey.allCases.reduce([String: NSObject]()) { (result, value) in
+            var result = result
+            result[value.rawValue] = value.defaultValue
+            return result
+        }
 
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
@@ -174,13 +167,6 @@ extension AppDelegate {
             print("Error: \(error?.localizedDescription ?? "No error available.")")
           }
         }
-    }
-}
-
-struct Firebase {
-
-    static var remoteConfig: RemoteConfig? {
-        (UIApplication.shared.delegate as? AppDelegate)?.remoteConfig
     }
 }
 

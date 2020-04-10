@@ -33,7 +33,7 @@ enum NetworkServiceResponse {
     /// Indicates successful response with optional JSON data returned from service and transmissionTime in seconds.
     case success(Data, TimeInterval)
     /// Indicates failed response with unbderlying `ServiceError`.
-    case failure(NetworkServiceError)
+    case failure(NetworkServiceError, Data?)
 }
 
 // MARK: - NetworkServiceError
@@ -125,17 +125,17 @@ class NetworkService<Endpoint: NetworkServiceEndpoint> {
 
     func request(_ endpoint: Endpoint, using request: HTTPRequest.Type = HTTPRequest.self, completion: @escaping (NetworkServiceResponse) -> Void) {
         guard reachability?.connection != .unavailable else {
-            completion(.failure(.notConnected))
+            completion(.failure(.notConnected, nil))
             return
         }
         runningTasks.removeAll { $0.state == .completed }
         let startDate = Date()
         let task = request.start(with: endpoint.urlRequest, networkSession: URLSession.shared) { [weak self] (response) in
             switch response {
-            case .failure:
-                completion(.failure(.badRequest))
+            case .failure(_, let data):
+                completion(.failure(.badRequest, data))
             case .success(let data) where data == nil:
-                completion(.failure(.noData))
+                completion(.failure(.noData, data))
             case .success(let data):
                 let transmissionTime = Date().timeIntervalSince(startDate)
                 let response = self?.response(from: data, transmissionTime: transmissionTime)
@@ -147,7 +147,7 @@ class NetworkService<Endpoint: NetworkServiceEndpoint> {
 
     /// Process `Data` and returns `NetworkServiceResponse`.
     func response(from data: Data?, transmissionTime: TimeInterval) -> NetworkServiceResponse {
-        guard let data = data else { return .failure(.noData) }
+        guard let data = data else { return .failure(.noData, nil) }
         return .success(data, transmissionTime)
     }
 

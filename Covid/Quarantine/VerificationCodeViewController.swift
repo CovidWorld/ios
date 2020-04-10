@@ -23,6 +23,7 @@
 
 import UIKit
 import SwiftyUserDefaults
+import JWTDecode
 
 final class VerificationCodeViewController: UIViewController {
 
@@ -30,6 +31,7 @@ final class VerificationCodeViewController: UIViewController {
 
     var phoneNumber: String? = Defaults.tempPhoneNumber
 
+    private let ncziService = NCZIService()
     private let networkService = CovidService()
 
     override func viewDidLoad() {
@@ -39,7 +41,7 @@ final class VerificationCodeViewController: UIViewController {
 
         showLoadingIndicator()
 
-        updateUser()
+        requestToken()
 
         if #available(iOS 13.0, *) {
             activationCodeTextField.font = UIFont.monospacedSystemFont(ofSize: 40, weight: .medium)
@@ -60,38 +62,24 @@ extension VerificationCodeViewController {
         indicator.startAnimating()
     }
 
-    private func updateUser() {
-        networkService.registerUserProfile(profileRequestData: RegisterProfileRequestData(phoneNumber: phoneNumber)) { [weak self] (result) in
-            switch result {
-            case .success(let profile):
-                if Defaults.profileId == nil {
-                    Defaults.profileId = profile.profileId
-                }
-                self?.requestToken()
-            case .failure:
-                DispatchQueue.main.async {
-                    let message = "Chyba pri overovaní čísla. Skúsiť znovu?"
-                    let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                    let editAction = UIAlertAction(title: "Nie", style: .cancel, handler: nil)
-                    let yesAction = UIAlertAction(title: "Áno", style: .default) { [weak self] (_) in
-                        self?.updateUser()
-                    }
-                    alert.addAction(editAction)
-                    alert.addAction(yesAction)
-
-                    self?.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-    }
-
     private func requestToken() {
-        networkService.requestMFAToken(mfaTokenRequestData: BasicRequestData()) { [weak self] (result) in
+        ncziService.requestOTPSend(data: OTPSendRequestData(vPhoneNumber: phoneNumber ?? "")) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
-                case .success:
-                    self?.navigationItem.rightBarButtonItem = nil
-                    self?.activationCodeTextField.becomeFirstResponder()
+                case .success(let data):
+                    if let error = data.errors.first {
+                        let message = error.description
+                        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                        let backAction = UIAlertAction(title: "Späť", style: .cancel) { [weak self] (_) in
+                            self?.navigationController?.popViewController(animated: true)
+                        }
+                        alert.addAction(backAction)
+
+                        self?.present(alert, animated: true, completion: nil)
+                    } else {
+                        self?.navigationItem.rightBarButtonItem = nil
+                        self?.activationCodeTextField.becomeFirstResponder()
+                    }
                 case .failure:
                     let message = "Chyba pri vyžiadaní overovacieho kódu. Skúsiť znovu?"
                     let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
@@ -112,22 +100,48 @@ extension VerificationCodeViewController {
         let tempToken = activationCodeTextField.text?.replacingOccurrences(of: " ", with: "")
         activationCodeTextField.resignFirstResponder()
 
-        networkService.requestMFATokenPhone(mfaTokenPhoneRequestData: MFATokenPhoneRequestData(mfaToken: tempToken)) { [weak self] (result) in
+        ncziService.requestOTPValidate(data: OTPValidateRequestData(vPhoneNumber: phoneNumber ?? "", nOtp: tempToken ?? "")) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
-                case .success:
-                    Defaults.phoneNumber = self?.phoneNumber
-                    Defaults.mfaToken = tempToken
-                    self?.registerFaceId()
+                case .success(let data):
+//                    self?.registerFaceId()
+                    if let error = data.errors?.first {
+                        self?.requestFailed(message: error.description)
+                    } else {
+                        do {
+                            let jwtData = try decode(jwt: data.payload?.vAccessToken ?? "")
+                            let quarantineData = QuarantineRequestData(startDate: jwtData.claim(name: "qs").string ?? "",
+                                                                       endDate: jwtData.claim(name: "qe").string ?? "",
+                                                                       covidPass: jwtData.subject ?? "")
+                            self?.requestQuarantine(data: quarantineData)
+                        } catch {
+                            self?.requestFailed(message: nil)
+                        }
+                    }
                 case .failure:
-                    self?.requestFailed()
+                    self?.requestFailed(message: nil)
                 }
             }
         }
     }
 
-    private func requestFailed() {
-        let alertController = UIAlertController(title: "Chyba", message: "Zadané údaje sú nesprávne. Skúste znova.", preferredStyle: .alert)
+    private func requestQuarantine(data: QuarantineRequestData) {
+        networkService.requestQuarantine(quarantineRequestData: data) { (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    Defaults.quarantineActive = true
+                    Defaults.covidPass = data.covidPass
+                    self.navigationController?.popToRootViewController(animated: true)
+                case .failure:
+                    self.requestFailed(message: "Chyba pri registrovaní údajov. Skúste znova.")
+                }
+            }
+        }
+    }
+
+    private func requestFailed(message: String?) {
+        let alertController = UIAlertController(title: "Chyba", message: message ?? "Zadané údaje sú nesprávne. Skúste znova.", preferredStyle: .alert)
         let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel) { (_) in
             self.navigationItem.rightBarButtonItem = nil
             self.activationCodeTextField.becomeFirstResponder()
