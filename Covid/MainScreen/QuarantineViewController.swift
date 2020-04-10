@@ -36,7 +36,6 @@ final class QuarantineViewController: UIViewController {
     @IBOutlet private var quarantineUntilLabel: UILabel!
 
     private let networkService = CovidService()
-    private var didLoad = false
 
     private var quarantineData: QuarantineStatusResponseData? {
         didSet {
@@ -47,7 +46,6 @@ final class QuarantineViewController: UIViewController {
             } else {
                 Defaults.quarantineStart = nil
                 Defaults.quarantineEnd = nil
-                Defaults.covidPass = nil
             }
 
             DispatchQueue.main.async {
@@ -56,26 +54,13 @@ final class QuarantineViewController: UIViewController {
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        guard Defaults.profileId != nil else { return }
-
-        updateView()
-        updateQuarantineStatus()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         guard Defaults.profileId != nil else { return }
 
-        if didLoad {
-            updateView()
-            updateQuarantineStatus()
-        } else {
-            didLoad = true
-        }
+        updateView()
+        updateQuarantineStatus()
     }
 }
 
@@ -102,13 +87,6 @@ extension QuarantineViewController {
 
     private func updateView() {
         if let startDate = Defaults.quarantineStart, let endDate = Defaults.quarantineEnd {
-//            let calendar = Calendar.current
-//            let date2 = calendar.startOfDay(for: endDate)
-//
-//            let components = calendar.dateComponents([.day], from: startDate, to: date2)
-//            if let days = components.day {
-//                quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
-//            }
             let days = Int(abs(((endDate.timeIntervalSince1970 - startDate.timeIntervalSince1970) / 86400).rounded(.awayFromZero)))
             quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
         }

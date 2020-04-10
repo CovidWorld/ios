@@ -2153,7 +2153,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
                                 <rect key="frame" x="0.0" y="32" width="327" height="19"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2166,7 +2166,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                                     <constraint firstAttribute="height" constant="1" id="9XI-fR-dsw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
                                 <rect key="frame" x="0.0" y="116" width="327" height="56"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3142,7 +3142,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
     <inferredMetricsTieBreakers>
         <segue reference="ngf-Dj-6Ay"/>
         <segue reference="ptS-EM-6mH"/>
-        <segue reference="LCD-tO-Hlk"/>
+        <segue reference="Rme-BJ-GTw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ID" width="26" height="27"/>

@@ -131,7 +131,6 @@ extension VerificationCodeViewController {
                 switch result {
                 case .success:
                     Defaults.quarantineActive = true
-                    Defaults.covidPass = data.covidPass
                     self.navigationController?.popToRootViewController(animated: true)
                 case .failure:
                     self.requestFailed(message: "Chyba pri registrovaní údajov. Skúste znova.")

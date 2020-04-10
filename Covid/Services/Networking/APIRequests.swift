@@ -68,23 +68,6 @@ struct QuarantineRequestData: Codable {
         self.startDate = startDate
         self.endDate = endDate
         self.covidPass = covidPass
-
-        // TODO: toto
-//        let quarantineDuration = Firebase.remoteDoubleValue(for: .quarantineDuration)
-//
-//        guard let date = Defaults.quarantineStart else {
-//            self.duration = String(quarantineDuration)
-//            return
-//        }
-//        let currentCalendar = Calendar.current
-//        let currentDate = Date()
-//
-//        let days = currentCalendar.dateComponents([.day], from: date, to: currentDate)
-//        if let days = days.day {
-//            self.duration = String(Int(quarantineDuration) - days)
-//        } else {
-//            self.duration = String(quarantineDuration)
-//        }
     }
 }
 
