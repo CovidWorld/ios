@@ -99,6 +99,7 @@ extension VerificationCodeViewController {
     private func didFillNumbers() {
         let tempToken = activationCodeTextField.text?.replacingOccurrences(of: " ", with: "")
         activationCodeTextField.resignFirstResponder()
+        showLoadingIndicator()
 
         ncziService.requestOTPValidate(data: OTPValidateRequestData(vPhoneNumber: phoneNumber ?? "", nOtp: tempToken ?? "")) { [weak self] (result) in
             DispatchQueue.main.async {
