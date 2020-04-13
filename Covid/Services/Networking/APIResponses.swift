@@ -42,9 +42,15 @@ struct QuarantineStatusResponseData: Codable {
 }
 
 struct StatsResponseData: Codable {
-    let totalCases: Double
-    let totalDeaths: Double
-    let totalRecovered: Double
+    enum CodingKeys: String, CodingKey {
+        case totalRecovered = "recovered"
+        case totalCases = "total_cases"
+        case totalDeaths = "total_deaths"
+    }
+
+    let totalCases: Int
+    let totalDeaths: Int
+    let totalRecovered: Int
 }
 
 // MARK: - NCZI Services -
