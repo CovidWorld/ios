@@ -222,19 +222,6 @@ extension MainViewController {
 
     private func registerForQuarantine(_ completion: @escaping () -> Void) {
         // Call only if we're registering
-//        let data = QuarantineRequestData(mfaToken: Defaults.mfaToken)
-//        networkService.requestQuarantine(quarantineRequestData: data) { (result) in
-//            DispatchQueue.main.async {
-//                switch result {
-//                case .success:
-//                    LocationTracker.shared.startLocationTracking()
-//
-//                case .failure:
-//                    break
-//                }
-//                completion()
-//            }
-//        }
     }
 
     private func showFaceVerification() {
