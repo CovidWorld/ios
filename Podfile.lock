@@ -104,6 +104,7 @@ PODS:
   - Protobuf (3.11.4)
   - ReachabilitySwift (5.0.0)
   - SwiftyUserDefaults (5.0.0)
+  - "UILabel+Copyable (2.0)"
 
 DEPENDENCIES:
   - dot (= 2.14.2)
@@ -113,6 +114,7 @@ DEPENDENCIES:
   - JWTDecode (~> 2.4)
   - ReachabilitySwift (= 5.0.0)
   - SwiftyUserDefaults (= 5.0.0)
+  - "UILabel+Copyable (~> 2.0)"
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -137,6 +139,7 @@ SPEC REPOS:
     - Protobuf
     - ReachabilitySwift
     - SwiftyUserDefaults
+    - "UILabel+Copyable"
   https://github.com/innovatrics/innovatrics-podspecs:
     - dot
     - iface
@@ -165,7 +168,8 @@ SPEC CHECKSUMS:
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
+  "UILabel+Copyable": 9ccc55680d6f8162568906654ae4d26782175300
 
-PODFILE CHECKSUM: 1145767f0f4785147295757bf2a8d2c4cb9a51a9
+PODFILE CHECKSUM: 83faa5f1170dff17efffe97efc152b4bcf7c1c2f
 
 COCOAPODS: 1.9.1
