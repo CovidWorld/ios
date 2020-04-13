@@ -29,6 +29,7 @@
 //
 
 import UIKit
+import UILabel_Copyable
 import SwiftyUserDefaults
 
 final class IdentityViewController: UIViewController {
@@ -58,6 +59,8 @@ final class IdentityViewController: UIViewController {
         super.loadView()
         aboutAppView.layer.cornerRadius = 20
         aboutAppView.layer.masksToBounds = true
+
+        idLabel.isCopyingEnabled = true
 
         let text = "Tento projekt vznikol\nako spojenie dobrovoľnej iniciatívy\nZostanZdravy a Sygic"
         let attribbutes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Poppins-Regular", size: 15.0)!, .foregroundColor: UIColor.darkGray]

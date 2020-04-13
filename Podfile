@@ -7,6 +7,7 @@ source 'https://github.com/innovatrics/innovatrics-podspecs'
 target 'Covid' do
   use_frameworks!
   
+  pod 'UILabel+Copyable', '~> 2.0'
   pod 'SwiftyUserDefaults', '5.0.0'
   pod 'ReachabilitySwift', '5.0.0'
   pod 'JWTDecode', '~> 2.4'
