@@ -41,14 +41,14 @@ final class LocationReporter {
 
     func didRangeBeacons(_ beacons: [CLBeacon], at location: CLLocation?) {
         let timestamp = Int(Date().timeIntervalSince1970)
-        let accuracy = Firebase.remoteConfig?.configValue(forKey: "ibeaconLocationAccuracy").numberValue ?? -1
+        let accuracy = Firebase.remoteDoubleValue(for: .iBeaconLocationAccuracy)
         var approxLatitude: Double?
         var approxLongitude: Double?
         var accuracyFactor = 0.0
         let connections = beacons.compactMap { (beacon) -> Connection in
             let beaconId = BeaconId(major: beacon.major.uint16Value, minor: beacon.minor.uint16Value)
             if accuracy != -1 {
-                accuracyFactor = Double(truncating: pow(10, accuracy.intValue) as NSNumber)
+                accuracyFactor = Double(truncating: pow(10, Int(accuracy)) as NSNumber)
                 approxLatitude = Double(round(accuracyFactor * (location?.coordinate.latitude ?? 0)) / accuracyFactor)
                 approxLongitude = Double(round(accuracyFactor * (location?.coordinate.longitude ?? 0)) / accuracyFactor)
             }
@@ -65,7 +65,7 @@ final class LocationReporter {
     }
 
     func sendConnections() {
-        let batchTime = Firebase.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
+        let batchTime = Firebase.remoteDoubleValue(for: .batchSendingFrequency)
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastConnectionsUpdate ?? Date().timeIntervalSince1970
 
@@ -100,19 +100,17 @@ final class LocationReporter {
             Defaults.quarantineActive
             else { return }
 
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let quarantineLocationPeriodMinutes = appDelegate?.remoteConfig?["quarantineLocationPeriodMinutes"].numberValue?.intValue ?? 5
+        let quarantineLocationPeriodMinutes = Firebase.remoteDoubleValue(for: .quarantineLocationPeriodMinutes)
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastQuarantineUpdate ?? 0
 
         guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return }
 
         let quarantineLocation = CLLocation(latitude: quarantineLatitude, longitude: quarantineLongitude)
-        // TODO: nicer
-        let distance = appDelegate?.remoteConfig?["desiredPositionAccuracy"].numberValue?.doubleValue ?? 100.0
+
+        let distance = Firebase.remoteDoubleValue(for: .desiredPositionAccuracy)
         let treshold = max(location.horizontalAccuracy * 2, distance)
-        let defaultMessage = "Opustili ste zónu domácej karantény. Pre ochranu Vášho zdravia a zdravia Vašich blízkych, Vás žiadame o striktné dodržiavanie nariadenej karantény."
-        let message = appDelegate?.remoteConfig?["quarantineLeftMessage"].stringValue ?? defaultMessage
+        let message = Firebase.remoteStringValue(for: .quarantineLeftMessage)
 
         Defaults.lastQuarantineUpdate = currentTimestamp
 
@@ -156,7 +154,7 @@ final class LocationReporter {
                                 accuracy: location.horizontalAccuracy)
         try? Disk.append(location, to: "locations.json", in: .applicationSupport)
 
-        let batchTime = Firebase.remoteConfig?["batchSendingFrequency"].numberValue?.intValue ?? 60
+        let batchTime = Firebase.remoteDoubleValue(for: .batchSendingFrequency)
 
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastLocationUpdate ?? 0

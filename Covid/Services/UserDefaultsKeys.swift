@@ -39,8 +39,7 @@ extension DefaultsKeys {
     var profileId: DefaultsKey<Int?> { .init("profileId") }
     var pushToken: DefaultsKey<String?> { .init("pushToken") }
     var tempPhoneNumber: DefaultsKey<String?> { .init("tempPhoneNumber") }
-    var phoneNumber: DefaultsKey<String?> { .init("phoneNumber") }
-    var mfaToken: DefaultsKey<String?> { .init("mfaToken") }
+    var covidPass: DefaultsKey<String?> { .init("covidPass") }
 
     var quarantineLatitude: DefaultsKey<Double?> { .init("quarantineLatitude") }
     var quarantineLongitude: DefaultsKey<Double?> { .init("quarantineLongitude") }

@@ -96,10 +96,10 @@ extension ChooseDateViewController {
         let calendar = Calendar.current
         let currentDate = Date()
         var components = DateComponents()
-        let quarantineDuration = Firebase.remoteConfig?["quarantineDuration"].stringValue ?? "14"
+        let quarantineDuration = Firebase.remoteDoubleValue(for: .quarantineDuration)
 
         components.calendar = Calendar.current
-        components.day = -(Int(quarantineDuration) ?? 14) + 1
+        components.day = -(Int(quarantineDuration)) + 1
         let minDate = calendar.date(byAdding: components, to: currentDate)
 
         datePicker.minimumDate = minDate

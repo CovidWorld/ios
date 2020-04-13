@@ -35,17 +35,11 @@ import AVKit
 struct FaceID {
 
     static var faceIDMatchThreshold: Int {
-        guard let treshold = Firebase.remoteConfig?.configValue(forKey: "faceIDMatchThreshold").numberValue else {
-            return 75
-        }
-        return treshold.intValue
+        Int(Firebase.remoteDoubleValue(for: .faceIDMatchThreshold))
     }
 
     static var faceDetectionConfidenceThreshold: Int {
-        guard let treshold = Firebase.remoteConfig?.configValue(forKey: "faceIDConfidenceThreshold").numberValue else {
-            return 600
-        }
-        return treshold.intValue
+        Int(Firebase.remoteDoubleValue(for: .faceIDConfidenceThreshold))
     }
 
     static func initialize() {
@@ -72,7 +66,7 @@ struct FaceID {
                                onCancel: @escaping () -> Void) {
         if status != .authorized {
             let alertController = UIAlertController(title: "Nie je povolená kamera",
-                                                    message: "Vstúpiť do Nastavení?",
+                                                    message: "Otvoriť Nastavenia?",
                                                     preferredStyle: .alert)
 
             let settingsAction = UIAlertAction(title: "Nastavenia", style: .default) { (_) -> Void in

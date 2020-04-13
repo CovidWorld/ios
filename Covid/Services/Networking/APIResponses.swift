@@ -46,3 +46,26 @@ struct StatsResponseData: Codable {
     let totalDeaths: Double
     let totalRecovered: Double
 }
+
+// MARK: - NCZI Services -
+struct OTPResponseData: Codable {
+    let errors: [OTPResponseError]?
+    let payload: OTPResponsePayload?
+}
+
+struct OTPResponseErrorData: Codable {
+    let errors: [OTPResponseError]
+}
+
+struct OTPResponseSuccessData: Codable {
+    let payload: OTPResponsePayload
+}
+
+struct OTPResponsePayload: Codable {
+    let vAccessToken: String
+}
+
+struct OTPResponseError: Codable {
+    let title: String
+    let description: String
+}

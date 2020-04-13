@@ -94,6 +94,7 @@ PODS:
   - GoogleUtilities/UserDefaults (6.5.2):
     - GoogleUtilities/Logger
   - iface (3.8.1)
+  - JWTDecode (2.4.1)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -109,6 +110,7 @@ DEPENDENCIES:
   - Firebase/Analytics (= 6.21.0)
   - Firebase/Crashlytics (= 6.21.0)
   - Firebase/RemoteConfig (= 6.21.0)
+  - JWTDecode (~> 2.4)
   - ReachabilitySwift (= 5.0.0)
   - SwiftyUserDefaults (= 5.0.0)
 
@@ -129,6 +131,7 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
     - GoogleUtilities
+    - JWTDecode
     - nanopb
     - PromisesObjC
     - Protobuf
@@ -156,12 +159,13 @@ SPEC CHECKSUMS:
   GoogleDataTransportCCTSupport: 6f15a89b0ca35d6fa523e1f752ef818588885988
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
   iface: 9920049baaf8d0cf204e5254cbcd49901f42a2bc
+  JWTDecode: 4bd4da0cdf0f8154fd467fa48499f34ec057fb88
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
 
-PODFILE CHECKSUM: 90562c5111a55195058e99ca9cb3919ff460e01d
+PODFILE CHECKSUM: 1145767f0f4785147295757bf2a8d2c4cb9a51a9
 
 COCOAPODS: 1.9.1

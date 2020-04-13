@@ -60,7 +60,12 @@ final class QuarantineViewController: UIViewController {
         guard Defaults.profileId != nil else { return }
 
         updateView()
+        updateQuarantineStatus()
+    }
+}
 
+extension QuarantineViewController {
+    private func updateQuarantineStatus() {
         networkService.requestQuarantineStatus(quarantineRequestData: BasicRequestData()) { [weak self] (result) in
             switch result {
             case .success(let response):
@@ -71,9 +76,7 @@ final class QuarantineViewController: UIViewController {
             }
         }
     }
-}
 
-extension QuarantineViewController {
     private func updateTracking() {
         if Defaults.quarantineActive {
             LocationTracker.shared.startLocationTracking()
@@ -83,16 +86,11 @@ extension QuarantineViewController {
     }
 
     private func updateView() {
-        if let startDate = Defaults.quarantineStart, let endDate = Defaults.quarantineEnd {
-//            let calendar = Calendar.current
-//            let date2 = calendar.startOfDay(for: endDate)
-//
-//            let components = calendar.dateComponents([.day], from: startDate, to: date2)
-//            if let days = components.day {
-//                quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
-//            }
-            let days = Int(abs(((endDate.timeIntervalSince1970 - startDate.timeIntervalSince1970) / 86400).rounded(.awayFromZero)))
+        if let endDate = Defaults.quarantineEnd {
+            let days = Int(abs(((endDate.timeIntervalSince1970 - Date().timeIntervalSince1970) / 86400).rounded(.awayFromZero)))
             quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
+        } else {
+            quarantineUntilLabel.text = nil
         }
 
         addressLabel.text = "\(Defaults.quarantineAddress ?? "")\n\(Defaults.quarantineCity ?? "")"

@@ -60,8 +60,7 @@ final class StatsViewController: UIViewController {
 
     @objc
     private func reloadData() {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let urlString = appDelegate?.remoteConfig?["statsUrl"].stringValue ?? "https://corona-stats-sk.herokuapp.com/combined"
+        let urlString = Firebase.remoteStringValue(for: .statsUrl)
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
                 let decoder = JSONDecoder()

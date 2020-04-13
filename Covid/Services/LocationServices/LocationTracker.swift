@@ -51,9 +51,7 @@ final class LocationTracker: NSObject {
 
         manager.delegate = self
 
-        if let accuracy = Firebase.remoteConfig?.configValue(forKey: "desiredPositionAccuracy").numberValue?.intValue {
-            self.accuracy = CLLocationAccuracy(accuracy)
-        }
+        self.accuracy = CLLocationAccuracy(Firebase.remoteDoubleValue(for: .desiredPositionAccuracy))
     }
 
     func startLocationTracking() {

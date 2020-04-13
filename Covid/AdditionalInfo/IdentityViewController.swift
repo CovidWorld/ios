@@ -38,7 +38,9 @@ final class IdentityViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let profileId = Defaults.profileId {
+        if let covidPass = Defaults.covidPass {
+            idLabel.text = covidPass
+        } else if let profileId = Defaults.profileId {
             let hashids = Hashids(salt: "COVID-19 super-secure and unguessable hashids salt", minHashLength: 6, alphabet: "ABCDEFGHJKLMNPQRSTUVXYZ23456789")
             idLabel.text = hashids.encode(profileId)?.uppercased()
         }

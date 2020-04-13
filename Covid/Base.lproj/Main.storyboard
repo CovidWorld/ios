@@ -47,9 +47,18 @@
                                             <constraint firstAttribute="width" constant="131" id="MDf-HI-Oib"/>
                                         </constraints>
                                     </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nczi" translatesAutoresizingMaskIntoConstraints="NO" id="9Md-yk-7C2">
+                                        <rect key="frame" x="224" y="76" width="131" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="131" id="RCq-aq-HEw"/>
+                                            <constraint firstAttribute="height" constant="35" id="fTj-OP-gz0"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9Md-yk-7C2" secondAttribute="trailing" constant="20" symbolic="YES" id="AyV-k5-VTM"/>
+                                    <constraint firstItem="9Md-yk-7C2" firstAttribute="top" secondItem="lbv-S4-A8T" secondAttribute="topMargin" constant="24" id="QdT-6Q-h72"/>
                                     <constraint firstItem="ihc-NO-zjp" firstAttribute="top" secondItem="lbv-S4-A8T" secondAttribute="topMargin" constant="24" id="Wxd-1l-UhO"/>
                                     <constraint firstAttribute="bottom" secondItem="ihc-NO-zjp" secondAttribute="bottom" constant="20" symbolic="YES" id="XJW-Vj-FXG"/>
                                     <constraint firstItem="ihc-NO-zjp" firstAttribute="leading" secondItem="lbv-S4-A8T" secondAttribute="leading" constant="20" symbolic="YES" id="uGi-FO-1ZP"/>
@@ -129,7 +138,7 @@ ZostanZdravy a Sygic</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd8-q3-t40" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1988" y="-1906"/>
+            <point key="canvasLocation" x="1209" y="-1847"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bj2-mj-mcj">
@@ -1509,7 +1518,7 @@ ZostanZdravy a Sygic</string>
                                 </state>
                                 <connections>
                                     <action selector="agreeDidTap:" destination="Zak-E9-be5" eventType="touchUpInside" id="OWJ-bf-Mv3"/>
-                                    <segue destination="WZm-1e-vuR" kind="show" identifier="initQuarantine" id="8Dv-9x-mau"/>
+                                    <segue destination="Adw-jW-flq" kind="show" identifier="initQuarantine" id="ptS-EM-6mH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1968,7 +1977,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980394" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vážený užívateľ, vyberte prosím miesto v ktorom sa budete zdržiavať nasledujúcich 14 dní počas karantény." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MI-rx-GXw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vážený užívateľ, vyberte prosím miesto v ktorom sa budete zdržiavať počas karantény." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MI-rx-GXw">
                                 <rect key="frame" x="32" y="194" width="311" height="63"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2144,7 +2153,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
                                 <rect key="frame" x="0.0" y="32" width="327" height="19"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2157,7 +2166,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                                     <constraint firstAttribute="height" constant="1" id="9XI-fR-dsw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="14" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
                                 <rect key="frame" x="0.0" y="116" width="327" height="56"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -2385,27 +2394,29 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hgO-J6-TO3">
                                 <rect key="frame" x="16" y="88" width="343" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Aplikácia Covid-19 bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.
+                                <mutableString key="text">Táto aplikácia bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.
 
 Jednou z najzákernejších prejavov Covid-19 je jej inkubačná doba, kedy pacient chorobu šíri až 14-dní bez jej viditeľných symptómov. Tým sa vírus šíri rýchlejšie ako obyčajná chrípka a ťažké stavy tak prehltia zdravotnícky systém, ktorý v žiadnej krajine nebol pripravený na takýto nárast nákazy. Cieľom aplikácie je výrazne spomaliť nástup a rýchlejšie otestovať potenciálne nakazených ľudí a tým predísť šíreniu choroby bez ich vedomia. Tým ochránime infikované osoby, ich blízkych a celý zdravotnícky systém, ktorému zostane kapacita pred exponenciálnym nárastom prípadov. 
 
 Aplikácia funguje na nasledovnom princípe.
 
-Po inštalácii aplikácie je potrebné povoliť senzory Bluetooth, GPS a notifikácii, ktoré informujú pacienta. Bluetooth je technológia na rozoznanie blízkosti kontaktu od 1-20 metrov a je možné prostredníctvom nej analyzovať presnú vzdialenosť iných zariadení v jej okolí. Táto technológia na rozdiel od GPS výborne funguje v bytoch, budovách, obchodných domoch, lietadlách, letiskách, autobusoch, električkách a iných uzavretých priestoroch, dokonca až na úroveň konkrétnej miestnosti. 
+Po inštalácii aplikácie je potrebné povoliť senzory Bluetooth a notifikácii, ktoré informujú pacienta. Bluetooth je technológia na rozoznanie blízkosti kontaktu od 1-10 metrov a je možné prostredníctvom nej analyzovať presnú vzdialenosť iných zariadení v jej okolí. Táto technológia výborne funguje v bytoch, budovách, obchodných domoch, lietadlách, letiskách, autobusoch, električkách a iných uzavretých priestoroch, dokonca až na úroveň konkrétnej miestnosti. Jej spotreba je pritom mimoriadne úsporná. 
 
-V prípade, že telefón rozozná iné Bluetooth zariadenie v jeho blízkosti a táto doba prekročí určitú dĺžku, zapíše si rozptýlenú GPS pozíciu a anonymný údaj oboch zariadení na server. Rozptýlená GPS pozícia je dôležitá pre hygienikov na analýzu šírenia ochorenia. Bluetooth informácia iného zariadenia je potrebná na spätné identifikovanie zariadenia a zasielanie notifikácii takémuto zariadeniu, ktorého majiteľ mohol byť vstavený ochoreniu.
+V prípade, že telefón rozozná iné Bluetooth zariadenie v jeho blízkosti a táto doba prekročí určitú dĺžku, zapíše si anonymný údaj tzv. AppID, ktoré je anonymné číslo vygenerované pri každej inštalácii aplikácie. Toto identifikačné číslo je úplne anonymné. Bluetooth informácia iného zariadenia je potrebná na spätné identifikovanie zariadenia a zasielanie notifikácii takémuto zariadeniu, ktorého majiteľ mohol byť vstavený ochoreniu. Na zasielanie sa práve použije AppID. To znamená, že ak si človek aplikáciu vymaže z telefónu, toto číslo stratí akýkoľvek význam. Jeho hodnota existuje, len v prípade, že aplikácia je nainštalovaná na telefóne a dá sa na túto aplikáciu poslať notifikácia, ak bolo iné AppID infikované, s ktorým bola aplikácia v kontakte cez Bluetooth. Týmto spôsobom nieje možné identifikovať chorého, ani zdravého. Je možné len zaslať správu do inštancie takejto aplikácie.
 
-Akonáhle akýkoľvek človek zistí, že bol infikovaný vírusom Covid-19 a mal nainštalovanú aplikáciu, zobrazí hygienikovi svoje unikátne kódované číslo. Toto číslo zadá hygienik do systému a všetkým zariadeniam, ktorých majitelia boli v kontakte s takto infikovanou osobou bude zaslaná notifikácia, alebo SMS. Správa bude obsahovať, že bol človek potenciálne vystavený nákaze. Takýmto spôsobom dokážu zdravotní pracovníci trasovať možné prenosy za posledných 14-dní aj pri kontaktoch, ktoré človek nedokáže identifikovať. V budovách, pri prepážke v obchode, vo verejnej doprave a podobne. Tým budú ľudia cielenejšie testovaní, a len Tí, ktorí boli vo veľmi tesnej blízkosti infikovanej osoby po určitú dobu. 
+Akonáhle akýkoľvek človek zistí, že bol infikovaný vírusom Covid-19, zadá do aplikácie svoje CovidID, prípadne ukáže hygienikovi svoje číslo. Následne sa Covid číslo overí z NCZI systémom. Následne sa informujú iní užívatelia, ktorí boli v kontakte s jeho AppID na úplne anonymnej báze, aby sa dali otestovať. Správa bude obsahovať, že bol človek potenciálne vystavený nákaze. Takýmto spôsobom dokáže aplikácia trasovať možné prenosy za posledných 14-dní aj pri kontaktoch, ktoré človek nedokáže identifikovať. V budovách, pri prepážke v obchode, vo verejnej doprave a podobne. Tým budú ľudia cielenejšie testovaní, a len Tí, ktorí boli vo veľmi tesnej blízkosti infikovanej osoby po určitú dobu. Každý pozitívne testovaný tak pomôže rodinám ľudí, ktorí o svojej nákaze ešte nemusia vedieť a predíde tak ďalšiemu rozneseniu nákazy. Všetko na anonymnej báze. 
 
-V dnešnej dobe fungujú zdravotníci pýtaním sa, s kým sa človek stretol, a na základe toho osobne kontaktujú ľudí, ktorí mohli byť vystavení ochoreniu. Nedokážu ale odhaliť ľudí, ktorí boli v kontakte v obchode, alebo verejnej doprave, či vo výťahu. Táto aplikácia tak dokáže rýchlejšie nájsť takéto osoby, otestovať ich, výrazne znížiť manuálnu prácu zdravotníkov a hygienikov a tým rýchlejšie predísť šíreniu nákazy na ostatných členov rodiny, kolegov, či náhodne okoloidúcich. 
+V dnešnej dobe fungujú zdravotníci pýtaním sa, s kým sa človek stretol, a na základe toho osobne kontaktujú ľudí, ktorí mohli byť vystavení ochoreniu. Nedokážu ale odhaliť ľudí, ktorí boli v kontakte v obchode, alebo verejnej doprave. Táto aplikácia tak dokáže rýchlejšie nájsť takéto AppIDs, poslať aplikácii informáciu aby sa dali otestovať, výrazne zníži manuálnu prácu zdravotníkov a hygienikov a tým rýchlejšie predíde šíreniu nákazy na ostatných členov rodiny, kolegov, či iných ľudí v blízkom kontakte. 
 
-Neoddeliteľnou súčasťou prekonania nákazy Covid-19 je aj izolácia chorých od ostatnej populácie. Na tento účel funguje karanténa. V prípade, že človek prišiel zo zahraničia, alebo bol potenciálne vystavený infekcii, je vyhláškou prikázané zostať v karanténe po celú dobu inkubačnej doby. Pri tejto chorobe 14-dní. Mobilný operátori majú informácie o ľuďoch, ktorí prišli zo zahraničia a takýmto ľuďom by mala prísť SMS, aby zostali v karanténe. Následne človek v aplikácii oznámi, že mu bola nariadená karanténa a označí si miesto, v ktorom sa bude zdržiavať nasledujúcich 14-dní. Zároveň oznámi dátum, od ktorého mu bola karanténa nariadená. Po tomto úkone ho aplikácia bude varovať pri každom porušení karantény. Akonáhle je človek mimo karantény dlhšie ako určitý čas, aplikácia ho upozorní, aby sa vrátil do karantény. Táto funkcionalita sa snaží predísť porušovaniu karantény od ľudí, ktorým bola nariadená.
+Neoddeliteľnou súčasťou prekonania nákazy Covid-19 je aj izolácia chorých od ostatnej populácie. Na tento účel funguje karanténa. V prípade, že človek prišiel zo zahraničia, alebo bol potenciálne vystavený infekcii, alebo mu bola nariadená karanténa, je vyhláškou prikázané zostať na jednom mieste po celú dobu, pokiaľ systém neoznámi opak. Pri tejto chorobe aj 14-dní a je možné na základe testov, či diagnózy samotnú dobu predĺžiť. Každému, komu bola nariadená karanténa príde informácia, ktorá ho bude informovať o ďalších krokoch. Človek v aplikácii oznámi, ak mu bola nariadená karanténa a označí si miesto, v ktorom sa bude zdržiavať nasledujúce dni. Informácia o mieste zostáva výlučne v aplikácii. Aplikácia si overí telefónnym číslom, či takémuto užívateľovi bola skutočne nariadená karanténa a ak áno, informuje užívateľa o dobe v ktorej by mal zostať na ním určenom mieste. 
 
-Aplikácia zároveň zobrazuje mapu a najnovšie informácie o nákazách v jednotlivých okresoch na Slovensku. Jej účelom nie je identifikovať chorých, ani nijako týmito informáciami nedisponuje. Mapa zobrazuje len štatistický počet zaznamenaných ľudí s ochorením na Covid-19 v danom okrese. 
+Po tomto úkone ho aplikácia bude varovať pri každom porušení karantény. Akonáhle je človek mimo karantény dlhšie ako určitý čas, aplikácia ho upozorní, aby sa vrátil do karantény. Táto funkcionalita sa snaží upozorniť ľudí v karanténe, ktorým bola nariadená. Dáta o pohybe sa nikde neukladajú a používajú sa výlučne na upozornenie užívateľa. 
 
-Zároveň aplikácia disponuje štatistickými informáciami o počte nakazených, vyliečených a počte úmrtí na území Slovenskej republiky. Obsahuje aj dôležité informácie ako sa chrániť, ako rozpoznať symptómy a zobrazuje rýchlu infolinku.
+Aplikácia zároveň zobrazuje mapu a najnovšie informácie o nákazách v jednotlivých okresoch na Slovensku. Jej účelom nieje identifikovať chorých, ani nijako týmito informáciami nedisponuje. Mapa zobrazuje len štatistický počet zaznamenaných ľudí s ochorením na Covid-19 v danom okrese. 
 
-Aplikáciu budeme neustále zlepšovať a prinášať ďalšie funkcionality, ktoré pomôžu rýchlejšie zvládnuť nákazu Covid-19. Všetky dáta sú automaticky mazané po uplynutí 21-dní. Táto doba je nevyhnutná na odhalenie možných ohnísk nákaz, ktoré nebolo možné odhaliť konvenčným spôsobom.
+Zároveň aplikácia disponuje štatistickými informáciami o počte nakazených, vyliečených a počte úmrtí na území Slovenskej republiky. Obsahuje aj dôležité informácie ako sa chrániť, ako rozpoznať symptómy a zobrazuje rýchlu infolinku. 
+
+Aplikáciu budeme neustále zlepšovať a prinášať ďalšie funkcionality, ktoré pomôžu rýchlejšie zvládnuť nákazu Covid-19. Všetky dáta sú anonymné a zároveň sú automaticky mazané po uplynutí 21-dní. Táto doba je nevyhnutná na odhalenie možných ohnísk nákaz, ktoré nebolo možné odhaliť konvenčným spôsobom.
 
 Nikdy nebolo dôležitejšie neochorieť, aby sme zachránili druhých, tak ako dnes. Tým, že zostaneme zdraví a nebudeme vírus šíriť, budú mať naši blízky väčšiu šancu na záchranu, pretože zdravotníctvo im bude schopné poskytnúť pomoc, ktorú potrebujú. Ak ochorieme, svojím šírením zaťažujeme zdravotný systém. Zároveň doktori a zdravotný personál bude preťažení a tým náchylnejší na ochorenie. V prípade, že ochorejú nebudú môcť pomáhať aj v úplne odlišných prípadoch, ktorý sa tejto nákazy netýka. Tí, ktorí nákazu sami nezvládnu, nebudú mať šancu na záchranu. Ak budú chorí doktori, nikto z nás nebude môcť dostať akúkoľvek pomoc, či je to obyčajný úraz, operácia, alebo iný vážnejší stav. 
 
@@ -2413,10 +2424,10 @@ Veľa z nás nákazu zvládne svojou imunitou. Sú ale takí, ktorí majú iné 
 
 Preto je nesmierne dôležité prejaviť ľudskosť mladých voči starým, zdravých voči chorým a poraziť Covid-19, spoločne.
 
-Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Štefan Marinčák, Daniel Kožík, Tomáš Michálek, Turn.sk, Jozef Benko, DigitalLegal, Slovensko.Digital, Hackvirus.sk
+Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Daniel Kožík, Tomáš Michálek, Štefan Marinčák, Turn.sk, Jozef Benko, Boris Bielik, Roland Beke, Alex Potapov, Vincent Durbák, Ondrej Svitek, DigitalLegal, Slovensko.Digital, Hackvirus.sk
 Širší odborný tím spoluautorov:  doc. JUDr. MUDr. Peter Kováč, PhD. et. PhD, MUDr. Vanda Martišková, MUDr. Karolína Bašová, MDDr. Peter Czakó, MUDr. Martin Čaprnda, PhD., prof. MUDr. Dušan Meško, PhD., MUDr. Peter Herman, MUDr. Gabriela Ďuricová, PhD., MUDr. Igor Krupa, MUDr. Gabriela Ďuricová, PhD., MUDr. Alžbeta Reviczká, MUDr. Andrej Daňo, MUDr. Veronika Pružincová, Juraj Novosad, Nicolas Hason, Maroš Lukáč
 
-Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
+Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</mutableString>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2561,7 +2572,7 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4g-mu-6Mg">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBv-Y5-gpA">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="390.66666666666669"/>
@@ -3129,8 +3140,9 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tft-S4-wx5"/>
-        <segue reference="LCD-tO-Hlk"/>
+        <segue reference="ngf-Dj-6Ay"/>
+        <segue reference="ptS-EM-6mH"/>
+        <segue reference="Rme-BJ-GTw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ID" width="26" height="27"/>
@@ -3142,7 +3154,8 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
         <image name="home" width="26" height="25"/>
         <image name="howtoprotect" width="77" height="77"/>
         <image name="map-icon" width="26" height="25"/>
-        <image name="mzsr" width="336.5" height="88"/>
+        <image name="mzsr" width="673" height="176"/>
+        <image name="nczi" width="383" height="132"/>
         <image name="pin" width="32" height="32"/>
         <image name="pin-select-location" width="55" height="57"/>
         <image name="prevention01" width="77" height="77"/>

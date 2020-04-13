@@ -9,6 +9,7 @@ target 'Covid' do
   
   pod 'SwiftyUserDefaults', '5.0.0'
   pod 'ReachabilitySwift', '5.0.0'
+  pod 'JWTDecode', '~> 2.4'
   
   pod 'Firebase/Analytics', '6.21.0'
   pod 'Firebase/Crashlytics', '6.21.0'
