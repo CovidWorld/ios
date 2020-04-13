@@ -61,23 +61,21 @@ final class StatsViewController: UIViewController {
     @objc
     private func reloadData() {
         let urlString = Firebase.remoteStringValue(for: .statsUrl)
-        if let url = URL(string: urlString) {
-            let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                do {
-                    if let data = data {
-                        let result = try decoder.decode(StatsResponseData.self, from: data)
-                        DispatchQueue.main.async {
-                            self?.positiveCasesLabel.text = String(Int(result.totalCases))
-                            self?.healedCasesLabel.text = String(Int(result.totalRecovered))
-                        }
-                    }
-                } catch let error {
-                    print(error)
+        guard let url = URL(string: urlString) else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, _, error) in
+            do {
+                guard let data = data else { return }
+
+                let result = try JSONDecoder().decode(StatsResponseData.self, from: data)
+                DispatchQueue.main.async {
+                    self?.positiveCasesLabel.text = String(result.totalCases)
+                    self?.healedCasesLabel.text = String(result.totalRecovered)
                 }
+            } catch let error {
+                print(error)
             }
-            task.resume()
         }
+        task.resume()
     }
 }
