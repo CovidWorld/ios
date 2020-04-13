@@ -66,7 +66,7 @@ struct FaceID {
                                onCancel: @escaping () -> Void) {
         if status != .authorized {
             let alertController = UIAlertController(title: "Nie je povolená kamera",
-                                                    message: "Otvoriť Nastavenias?",
+                                                    message: "Otvoriť Nastavenia?",
                                                     preferredStyle: .alert)
 
             let settingsAction = UIAlertAction(title: "Nastavenia", style: .default) { (_) -> Void in
