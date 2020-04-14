@@ -717,7 +717,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n./settings_version.sh -p \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\ncd ${SRCROOT}\n./settings_version.sh -p \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n";
 		};
 		21C8FB92242C07B3003668D8 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;

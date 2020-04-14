@@ -186,8 +186,8 @@ extension MainViewController {
             }
 
             action()
-            if Defaults.pushToken == nil {
-                observer = Defaults.observe(\.pushToken) { _ in
+            if Defaults.FCMToken == nil {
+                observer = Defaults.observe(\.FCMToken) { _ in
                     DispatchQueue.main.async {
                         action()
                     }

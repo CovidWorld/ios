@@ -23,24 +23,31 @@
 
 import UIKit
 
+enum NCZIError: String, Error {
+    case generalResponseError = "Some error occured"
+}
+
 final class NCZIService: NetworkService<NCZIEndpoint> {
-    func requestOTPSend(data: OTPSendRequestData, completion: @escaping (Result<OTPResponseErrorData, Error>) -> Void) {
+    func requestOTPSend(data: OTPSendRequestData, completion: @escaping (Result<OTPResponseData, Error>) -> Void) {
         request(.sendOTP(data: data)) { (response) in
             switch response {
-            case .success:
-                completion(.success(OTPResponseErrorData(errors: [])))
-            case .failure(let error, let data):
-                // weird responses
-                if let data = data {
-                    do {
-                        let response = try JSONDecoder().decode(OTPResponseErrorData.self, from: data)
-                        completion(.success(response))
-                    } catch let error {
-                        completion(.failure(error))
-                    }
-                } else {
-                    completion(.failure(error))
+            case .success(let data, _):
+                if let response = try? JSONDecoder().decode(OTPResponseSuccessData.self, from: data) {
+                    let otpData = OTPResponseData(errors: nil, payload: response.payload)
+                    completion(.success(otpData))
+                    
+                    return
                 }
+                
+                if let response = try? JSONDecoder().decode(OTPResponseErrorData.self, from: data) {
+                    let otpData = OTPResponseData(errors: response.errors, payload: nil)
+                    completion(.success(otpData))
+                    
+                    return
+                }
+                completion(.failure(NCZIError.generalResponseError))
+            case .failure(let error, _):
+                completion(.failure(error))
             }
         }
     }
@@ -49,26 +56,22 @@ final class NCZIService: NetworkService<NCZIEndpoint> {
         request(.validateOTP(data: data)) { (response) in
             switch response {
             case .success(let data, _):
-                do {
-                    let response = try JSONDecoder().decode(OTPResponseSuccessData.self, from: data)
+                if let response = try? JSONDecoder().decode(OTPResponseSuccessData.self, from: data) {
                     let otpData = OTPResponseData(errors: nil, payload: response.payload)
                     completion(.success(otpData))
-                } catch let error {
-                    completion(.failure(error))
+                    
+                    return
                 }
-            case .failure(let error, let data):
-                // weird responses
-                if let data = data {
-                    do {
-                        let response = try JSONDecoder().decode(OTPResponseErrorData.self, from: data)
-                        let otpData = OTPResponseData(errors: response.errors, payload: nil)
-                        completion(.success(otpData))
-                    } catch let error {
-                        completion(.failure(error))
-                    }
-                } else {
-                    completion(.failure(error))
+                
+                if let response = try? JSONDecoder().decode(OTPResponseErrorData.self, from: data) {
+                    let otpData = OTPResponseData(errors: response.errors, payload: nil)
+                    completion(.success(otpData))
+                    
+                    return
                 }
+                completion(.failure(NCZIError.generalResponseError))
+            case .failure(let error, _):
+                completion(.failure(error))
             }
         }
     }

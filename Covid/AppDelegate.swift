@@ -29,9 +29,10 @@
 //
 
 import UIKit
-import FirebaseCore
 import SwiftyUserDefaults
+import FirebaseCore
 import FirebaseCrashlytics
+import FirebaseAnalytics
 import FirebaseRemoteConfig
 import FirebaseMessaging
 
@@ -54,6 +55,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         setupFirebaseConfig()
         Crashlytics.crashlytics().setUserID(Defaults.deviceId)
+        Messaging.messaging().delegate = self
+        
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 150 / 255.0, green: 161 / 255.0, blue: 205 / 255.0, alpha: 1)
 
         application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
@@ -142,6 +145,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             return visibleViewController(presented)
         }
         return nil
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        Defaults.FCMToken = fcmToken
     }
 }
 

@@ -38,6 +38,7 @@ extension DefaultsKeys {
     var deviceId: DefaultsKey<String> { .init("deviceId", defaultValue: "") }
     var profileId: DefaultsKey<Int?> { .init("profileId") }
     var pushToken: DefaultsKey<String?> { .init("pushToken") }
+    var FCMToken: DefaultsKey<String?> { .init("FCMToken") }
     var tempPhoneNumber: DefaultsKey<String?> { .init("tempPhoneNumber") }
     var covidPass: DefaultsKey<String?> { .init("covidPass") }
 
