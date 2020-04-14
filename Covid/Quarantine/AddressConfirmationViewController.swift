@@ -33,7 +33,7 @@ final class AddressConfirmationViewController: UIViewController {
     var streetText: String?
     var cityText: String?
     var location: CLLocationCoordinate2D?
-    var faceCaptureCoordinator: FaceCaptureCoordinator?
+//    var faceCaptureCoordinator: FaceCaptureCoordinator?
 
     private let networkService = CovidService()
 

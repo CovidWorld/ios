@@ -43,8 +43,6 @@
 	<string>Používame Váš bluetooth s cieľom ochrany pred šírením vírusu COVID-19 za účelom zistenia potenciálneho výskytu v blízkosti nakazeného pacienta.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Bluetooth</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Používame Vašu kameru s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -124,5 +122,7 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 </dict>
 </plist>

@@ -51,7 +51,7 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
     private var observer: DefaultsDisposable?
     private var quarantineObserver: DefaultsDisposable?
 
-    private var faceCaptureCoordinator: FaceCaptureCoordinator?
+//    private var faceCaptureCoordinator: FaceCaptureCoordinator?
     var notificationTokens: [NotificationToken] = []
 
     deinit {
@@ -60,6 +60,10 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if Defaults.didRunApp {
+            registerForPushNotifications()
+        }
 
         observeFaceIDRegistrationNotification()
         tabBarController?.view.backgroundColor = view.backgroundColor
@@ -137,14 +141,21 @@ final class MainViewController: UIViewController, NotificationCenterObserver {
     // MARK: Permissions
 
     private func registerForPushNotifications() {
-        UIApplication.shared.registerForRemoteNotifications()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
-            DispatchQueue.main.async {
-                if !Defaults.didShowForeignAlert {
-                    self?.performSegue(.foreignAlert)
+        let current = UNUserNotificationCenter.current()
+
+        current.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .notDetermined {
+                current.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
+                    DispatchQueue.main.async {
+                        if !Defaults.didShowForeignAlert {
+                           self?.performSegue(.foreignAlert)
+                        }
+                    }
                 }
             }
+            // TODO: handle other cases
         }
+        UIApplication.shared.registerForRemoteNotifications()
     }
 
     @IBAction private func emergencyDidTap(_ sender: Any) {
@@ -202,22 +213,22 @@ extension MainViewController {
     }
 
     private func showFaceRegistration(in navigationController: UINavigationController, completion: @escaping () -> Void) {
-        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .registerFace)
-        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
-            guard let self = self else { return }
-
-            self.registerForQuarantine { [weak self] in
-                switch result {
-                case .success:
-                    self?.faceCaptureCoordinator = nil
-                    self?.navigationController?.popToRootViewController(animated: true)
-                case .failure:
-                    break
-                }
-                completion()
-            }
-        }
-        faceCaptureCoordinator?.showOnboarding(in: navigationController)
+//        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .registerFace)
+//        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
+//            guard let self = self else { return }
+//
+//            self.registerForQuarantine { [weak self] in
+//                switch result {
+//                case .success:
+//                    self?.faceCaptureCoordinator = nil
+//                    self?.navigationController?.popToRootViewController(animated: true)
+//                case .failure:
+//                    break
+//                }
+//                completion()
+//            }
+//        }
+//        faceCaptureCoordinator?.showOnboarding(in: navigationController)
     }
 
     private func registerForQuarantine(_ completion: @escaping () -> Void) {
@@ -225,19 +236,19 @@ extension MainViewController {
     }
 
     private func showFaceVerification() {
-        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
-        let viewController = faceCaptureCoordinator!.startFaceCapture()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
-        faceCaptureCoordinator?.navigationController = navigationController
-
-        faceCaptureCoordinator?.onAlert = { alertControler in
-            navigationController.present(alertControler, animated: true, completion: nil)
-        }
-        faceCaptureCoordinator?.onCoordinatorResolution = { _ in
-            navigationController.dismiss(animated: true, completion: nil)
-        }
-        present(navigationController, animated: true, completion: nil)
+//        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
+//        let viewController = faceCaptureCoordinator!.startFaceCapture()
+//        let navigationController = UINavigationController(rootViewController: viewController)
+//        navigationController.modalPresentationStyle = .fullScreen
+//        faceCaptureCoordinator?.navigationController = navigationController
+//
+//        faceCaptureCoordinator?.onAlert = { alertControler in
+//            navigationController.present(alertControler, animated: true, completion: nil)
+//        }
+//        faceCaptureCoordinator?.onCoordinatorResolution = { _ in
+//            navigationController.dismiss(animated: true, completion: nil)
+//        }
+//        present(navigationController, animated: true, completion: nil)
     }
 
     // TODO: remove this func and key from Settings.bundle once the feature is ready
@@ -245,7 +256,7 @@ extension MainViewController {
 
         guard
             Defaults.quarantineActive == true,
-            FaceIDStorage().referenceFaceData != nil,
+//            FaceIDStorage().referenceFaceData != nil,
             Defaults.allowVerifyFaceId == true else {
             return
         }

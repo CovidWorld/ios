@@ -29,10 +29,11 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
 import SwiftyUserDefaults
 import FirebaseCrashlytics
 import FirebaseRemoteConfig
+import FirebaseMessaging
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -79,6 +80,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        Messaging.messaging().apnsToken = deviceToken
         let token = deviceToken.reduce("") { $0 + String(format: "%02.2hhx", $1) }
         Defaults.pushToken = token
     }

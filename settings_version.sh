@@ -33,8 +33,8 @@ while test $# -gt 0; do
 done
 
 version=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" "${PLIST_PATH}")
-build=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${PLIST_PATH}")
-version_build="$version ($build)"
+#build=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "${PLIST_PATH}")
+version_build="$version (${CURRENT_PROJECT_VERSION})"
 settings_bundle_path="$SRCROOT/Covid/Resources/Settings.bundle/Root.plist"
 
 echo "Copying ${version_build} from ${PLIST_PATH} to ${settings_bundle_path}."
