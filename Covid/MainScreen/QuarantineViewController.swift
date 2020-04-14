@@ -87,7 +87,7 @@ extension QuarantineViewController {
 
     private func updateView() {
         if let endDate = Defaults.quarantineEnd {
-            let days = Int(abs(((endDate.timeIntervalSince1970 - Date().timeIntervalSince1970) / 86400).rounded(.awayFromZero)))
+            let days = Int(abs(((endDate.timeIntervalSince1970 - Date().timeIntervalSince1970) / 86400).rounded(.awayFromZero))) + 1
             quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
         } else {
             quarantineUntilLabel.text = nil

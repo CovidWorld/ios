@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F015CA524461588004E80A1 /* hashids.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F015CA424461588004E80A1 /* hashids.c */; };
 		0F11813D2416C70500213533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F11813C2416C70500213533 /* AppDelegate.swift */; };
 		0F1181412416C70500213533 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1181402416C70500213533 /* MainViewController.swift */; };
 		0F1181442416C70500213533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1181422416C70500213533 /* Main.storyboard */; };
@@ -120,6 +121,9 @@
 
 /* Begin PBXFileReference section */
 		01CD4C6328E539CABA0FB0E5 /* Pods-Covid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid.release.xcconfig"; path = "Target Support Files/Pods-Covid/Pods-Covid.release.xcconfig"; sourceTree = "<group>"; };
+		0F015CA224461587004E80A1 /* Covid-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Covid-Bridging-Header.h"; sourceTree = "<group>"; };
+		0F015CA324461588004E80A1 /* hashids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashids.h; sourceTree = "<group>"; };
+		0F015CA424461588004E80A1 /* hashids.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hashids.c; sourceTree = "<group>"; };
 		0F0B4982241EF14F00214AFE /* Covid.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = Covid.entitlements; path = Covid/Covid.entitlements; sourceTree = SOURCE_ROOT; };
 		0F1181392416C70500213533 /* Covid-19_SR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19_SR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F11813C2416C70500213533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -369,6 +373,9 @@
 				C0F99634241FE632009C6BF5 /* SymptomsViewController.swift */,
 				0FD28B1C2428F9900015F7E7 /* IdentityViewController.swift */,
 				0FD28B1E242942270015F7E7 /* Hashids.swift */,
+				0F015CA424461588004E80A1 /* hashids.c */,
+				0F015CA324461588004E80A1 /* hashids.h */,
+				0F015CA224461587004E80A1 /* Covid-Bridging-Header.h */,
 			);
 			path = AdditionalInfo;
 			sourceTree = "<group>";
@@ -588,6 +595,7 @@
 				TargetAttributes = {
 					0F1181382416C70500213533 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1140;
 					};
 					21DE1B512435F5C700746CE8 = {
 						CreatedOnToolsVersion = 11.4;
@@ -797,6 +805,7 @@
 				C0091578241ED36F0012F557 /* VerificationCodeViewController.swift in Sources */,
 				21B0F7B52438ACCC00552491 /* FaceCaptureOnboardingViewController.swift in Sources */,
 				C0642FB82420DA7200967E05 /* ChooseDateViewController.swift in Sources */,
+				0F015CA524461588004E80A1 /* hashids.c in Sources */,
 				C0F99629241FB387009C6BF5 /* ForeignDecisionViewController.swift in Sources */,
 				21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */,
 				0FF4F21B241AEF8100643297 /* HTTPRequest.swift in Sources */,
@@ -1000,6 +1009,7 @@
 			baseConfigurationReference = C677C8F1E15607134CEF734A /* Pods-Covid.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
@@ -1015,6 +1025,8 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1025,6 +1037,7 @@
 			baseConfigurationReference = 01CD4C6328E539CABA0FB0E5 /* Pods-Covid.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Narodne centrum zdravotnickych informacii (SJNG272QAP)";
 				CODE_SIGN_STYLE = Manual;
@@ -1040,6 +1053,7 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "Covid AppStore";
+				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

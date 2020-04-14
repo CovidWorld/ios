@@ -35,14 +35,14 @@ final class NCZIService: NetworkService<NCZIEndpoint> {
                 if let response = try? JSONDecoder().decode(OTPResponseSuccessData.self, from: data) {
                     let otpData = OTPResponseData(errors: nil, payload: response.payload)
                     completion(.success(otpData))
-                    
+
                     return
                 }
-                
+
                 if let response = try? JSONDecoder().decode(OTPResponseErrorData.self, from: data) {
                     let otpData = OTPResponseData(errors: response.errors, payload: nil)
                     completion(.success(otpData))
-                    
+
                     return
                 }
                 completion(.failure(NCZIError.generalResponseError))
@@ -59,14 +59,14 @@ final class NCZIService: NetworkService<NCZIEndpoint> {
                 if let response = try? JSONDecoder().decode(OTPResponseSuccessData.self, from: data) {
                     let otpData = OTPResponseData(errors: nil, payload: response.payload)
                     completion(.success(otpData))
-                    
+
                     return
                 }
-                
+
                 if let response = try? JSONDecoder().decode(OTPResponseErrorData.self, from: data) {
                     let otpData = OTPResponseData(errors: response.errors, payload: nil)
                     completion(.success(otpData))
-                    
+
                     return
                 }
                 completion(.failure(NCZIError.generalResponseError))
