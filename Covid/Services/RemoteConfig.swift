@@ -46,6 +46,8 @@ enum RemoteConfigKey: String, CaseIterable {
     case faceIDMatchThreshold
     case iBeaconLocationAccuracy
     case hotlines
+    case reportQuarantineLocation
+    case reportQuarantineExit
 
     var defaultValue: NSObject {
         switch self {
@@ -67,6 +69,8 @@ enum RemoteConfigKey: String, CaseIterable {
         case .faceIDMatchThreshold: return NSNumber(value: 75)
         case .iBeaconLocationAccuracy: return NSNumber(value: -1)
         case .hotlines: return NSDictionary(dictionary: ["SK": "0800221234"])
+        case .reportQuarantineLocation: return NSNumber(value: false)
+        case .reportQuarantineExit: return NSNumber(value: false)
         }
     }
 }
@@ -110,5 +114,16 @@ struct Firebase {
             return value
         }
         return [String: AnyHashable]()
+    }
+
+    static func remoteBoolValue(for key: RemoteConfigKey) -> Bool {
+        if let value = remoteConfig?.configValue(forKey: key.rawValue).boolValue {
+            return value
+        } else if let value = key.defaultValue as? NSNumber {
+            return value.boolValue
+        } else {
+            assertionFailure("default value should be available")
+            return false
+        }
     }
 }

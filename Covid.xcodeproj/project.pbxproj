@@ -550,11 +550,11 @@
 				39E547CCBE512E292A6A0400 /* [CP] Check Pods Manifest.lock */,
 				0F1181352416C70500213533 /* Sources */,
 				0F1181362416C70500213533 /* Frameworks */,
+				21591AE52439E14400495263 /* Update settings bundle */,
 				0F1181372416C70500213533 /* Resources */,
 				B27A818B38D9B7B823051851 /* [CP] Embed Pods Frameworks */,
 				0F745771241D985E000546FA /* FabricCrashlytics */,
 				21C8FB92242C07B3003668D8 /* Swiftlint */,
-				21591AE52439E14400495263 /* Update settings bundle */,
 			);
 			buildRules = (
 			);
@@ -717,6 +717,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			name = "Update settings bundle";
 			outputFileListPaths = (
@@ -1013,8 +1014,8 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
+				CURRENT_PROJECT_VERSION = 127;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1022,7 +1023,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
@@ -1041,7 +1042,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Narodne centrum zdravotnickych informacii (SJNG272QAP)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 127;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
@@ -1050,7 +1051,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "Covid AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";

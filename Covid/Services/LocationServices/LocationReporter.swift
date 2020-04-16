@@ -141,6 +141,8 @@ final class LocationReporter {
     }
 
     private func sendAreaExitAtLocation(_ location: CLLocation) {
+        guard Firebase.remoteBoolValue(for: .reportQuarantineExit) else { return }
+
         let data = AreaExitRequestData(latitude: location.coordinate.latitude,
                                        longitude: location.coordinate.longitude,
                                        accuracy: Int(location.horizontalAccuracy))
@@ -148,6 +150,8 @@ final class LocationReporter {
     }
 
     private func sendLocationUpdate(_ location: CLLocation) {
+        guard Firebase.remoteBoolValue(for: .reportQuarantineLocation) else { return }
+
         let location = Location(recordTimestamp: Int(Date().timeIntervalSince1970),
                                 latitude: location.coordinate.latitude,
                                 longitude: location.coordinate.longitude,
