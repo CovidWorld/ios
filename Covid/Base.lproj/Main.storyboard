@@ -1813,7 +1813,7 @@ nie je COVID-19.</string>
                                 <rect key="frame" x="0.0" y="508" width="375" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-mx-VPD">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-mx-VPD">
                                 <rect key="frame" x="24" y="174.66666666666666" width="262" height="118.99999999999997"/>
                                 <string key="text">Pokračovaním súhlasím so spracúvaním údajov o mojom zdraví na účely ochrany života a zdravia v súvislosti so šírením vírusu COVID-19</string>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
@@ -2836,13 +2836,13 @@ Cg
                                 <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Chorí" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlI-bZ-ZO8">
-                                        <rect key="frame" x="0.0" y="16" width="155.66666666666666" height="21"/>
+                                        <rect key="frame" x="0.0" y="16" width="155.66666666666666" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKa-WY-b6a">
-                                        <rect key="frame" x="0.0" y="47" width="155.66666666666666" height="28"/>
+                                        <rect key="frame" x="0.0" y="43.666666666666664" width="155.66666666666666" height="31.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                         <color key="textColor" red="0.85882352941176465" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2863,13 +2863,13 @@ Cg
                                 <rect key="frame" x="171.66666666666663" y="0.0" width="155.33333333333337" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Uzdravení" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIl-rd-N1Z">
-                                        <rect key="frame" x="0.0" y="16" width="155.33333333333334" height="21"/>
+                                        <rect key="frame" x="0.0" y="16" width="155.33333333333334" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-qr-j8V">
-                                        <rect key="frame" x="0.0" y="47" width="155.33333333333334" height="28"/>
+                                        <rect key="frame" x="0.0" y="43.666666666666664" width="155.33333333333334" height="31.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                         <color key="textColor" red="0.16078431372549018" green="0.75294117647058822" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>

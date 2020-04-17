@@ -1019,7 +1019,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				CURRENT_PROJECT_VERSION = 134;
+				CURRENT_PROJECT_VERSION = 136;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1046,7 +1046,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Narodne centrum zdravotnickych informacii (SJNG272QAP)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 134;
+				CURRENT_PROJECT_VERSION = 136;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
