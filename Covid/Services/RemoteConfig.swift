@@ -27,6 +27,7 @@
 //
 //  Created by Boris Kolozsi on 09/04/2020.
 //
+ // swiftlint:disable line_length
 
 import Foundation
 import FirebaseRemoteConfig

@@ -31,6 +31,7 @@ final class CountryCodeViewController: UIViewController {
     @IBOutlet private weak var pickerView: UIPickerView!
     @IBOutlet private weak var countryButton: UIButton!
     @IBOutlet private var disclaimerLabel: UILabel!
+    @IBOutlet private var consentSwitch: UISwitch!
 
     private var countryCodes: [(String, String)] = []
 
@@ -53,11 +54,11 @@ final class CountryCodeViewController: UIViewController {
         tapRecognizer.addTarget(self, action: #selector(didTapView))
         view.addGestureRecognizer(tapRecognizer)
 
-        if presentingViewController != nil {
-            let leftBarItem = UIBarButtonItem(title: "Preskočiť", style: .plain, target: self, action: #selector(didTapSkip(_:)))
-            navigationItem.leftBarButtonItem = leftBarItem
-            disclaimerLabel.isHidden = false
-        }
+//        if presentingViewController != nil {
+//            let leftBarItem = UIBarButtonItem(title: "Preskočiť", style: .plain, target: self, action: #selector(didTapSkip(_:)))
+//            navigationItem.leftBarButtonItem = leftBarItem
+//            disclaimerLabel.isHidden = false
+//        }
     }
 
     @IBAction private func didTapCountryButton(_ sender: Any) {
@@ -81,11 +82,23 @@ extension CountryCodeViewController {
 
         guard let countryCode = countryCodeLabel.text,
             let phoneNumber = numberTextField.text,
-            phoneNumber.count == 9  else {
-                let message = "Zadali ste nesprávne číslo. Zadajte 9 miestne číslo bez 0 na začiatku"
-                let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Upraviť", style: .cancel))
+            phoneNumber.count == 9,
+            consentSwitch.isOn else {
 
+                let message = consentSwitch.isOn ?
+                                "Zadali ste nesprávne číslo. Zadajte 9 miestne číslo bez 0 na začiatku" :
+                                "Pre pokračovanie musíte súhlasiť so spracúvaním osobných údajov"
+                let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                if consentSwitch.isOn {
+                    alert.addAction(UIAlertAction(title: "Upraviť", style: .cancel))
+                } else {
+                    alert.addAction(UIAlertAction(title: "Zrušiť", style: .cancel))
+                    let agreeAction = UIAlertAction(title: "Súhlasím", style: .default) { (_) in
+                        self.consentSwitch.isOn = true
+                    }
+                    alert.addAction(agreeAction)
+                    alert.preferredAction = agreeAction
+                }
                 present(alert, animated: true, completion: nil)
                 return
         }

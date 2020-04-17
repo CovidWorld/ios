@@ -510,7 +510,7 @@ hashids_encode(hashids_t *hashids, char *buffer,
     strncat(hashids->alphabet_copy_2, hashids->salt,
         hashids->alphabet_length - 1);
     p = hashids->alphabet_copy_2 + hashids->salt_length + 1;
-    p_max = hashids->alphabet_length - 1 - hashids->salt_length;
+    p_max = (int)(hashids->alphabet_length - 1 - hashids->salt_length);
     if (p_max > 0) {
         strncat(hashids->alphabet_copy_2, hashids->alphabet,
             p_max);
@@ -742,7 +742,7 @@ hashids_decode(hashids_t *hashids, const char *str,
     strncat(hashids->alphabet_copy_2, hashids->salt,
         hashids->alphabet_length - 1);
     p = hashids->alphabet_copy_2 + hashids->salt_length + 1;
-    p_max = hashids->alphabet_length - 1 - hashids->salt_length;
+    p_max = (int)(hashids->alphabet_length - 1 - hashids->salt_length);
     if (p_max > 0) {
         strncat(hashids->alphabet_copy_2, hashids->alphabet,
             p_max);
@@ -856,7 +856,7 @@ hashids_encode_hex(hashids_t *hashids, char *buffer,
     size_t result;
     unsigned long long number;
 
-    len = strlen(hex_str);
+    len = (int)strlen(hex_str);
     temp = (char *)_hashids_alloc(len + 2);
 
     if (!temp) {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F015CA524461588004E80A1 /* hashids.c in Sources */ = {isa = PBXBuildFile; fileRef = 0F015CA424461588004E80A1 /* hashids.c */; };
+		0F015CC22449B376004E80A1 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F015CC12449B376004E80A1 /* AboutViewController.swift */; };
 		0F11813D2416C70500213533 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F11813C2416C70500213533 /* AppDelegate.swift */; };
 		0F1181412416C70500213533 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1181402416C70500213533 /* MainViewController.swift */; };
 		0F1181442416C70500213533 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1181422416C70500213533 /* Main.storyboard */; };
@@ -124,6 +125,7 @@
 		0F015CA224461587004E80A1 /* Covid-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Covid-Bridging-Header.h"; sourceTree = "<group>"; };
 		0F015CA324461588004E80A1 /* hashids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hashids.h; sourceTree = "<group>"; };
 		0F015CA424461588004E80A1 /* hashids.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hashids.c; sourceTree = "<group>"; };
+		0F015CC12449B376004E80A1 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		0F0B4982241EF14F00214AFE /* Covid.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = Covid.entitlements; path = Covid/Covid.entitlements; sourceTree = SOURCE_ROOT; };
 		0F1181392416C70500213533 /* Covid-19_SR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Covid-19_SR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F11813C2416C70500213533 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				0F015CA424461588004E80A1 /* hashids.c */,
 				0F015CA324461588004E80A1 /* hashids.h */,
 				0F015CA224461587004E80A1 /* Covid-Bridging-Header.h */,
+				0F015CC12449B376004E80A1 /* AboutViewController.swift */,
 			);
 			path = AdditionalInfo;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				0F629286241D4F6F00FF5E14 /* BeaconManager.swift in Sources */,
 				C0F9962F241FCBB2009C6BF5 /* PreventionViewController.swift in Sources */,
 				0FD28B1F242942270015F7E7 /* Hashids.swift in Sources */,
+				0F015CC22449B376004E80A1 /* AboutViewController.swift in Sources */,
 				0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */,
 				0FF4F220241AF21200643297 /* APIResponses.swift in Sources */,
 				0F11813D2416C70500213533 /* AppDelegate.swift in Sources */,
@@ -1015,7 +1019,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				CURRENT_PROJECT_VERSION = 127;
+				CURRENT_PROJECT_VERSION = 134;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1042,7 +1046,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Narodne centrum zdravotnickych informacii (SJNG272QAP)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 127;
+				CURRENT_PROJECT_VERSION = 134;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
