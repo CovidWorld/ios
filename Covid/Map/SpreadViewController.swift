@@ -101,7 +101,7 @@ final class SpreadViewController: UIViewController {
                         let result = try JSONDecoder().decode(RegionsData.self, from: data)
                         let decodedData = result.features
                                                 .map { $0.attributes }
-                                                .sorted { $00.region < $1.region }
+                                                .sorted { $0.region < $1.region }
 
                         if let path = Bundle.main.path(forResource: "okresy", ofType: "json") {
                             let regionsData = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)

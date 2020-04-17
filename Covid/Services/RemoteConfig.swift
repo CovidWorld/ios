@@ -62,7 +62,7 @@ enum RemoteConfigKey: String, CaseIterable {
         case .quarantineLocationPeriodMinutes: return NSNumber(value: 5)
         case .minConnectionDuration: return NSNumber(value: 300)
         case .mapStatsUrl:
-            return NSString(string: "https://portal.minv.sk/gis/rest/services/PROD/ESISPZ_GIS_PORTAL_CovidPublic/MapServer/4/query?where=POTVRDENI%20%3E%200&f=json&outFields=IDN3%2C%20NM3%2C%20IDN2%2C%20NM2%2C%20POTVRDENI%2C%20VYLIECENI%2C%20MRTVI%2C%20AKTIVNI%2C%20CAKAJUCI%2C%20OTESTOVANI_NEGATIVNI%2C%20DATUM_PLATNOST&returnGeometry=false&orderByFields=POTVRDENI%20DESC")
+            return NSString(string: "https://portal.minv.sk/gis/rest/services/PROD/ESISPZ_GIS_PORTAL_CovidPublic/MapServer/4/query?where=POTVRDENI%20%3E%3D%200&f=json&outFields=NM2%2C%20IDN3%2C%20NM3%2C%20POTVRDENI&returnGeometry=false&orderByFields=NM3%20ASC")
         case .apiHost: return NSString(string: "https://covid-gateway.azurewebsites.net")
         case .ncziApiHost: return NSString(string: "https://t.mojeezdravie.sk")
         case .statsUrl: return NSString(string: "https://corona-stats-sk.herokuapp.com/gov")
