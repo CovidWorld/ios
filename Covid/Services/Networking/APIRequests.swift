@@ -38,7 +38,7 @@ struct RegisterProfileRequestData: Codable {
 
     init(deviceId: String = Defaults.deviceId,
          locale: String = (Locale.current.regionCode ?? "SK"),
-         pushToken: String? = Defaults.pushToken) {
+         pushToken: String? = Defaults.FCMToken) {
         self.deviceId = deviceId
         self.locale = locale
         self.pushToken = pushToken

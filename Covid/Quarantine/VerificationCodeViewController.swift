@@ -67,7 +67,7 @@ extension VerificationCodeViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
-                    if let error = data.errors.first {
+                    if let error = data.errors?.first {
                         let message = error.description
                         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
                         let backAction = UIAlertAction(title: "Späť", style: .cancel) { [weak self] (_) in

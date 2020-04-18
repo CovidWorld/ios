@@ -78,7 +78,7 @@
                                     <action selector="agreeDidTap:" destination="Zak-E9-be5" eventType="touchUpInside" id="Dsz-R3-kcx"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ieU-Bo-giF">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="ieU-Bo-giF">
                                 <rect key="frame" x="24" y="267" width="327" height="136.33333333333337"/>
                                 <string key="text">Bojujme
 proti Covid-19
@@ -100,7 +100,7 @@ spoločne</string>
                                     <segue destination="cZg-eh-QnS" kind="presentation" id="LCD-tO-Hlk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhD-Re-c2V">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhD-Re-c2V">
                                 <rect key="frame" x="24" y="427.33333333333331" width="327" height="63"/>
                                 <string key="text">Tento projekt vznikol
 ako spojenie dobrovoľnej iniciatívy
@@ -121,6 +121,7 @@ ZostanZdravy a Sygic</string>
                             <constraint firstItem="WZ3-fN-VLP" firstAttribute="top" secondItem="lbv-S4-A8T" secondAttribute="bottom" constant="35" id="GbO-Rh-jVP"/>
                             <constraint firstItem="U8W-n2-gb2" firstAttribute="leading" secondItem="Iez-DI-UrW" secondAttribute="leading" constant="24" id="K00-jC-mKF"/>
                             <constraint firstItem="AhD-Re-c2V" firstAttribute="leading" secondItem="Iez-DI-UrW" secondAttribute="leading" constant="24" id="N0x-lZ-o60"/>
+                            <constraint firstItem="U8W-n2-gb2" firstAttribute="top" relation="greaterThanOrEqual" secondItem="AhD-Re-c2V" secondAttribute="bottom" constant="24" id="Vo5-iK-SSY"/>
                             <constraint firstItem="Ygo-Z1-8tJ" firstAttribute="top" secondItem="U8W-n2-gb2" secondAttribute="bottom" constant="16" id="dnD-ho-ONk"/>
                             <constraint firstItem="Iez-DI-UrW" firstAttribute="trailing" secondItem="ieU-Bo-giF" secondAttribute="trailing" constant="24" id="kQ2-os-NdP"/>
                             <constraint firstItem="Iez-DI-UrW" firstAttribute="trailing" secondItem="AhD-Re-c2V" secondAttribute="trailing" constant="24" id="m5P-OS-8Iq"/>
@@ -138,7 +139,7 @@ ZostanZdravy a Sygic</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fd8-q3-t40" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="-1847"/>
+            <point key="canvasLocation" x="3265" y="-440"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bj2-mj-mcj">
@@ -154,7 +155,7 @@ ZostanZdravy a Sygic</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldd-uR-Yfy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="-1068"/>
+            <point key="canvasLocation" x="3265" y="338"/>
         </scene>
         <!--Ochrana osobných údajov-->
         <scene sceneID="w6E-ax-yCe">
@@ -178,7 +179,7 @@ ZostanZdravy a Sygic</string>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="týkajúce sa mobilnej aplikácie „COVID19 ZostanZdravy“ (ďalej len „">
+                                    <fragment content="týkajúce sa mobilnej aplikácie „COVID SLOVENSKO“ (ďalej len „">
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -263,7 +264,7 @@ ZostanZdravy a Sygic</string>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="E-mail:">
+                                    <fragment content="E-mail: ">
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -271,21 +272,11 @@ ZostanZdravy a Sygic</string>
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content=" ">
-                                        <attributes>
-                                            <color key="NSColor" red="0.019607843137254902" green="0.38823529411764707" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="10" name="Helvetica"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
-                                                <tabStops/>
-                                            </paragraphStyle>
-                                            <integer key="NSUnderline" value="1"/>
-                                        </attributes>
-                                    </fragment>
                                     <fragment content="uvzsr@uvzsr.sk">
                                         <attributes>
                                             <color key="NSColor" red="0.019607843137254902" green="0.38823529411764707" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="10" name="Helvetica"/>
-                                            <url key="NSLink" string="%22mailto:"/>
+                                            <url key="NSLink" string="mailto:uvzsr@uvzsr.sk"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
@@ -358,7 +349,7 @@ Cg
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="Pri spracúvaní osobných údajov sa riadime primárne všeobecným nariadením EÚ o ochrane osobných údajov (“">
+                                    <fragment content="Pri spracúvaní osobných údajov sa riadime primárne všeobecným nariadením EÚ o ochrane údajov (“">
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -390,7 +381,7 @@ Cg
                                             </paragraphStyle>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="“), ktoré sa na nás vzťahujú a zákonom č. 351/2011 Z.z. (ďalej len „">
+                                    <fragment content="“), ktoré sa na nás vzťahujú, zákonom č. 351/2011 Z.z. (ďalej len „">
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -399,6 +390,23 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment content="Zákon o elektronických komunikáciách">
+                                        <attributes>
+                                            <font key="NSFont" size="10" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">“) a ďalšími predpismi, ktoré sa na nás vzťahujú vrátane zákona č. 355/2007 Z.z. o ochrane, podpore a rozvoji verejného zdravia (ďalej len „</string>
+                                        <attributes>
+                                            <font key="NSFont" size="10" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Zákon o verejnom zdraví">
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -428,6 +436,7 @@ Cg
                                     </fragment>
                                     <fragment>
                                         <string key="content">. 
+Ako vývojár tejto Aplikácie je v Google Play a App Store uvedené Národné centrum zdravotníckých informácií (NCZI), ktoré Aplikáciu zverejnilo a spravuje v mene Prevádzkovateľa na základe poverenia Prevádzkovatelia a osobitnej zmluvy s Prevádzkovateľom podľa čl. 28 GDPR. 
 </string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
@@ -447,8 +456,29 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Potrebujeme efektívne a čo najmenej intruzívnym spôsobom informovať osoby, ktoré v zmysle aktuálnych núdzových opatrení zavedených v súvislosti s epidemiologickou situáciou mohli byť vystavené nákaze a podať im čo najrelevantnejšie informácie a varovanie na postup v prípade takéhoto ohrozenia. Zároveň aplikácia informuje o postupoch dodržiavaní domácej karantény. Aplikácia slúži jednak na vzdelávanie občanov ohľadne preventívnych opatrení a symptómov a zároveň upozorňuje dotknuté osoby na vzdialenie sa od priestoru domácej karantény. Aplikácia zbiera dôležité dáta o polohe zariadení, ktoré sa môžu ukázať ako kľúčové v boji proti vírusu COVID-19, najmä ak by sa pandemická situácia zhoršila. Poloha je aplikáciou vyhodnocovaná iba v prípade karantény a táto informácia neopustí Váš telefón ako ani informácie s ňou spojené.
-</mutableString>
+                                        <string key="content">Aplikácia slúži na dva ciele: (i) jednak informuje osoby, ktoré v zmysle aktuálnych núdzových opatrení zavedených v súvislosti s epidemiologickou situáciou mohli byť vystavené nákaze a podať im čo najrelevantnejšie informácie a varovanie na postup v prípade takéhoto ohrozenia; a zároveň (ii) Aplikácia slúži na dobrovoľné monitorovanie a informovanie o dodržiavaní domácej karantény tým, že upozorňuje dotknuté osoby na vzdialenie sa od priestoru domácej karantény. Aplikácia zbiera dôležité dáta o polohe zariadení, ktoré sa môžu ukázať ako kľúčové v boji proti vírusu COVID-19, najmä ak by sa pandemická situácia zhoršila. 
+Pri nastavení Aplikácie sme vychádzali aj z </string>
+                                        <attributes>
+                                            <font key="NSFont" size="10" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="odporúčaní Komisie">
+                                        <attributes>
+                                            <color key="NSColor" red="0.019607843137254902" green="0.38823529411764707" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="10" name="Helvetica"/>
+                                            <url key="NSLink" string="https://ec.europa.eu/info/sites/info/files/recommendation_on_apps_for_contact_tracing_4.pdf"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                            <integer key="NSUnderline" value="1"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> a snažili sme sa Aplikáciu nastaviť najmenej itruzívnym spôsobom vo vzťahu k Vášmu súkromiu. Aplikácia nie je nástrojom na sledovanie občanov, ale dôležitým nástrojom v boji proti vírusu COVID-19. V tejto fáze potrebujeme štatisticky odsledovať, ako občania dodržiavajú povinnú domácu karanténu a podľa toho zvážiť potrebu prijatia ďalších opatrení. Momentálne neexistuje iný uskutočniteľný a menej invazívny spôsob, ako dosiahnuť tieto ciele. 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -467,8 +497,8 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Vaše osobné údaje spracúvame v rámci Aplikácie len na účel ochrany života a zdravia v súvislosti so šírením vírusu COVID-19, tak ako je vyvetlený bližšie v týchto podmienkach ochrany súkromia. Právnym základom spracúvania osobných údajov je verejný záujem podľa čl. 6 ods. 1 písm. e) GDPR, pričom sa zároveň spoliehame na Váš súhlas v zmysle čl. 6 ods. 1 písm. a) GDPR (umožnenie sledovania polohy a zasielania push notifikácií cez systémovú voľbu). 
-</mutableString>
+                                        <string key="content">Vaše osobné údaje spracúvame v rámci Aplikácie len na účel ochrany života a zdravia v súvislosti so šírením vírusu COVID-19, tak ako je bližiš vyvetlený vyššie. Právnym základom spracúvania osobných údajov je verejný záujem podľa čl. 6 ods. 1 písm. e) GDPR, pričom sa zároveň spoliehame na Váš súhlas v zmysle čl. 6 ods. 1 písm. a) GDPR (umožnenie sledovania polohy, funkcionality bluetooth a zasielania push notifikácií cez systémovú voľbu). Vo vzťahu k údajom o zdraví sa navyše spoliehame na výslovný súhlas podľa čl. 9 ods. 2 písm. a) GDPR, ktorý nám môžete udeliť prostredníctvom označenia políčka v rámci Aplikácie. 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -504,9 +534,9 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">. Tento verejný záujem súvisí jednak so všeobecnými úlohami a poslaním Prevádzkovateľa ale aj s konkrétnymi opatreniami Prevádzkovateľa, Ústredného krízového štábu SR a Vlády SR v súvislosti s vírusom COVID-19 (najmä uznesenia vlády č. 113/2020 a č. 115/2020).
+                                        <string key="content">. Tento verejný záujem súvisí jednak so všeobecnými úlohami a poslaním Prevádzkovateľa podľa Zákona o verejnom zdraví ale aj s konkrétnymi opatreniami Prevádzkovateľa, Ústredného krízového štábu SR a Vlády SR v súvislosti s ochranou verejného zdravia pred vírusom COVID-19 (najmä uznesenia vlády č. 113/2020 a č. 115/2020).
 Na území Slovenskej republiky vyhlásená mimoriadna situácia počnúc od 12. marca 2020, 6:00 hod. Úrad verejného zdravotníctva SR vydal dňa 12. marca 2020 opatrenie, ktorým nariadil povinnú izoláciu po dobu 14 dní osobám, ktoré sa vrátali zo zahraničia alebo sú s takými osobami v spoločnej domácnosti. Je možné, že budú prijaté aj ďalšie opatrenia v súvislosti so šírením vírusu COVID-19. Aplikácia slúži na dosiahnutie alebo podporu dosiahnutia týchto cieľov.
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -525,10 +555,9 @@ Na území Slovenskej republiky vyhlásená mimoriadna situácia počnúc od 12.
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Aplikácia sleduje Vašu polohu (ak jej to dovolíte), a to iba pre potreby vyhodnocovania a dodržiavania domácej karantény a to len na informovanie dotknutej osoby. Tieto informácie niesú ukladané na server, ani neopustia zariadenie telefónu.
+                                        <string key="content">Aplikácia sleduje Vašu polohu (ak jej to dovolíte), a to iba pre potreby vyhodnocovania a dodržiavania domácej karantény a to len na informovanie dotknutej osoby. Tieto informácie niesú ukladané na server, ani neopustia zariadenie telefónu.
 Aplikácia využíva funkcionalitu Bluetooth iBeacons na určovanie približnej blízkosti k iným zariadeniam používajúcim danú Aplikáciu. Táto funkcionalita je zapnutá v prípade že jej to povolíte a je neoodeliteľnou súčasťou informovanie osôb potenciálnej vystavených nákaze. Tieto informácie nie sú určené na identifikáciu osôb a obsahujú len informáciu o tzv. identifikátore inštancie aplikácie, ktorá môže byť takto upozornená v prípade, že iná osoba diagnostikovaná Covid19, ktorej inštancia aplikácie bola v kontakte za posledných 14-dní s takouto inštanciou, mohla byť vstavená nákaze a rýchlejšie sa tak odstrasovali a informovali osoby vystavené nákaze a predišlo sa tak ďalšiemu šíreniu medzi občanov a rodinných príslušníkov. 
-Ďalším údajom, ktorým aplikácia disponuje je tzv. Covid Pass, ktorý je vystavený Národným centrom zdravotníckých informácií v prípade zaradenia osoby do systému potenciálne ohrozených osôb na Covid19.  
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -547,11 +576,12 @@ Aplikácia využíva funkcionalitu Bluetooth iBeacons na určovanie približnej 
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">V prípade, ak sa Vás týka domáca karanténa, Aplikácia od Vás vyžaduje poskytnutie telefónneho čísla, prostredníctvom ktorého sa overí tzv. Covid Pass a na základe neho údaje o dátume začiatku karantény, a konca karantény. Na základe tohoto identifikátora Aplikácia s Vami ďalej komunikuje ďalšie prípadné postupy a zmeny konca karantény, ktoré sa môžu podľa situácie a Vášho zdravotného stavu v čase posúvať. Zároveň sa overí adresa pobytu resp. miesta karantény. Aplikácia od Vás vyžiada telefónne číslo, SMS správou doručený verifikačný kód. Následne, podľa Vášho správania Aplikácia sleduje ďalšie signály, podľa ktorých Vám zobrazuje rôzne notifikácie (napr. vzdialenie sa od miesta karantény  alebo zobrazenie počtu zostávajúcich dní karantény). Aplikácia zároveň spracúva údaje týkajúce sa Vašej polohy a to len na Vaše osobné informovanie v prípade opustenia karantény. Táto informácia však neopustí zariadenie Vašeho telefónu. 
+                                        <string key="content">V prípade, ak sa Vás týka domáca karanténa, Aplikácia od Vás vyžaduje poskytnutie telefónneho čísla, prostredníctvom ktorého sa overí tzv. Covid Pass a na základe neho údaje o dátume začiatku karantény, a konca karantény. Na základe tohoto identifikátora Aplikácia s Vami ďalej komunikuje ďalšie prípadné postupy a zmeny konca karantény, ktoré sa môžu podľa situácie a Vášho zdravotného stavu v čase posúvať. Zároveň sa overí adresa pobytu resp. miesta karantény. Aplikácia od Vás vyžiada telefónne číslo, SMS správou doručený verifikačný kód. Následne, podľa Vášho správania Aplikácia sleduje ďalšie signály, podľa ktorých Vám zobrazuje rôzne notifikácie (napr. vzdialenie sa od miesta karantény  alebo zobrazenie počtu zostávajúcich dní karantény). Aplikácia zároveň spracúva údaje týkajúce sa Vašej polohy a to len na Vaše osobné informovanie v prípade opustenia karantény. Táto informácia však neopustí zariadenie Vašeho telefónu. 
+Ďalším údajom, ktorým aplikácia disponuje je tzv. Covid Pass, ktorý je vystavený Národným centrom zdravotníckých informácií (NCZI) v prípade zaradenia osoby do systému potenciálne ohrozených osôb na Covid19.  
 Aplikácia spracúva určité systémové, technické a v niektorých prípadoch štatistické dáta o všetkých jej užívateľoch. Ide napr. o identifikátor zariadenia (ID), IP adresu, typ zariadenia, push token, obsah push notifikácie, blízkosť k iným zariadeniam alebo informáciu, že daný užívateľ nemá/má povinnosť domácej karantény. 
-Aplikácia aktuálne priamo nespracúva údaje o zdraví ani iné osobitné kategórie osobných údajov podľa čl. 9 GDPR. Avšak, nie je možné vylúčiť, že užívatelia v niektorých výnimočných prípadoch sami neuvedú v časti „iný dôvod karantény“ aj údaje o zdraví. Takisto nie je možné vylúčiť, že v budúcnosti sa funkcionalita Aplikácie zmení a budeme spracúvať aj údaje o zdraví. V takom prípade postupujeme v súlade s čl. 9 ods. 1 písm. g), h), i) GDPR. 
+Aplikácia aktuálne priamo nezbiera údaje o zdraví ani iné osobitné kategórie osobných údajov podľa čl. 9 GDPR. Avšak, štát už dnes disponuje týmito údajmi mimo Aplikácie, pričom tieto údaje sú spárovateľné / prepojiteľné s údajmi v Aplikácii cez vyššie opísané overenie. Preto pred spárovaním týchto údajov (overenie Covid Pass cez telefónne číslo) žiadame užívateľov, aby nám udelili výslovný súhlas so spracúvaním týchto údajov aj prostredníctvom Aplikácie v zmysle čl. 9 ods. 2 písm. a) GDPR pre prípad, že by tým došlo k spracúvaniu údajov o zdraví (či osoba má potvrdený vírus COVID-19) prostredníctvom Aplikácie. Tento súhlas je dobrovoľný a vzťahuje výlučne na spracúvanie údajov v rámci Aplikácie a nie na dáta spracúvané mimo nej na základe osobitných predpisov. 
 Nie všetky dáta sú perzistované a niektoré údaje ostávajú uložené výhradne len na Vašom zariadení.
-</mutableString>
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -570,7 +600,7 @@ Nie všetky dáta sú perzistované a niektoré údaje ostávajú uložené vý
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Chceli by sme Vás ubezpečiť, že akýkoľvek prístup k Vašim osobným údajom prebieha výlučne v nevyhnutnom rozsahu. Funkcionalita Aplikácie však vyžaduje aj použitie niektorých technologických riešení tretích strán. Ide najmä o popredných a reputovaných poskytovateľov serverového úložiska, systému SMS brány a nástrojov na ovládanie push notifikácií v Aplikácii. Z dôvodu bezpečnosti však Prevádzkovateľ neposkytuje údaje o konkrétnych dodávateľoch ale len o kategóriách príjemcov v súlade s čl. 13 ods. 1 písm. e) GDPR (</mutableString>
+                                        <string key="content">Chceli by sme Vás ubezpečiť, že akýkoľvek prístup k Vašim osobným údajom prebieha výlučne v nevyhnutnom rozsahu. Funkcionalita Aplikácie však vyžaduje aj použitie niektorých technologických riešení zazmluvnených dodávateľov. Ide najmä o popredných a reputovaných poskytovateľov serverového úložiska (v rámci EÚ), systému SMS brány, nástrojov na ovládanie push notifikácií v Aplikácii alebo poskytovateľov analýzy technických a bezpečnostných dát. Z dôvodu bezpečnosti však Prevádzkovateľ neposkytuje údaje o všetkých konkrétnych dodávateľoch ale len o kategóriách príjemcov v súlade s čl. 13 ods. 1 písm. e) GDPR (</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -587,8 +617,8 @@ Nie všetky dáta sú perzistované a niektoré údaje ostávajú uložené vý
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> Okrem vyššie uvedených technologických dodávateľov môžu mať k údajom v Aplikácii prístup len oprávnení zamestnanci a pracovníci Prevádzkovateľ, ním poverení sprostredkovatelia (napr. Národné centrum zdravotníckych informácií) alebo iné orgány verejnej moci, ak sa to ukáže byť nevyhnutné pre splnenie účelu spracúvania. 
-</mutableString>
+                                        <string key="content"> Okrem vyššie uvedených technologických dodávateľov môžu mať k údajom v Aplikácii prístup len oprávnení zamestnanci a pracovníci Prevádzkovateľa, ním poverení sprostredkovatelia (napr. Národné centrum zdravotníckych informácií) alebo iné orgány verejnej moci, ak sa to ukáže byť nevyhnutné pre splnenie účelu spracúvania. 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -607,8 +637,8 @@ Nie všetky dáta sú perzistované a niektoré údaje ostávajú uložené vý
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Štandardne neprenášame osobné údaje týkajúce sa Aplikácie mimo územia EÚ. Avšak, niektorí z vyššie uvedených technologických partnerov môžu byť usadení alebo ich servre sa môžu nachádzať v Spojených štátoch amerických, ktoré – ako také – predstavujú tretiu krajinu, ktorá nezaručuje ochranu osobných údajov primeranú ochrane v EÚ. Tieto cezhraničné prenosy sa netýkajú všetkých ale iba čiastkových dát a prebiehajú na základe rozhodnutia Komisie EÚ o primeranosti (ako napr. EU-US Privacy Schield) alebo na základe splnenia iných záruk na ochranu osobných údajov (napr. uzatvorenie tzv. zmluvných doložiek). To znamená, že všetkým údajom ktoré sú spracúvané v rámci Aplikácie je vymožiteľnými nástrojmi zaručená rovnaká miera ochrany ako podľa európskych predpisov na ochranu osobných údajov. 
-</mutableString>
+                                        <string key="content">Štandardne neprenášame osobné údaje týkajúce sa Aplikácie mimo územia EÚ. Avšak, niektorí z vyššie uvedených technologických partnerov môžu byť usadení alebo ich servre sa môžu nachádzať v Spojených štátoch amerických, ktoré – ako také – predstavujú tretiu krajinu, ktorá nezaručuje ochranu osobných údajov primeranú ochrane v EÚ. Tieto cezhraničné prenosy sa netýkajú všetkých ale iba čiastkových dát a prebiehajú na základe rozhodnutia Komisie EÚ o primeranosti (ako napr. EU-US Privacy Schield) alebo na základe splnenia iných záruk na ochranu osobných údajov (napr. uzatvorenie tzv. zmluvných doložiek) v súlade s GDPR. To znamená, že všetkým údajom ktoré sú spracúvané v rámci Aplikácie je vymožiteľnými nástrojmi zaručená rovnaká miera ochrany ako podľa európskych predpisov na ochranu osobných údajov. 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -661,8 +691,8 @@ Nie všetky dáta sú perzistované a niektoré údaje ostávajú uložené vý
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> Túto všeobecnú dobu uchovávania priebežne monitorujeme a vyhodnocujeme. Prirodzene plánujeme pristúpiť k likvidácii dát získaných prostredníctvom akonáhle nám to okolnosti týkajúce sa vírusu COVID-19 umožnia. Údaje o stretnutiach s inými telefónmi sú automaticky mazané po uplynutí 21 dní. Údaje týkajúce sa telefónneho čísla sú automaticky mazané najneskôr po uplynutí 180 dní. 
-</mutableString>
+                                        <string key="content"> Túto všeobecnú dobu uchovávania priebežne monitorujeme a vyhodnocujeme. Prirodzene plánujeme pristúpiť k likvidácii dát získaných prostredníctvom akonáhle nám to okolnosti týkajúce sa vírusu COVID-19 umožnia. Údaje o stretnutiach s inými telefónmi sú automaticky mazané po uplynutí 21 dní. Údaje týkajúce sa telefónneho čísla sú automaticky mazané najneskôr po uplynutí 180 dní. 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -681,8 +711,8 @@ Nie všetky dáta sú perzistované a niektoré údaje ostávajú uložené vý
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Vaše osobné údaje získavame priamo od Vás resp. z Vášho mobilného zariadenia. Pre funkcionalitu aplikácie nie sú potrebné žiadne prevádzkové a lokalizačné dáta od mobilných operátorov. Poskytnutie týchto údajov a používanie Aplikácie je dobrovoľné. Neposkytnutie údajov alebo nepoužívanie Aplikácie nemá žiadne negatívne dôsledky. 
-</mutableString>
+                                        <string key="content">Vaše osobné údaje získavame priamo od Vás resp. z Vášho mobilného zariadenia. Pre funkcionalitu aplikácie nie sú potrebné žiadne prevádzkové a lokalizačné dáta od mobilných operátorov. Poskytnutie týchto údajov a používanie Aplikácie je dobrovoľné. Neposkytnutie údajov alebo nepoužívanie Aplikácie nemá žiadne negatívne dôsledky. 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -709,9 +739,7 @@ Nie všetky dáta sú perzistované a niektoré údaje ostávajú uložené vý
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Máte právo namietať proti spracúvaniu osobných údajov, 
-ktoré vykonávame na základe verejného záujmu vrátane profilovania, 
-a to z dôvodu Vašej konkrétnej situácie. Máte právo kedykoľvek svoj súhlas, čím nie je dotknutá zákonnosť spracúvania založeného na súhlase udelenom pred jeho odvolaním.“</mutableString>
+                                        <string key="content">Máte právo namietať proti spracúvaniu osobných údajov, ktoré vykonávame na základe verejného záujmu vrátane profilovania, a to z dôvodu Vašej konkrétnej situácie. Máte právo kedykoľvek svoj súhlas, čím nie je dotknutá zákonnosť spracúvania založeného na súhlase udelenom pred jeho odvolaním.“</string>
                                         <attributes>
                                             <font key="NSFont" size="11" name="Helvetica-BoldOblique"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -760,8 +788,8 @@ CQ
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Právo požiadať o prístup k osobným údajom podľa článku 15 GDPR, ktoré o Vás spracúvame. Toto právo zahŕňa právo na potvrdenie o tom, či o Vás spracúvame osobné údaje, právo získať prístup k týmto údajom a právo získať kópiu osobných údajov, ktoré o Vás spracúvame, ak je to technicky uskutočniteľné;
-</mutableString>
+                                        <string key="content">Právo požiadať o prístup k osobným údajom podľa článku 15 GDPR, ktoré o Vás spracúvame. Toto právo zahŕňa právo na potvrdenie o tom, či o Vás spracúvame osobné údaje, právo získať prístup k týmto údajom a právo získať kópiu osobných údajov, ktoré o Vás spracúvame, ak je to technicky uskutočniteľné;
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" firstLineHeadIndent="18" headIndent="36" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -1005,8 +1033,8 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Nie, aktuálne nevykonávame také spracovateľské operácie, na základe ktorých by dochádzalo k prijímaniu rozhodnutia s právnym účinkom alebo iným podstatným vplyvom na Vašu osobu, ktoré by boli založené výlučne len na plne automatizovanom spracúvaní Vašich osobných údajov v zmysle čl. 22 GDPR. Je však pravdepodobné, že spracúvanie údajov v rámci Aplikácie predstavuje profilovanie v zmysle čl. 4 bod 4 GDPR, na ktoré samotné sa však právo podľa čl. 22 GDPR nevzťahuje (iba právo namietať podľa čl. 21 GDPR). 
-</mutableString>
+                                        <string key="content">Nie, aktuálne nevykonávame také spracovateľské operácie, na základe ktorých by dochádzalo k prijímaniu akékoľvek rozhodnutia s právnym účinkom alebo iným podstatným vplyvom na Vašu osobu, ktoré by boli založené výlučne len na plne automatizovanom spracúvaní Vašich osobných údajov v zmysle čl. 22 GDPR. Je však pravdepodobné, že spracúvanie údajov v rámci Aplikácie predstavuje profilovanie v zmysle čl. 4 bod 4 GDPR, na ktoré samotné sa však právo podľa čl. 22 GDPR nevzťahuje (iba právo namietať podľa čl. 21 GDPR). 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -1025,8 +1053,8 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Prostredníctvom Aplikácie ukladáme resp. získavame prístup k informáciám uloženým vo Vašom koncovom zariadení v zmysle § 55 ods. 5 Zákona o elektronických komunikáciách primárne na základe Vášho súhlasu. Dané ustanovenie však obsahuje aj výnimky zo získavania súhlasu, na ktoré sa spoliehame v ostatných prípadoch. 
-</mutableString>
+                                        <string key="content">Prostredníctvom Aplikácie ukladáme resp. získavame prístup k informáciám uloženým vo Vašom koncovom zariadení v zmysle § 55 ods. 5 Zákona o elektronických komunikáciách primárne na základe Vášho súhlasu. Dané ustanovenie však obsahuje aj výnimky zo získavania súhlasu, na ktoré sa spoliehame v ostatných prípadoch. 
+</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -1045,10 +1073,10 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Informácie, ktoré sme Vám povinní vzhľadom na naše spracúvanie osobných údajov poskytnúť sa môžu meniť alebo prestať byť aktuálne. Z tohto dôvodu si vyhradzujeme možnosť kedykoľvek tieto podmienky upraviť a zmeniť. V prípade, ak zmeníme tieto podmienky podstatným spôsobom, túto zmenu Vám dáme do pozornosti napr. všeobecným oznámením na našej webstránke alebo osobitným oznámením prostredníctvom Aplikácie.
+                                        <string key="content">Informácie, ktoré sme Vám povinní vzhľadom na naše spracúvanie osobných údajov poskytnúť sa môžu meniť alebo prestať byť aktuálne. Z tohto dôvodu si vyhradzujeme možnosť kedykoľvek tieto podmienky upraviť a zmeniť. V prípade, ak zmeníme tieto podmienky podstatným spôsobom, túto zmenu Vám dáme do pozornosti napr. všeobecným oznámením na našej webstránke alebo osobitným oznámením prostredníctvom Aplikácie.
 
 Úrad verejného zdravotníctva SR
-Bratislava, apríl 2020</mutableString>
+Bratislava, apríl 2020</string>
                                         <attributes>
                                             <font key="NSFont" size="10" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="8" tailIndent="453.59999999999997" lineHeightMultiple="1.0666666666666667" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
@@ -1080,7 +1108,7 @@ Bratislava, apríl 2020</mutableString>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Mv-iq-J64" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2198" y="-1068"/>
+            <point key="canvasLocation" x="4254" y="338"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wx9-dr-UMF">
@@ -1313,8 +1341,8 @@ ZostanZdravy a Sygic</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X20-N0-960">
-                                <rect key="frame" x="24" y="112" width="327" height="395"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X20-N0-960">
+                                <rect key="frame" x="24" y="112" width="327" height="450"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IH9-TX-vzL">
                                         <rect key="frame" x="0.0" y="0.0" width="327" height="87"/>
@@ -1410,27 +1438,27 @@ ZostanZdravy a Sygic</string>
                                             <constraint firstAttribute="trailing" secondItem="m5O-iZ-S2T" secondAttribute="trailing" constant="16" id="yN4-mW-yuN"/>
                                         </constraints>
                                     </view>
-                                    <containerView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drr-EJ-rfC">
-                                        <rect key="frame" x="0.0" y="206" width="327" height="189"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="189" id="c34-ES-cRM"/>
-                                        </constraints>
+                                    <containerView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Drr-EJ-rfC">
+                                        <rect key="frame" x="0.0" y="206" width="327" height="244"/>
                                         <connections>
                                             <segue destination="hDe-QQ-cqs" kind="embed" id="wwl-Vt-G72"/>
                                         </connections>
                                     </containerView>
                                     <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGf-gp-ehB">
-                                        <rect key="frame" x="0.0" y="395" width="327" height="91"/>
+                                        <rect key="frame" x="0.0" y="450" width="327" height="91"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="91" id="xM2-ZP-Pgt"/>
+                                            <constraint firstAttribute="height" constant="91" id="Yf3-kZ-63x"/>
                                         </constraints>
                                         <connections>
                                             <segue destination="PpD-TG-etm" kind="embed" id="ngf-Dj-6Ay"/>
                                         </connections>
                                     </containerView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="250" constant="450" id="gLW-oN-wBx"/>
+                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVT-lI-6eS">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVT-lI-6eS">
                                 <rect key="frame" x="24" y="660" width="327" height="53"/>
                                 <color key="backgroundColor" red="0.16790786390000001" green="0.75468677279999996" blue="0.60390573739999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
@@ -1442,7 +1470,7 @@ ZostanZdravy a Sygic</string>
                                     <action selector="emergencyDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TIJ-ci-RGY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Njg-l9-GFw">
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Njg-l9-GFw">
                                 <rect key="frame" x="24" y="586" width="327" height="66"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
@@ -1460,6 +1488,7 @@ ZostanZdravy a Sygic</string>
                         <constraints>
                             <constraint firstItem="KVT-lI-6eS" firstAttribute="top" secondItem="Njg-l9-GFw" secondAttribute="bottom" constant="8" id="1GX-5r-a7x"/>
                             <constraint firstItem="X20-N0-960" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="3pt-qv-UaF"/>
+                            <constraint firstItem="Njg-l9-GFw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="X20-N0-960" secondAttribute="bottom" constant="24" id="MKG-sg-Z6I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X20-N0-960" secondAttribute="trailing" constant="24" id="RX4-GK-UOB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KVT-lI-6eS" secondAttribute="trailing" constant="24" id="bpf-33-ZVC"/>
                             <constraint firstItem="Njg-l9-GFw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="eTO-lV-uCP"/>
@@ -1491,14 +1520,14 @@ ZostanZdravy a Sygic</string>
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="p2x-by-Y0m" customClass="MapViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iAh-RE-QcZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="okA-hd-6cX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ij8-8a-4Pi">
-                                <rect key="frame" x="40.333333333333343" y="104" width="294.33333333333326" height="56"/>
+                                <rect key="frame" x="40.666666666666657" y="16" width="294" height="56"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slide-map" translatesAutoresizingMaskIntoConstraints="NO" id="FkR-Qa-zMe">
                                         <rect key="frame" x="8" y="8" width="40" height="40"/>
@@ -1509,7 +1538,7 @@ ZostanZdravy a Sygic</string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pohnutím mapy upresníte polohu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2z-Ml-vmv">
-                                        <rect key="frame" x="55.999999999999986" y="17" width="214.33333333333331" height="21"/>
+                                        <rect key="frame" x="56" y="17" width="214" height="21"/>
                                         <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1534,7 +1563,7 @@ ZostanZdravy a Sygic</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL2-NB-Uyb">
-                                <rect key="frame" x="16" y="692" width="343" height="70"/>
+                                <rect key="frame" x="16" y="638" width="343" height="70"/>
                                 <color key="backgroundColor" red="0.31372549019607843" green="0.34509803921568627" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="0ih-kQ-xxg"/>
@@ -1556,7 +1585,7 @@ ZostanZdravy a Sygic</string>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin-select-location" translatesAutoresizingMaskIntoConstraints="NO" id="Biw-H2-gq1">
-                                <rect key="frame" x="160" y="384.66666666666669" width="55" height="57"/>
+                                <rect key="frame" x="160" y="313.66666666666669" width="55" height="57"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1600,11 +1629,11 @@ ZostanZdravy a Sygic</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zjZ-DR-BoW">
-                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zjZ-DR-BoW">
+                                <rect key="frame" x="24" y="88" width="327" height="641"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-D1-4Ov">
-                                        <rect key="frame" x="24" y="0.0" width="327" height="560"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="327" height="560"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptómy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-s6-Qww">
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="42"/>
@@ -1683,19 +1712,20 @@ nie je COVID-19.</string>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9Fi-D1-4Ov" secondAttribute="trailing" id="4WR-xa-Ksu"/>
                                     <constraint firstAttribute="bottom" secondItem="9Fi-D1-4Ov" secondAttribute="bottom" constant="16" id="9O6-fC-RpK"/>
                                     <constraint firstItem="9Fi-D1-4Ov" firstAttribute="top" secondItem="zjZ-DR-BoW" secondAttribute="top" id="RSo-kJ-mrn"/>
+                                    <constraint firstItem="9Fi-D1-4Ov" firstAttribute="leading" secondItem="zjZ-DR-BoW" secondAttribute="leading" id="lYs-FV-c3a"/>
+                                    <constraint firstItem="9Fi-D1-4Ov" firstAttribute="width" secondItem="zjZ-DR-BoW" secondAttribute="width" id="yeg-hD-JUr"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zjZ-DR-BoW" firstAttribute="leading" secondItem="1VN-VM-DZe" secondAttribute="leading" id="4SZ-bq-dR3"/>
                             <constraint firstItem="mHw-HS-Pxm" firstAttribute="bottom" secondItem="zjZ-DR-BoW" secondAttribute="bottom" id="7hM-SW-N1z"/>
                             <constraint firstItem="zjZ-DR-BoW" firstAttribute="top" secondItem="mHw-HS-Pxm" secondAttribute="top" id="LLH-81-HKM"/>
-                            <constraint firstItem="9Fi-D1-4Ov" firstAttribute="leading" secondItem="mHw-HS-Pxm" secondAttribute="leading" constant="24" id="TJJ-Ys-t0P"/>
-                            <constraint firstItem="zjZ-DR-BoW" firstAttribute="trailing" secondItem="1VN-VM-DZe" secondAttribute="trailing" id="cph-LG-wwX"/>
-                            <constraint firstItem="mHw-HS-Pxm" firstAttribute="trailing" secondItem="9Fi-D1-4Ov" secondAttribute="trailing" constant="24" id="ovr-vW-VNb"/>
+                            <constraint firstAttribute="trailing" secondItem="zjZ-DR-BoW" secondAttribute="trailing" constant="24" id="U2R-HR-g7m"/>
+                            <constraint firstItem="zjZ-DR-BoW" firstAttribute="leading" secondItem="mHw-HS-Pxm" secondAttribute="leading" constant="24" id="ZgQ-hK-mkl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mHw-HS-Pxm"/>
                     </view>
@@ -1713,24 +1743,24 @@ nie je COVID-19.</string>
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="g0Z-rl-3mo" customClass="CountryCodeViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1p-t3-Va7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím zadajte vaše telefónne číslo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfE-tc-XI3">
-                                <rect key="frame" x="16" y="104" width="343" height="21"/>
+                                <rect key="frame" x="16" y="16" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7L-hd-bKY">
-                                <rect key="frame" x="0.0" y="133" width="375" height="0.66666666666665719"/>
+                                <rect key="frame" x="0.0" y="45" width="375" height="0.6666666666666643"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="Hg9-Z5-F3b"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srM-E7-BiE">
-                                <rect key="frame" x="0.0" y="133.66666666666666" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="45.666666666666657" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SM0-re-rVv"/>
                                 </constraints>
@@ -1744,14 +1774,14 @@ nie je COVID-19.</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nK-Me-UkN">
-                                <rect key="frame" x="16" y="177.66666666666666" width="359" height="0.33333333333334281"/>
+                                <rect key="frame" x="16" y="89.666666666666671" width="359" height="0.3333333333333286"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="fAI-PA-YrB"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+421" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OER-7S-eH6">
-                                <rect key="frame" x="15.999999999999996" y="178" width="46.666666666666657" height="44"/>
+                                <rect key="frame" x="15.999999999999996" y="90" width="46.666666666666657" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0SO-Zp-d7M"/>
                                 </constraints>
@@ -1760,42 +1790,59 @@ nie je COVID-19.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-Bg-IRH">
-                                <rect key="frame" x="78.666666666666671" y="178" width="0.6666666666666714" height="44.666666666666657"/>
+                                <rect key="frame" x="78.666666666666671" y="90" width="0.6666666666666714" height="44.666666666666657"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="0.5" id="4k4-6O-gDW"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3P-q4-fCl">
-                                <rect key="frame" x="0.0" y="222" width="375" height="0.66666666666665719"/>
+                                <rect key="frame" x="0.0" y="134" width="375" height="0.66666666666665719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="9d6-uU-c2y"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="000 000 000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksH-i2-uOu">
-                                <rect key="frame" x="95.333333333333343" y="178" width="263.66666666666663" height="44"/>
+                                <rect key="frame" x="95.333333333333343" y="90" width="263.66666666666663" height="44"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
                             </textField>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4h-qm-X3u">
-                                <rect key="frame" x="0.0" y="562" width="375" height="216"/>
+                                <rect key="frame" x="0.0" y="508" width="375" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-mx-VPD">
-                                <rect key="frame" x="24" y="262.66666666666669" width="327" height="119"/>
-                                <string key="text">Pre zvýšenie Vašej ochrany prosím zadajte osobné telefónne číslo. 
-Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v kontakte s infikovanou osobou.</string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-mx-VPD">
+                                <rect key="frame" x="24" y="174.66666666666666" width="262" height="118.99999999999997"/>
+                                <string key="text">Pokračovaním súhlasím so spracúvaním údajov o mojom zdraví na účely ochrany života a zdravia v súvislosti so šírením vírusu COVID-19</string>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-0L-uJB">
+                                <rect key="frame" x="73" y="317.66666666666669" width="229" height="31"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
+                                <state key="normal" title="Info o spracovaní osobných údajov">
+                                    <color key="titleColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cZg-eh-QnS" kind="presentation" id="Omn-hp-lVS"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-VN-I6e">
+                                <rect key="frame" x="302" y="218.66666666666666" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="eio-Rg-jdB"/>
+                                </constraints>
+                                <color key="onTintColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="NfE-tc-XI3" firstAttribute="leading" secondItem="NQt-UT-EVF" secondAttribute="leading" constant="16" id="2vm-t3-Dg5"/>
                             <constraint firstItem="OER-7S-eH6" firstAttribute="leading" secondItem="NQt-UT-EVF" secondAttribute="leading" constant="16" id="31L-k4-nAF"/>
+                            <constraint firstItem="kEw-0L-uJB" firstAttribute="centerX" secondItem="D1p-t3-Va7" secondAttribute="centerX" id="4zX-Cg-xN6"/>
                             <constraint firstAttribute="trailing" secondItem="NfE-tc-XI3" secondAttribute="trailing" constant="16" id="A9Y-wC-asE"/>
                             <constraint firstItem="NfE-tc-XI3" firstAttribute="top" secondItem="NQt-UT-EVF" secondAttribute="top" constant="16" id="Bf7-yO-95B"/>
                             <constraint firstItem="OeW-Bg-IRH" firstAttribute="leading" secondItem="OER-7S-eH6" secondAttribute="trailing" constant="16" id="CXh-eD-WCu"/>
@@ -1807,28 +1854,33 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                             <constraint firstItem="NQt-UT-EVF" firstAttribute="bottom" secondItem="G4h-qm-X3u" secondAttribute="bottom" id="SyN-PE-M4y"/>
                             <constraint firstItem="ksH-i2-uOu" firstAttribute="top" secondItem="1nK-Me-UkN" secondAttribute="bottom" id="T1u-rm-ypO"/>
                             <constraint firstItem="L7L-hd-bKY" firstAttribute="leading" secondItem="NQt-UT-EVF" secondAttribute="leading" id="VZD-nA-ncG"/>
+                            <constraint firstItem="JrM-mx-VPD" firstAttribute="centerY" secondItem="l9L-VN-I6e" secondAttribute="centerY" id="Wff-10-ZKw"/>
                             <constraint firstItem="P3P-q4-fCl" firstAttribute="top" secondItem="OER-7S-eH6" secondAttribute="bottom" id="XeO-tM-jND"/>
                             <constraint firstItem="P3P-q4-fCl" firstAttribute="top" secondItem="ksH-i2-uOu" secondAttribute="bottom" id="apS-Ef-YxM"/>
                             <constraint firstItem="1nK-Me-UkN" firstAttribute="top" secondItem="srM-E7-BiE" secondAttribute="bottom" id="bNa-6A-sgV"/>
                             <constraint firstItem="srM-E7-BiE" firstAttribute="top" secondItem="L7L-hd-bKY" secondAttribute="bottom" id="bVd-7K-nb2"/>
                             <constraint firstItem="OeW-Bg-IRH" firstAttribute="bottom" secondItem="P3P-q4-fCl" secondAttribute="bottom" id="dFX-bK-tWv"/>
                             <constraint firstItem="L7L-hd-bKY" firstAttribute="top" secondItem="NfE-tc-XI3" secondAttribute="bottom" constant="8" id="drK-ip-tMG"/>
+                            <constraint firstItem="kEw-0L-uJB" firstAttribute="top" secondItem="JrM-mx-VPD" secondAttribute="bottom" constant="24" id="dyj-kj-7aN"/>
                             <constraint firstItem="NQt-UT-EVF" firstAttribute="trailing" secondItem="srM-E7-BiE" secondAttribute="trailing" id="gU9-AV-odj"/>
                             <constraint firstItem="NQt-UT-EVF" firstAttribute="trailing" secondItem="ksH-i2-uOu" secondAttribute="trailing" constant="16" id="h06-bb-ARj"/>
                             <constraint firstItem="OER-7S-eH6" firstAttribute="top" secondItem="1nK-Me-UkN" secondAttribute="bottom" id="m7E-Wh-bwF"/>
                             <constraint firstItem="NQt-UT-EVF" firstAttribute="trailing" secondItem="L7L-hd-bKY" secondAttribute="trailing" id="pIK-rd-V9L"/>
                             <constraint firstItem="JrM-mx-VPD" firstAttribute="leading" secondItem="NQt-UT-EVF" secondAttribute="leading" constant="24" id="r9E-dr-mfa"/>
+                            <constraint firstItem="l9L-VN-I6e" firstAttribute="leading" secondItem="JrM-mx-VPD" secondAttribute="trailing" constant="16" id="sL3-VC-7sg"/>
                             <constraint firstItem="NQt-UT-EVF" firstAttribute="trailing" secondItem="1nK-Me-UkN" secondAttribute="trailing" id="t12-GQ-XY9"/>
                             <constraint firstItem="G4h-qm-X3u" firstAttribute="trailing" secondItem="NQt-UT-EVF" secondAttribute="trailing" id="tG7-XY-rMl"/>
                             <constraint firstItem="NQt-UT-EVF" firstAttribute="trailing" secondItem="P3P-q4-fCl" secondAttribute="trailing" id="tiF-Jh-2MD"/>
-                            <constraint firstItem="NQt-UT-EVF" firstAttribute="trailing" secondItem="JrM-mx-VPD" secondAttribute="trailing" constant="24" id="tr3-tQ-eP7"/>
+                            <constraint firstItem="NQt-UT-EVF" firstAttribute="trailing" secondItem="l9L-VN-I6e" secondAttribute="trailing" constant="24" id="uqa-UL-zck"/>
                             <constraint firstItem="1nK-Me-UkN" firstAttribute="leading" secondItem="NQt-UT-EVF" secondAttribute="leading" constant="16" id="wDe-1U-duW"/>
+                            <constraint firstItem="G4h-qm-X3u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="kEw-0L-uJB" secondAttribute="bottom" constant="24" id="xYf-kz-Abf"/>
                             <constraint firstItem="P3P-q4-fCl" firstAttribute="leading" secondItem="NQt-UT-EVF" secondAttribute="leading" id="ycd-eY-k2b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NQt-UT-EVF"/>
                     </view>
                     <navigationItem key="navigationItem" id="4iE-Cv-33o"/>
                     <connections>
+                        <outlet property="consentSwitch" destination="l9L-VN-I6e" id="QiZ-9S-ajr"/>
                         <outlet property="countryButton" destination="srM-E7-BiE" id="0ca-dT-APi"/>
                         <outlet property="countryCodeLabel" destination="OER-7S-eH6" id="VYP-1o-xTy"/>
                         <outlet property="disclaimerLabel" destination="JrM-mx-VPD" id="LrS-uW-DEy"/>
@@ -1846,23 +1898,23 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="FXd-Oq-pKb" customClass="VerificationCodeViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fwW-KG-Gx2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Na vaše telefónne číslo sme poslali SMS s aktivačným kódom." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgM-re-VLw">
-                                <rect key="frame" x="16" y="104" width="343" height="42"/>
+                                <rect key="frame" x="16" y="16" width="343" height="42"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zadajte prosím 6 miestny aktivačný kód:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-ZR-NIX">
-                                <rect key="frame" x="16" y="162" width="343" height="21"/>
+                                <rect key="frame" x="16" y="74" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="_ _ _  _ _ _" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7B-JV-gDl">
-                                <rect key="frame" x="42.666666666666657" y="199" width="290" height="49.666666666666657"/>
+                                <rect key="frame" x="42.666666666666657" y="111.00000000000001" width="290" height="49.666666666666671"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="Eh8-Ia-mfg"/>
@@ -1895,36 +1947,36 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVe-Kh-H1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4354" y="1203"/>
+            <point key="canvasLocation" x="4254" y="1203"/>
         </scene>
         <!--Select Address Info View Controller-->
         <scene sceneID="JzB-ss-hED">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="Adw-jW-flq" customClass="SelectAddressInfoViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8ve-xR-Rtt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dôležité" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1g-AG-qiQ">
-                                <rect key="frame" x="32" y="120" width="311" height="42"/>
+                                <rect key="frame" x="32" y="32" width="311" height="42"/>
                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980394" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vážený užívateľ, vyberte prosím miesto v ktorom sa budete zdržiavať počas karantény." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MI-rx-GXw">
-                                <rect key="frame" x="32" y="194" width="311" height="63"/>
+                                <rect key="frame" x="32" y="106" width="311" height="63"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toto miesto nie je možné následne zmeniť, preto sa ubezpečte, že ste správne zvolili adresu karantény." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fki-PZ-62i">
-                                <rect key="frame" x="32" y="273" width="311" height="63"/>
+                                <rect key="frame" x="32" y="185" width="311" height="63"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCk-EC-Ch7">
-                                <rect key="frame" x="32" y="692" width="311" height="70"/>
+                                <rect key="frame" x="32" y="638" width="311" height="70"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="ehQ-JF-Sso"/>
@@ -1975,48 +2027,48 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="mMk-vV-3N3" customClass="AddressConfirmationViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="95b-bU-Sve">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaša adresa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AVc-Gr-6xs">
-                                <rect key="frame" x="32" y="120" width="311" height="42"/>
+                                <rect key="frame" x="32" y="32" width="311" height="42"/>
                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vybrali ste si adresu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAx-Mp-bpf">
-                                <rect key="frame" x="32" y="178" width="311" height="21"/>
+                                <rect key="frame" x="32" y="90" width="311" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tAV-tl-zU0">
-                                <rect key="frame" x="32" y="215" width="311" height="0.0"/>
+                                <rect key="frame" x="32" y="127" width="311" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Inter_Bold" family="Inter" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hx-9j-Qrm">
-                                <rect key="frame" x="32" y="215" width="311" height="0.0"/>
+                                <rect key="frame" x="32" y="127" width="311" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Inter_Bold" family="Inter" pointSize="15"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Táto adresa bude po dobu 14-dni Vašim miestom karantény. Adresu nie je možné zmeniť. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-9b-f60">
-                                <rect key="frame" x="32" y="231" width="311" height="63"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Táto adresa bude počas nasledujúcich dní Vašim miestom karantény. Adresu nie je možné zmeniť." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-9b-f60">
+                                <rect key="frame" x="32" y="143" width="311" height="63"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vsq-UH-1ES">
-                                <rect key="frame" x="32" y="310" width="311" height="30"/>
+                                <rect key="frame" x="32" y="222" width="311" height="30"/>
                                 <state key="normal" title="Zmeniť adresu"/>
                                 <connections>
                                     <action selector="didTapChangeButton:" destination="mMk-vV-3N3" eventType="touchUpInside" id="0bl-e7-tEX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LsQ-We-Qh1">
-                                <rect key="frame" x="32" y="692" width="311" height="70"/>
+                                <rect key="frame" x="32" y="638" width="311" height="70"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="PW2-Bw-O8N"/>
@@ -2078,42 +2130,42 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
             <objects>
                 <viewController id="hDe-QQ-cqs" customClass="QuarantineViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFa-vW-BOm">
-                        <rect key="frame" x="0.0" y="0.0" width="327" height="189"/>
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="244"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Vaša domáca adresa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5B-hS-xNK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaša domáca adresa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5B-hS-xNK">
                                 <rect key="frame" x="0.0" y="0.0" width="327" height="24"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
-                                <rect key="frame" x="0.0" y="32" width="327" height="19"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
+                                <rect key="frame" x="0.0" y="32" width="327" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jbo-Uw-k09">
-                                <rect key="frame" x="0.0" y="67" width="327" height="1"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbo-Uw-k09">
+                                <rect key="frame" x="0.0" y="48" width="327" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="9XI-fR-dsw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
-                                <rect key="frame" x="0.0" y="116" width="327" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
+                                <rect key="frame" x="0.0" y="97" width="327" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Povinná karanténa, zostáva:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-ns-4pC">
-                                <rect key="frame" x="0.0" y="84" width="327" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Povinná karanténa, zostáva:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-ns-4pC">
+                                <rect key="frame" x="0.0" y="65" width="327" height="24"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpU-pX-4xN">
-                                <rect key="frame" x="0.0" y="188" width="327" height="1"/>
+                                <rect key="frame" x="0.0" y="243" width="327" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="zBM-H6-A9H"/>
@@ -2134,7 +2186,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                             <constraint firstAttribute="trailing" secondItem="n8w-ns-4pC" secondAttribute="trailing" id="Tb0-ce-VSv"/>
                             <constraint firstAttribute="trailing" secondItem="Jbo-Uw-k09" secondAttribute="trailing" id="V8a-Sn-h8c"/>
                             <constraint firstItem="VpU-pX-4xN" firstAttribute="leading" secondItem="WFa-vW-BOm" secondAttribute="leading" id="gav-g9-kdC"/>
-                            <constraint firstItem="VpU-pX-4xN" firstAttribute="top" secondItem="Eyt-lN-0m0" secondAttribute="bottom" constant="16" id="hH4-29-Cn4"/>
+                            <constraint firstItem="VpU-pX-4xN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Eyt-lN-0m0" secondAttribute="bottom" constant="16" id="hH4-29-Cn4"/>
                             <constraint firstAttribute="trailing" secondItem="Eyt-lN-0m0" secondAttribute="trailing" id="jjg-2p-Vlq"/>
                             <constraint firstItem="Jbo-Uw-k09" firstAttribute="leading" secondItem="WFa-vW-BOm" secondAttribute="leading" id="p4J-FN-n2G"/>
                             <constraint firstAttribute="trailing" secondItem="TJR-ZP-1Lb" secondAttribute="trailing" id="vrv-Sk-f0C"/>
@@ -2151,7 +2203,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="etg-KJ-vLf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="260" y="538"/>
+            <point key="canvasLocation" x="260" y="497"/>
         </scene>
         <!--Foreign Decision View Controller-->
         <scene sceneID="xhY-LM-ZTM">
@@ -2292,7 +2344,7 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
                                     <outlet property="delegate" destination="CnE-g9-Ixp" id="GVw-IM-Ixy"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ako sa chrániť pred koronavírom" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZn-WK-s7b">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ako sa chrániť pred koronavírusom" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZn-WK-s7b">
                                 <rect key="frame" x="24" y="112" width="327" height="84"/>
                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2320,50 +2372,153 @@ Vďaka nemu Vás môžu zdravotníci osloviť, ak zistia, že ste mohli byť v k
         <!--O aplikácií-->
         <scene sceneID="nEF-Qi-h7Z">
             <objects>
-                <viewController id="Oql-Ag-hxX" sceneMemberID="viewController">
+                <viewController id="Oql-Ag-hxX" customClass="AboutViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4sa-9z-vuE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hgO-J6-TO3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgO-J6-TO3">
                                 <rect key="frame" x="16" y="88" width="343" height="641"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Táto aplikácia bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Táto aplikácia bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie. Bola odovzdaná všetkým štátom zdarma vrátane Slovenska, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 rýchlejšie. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a spomaliť šírenie nákazy. Aplikácia bude vylepšovaná každým dňom a jej tvorcovia budú náklady s jej ďalším vývojom hradiť sami. Jej kód a know-how má slúžiť všetkým ľudom sveta a nesmie byť majetkom žiadnej organizácie.
 
-Jednou z najzákernejších prejavov Covid-19 je jej inkubačná doba, kedy pacient chorobu šíri až 14-dní bez jej viditeľných symptómov. Tým sa vírus šíri rýchlejšie ako obyčajná chrípka a ťažké stavy tak prehltia zdravotnícky systém, ktorý v žiadnej krajine nebol pripravený na takýto nárast nákazy. Cieľom aplikácie je výrazne spomaliť nástup a rýchlejšie otestovať potenciálne nakazených ľudí a tým predísť šíreniu choroby bez ich vedomia. Tým ochránime infikované osoby, ich blízkych a celý zdravotnícky systém, ktorému zostane kapacita pred exponenciálnym nárastom prípadov. 
+Jednou z najzákernejších prejavov Covid-19 je jej inkubačná doba, kedy pacient chorobu šíri až 14-dní bez jej viditeľných symptómov. Tým sa vírus šíri rýchlejšie ako obyčajná chrípka a ťažké stavy tak prehltia zdravotnícky systém, ktorý v žiadnej krajine nebol pripravený na takýto nárast nákazy. Cieľom aplikácie je výrazne spomaliť nástup a rýchlejšie otestovať potenciálne nakazených ľudí a tým predísť šíreniu choroby bez ich vedomia. Tým ochránime infikované osoby, ich blízkych a celý zdravotnícky systém, ktorému zostane kapacita pred exponenciálnym nárastom prípadov. 
 
 Aplikácia funguje na nasledovnom princípe.
 
-Po inštalácii aplikácie je potrebné povoliť senzory Bluetooth a notifikácii, ktoré informujú pacienta. Bluetooth je technológia na rozoznanie blízkosti kontaktu od 1-10 metrov a je možné prostredníctvom nej analyzovať presnú vzdialenosť iných zariadení v jej okolí. Táto technológia výborne funguje v bytoch, budovách, obchodných domoch, lietadlách, letiskách, autobusoch, električkách a iných uzavretých priestoroch, dokonca až na úroveň konkrétnej miestnosti. Jej spotreba je pritom mimoriadne úsporná. 
+Po inštalácii aplikácie je potrebné povoliť senzory Bluetooth a notifikácii, ktoré informujú pacienta. Bluetooth je technológia na rozoznanie blízkosti kontaktu od 1-10 metrov a je možné prostredníctvom nej analyzovať presnú vzdialenosť iných zariadení v jej okolí. Táto technológia výborne funguje v bytoch, budovách, obchodných domoch, lietadlách, letiskách, autobusoch, električkách a iných uzavretých priestoroch, dokonca až na úroveň konkrétnej miestnosti. Jej spotreba je pritom mimoriadne úsporná. 
 
-V prípade, že telefón rozozná iné Bluetooth zariadenie v jeho blízkosti a táto doba prekročí určitú dĺžku, zapíše si anonymný údaj tzv. AppID, ktoré je anonymné číslo vygenerované pri každej inštalácii aplikácie. Toto identifikačné číslo je úplne anonymné. Bluetooth informácia iného zariadenia je potrebná na spätné identifikovanie zariadenia a zasielanie notifikácii takémuto zariadeniu, ktorého majiteľ mohol byť vstavený ochoreniu. Na zasielanie sa práve použije AppID. To znamená, že ak si človek aplikáciu vymaže z telefónu, toto číslo stratí akýkoľvek význam. Jeho hodnota existuje, len v prípade, že aplikácia je nainštalovaná na telefóne a dá sa na túto aplikáciu poslať notifikácia, ak bolo iné AppID infikované, s ktorým bola aplikácia v kontakte cez Bluetooth. Týmto spôsobom nieje možné identifikovať chorého, ani zdravého. Je možné len zaslať správu do inštancie takejto aplikácie.
+V prípade, že telefón rozozná iné Bluetooth zariadenie v jeho blízkosti a táto doba prekročí určitú dĺžku, zapíše si anonymný údaj tzv. AppID, ktoré je anonymné číslo vygenerované pri každej inštalácii aplikácie. Toto identifikačné číslo je úplne anonymné. Bluetooth informácia iného zariadenia je potrebná na spätné identifikovanie zariadenia a zasielanie notifikácii takémuto zariadeniu, ktorého majiteľ mohol byť vstavený ochoreniu. Na zasielanie sa práve použije AppID. To znamená, že ak si človek aplikáciu vymaže z telefónu, toto číslo stratí akýkoľvek význam. Jeho hodnota existuje, len v prípade, že aplikácia je nainštalovaná na telefóne a dá sa na túto aplikáciu poslať notifikácia, ak bolo iné AppID infikované, s ktorým bola aplikácia v kontakte cez Bluetooth. Týmto spôsobom nieje možné identifikovať chorého, ani zdravého. Je možné len zaslať správu do inštancie takejto aplikácie.
 
-Akonáhle akýkoľvek človek zistí, že bol infikovaný vírusom Covid-19, zadá do aplikácie svoje CovidID, prípadne ukáže hygienikovi svoje číslo. Následne sa Covid číslo overí z NCZI systémom. Následne sa informujú iní užívatelia, ktorí boli v kontakte s jeho AppID na úplne anonymnej báze, aby sa dali otestovať. Správa bude obsahovať, že bol človek potenciálne vystavený nákaze. Takýmto spôsobom dokáže aplikácia trasovať možné prenosy za posledných 14-dní aj pri kontaktoch, ktoré človek nedokáže identifikovať. V budovách, pri prepážke v obchode, vo verejnej doprave a podobne. Tým budú ľudia cielenejšie testovaní, a len Tí, ktorí boli vo veľmi tesnej blízkosti infikovanej osoby po určitú dobu. Každý pozitívne testovaný tak pomôže rodinám ľudí, ktorí o svojej nákaze ešte nemusia vedieť a predíde tak ďalšiemu rozneseniu nákazy. Všetko na anonymnej báze. 
+Akonáhle akýkoľvek človek zistí, že bol infikovaný vírusom Covid-19, zadá do aplikácie svoje CovidID, prípadne ukáže hygienikovi svoje číslo. Následne sa Covid číslo overí z NCZI systémom. Následne sa informujú iní užívatelia, ktorí boli v kontakte s jeho AppID na úplne anonymnej báze, aby sa dali otestovať. Správa bude obsahovať, že bol človek potenciálne vystavený nákaze. Takýmto spôsobom dokáže aplikácia trasovať možné prenosy za posledných 14-dní aj pri kontaktoch, ktoré človek nedokáže identifikovať. V budovách, pri prepážke v obchode, vo verejnej doprave a podobne. Tým budú ľudia cielenejšie testovaní, a len Tí, ktorí boli vo veľmi tesnej blízkosti infikovanej osoby po určitú dobu. Každý pozitívne testovaný tak pomôže rodinám ľudí, ktorí o svojej nákaze ešte nemusia vedieť a predíde tak ďalšiemu rozneseniu nákazy. Všetko na anonymnej báze. 
 
-V dnešnej dobe fungujú zdravotníci pýtaním sa, s kým sa človek stretol, a na základe toho osobne kontaktujú ľudí, ktorí mohli byť vystavení ochoreniu. Nedokážu ale odhaliť ľudí, ktorí boli v kontakte v obchode, alebo verejnej doprave. Táto aplikácia tak dokáže rýchlejšie nájsť takéto AppIDs, poslať aplikácii informáciu aby sa dali otestovať, výrazne zníži manuálnu prácu zdravotníkov a hygienikov a tým rýchlejšie predíde šíreniu nákazy na ostatných členov rodiny, kolegov, či iných ľudí v blízkom kontakte. 
+V dnešnej dobe fungujú zdravotníci pýtaním sa, s kým sa človek stretol, a na základe toho osobne kontaktujú ľudí, ktorí mohli byť vystavení ochoreniu. Nedokážu ale odhaliť ľudí, ktorí boli v kontakte v obchode, alebo verejnej doprave. Táto aplikácia tak dokáže rýchlejšie nájsť takéto AppIDs, poslať aplikácii informáciu aby sa dali otestovať, výrazne zníži manuálnu prácu zdravotníkov a hygienikov a tým rýchlejšie predíde šíreniu nákazy na ostatných členov rodiny, kolegov, či iných ľudí v blízkom kontakte. 
 
-Neoddeliteľnou súčasťou prekonania nákazy Covid-19 je aj izolácia chorých od ostatnej populácie. Na tento účel funguje karanténa. V prípade, že človek prišiel zo zahraničia, alebo bol potenciálne vystavený infekcii, alebo mu bola nariadená karanténa, je vyhláškou prikázané zostať na jednom mieste po celú dobu, pokiaľ systém neoznámi opak. Pri tejto chorobe aj 14-dní a je možné na základe testov, či diagnózy samotnú dobu predĺžiť. Každému, komu bola nariadená karanténa príde informácia, ktorá ho bude informovať o ďalších krokoch. Človek v aplikácii oznámi, ak mu bola nariadená karanténa a označí si miesto, v ktorom sa bude zdržiavať nasledujúce dni. Informácia o mieste zostáva výlučne v aplikácii. Aplikácia si overí telefónnym číslom, či takémuto užívateľovi bola skutočne nariadená karanténa a ak áno, informuje užívateľa o dobe v ktorej by mal zostať na ním určenom mieste. 
+Neoddeliteľnou súčasťou prekonania nákazy Covid-19 je aj izolácia chorých od ostatnej populácie. Na tento účel funguje karanténa. V prípade, že človek prišiel zo zahraničia, alebo bol potenciálne vystavený infekcii, alebo mu bola nariadená karanténa, je vyhláškou prikázané zostať na jednom mieste po celú dobu, pokiaľ systém neoznámi opak. Pri tejto chorobe aj 14-dní a je možné na základe testov, či diagnózy samotnú dobu predĺžiť. Každému, komu bola nariadená karanténa príde informácia, ktorá ho bude informovať o ďalších krokoch. Človek v aplikácii oznámi, ak mu bola nariadená karanténa a označí si miesto, v ktorom sa bude zdržiavať nasledujúce dni. Informácia o mieste zostáva výlučne v aplikácii. Aplikácia si overí telefónnym číslom, či takémuto užívateľovi bola skutočne nariadená karanténa a ak áno, informuje užívateľa o dobe v ktorej by mal zostať na ním určenom mieste. 
 
-Po tomto úkone ho aplikácia bude varovať pri každom porušení karantény. Akonáhle je človek mimo karantény dlhšie ako určitý čas, aplikácia ho upozorní, aby sa vrátil do karantény. Táto funkcionalita sa snaží upozorniť ľudí v karanténe, ktorým bola nariadená. Dáta o pohybe sa nikde neukladajú a používajú sa výlučne na upozornenie užívateľa. 
+Po tomto úkone ho aplikácia bude varovať pri každom porušení karantény. Akonáhle je človek mimo karantény dlhšie ako určitý čas, aplikácia ho upozorní, aby sa vrátil do karantény. Táto funkcionalita sa snaží upozorniť ľudí v karanténe, ktorým bola nariadená. Dáta o pohybe sa nikde neukladajú a používajú sa výlučne na upozornenie užívateľa. 
 
-Aplikácia zároveň zobrazuje mapu a najnovšie informácie o nákazách v jednotlivých okresoch na Slovensku. Jej účelom nieje identifikovať chorých, ani nijako týmito informáciami nedisponuje. Mapa zobrazuje len štatistický počet zaznamenaných ľudí s ochorením na Covid-19 v danom okrese. 
+Aplikácia zároveň zobrazuje mapu a najnovšie informácie o nákazách v jednotlivých okresoch na Slovensku. Jej účelom nieje identifikovať chorých, ani nijako týmito informáciami nedisponuje. Mapa zobrazuje len štatistický počet zaznamenaných ľudí s ochorením na Covid-19 v danom okrese. 
 
-Zároveň aplikácia disponuje štatistickými informáciami o počte nakazených, vyliečených a počte úmrtí na území Slovenskej republiky. Obsahuje aj dôležité informácie ako sa chrániť, ako rozpoznať symptómy a zobrazuje rýchlu infolinku. 
+Zároveň aplikácia disponuje štatistickými informáciami o počte nakazených, vyliečených a počte úmrtí na území Slovenskej republiky. Obsahuje aj dôležité informácie ako sa chrániť, ako rozpoznať symptómy a zobrazuje rýchlu infolinku. 
 
-Aplikáciu budeme neustále zlepšovať a prinášať ďalšie funkcionality, ktoré pomôžu rýchlejšie zvládnuť nákazu Covid-19. Všetky dáta sú anonymné a zároveň sú automaticky mazané po uplynutí 21-dní. Táto doba je nevyhnutná na odhalenie možných ohnísk nákaz, ktoré nebolo možné odhaliť konvenčným spôsobom.
+Aplikáciu budeme neustále zlepšovať a prinášať ďalšie funkcionality, ktoré pomôžu rýchlejšie zvládnuť nákazu Covid-19. Všetky dáta sú anonymné a zároveň sú automaticky mazané po uplynutí 21-dní. Táto doba je nevyhnutná na odhalenie možných ohnísk nákaz, ktoré nebolo možné odhaliť konvenčným spôsobom.
 
-Nikdy nebolo dôležitejšie neochorieť, aby sme zachránili druhých, tak ako dnes. Tým, že zostaneme zdraví a nebudeme vírus šíriť, budú mať naši blízky väčšiu šancu na záchranu, pretože zdravotníctvo im bude schopné poskytnúť pomoc, ktorú potrebujú. Ak ochorieme, svojím šírením zaťažujeme zdravotný systém. Zároveň doktori a zdravotný personál bude preťažení a tým náchylnejší na ochorenie. V prípade, že ochorejú nebudú môcť pomáhať aj v úplne odlišných prípadoch, ktorý sa tejto nákazy netýka. Tí, ktorí nákazu sami nezvládnu, nebudú mať šancu na záchranu. Ak budú chorí doktori, nikto z nás nebude môcť dostať akúkoľvek pomoc, či je to obyčajný úraz, operácia, alebo iný vážnejší stav. 
+Nikdy nebolo dôležitejšie neochorieť, aby sme zachránili druhých, tak ako dnes. Tým, že zostaneme zdraví a nebudeme vírus šíriť, budú mať naši blízky väčšiu šancu na záchranu, pretože zdravotníctvo im bude schopné poskytnúť pomoc, ktorú potrebujú. Ak ochorieme, svojím šírením zaťažujeme zdravotný systém. Zároveň doktori a zdravotný personál bude preťažení a tým náchylnejší na ochorenie. V prípade, že ochorejú nebudú môcť pomáhať aj v úplne odlišných prípadoch, ktorý sa tejto nákazy netýka. Tí, ktorí nákazu sami nezvládnu, nebudú mať šancu na záchranu. Ak budú chorí doktori, nikto z nás nebude môcť dostať akúkoľvek pomoc, či je to obyčajný úraz, operácia, alebo iný vážnejší stav. 
 
-Veľa z nás nákazu zvládne svojou imunitou. Sú ale takí, ktorí majú iné vážne ochorenia, či mladí, či starí a budú potrebovať pomoc zdravotníctva. 
+Veľa z nás nákazu zvládne svojou imunitou. Sú ale takí, ktorí majú iné vážne ochorenia, či mladí, či starí a budú potrebovať pomoc zdravotníctva. 
 
 Preto je nesmierne dôležité prejaviť ľudskosť mladých voči starým, zdravých voči chorým a poraziť Covid-19, spoločne.
 
-Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Daniel Kožík, Tomáš Michálek, Štefan Marinčák, Turn.sk, Jozef Benko, Boris Bielik, Roland Beke, Alex Potapov, Vincent Durbák, Ondrej Svitek, DigitalLegal, Slovensko.Digital, Hackvirus.sk
-Širší odborný tím spoluautorov:  doc. JUDr. MUDr. Peter Kováč, PhD. et. PhD, MUDr. Vanda Martišková, MUDr. Karolína Bašová, MDDr. Peter Czakó, MUDr. Martin Čaprnda, PhD., prof. MUDr. Dušan Meško, PhD., MUDr. Peter Herman, MUDr. Gabriela Ďuricová, PhD., MUDr. Igor Krupa, MUDr. Gabriela Ďuricová, PhD., MUDr. Alžbeta Reviczká, MUDr. Andrej Daňo, MUDr. Veronika Pružincová, Juraj Novosad, Nicolas Hason, Maroš Lukáč
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Veľmi pekne ďakujeme za podporu všetkým, ktorí sa svojimi radami, prácou vo dne v noci a svojou nezištnou pomocou pričinili ku vzniku tohoto projektu a to najmä: Marek Gogoľ, Juraj Karovič, MUDr. Andrej Thurzo PhD., MPH, MHA, kolektív dobrovoľníkov okolo Sygic, Boris Kolozsi, Tomáš Benko, Daniel Kožík, Tomáš Michálek, Štefan Marinčák, Turn.sk, Jozef Benko, Boris Bielik, Roland Beke, Alex Potapov, Vincent Durbák, Ondrej Svitek, DigitalLegal, Slovensko.Digital, Hackvirus.sk
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="12" paragraphSpacingBefore="12" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">Širší odborný tím spoluautorov:  doc. JUDr. MUDr. Peter Kováč, PhD. et. PhD, MUDr. Vanda Martišková, MUDr. Karolína Bašová, MDDr. Peter Czakó, MUDr. Martin Čaprnda, PhD., prof. MUDr. Dušan Meško, PhD., MUDr. Peter Herman, MUDr. Gabriela Ďuricová, PhD., MUDr. Igor Krupa, MUDr. Gabriela Ďuricová, PhD., MUDr. Alžbeta Reviczká, MUDr. Andrej Daňo, MUDr. Veronika Pružincová, Juraj Novosad, Nicolas Hason, Maroš Lukáč
 
-Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
-                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.
+
+Aplikácia </string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Covid 19 ZostaňZdravý">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> je podľa zákona č. 362/2011 Z.z. o liekoch a zdravotníckych pomôckach a o zmene a doplnení niektorých zákonov a podľa nariadenia vlády č.582/2008 Z.z. ktorým sa ustanovujú podrobnosti o technických požiadavkách a postupoch posudzovania zhody zdravotníckych pomôcok </string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="zdravotníckou pomôckou triedy I. ">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Výrobca">
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">: Úrad verejného zdravotníctva SR 
+
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="16" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tailIndent="451" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                                <tabStops/>
+                                            </paragraphStyle>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -2377,6 +2532,9 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                         <viewLayoutGuide key="safeArea" id="Q8l-cq-jpg"/>
                     </view>
                     <navigationItem key="navigationItem" title="O aplikácií" id="WWn-0h-3qV"/>
+                    <connections>
+                        <outlet property="aboutTextView" destination="hgO-J6-TO3" id="g0L-yf-Z97"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GSC-vT-HeC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2500,12 +2658,12 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
         <!--Choose Date View Controller-->
         <scene sceneID="2RE-ul-ob1">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="WZm-1e-vuR" customClass="ChooseDateViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chooseDateViewController" hidesBottomBarWhenPushed="YES" id="WZm-1e-vuR" customClass="ChooseDateViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OJi-hq-ecf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4g-mu-6Mg">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j4g-mu-6Mg">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eBv-Y5-gpA">
@@ -2553,7 +2711,7 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="K46-fv-tVA" firstAttribute="bottom" secondItem="Vr0-T8-eR2" secondAttribute="bottom" id="0lo-vf-Jzh"/>
-                                            <constraint firstAttribute="trailing" secondItem="vyJ-gV-LXt" secondAttribute="trailing" constant="52" id="8YI-58-iIK"/>
+                                            <constraint firstAttribute="trailing" secondItem="vyJ-gV-LXt" secondAttribute="trailing" priority="999" constant="52" id="8YI-58-iIK"/>
                                             <constraint firstItem="YW1-0J-ehE" firstAttribute="top" secondItem="Vr0-T8-eR2" secondAttribute="top" constant="14" id="HRU-EW-4Tj"/>
                                             <constraint firstItem="K46-fv-tVA" firstAttribute="top" secondItem="Vr0-T8-eR2" secondAttribute="top" id="Lxr-Vj-aKm"/>
                                             <constraint firstItem="Vr0-T8-eR2" firstAttribute="trailing" secondItem="YW1-0J-ehE" secondAttribute="trailing" constant="16" id="Mpc-hR-x9v"/>
@@ -2564,7 +2722,7 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                                             <constraint firstAttribute="trailing" secondItem="K46-fv-tVA" secondAttribute="trailing" constant="52" id="d5y-J1-UXd"/>
                                             <constraint firstItem="Vr0-T8-eR2" firstAttribute="leading" secondItem="eBv-Y5-gpA" secondAttribute="leading" constant="68" id="jVV-5H-jTk"/>
                                             <constraint firstItem="Vr0-T8-eR2" firstAttribute="bottom" secondItem="YW1-0J-ehE" secondAttribute="bottom" constant="14" id="k8X-Be-3m3"/>
-                                            <constraint firstAttribute="trailing" secondItem="vyJ-gV-LXt" secondAttribute="trailing" constant="52" id="oSP-GQ-ZuK"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vyJ-gV-LXt" secondAttribute="trailing" constant="20" symbolic="YES" id="oSP-GQ-ZuK"/>
                                             <constraint firstAttribute="bottom" secondItem="Vr0-T8-eR2" secondAttribute="bottom" constant="24" id="q7D-7x-bRv"/>
                                             <constraint firstItem="vyJ-gV-LXt" firstAttribute="leading" secondItem="eBv-Y5-gpA" secondAttribute="leading" constant="52" id="r8w-Ji-uiQ"/>
                                             <constraint firstItem="K46-fv-tVA" firstAttribute="leading" secondItem="eBv-Y5-gpA" secondAttribute="leading" constant="52" id="w0x-j0-6hE"/>
@@ -2572,8 +2730,10 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="eBv-Y5-gpA" firstAttribute="leading" secondItem="j4g-mu-6Mg" secondAttribute="leading" id="4of-Vq-cZv"/>
+                                    <constraint firstAttribute="bottom" secondItem="eBv-Y5-gpA" secondAttribute="bottom" id="7aQ-qE-Xaa"/>
                                     <constraint firstItem="eBv-Y5-gpA" firstAttribute="top" secondItem="j4g-mu-6Mg" secondAttribute="top" id="T9r-4m-9mW"/>
-                                    <constraint firstAttribute="bottom" secondItem="eBv-Y5-gpA" secondAttribute="bottom" id="a6L-8a-A5D"/>
+                                    <constraint firstAttribute="trailing" secondItem="eBv-Y5-gpA" secondAttribute="trailing" id="yjU-3R-Urj"/>
                                 </constraints>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uuQ-uw-92o">
@@ -2635,7 +2795,6 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                             <constraint firstItem="eBv-Y5-gpA" firstAttribute="leading" secondItem="lgK-BN-N7p" secondAttribute="leading" id="9IM-Gd-sKx"/>
                             <constraint firstItem="lgK-BN-N7p" firstAttribute="trailing" secondItem="uuQ-uw-92o" secondAttribute="trailing" id="9YB-nX-W4i"/>
                             <constraint firstItem="lgK-BN-N7p" firstAttribute="bottom" secondItem="lJc-cG-RxN" secondAttribute="bottom" constant="16" id="9y2-Ka-tFV"/>
-                            <constraint firstItem="eBv-Y5-gpA" firstAttribute="height" secondItem="OJi-hq-ecf" secondAttribute="height" priority="250" id="JfI-1R-kmo"/>
                             <constraint firstItem="j4g-mu-6Mg" firstAttribute="top" secondItem="lgK-BN-N7p" secondAttribute="top" id="Jkd-Yj-r5g"/>
                             <constraint firstItem="uuQ-uw-92o" firstAttribute="leading" secondItem="lgK-BN-N7p" secondAttribute="leading" id="PxW-dS-vPG"/>
                             <constraint firstItem="lgK-BN-N7p" firstAttribute="bottom" secondItem="uuQ-uw-92o" secondAttribute="bottom" constant="-260" id="Q5b-PZ-Bzq"/>
@@ -2676,14 +2835,14 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWi-a8-6yp">
                                 <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="91"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chorí" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlI-bZ-ZO8">
-                                        <rect key="frame" x="0.0" y="16" width="155.66666666666666" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Chorí" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlI-bZ-ZO8">
+                                        <rect key="frame" x="0.0" y="16" width="155.66666666666666" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKa-WY-b6a">
-                                        <rect key="frame" x="0.0" y="47" width="155.66666666666666" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="43.666666666666664" width="155.66666666666666" height="31.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                         <color key="textColor" red="0.85882352941176465" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2695,7 +2854,7 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                                     <constraint firstAttribute="trailing" secondItem="FlI-bZ-ZO8" secondAttribute="trailing" id="HUd-xM-dIi"/>
                                     <constraint firstItem="hKa-WY-b6a" firstAttribute="leading" secondItem="gWi-a8-6yp" secondAttribute="leading" id="TNm-UL-JrQ"/>
                                     <constraint firstItem="hKa-WY-b6a" firstAttribute="top" secondItem="FlI-bZ-ZO8" secondAttribute="bottom" constant="10" id="gVJ-pz-d3t"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hKa-WY-b6a" secondAttribute="bottom" constant="16" id="ozm-VB-KFO"/>
+                                    <constraint firstAttribute="bottom" secondItem="hKa-WY-b6a" secondAttribute="bottom" constant="16" id="ozm-VB-KFO"/>
                                     <constraint firstAttribute="trailing" secondItem="hKa-WY-b6a" secondAttribute="trailing" id="sjK-82-CiS"/>
                                     <constraint firstItem="FlI-bZ-ZO8" firstAttribute="top" secondItem="gWi-a8-6yp" secondAttribute="top" constant="16" id="v1k-WX-N3r"/>
                                 </constraints>
@@ -2703,14 +2862,14 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3W-l1-etl">
                                 <rect key="frame" x="171.66666666666663" y="0.0" width="155.33333333333337" height="91"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uzdravení" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIl-rd-N1Z">
-                                        <rect key="frame" x="0.0" y="16" width="155.33333333333334" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Uzdravení" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIl-rd-N1Z">
+                                        <rect key="frame" x="0.0" y="16" width="155.33333333333334" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-qr-j8V">
-                                        <rect key="frame" x="0.0" y="47" width="155.33333333333334" height="0.0"/>
+                                        <rect key="frame" x="0.0" y="43.666666666666664" width="155.33333333333334" height="31.333333333333336"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                         <color key="textColor" red="0.16078431372549018" green="0.75294117647058822" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2718,7 +2877,7 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80070098458904104" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="XUb-qr-j8V" secondAttribute="bottom" constant="16" id="KEb-QK-f3H"/>
+                                    <constraint firstAttribute="bottom" secondItem="XUb-qr-j8V" secondAttribute="bottom" constant="16" id="KEb-QK-f3H"/>
                                     <constraint firstItem="SIl-rd-N1Z" firstAttribute="leading" secondItem="W3W-l1-etl" secondAttribute="leading" id="TNd-Ef-UlW"/>
                                     <constraint firstAttribute="trailing" secondItem="XUb-qr-j8V" secondAttribute="trailing" id="VDX-53-uES"/>
                                     <constraint firstItem="XUb-qr-j8V" firstAttribute="top" secondItem="SIl-rd-N1Z" secondAttribute="bottom" constant="10" id="arb-nX-mua"/>
@@ -2734,7 +2893,7 @@ Aplikácia vznikla s podporou projektu ZostaňZdravý a Sygic.</string>
                             <constraint firstAttribute="bottom" secondItem="gWi-a8-6yp" secondAttribute="bottom" id="8PK-Wf-zIC"/>
                             <constraint firstItem="W3W-l1-etl" firstAttribute="leading" secondItem="gWi-a8-6yp" secondAttribute="trailing" constant="16" id="AQT-ag-rdx"/>
                             <constraint firstAttribute="trailing" secondItem="W3W-l1-etl" secondAttribute="trailing" id="FT4-Kz-jCK"/>
-                            <constraint firstItem="W3W-l1-etl" firstAttribute="bottom" secondItem="Jhg-gd-qWO" secondAttribute="bottom" id="ILG-Nj-lVa"/>
+                            <constraint firstItem="W3W-l1-etl" firstAttribute="bottom" secondItem="8Dn-XM-Gq9" secondAttribute="bottom" id="ILG-Nj-lVa"/>
                             <constraint firstItem="gWi-a8-6yp" firstAttribute="leading" secondItem="Jhg-gd-qWO" secondAttribute="leading" id="Ltf-e3-N9j"/>
                             <constraint firstItem="W3W-l1-etl" firstAttribute="top" secondItem="8Dn-XM-Gq9" secondAttribute="top" id="a5h-6i-dFI"/>
                             <constraint firstItem="gWi-a8-6yp" firstAttribute="top" secondItem="8Dn-XM-Gq9" secondAttribute="top" id="z5s-3A-AjE"/>
@@ -3075,8 +3234,8 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ngf-Dj-6Ay"/>
-        <segue reference="ptS-EM-6mH"/>
-        <segue reference="Rme-BJ-GTw"/>
+        <segue reference="lVn-o9-75q"/>
+        <segue reference="Omn-hp-lVS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ID" width="26" height="27"/>

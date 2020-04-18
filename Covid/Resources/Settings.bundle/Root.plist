@@ -12,23 +12,13 @@
 		</dict>
 		<dict>
 			<key>DefaultValue</key>
-			<string>1.0.0 (16)</string>
+			<string>1.1.1 (137)</string>
 			<key>Key</key>
 			<string>app_version</string>
 			<key>Title</key>
 			<string>Version</string>
 			<key>Type</key>
 			<string>PSTitleValueSpecifier</string>
-		</dict>
-		<dict>
-			<key>DefaultValue</key>
-			<false/>
-			<key>Key</key>
-			<string>face_id</string>
-			<key>Title</key>
-			<string>Allow FaceID verification when app starts</string>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
 		</dict>
 	</array>
 	<key>StringsTable</key>

@@ -59,13 +59,14 @@ final class BeaconManager: NSObject {
     private var advertisingBeacon: BeaconId?
     private var lastLocation: CLLocation?
 
+    private var isMonitoring = false
+    private var isAdvertising = false
+
     override private init() {
         super.init()
 
         locationManager.delegate = self
-        if Firebase.remoteDoubleValue(for: .iBeaconLocationAccuracy) != -1 {
-            activateLocationTrackingForBeacons()
-        }
+        activateLocationTrackingForBeacons()
 
         peripheralManager = CBPeripheralManager(
             delegate: self,
@@ -84,14 +85,17 @@ final class BeaconManager: NSObject {
     }
 
     func startMonitoring() {
+        guard !isMonitoring else { return }
         setupMonitoringRegion()
-        if let monitoringRegion = monitoringRegion {
-            locationManager.startMonitoring(for: monitoringRegion)
-            print("start monitor")
-        }
+        guard let monitoringRegion = monitoringRegion else { return }
+
+        locationManager.startMonitoring(for: monitoringRegion)
+        isMonitoring = true
+        print("start monitor")
     }
 
     func advertiseDevice(beacon: BeaconId) {
+        guard !isAdvertising else { return }
         setupAdvertisingRegion(beacon: beacon)
         guard let myRegion = myRegion else { return }
 
@@ -99,6 +103,7 @@ final class BeaconManager: NSObject {
             advertisingBeacon = beacon
             if peripheralManager.state == .poweredOn, let peripheralData = myRegion.peripheralData(withMeasuredPower: nil) as? [String: Any] {
                 peripheralManager.startAdvertising(peripheralData)
+                isAdvertising = true
             }
         }
     }

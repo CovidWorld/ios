@@ -55,8 +55,8 @@ struct StatsResponseData: Codable {
 
 // MARK: - NCZI Services -
 struct OTPResponseData: Codable {
-    let errors: [OTPResponseError]?
-    let payload: OTPResponsePayload?
+    var errors: [OTPResponseError]?
+    var payload: OTPResponsePayload?
 }
 
 struct OTPResponseErrorData: Codable {

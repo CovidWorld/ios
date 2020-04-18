@@ -27,6 +27,7 @@
 //
 //  Created by Boris Kolozsi on 09/04/2020.
 //
+ // swiftlint:disable line_length
 
 import Foundation
 import FirebaseRemoteConfig
@@ -46,6 +47,8 @@ enum RemoteConfigKey: String, CaseIterable {
     case faceIDMatchThreshold
     case iBeaconLocationAccuracy
     case hotlines
+    case reportQuarantineLocation
+    case reportQuarantineExit
 
     var defaultValue: NSObject {
         switch self {
@@ -59,7 +62,7 @@ enum RemoteConfigKey: String, CaseIterable {
         case .quarantineLocationPeriodMinutes: return NSNumber(value: 5)
         case .minConnectionDuration: return NSNumber(value: 300)
         case .mapStatsUrl:
-            return NSString(string: "https://portal.minv.sk/gis/rest/services/PROD/ESISPZ_GIS_PORTAL_CovidPublic/MapServer/4/query?where=POTVRDENI%20%3E%200&f=json&outFields=IDN3%2C%20NM3%2C%20IDN2%2C%20NM2%2C%20POTVRDENI%2C%20VYLIECENI%2C%20MRTVI%2C%20AKTIVNI%2C%20CAKAJUCI%2C%20OTESTOVANI_NEGATIVNI%2C%20DATUM_PLATNOST&returnGeometry=false&orderByFields=POTVRDENI%20DESC")
+            return NSString(string: "https://portal.minv.sk/gis/rest/services/PROD/ESISPZ_GIS_PORTAL_CovidPublic/MapServer/4/query?where=POTVRDENI%20%3E%3D%200&f=json&outFields=NM2%2C%20IDN3%2C%20NM3%2C%20POTVRDENI&returnGeometry=false&orderByFields=NM3%20ASC")
         case .apiHost: return NSString(string: "https://covid-gateway.azurewebsites.net")
         case .ncziApiHost: return NSString(string: "https://t.mojeezdravie.sk")
         case .statsUrl: return NSString(string: "https://corona-stats-sk.herokuapp.com/gov")
@@ -67,6 +70,8 @@ enum RemoteConfigKey: String, CaseIterable {
         case .faceIDMatchThreshold: return NSNumber(value: 75)
         case .iBeaconLocationAccuracy: return NSNumber(value: -1)
         case .hotlines: return NSDictionary(dictionary: ["SK": "0800221234"])
+        case .reportQuarantineLocation: return NSNumber(value: false)
+        case .reportQuarantineExit: return NSNumber(value: false)
         }
     }
 }
@@ -110,5 +115,16 @@ struct Firebase {
             return value
         }
         return [String: AnyHashable]()
+    }
+
+    static func remoteBoolValue(for key: RemoteConfigKey) -> Bool {
+        if let value = remoteConfig?.configValue(forKey: key.rawValue).boolValue {
+            return value
+        } else if let value = key.defaultValue as? NSNumber {
+            return value.boolValue
+        } else {
+            assertionFailure("default value should be available")
+            return false
+        }
     }
 }
