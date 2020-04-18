@@ -67,8 +67,6 @@ final class BeaconManager: NSObject {
 
         locationManager.delegate = self
         activateLocationTrackingForBeacons()
-//        if Firebase.remoteDoubleValue(for: .iBeaconLocationAccuracy) != -1 {
-//        }
 
         peripheralManager = CBPeripheralManager(
             delegate: self,
