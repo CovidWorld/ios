@@ -29,7 +29,7 @@ protocol MapSearchProtocol: AnyObject {
     func dropPinZoomIn(placemark: MKPlacemark)
 }
 
-final class MapViewController: UIViewController {
+final class MapViewController: ViewController {
 
     @IBOutlet private weak var mapView: MKMapView!
     @IBOutlet private weak var chooseButton: UIButton!
@@ -41,6 +41,8 @@ final class MapViewController: UIViewController {
     var selectedPin: MKPlacemark?
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        hasTransparentNavigationBar = false
 
         setupUI()
 
@@ -56,42 +58,59 @@ final class MapViewController: UIViewController {
         mapView.showsUserLocation = true
     }
 
+    @IBAction private func didChooseAddress(_ sender: Any) {
+        guard lastPlacemark != nil else {
+            let alert = UIAlertController(title: nil, message: "Zadajte prosím Vašu polohu.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Rozumiem.", style: .cancel)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+
+            return
+        }
+
+        guard let confirmationViewController = UIStoryboard.controller(ofType: AddressConfirmationViewController.self) else {
+            return
+        }
+
+        var streetText = ""
+        var cityText = ""
+
+        if let placemark = lastPlacemark {
+            if let street = placemark.thoroughfare {
+                streetText.append(street)
+            }
+            if let subThoroughfare = placemark.subThoroughfare {
+                if streetText.count > 0 {
+                    streetText.append(" ")
+                }
+                streetText.append(subThoroughfare)
+            }
+
+            if let postalCode = placemark.postalCode {
+                cityText.append(postalCode)
+            }
+            if let city = placemark.locality {
+                if cityText.count > 0 {
+                    cityText.append(" ")
+                }
+                cityText.append(city)
+            }
+        } else {
+            streetText = " - "
+            cityText = " - "
+        }
+
+        confirmationViewController.streetText = streetText
+        confirmationViewController.cityText = cityText
+        confirmationViewController.location = lastPlacemark?.location?.coordinate
+
+        navigationController?.pushViewController(confirmationViewController, animated: true)
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let confirmationViewController = segue.destination as? AddressConfirmationViewController {
-            var streetText = ""
-            var cityText = ""
-
-            if let placemark = lastPlacemark {
-                if let street = placemark.thoroughfare {
-                    streetText.append(street)
-                }
-                if let subThoroughfare = placemark.subThoroughfare {
-                    if streetText.count > 0 {
-                        streetText.append(" ")
-                    }
-                    streetText.append(subThoroughfare)
-                }
-
-                if let postalCode = placemark.postalCode {
-                    cityText.append(postalCode)
-                }
-                if let city = placemark.locality {
-                    if cityText.count > 0 {
-                        cityText.append(" ")
-                    }
-                    cityText.append(city)
-                }
-            } else {
-                streetText = " - "
-                cityText = " - "
-            }
-
-            confirmationViewController.streetText = streetText
-            confirmationViewController.cityText = cityText
-            confirmationViewController.location = lastPlacemark?.location?.coordinate
-        } else if let searchMapViewController = segue.destination as? SearchMapViewController {
+        if let searchMapViewController = segue.destination as? SearchMapViewController {
             searchMapViewController.mapView = mapView
             searchMapViewController.mapSearchDelegate = self
         }
@@ -129,6 +148,7 @@ extension MapViewController {
 
         chooseButton?.titleLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
         chooseButton?.setAttributedTitle(attrString1, for: [])
+        chooseButton?.layoutIfNeeded()
     }
 
     private func address(from placemark: CLPlacemark?) -> String {

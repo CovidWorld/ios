@@ -31,7 +31,7 @@
 import UIKit
 import SwiftyUserDefaults
 
-final class QuarantineViewController: UIViewController {
+final class QuarantineViewController: ViewController {
     @IBOutlet private var addressLabel: UILabel!
     @IBOutlet private var quarantineUntilLabel: UILabel!
 

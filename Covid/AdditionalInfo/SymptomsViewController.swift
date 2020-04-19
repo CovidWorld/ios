@@ -23,7 +23,7 @@
 
 import UIKit
 
-final class SymptomsViewController: UIViewController {
+final class SymptomsViewController: ViewController {
 
     @IBOutlet private weak var bodyLabel: UILabel!
 

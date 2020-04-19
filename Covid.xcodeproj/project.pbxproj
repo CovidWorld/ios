@@ -45,10 +45,12 @@
 		0FF4F224241AF61600643297 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F223241AF61600643297 /* APIRequests.swift */; };
 		1EACF742EFBC189662F2C060 /* Pods_Covid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E1E3496C8614E26AC81B2B /* Pods_Covid.framework */; };
 		212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */; };
+		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
 		213B74DF2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */; };
 		21591AE72439E18500495263 /* settings_version.sh in Resources */ = {isa = PBXBuildFile; fileRef = 21591AE62439E18500495263 /* settings_version.sh */; };
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
+		21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */; };
 		21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */; };
 		21B0F7B52438ACCC00552491 /* FaceCaptureOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */; };
 		21B0F7ED2438AF7A00552491 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7EC2438AF7A00552491 /* General.swift */; };
@@ -56,7 +58,6 @@
 		21B0F8922438D37D00552491 /* FaceIDNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8912438D37D00552491 /* FaceIDNotification.swift */; };
 		21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8932439194100552491 /* UIStoryBoard.swift */; };
 		21C12B33243D21EF0086AF8B /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C12B32243D21EF0086AF8B /* Segue.swift */; };
-		21DE1B4D2435DA7500746CE8 /* iengine.lic in Resources */ = {isa = PBXBuildFile; fileRef = 21DE1B4C2435DA7500746CE8 /* iengine.lic */; };
 		21DE1B552435F5C700746CE8 /* CovidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1B542435F5C700746CE8 /* CovidTests.swift */; };
 		6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */; };
 		C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0091573241EBCD10012F557 /* CountryCodeViewController.swift */; };
@@ -164,12 +165,14 @@
 		0FF4F21F241AF21200643297 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		0FF4F223241AF61600643297 /* APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
 		212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		21220503244D084900CCC72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21355B35243A7B660087ADCB /* FaceIDVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDVerification.swift; sourceTree = "<group>"; };
 		213B74DC2437E7BE005BB14F /* FaceCaptureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCoordinator.swift; sourceTree = "<group>"; };
 		213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCompletedViewController.swift; sourceTree = "<group>"; };
 		21591AE62439E18500495263 /* settings_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = settings_version.sh; sourceTree = "<group>"; };
 		21591AEC2439E2C000495263 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21591AEE2439E3AE00495263 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Transparent.swift"; sourceTree = "<group>"; };
 		2189714C24368B5C009987EA /* FaceIDCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDCapture.swift; sourceTree = "<group>"; };
 		2189714E24369949009987EA /* FaceIDValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDValidator.swift; sourceTree = "<group>"; };
 		2189715024369980009987EA /* FaceIDStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDStorage.swift; sourceTree = "<group>"; };
@@ -182,7 +185,6 @@
 		21B0F8912438D37D00552491 /* FaceIDNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDNotification.swift; sourceTree = "<group>"; };
 		21B0F8932439194100552491 /* UIStoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryBoard.swift; sourceTree = "<group>"; };
 		21C12B32243D21EF0086AF8B /* Segue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
-		21DE1B4C2435DA7500746CE8 /* iengine.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iengine.lic; sourceTree = "<group>"; };
 		21DE1B522435F5C700746CE8 /* CovidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21DE1B542435F5C700746CE8 /* CovidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidTests.swift; sourceTree = "<group>"; };
 		21DE1B562435F5C700746CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -266,7 +268,6 @@
 			isa = PBXGroup;
 			children = (
 				21591AE62439E18500495263 /* settings_version.sh */,
-				21DE1B4C2435DA7500746CE8 /* iengine.lic */,
 				0F74576F241D9342000546FA /* GoogleService-Info.plist */,
 				0F11813B2416C70500213533 /* Covid */,
 				21DE1B532435F5C700746CE8 /* CovidTests */,
@@ -288,6 +289,7 @@
 		0F11813B2416C70500213533 /* Covid */ = {
 			isa = PBXGroup;
 			children = (
+				21220502244D083D00CCC72B /* UI */,
 				0F1181472416C70900213533 /* LaunchScreen.storyboard */,
 				0F1181422416C70500213533 /* Main.storyboard */,
 				0F11813C2416C70500213533 /* AppDelegate.swift */,
@@ -372,15 +374,15 @@
 		0FD28B102426D4FF0015F7E7 /* AdditionalInfo */ = {
 			isa = PBXGroup;
 			children = (
+				0F015CC12449B376004E80A1 /* AboutViewController.swift */,
+				0F015CA224461587004E80A1 /* Covid-Bridging-Header.h */,
+				0F015CA424461588004E80A1 /* hashids.c */,
+				0F015CA324461588004E80A1 /* hashids.h */,
+				0FD28B1E242942270015F7E7 /* Hashids.swift */,
+				0FD28B1C2428F9900015F7E7 /* IdentityViewController.swift */,
 				C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */,
 				C0F9962E241FCBB2009C6BF5 /* PreventionViewController.swift */,
 				C0F99634241FE632009C6BF5 /* SymptomsViewController.swift */,
-				0FD28B1C2428F9900015F7E7 /* IdentityViewController.swift */,
-				0FD28B1E242942270015F7E7 /* Hashids.swift */,
-				0F015CA424461588004E80A1 /* hashids.c */,
-				0F015CA324461588004E80A1 /* hashids.h */,
-				0F015CA224461587004E80A1 /* Covid-Bridging-Header.h */,
-				0F015CC12449B376004E80A1 /* AboutViewController.swift */,
 			);
 			path = AdditionalInfo;
 			sourceTree = "<group>";
@@ -406,6 +408,14 @@
 				0FF4F223241AF61600643297 /* APIRequests.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		21220502244D083D00CCC72B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				21220503244D084900CCC72B /* ViewController.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		213B74D82437E69F005BB14F /* Services */ = {
@@ -449,10 +459,11 @@
 		21B0F7EB2438AF5D00552491 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */,
 				21B0F7EC2438AF7A00552491 /* General.swift */,
 				21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */,
+				21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */,
 				21B0F8932439194100552491 /* UIStoryBoard.swift */,
-				212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -658,7 +669,6 @@
 				C03E09EA242013CB00B3A204 /* Poppins-Italic.otf in Resources */,
 				C03E0A02242013CB00B3A204 /* Inter-UI-Bold.otf in Resources */,
 				0FD28B1B242827330015F7E7 /* okresy.json in Resources */,
-				21DE1B4D2435DA7500746CE8 /* iengine.lic in Resources */,
 				C03E09FE242013CB00B3A204 /* Inter-ExtraLightItalic.otf in Resources */,
 				21591AEF2439E3AF00495263 /* Settings.bundle in Resources */,
 				C03E09F0242013CB00B3A204 /* Poppins-BlackItalic.otf in Resources */,
@@ -807,6 +817,7 @@
 				C009157A241EF1FE0012F557 /* SelectAddressInfoViewController.swift in Sources */,
 				0FCB4F0924238BDC00389493 /* StatsViewController.swift in Sources */,
 				0FF4F21C241AEF8100643297 /* NetworkService.swift in Sources */,
+				21220504244D084900CCC72B /* ViewController.swift in Sources */,
 				0FD28B1D2428F9900015F7E7 /* IdentityViewController.swift in Sources */,
 				0F247F08241A63F000986740 /* WelcomeViewController.swift in Sources */,
 				C0091578241ED36F0012F557 /* VerificationCodeViewController.swift in Sources */,
@@ -829,6 +840,7 @@
 				0FBA45212421916B00816388 /* Disk+Helpers.swift in Sources */,
 				0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */,
 				0FBA451F24218F2D00816388 /* Disk+InternalHelpers.swift in Sources */,
+				21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */,
 				0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */,
 				0FCB4F0B2423B3D400389493 /* PrivacyViewController.swift in Sources */,
 				C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */,

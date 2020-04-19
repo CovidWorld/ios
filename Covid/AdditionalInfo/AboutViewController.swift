@@ -30,7 +30,7 @@
 
 import UIKit
 
-final class AboutViewController: UIViewController {
+final class AboutViewController: ViewController {
     @IBOutlet private var aboutTextView: UITextView!
 
     override func viewDidLoad() {
@@ -44,5 +44,10 @@ final class AboutViewController: UIViewController {
         let attrStringWithImage = NSAttributedString(attachment: textAttachment)
         attributedString.append(attrStringWithImage)
         aboutTextView.attributedText = attributedString
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        aboutTextView.flashScrollIndicators()
     }
 }

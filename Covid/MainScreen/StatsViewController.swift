@@ -30,7 +30,7 @@
 
 import UIKit
 
-final class StatsViewController: UIViewController {
+final class StatsViewController: ViewController {
 
     @IBOutlet private var positiveView: UIView!
     @IBOutlet private var healedView: UIView!

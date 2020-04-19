@@ -1,17 +1,17 @@
 /*-
 * Copyright (c) 2020 Sygic
 *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
+* Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 * copies of the Software, and to permit persons to whom the Software is
 * furnished to do so, subject to the following conditions:
 *
- * The above copyright notice and this permission notice shall be included in
+* The above copyright notice and this permission notice shall be included in
 * copies or substantial portions of the Software.
 *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
@@ -20,26 +20,24 @@
 * THE SOFTWARE.
 *
 */
-
 //
-//  PrivacyViewController.swift
+//  ViewController.swift
 //  Covid
 //
-//  Created by Boris Kolozsi on 19/03/2020.
+//  Created by Boris Bielik on 20/04/2020.
+//  Copyright © 2020 Sygic. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-final class PrivacyViewController: UIViewController {
+class ViewController: UIViewController {
 
-    @IBOutlet private weak var privacyTextView: UITextView!
+    var hasTransparentNavigationBar = true
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        privacyTextView.flashScrollIndicators()
-    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
-    @IBAction private func closeDidTap(_ sender: Any) {
-        presentingViewController?.dismiss(animated: true, completion: nil)
+        navigationController?.navigationBar.setTransparent(hasTransparentNavigationBar)
     }
 }

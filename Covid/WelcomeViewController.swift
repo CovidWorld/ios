@@ -35,7 +35,7 @@ extension WelcomeViewController: HasStoryBoardIdentifier {
     static let storyboardIdentifier = "WelcomeViewController"
 }
 
-final class WelcomeViewController: UIViewController {
+final class WelcomeViewController: ViewController {
 
     @IBOutlet private var agreeButton: UIButton!
     @IBOutlet private var cooperationLabel: UILabel!

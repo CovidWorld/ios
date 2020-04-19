@@ -25,7 +25,7 @@ import UIKit
 import SwiftyUserDefaults
 import JWTDecode
 
-final class VerificationCodeViewController: UIViewController {
+final class VerificationCodeViewController: ViewController {
 
     @IBOutlet private weak var activationCodeTextField: UITextField!
 

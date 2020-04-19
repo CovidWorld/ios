@@ -73,7 +73,7 @@ enum ViewType: Int {
     case list
 }
 
-final class SpreadViewController: UIViewController {
+final class SpreadViewController: ViewController {
 
     @IBOutlet private var mapContainerView: UIView!
     @IBOutlet private var listContainerView: UIView!
