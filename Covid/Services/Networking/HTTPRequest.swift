@@ -77,7 +77,9 @@ final class HTTPRequest {
      */
     @discardableResult
     class func start(with urlRequest: URLRequest, networkSession: NetworkSession, completion: @escaping (Response) -> Void) -> URLSessionDataTask {
-        networkSession.loadData(for: urlRequest) { (data, urlResponse, error) in
+        print("!>>> request: ", urlRequest.url?.absoluteString)
+        print("!>>> headers: ", urlRequest.allHTTPHeaderFields)
+        return networkSession.loadData(for: urlRequest) { (data, urlResponse, error) in
             if let error = error {
                 completion(.failure(.urlError(error as? URLError), data))
                 return

@@ -152,18 +152,18 @@ extension VerificationCodeViewController {
     }
 }
 
-extension VerificationCodeViewController {
-    private func registerFaceId() {
-        if let navigationController = navigationController {
-            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) { [weak self] in
-                self?.navigationController?.popToRootViewController(animated: true)
-            }
-            NotificationCenter.default.post(notification)
-        } else {
-            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
-        }
-    }
-}
+// extension VerificationCodeViewController {
+//    private func registerFaceId() {
+//        if let navigationController = navigationController {
+//            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) { [weak self] in
+//                self?.navigationController?.popToRootViewController(animated: true)
+//            }
+//            NotificationCenter.default.post(notification)
+//        } else {
+//            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
+//        }
+//    }
+//}
 
 extension VerificationCodeViewController: UITextFieldDelegate {
 

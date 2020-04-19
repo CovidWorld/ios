@@ -32,35 +32,49 @@ import UIKit
 
 final class RegionCell: UITableViewCell {
     let regionLabel = UILabel()
+    let countyLabel = UILabel()
     let casesLabel = UILabel()
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
 
         contentView.addSubview(regionLabel)
+        contentView.addSubview(countyLabel)
         contentView.addSubview(casesLabel)
+
         regionLabel.translatesAutoresizingMaskIntoConstraints = false
+        countyLabel.translatesAutoresizingMaskIntoConstraints = false
         casesLabel.translatesAutoresizingMaskIntoConstraints = false
-        regionLabel.font = UIFont(name: "Poppins-Light", size: 15)
+
+        regionLabel.font = UIFont(name: "Poppins-Regular", size: 15)
+        countyLabel.font = UIFont(name: "Poppins-Light", size: 12)
         casesLabel.font = UIFont(name: "Poppins-Bold", size: 15)
+
+        countyLabel.textColor = textLabel?.textColor
         regionLabel.textColor = textLabel?.textColor
         casesLabel.textColor = textLabel?.textColor
 
         NSLayoutConstraint.activate([
             casesLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             contentView.trailingAnchor.constraint(equalTo: casesLabel.trailingAnchor, constant: 34),
-            regionLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            regionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 34)
+            regionLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
+            regionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 34),
+            countyLabel.leadingAnchor.constraint(equalTo: regionLabel.leadingAnchor),
+            countyLabel.topAnchor.constraint(equalTo: regionLabel.bottomAnchor, constant: 0),
+            countyLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
         ])
     }
 }
 
 final class SpreadListTableViewController: UITableViewController {
+
     var data = [RegionInfo]() {
         didSet {
             tableView.reloadData()
         }
     }
+
+    var onRegionSelect: ((RegionInfo) -> Void)?
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
@@ -69,10 +83,24 @@ final class SpreadListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RegionCell", for: indexPath) as? RegionCell
 
-        cell?.regionLabel.text = data[indexPath.row].region
-        cell?.casesLabel.text = String((data[indexPath.row].cases ?? 0))
+        let regionInfo = data[indexPath.row]
+        cell?.regionLabel.text = regionInfo.region
+        cell?.countyLabel.text = regionInfo.county
+        cell?.casesLabel.text = String((regionInfo.cases ?? 0))
 
         return cell ?? UITableViewCell()
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        onRegionSelect?(data[indexPath.row])
+    }
+}
+
+extension SpreadListTableViewController: SwitchableViewController {
+    func didPresentViewController() {
+        tableView.flashScrollIndicators()
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
 }
