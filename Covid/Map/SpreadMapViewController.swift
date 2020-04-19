@@ -61,6 +61,7 @@ final class SpreadMapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsCompass = false
+        mapView.isRotateEnabled = false
         if #available(iOS 11.0, *) {
             mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: regionIdenfitier)
         }
