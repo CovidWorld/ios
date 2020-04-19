@@ -57,12 +57,12 @@ final class AddressConfirmationViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
-    private func registerFaceId() {
-        if let navigationController = navigationController {
-            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) {}
-            NotificationCenter.default.post(notification)
-        } else {
-            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
-        }
-    }
+//    private func registerFaceId() {
+//        if let navigationController = navigationController {
+//            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) {}
+//            NotificationCenter.default.post(notification)
+//        } else {
+//            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
+//        }
+//    }
 }

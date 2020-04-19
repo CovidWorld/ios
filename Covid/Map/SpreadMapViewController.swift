@@ -33,10 +33,7 @@ import MapKit
 
 extension RegionInfo: MKAnnotation {
     var coordinate: CLLocationCoordinate2D {
-        guard let latitude = location?.lat, let longitude = location?.lon else {
-            return CLLocationCoordinate2D()
-        }
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        location?.coordinate ?? CLLocationCoordinate2D()
     }
 
     var title: String? {
@@ -49,7 +46,10 @@ extension RegionInfo: MKAnnotation {
 }
 
 final class SpreadMapViewController: UIViewController {
+
     @IBOutlet private var mapView: MKMapView!
+
+    let regionIdenfitier = "region"
 
     var data = [RegionInfo]() {
         didSet {
@@ -57,27 +57,47 @@ final class SpreadMapViewController: UIViewController {
             mapView.addAnnotations(data)
         }
     }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        mapView.showsCompass = false
+        mapView.isRotateEnabled = false
+        if #available(iOS 11.0, *) {
+            mapView.register(MKMarkerAnnotationView.self, forAnnotationViewWithReuseIdentifier: regionIdenfitier)
+        }
+    }
+
+    func selectAnnotation(with regionInfo: RegionInfo) {
+        let annotation = mapView.annotations
+                                .compactMap { $0 as? RegionInfo }
+                                .first { $0.coordinate == regionInfo.coordinate }
+        guard let regionAnnotation = annotation else { return }
+
+        mapView?.setCenter(regionAnnotation.coordinate, animated: true)
+        let view = mapView.view(for: regionAnnotation)
+        if #available(iOS 11.0, *) {
+            view?.prepareForDisplay()
+        }
+        mapView.deselectAnnotation(regionAnnotation, animated: false)
+        mapView.selectAnnotation(regionAnnotation, animated: true)
+    }
+}
+
+extension SpreadMapViewController: SwitchableViewController {
+    func didPresentViewController() {}
 }
 
 extension SpreadMapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
       guard let annotation = annotation as? RegionInfo else { return nil }
-      let identifier = "region"
         if #available(iOS 11.0, *) {
-            var view: MKMarkerAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKMarkerAnnotationView {
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: 0, y: 15)
-                view.rightCalloutAccessoryView = UIView()
-            }
+            let view = mapView.dequeueReusableAnnotationView(withIdentifier: regionIdenfitier, for: annotation)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: 0, y: 15)
+            view.rightCalloutAccessoryView = UIView()
             return view
         } else {
-            return MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            return MKAnnotationView(annotation: annotation, reuseIdentifier: regionIdenfitier)
         }
     }
 }

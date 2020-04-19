@@ -1299,13 +1299,13 @@ ZostanZdravy a Sygic</string>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="4PF-kM-exc" firstAttribute="trailing" secondItem="Lj4-QB-CTM" secondAttribute="trailing" id="Dog-sN-JF3"/>
                             <constraint firstItem="MQj-uW-X4C" firstAttribute="bottom" secondItem="4PF-kM-exc" secondAttribute="bottom" id="I8s-1X-xbl"/>
-                            <constraint firstItem="MQj-uW-X4C" firstAttribute="leading" secondItem="AQt-hW-4qK" secondAttribute="leading" id="SFm-kv-87Q"/>
+                            <constraint firstItem="MQj-uW-X4C" firstAttribute="leading" secondItem="4PF-kM-exc" secondAttribute="leading" id="Pck-M0-CH8"/>
+                            <constraint firstItem="4PF-kM-exc" firstAttribute="trailing" secondItem="MQj-uW-X4C" secondAttribute="trailing" id="U8B-Ob-6bR"/>
+                            <constraint firstItem="Lj4-QB-CTM" firstAttribute="leading" secondItem="4PF-kM-exc" secondAttribute="leading" id="YjT-73-qg3"/>
                             <constraint firstItem="Lj4-QB-CTM" firstAttribute="top" secondItem="4PF-kM-exc" secondAttribute="top" id="Zxn-yv-JmL"/>
-                            <constraint firstItem="Lj4-QB-CTM" firstAttribute="trailing" secondItem="4PF-kM-exc" secondAttribute="trailing" id="fO9-RN-WI9"/>
                             <constraint firstItem="MQj-uW-X4C" firstAttribute="top" secondItem="4PF-kM-exc" secondAttribute="top" id="gqc-e4-coU"/>
-                            <constraint firstItem="Lj4-QB-CTM" firstAttribute="leading" secondItem="4PF-kM-exc" secondAttribute="leading" id="izr-xz-BnE"/>
-                            <constraint firstAttribute="trailing" secondItem="MQj-uW-X4C" secondAttribute="trailing" id="j40-hU-GnT"/>
                             <constraint firstItem="Lj4-QB-CTM" firstAttribute="bottom" secondItem="4PF-kM-exc" secondAttribute="bottom" id="y9Y-Tk-VAD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4PF-kM-exc"/>
@@ -1327,6 +1327,7 @@ ZostanZdravy a Sygic</string>
                     <connections>
                         <outlet property="listContainerView" destination="Lj4-QB-CTM" id="emY-rb-P8g"/>
                         <outlet property="mapContainerView" destination="MQj-uW-X4C" id="zT8-Hu-4yP"/>
+                        <outlet property="segmentedControl" destination="y01-TP-X2l" id="cZQ-Hl-5Xy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jYM-Tz-LbZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2836,13 +2837,13 @@ Cg
                                 <rect key="frame" x="0.0" y="0.0" width="155.66666666666666" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Chorí" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlI-bZ-ZO8">
-                                        <rect key="frame" x="0.0" y="16" width="155.66666666666666" height="17.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="16" width="155.66666666666666" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKa-WY-b6a">
-                                        <rect key="frame" x="0.0" y="43.666666666666664" width="155.66666666666666" height="31.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="47" width="155.66666666666666" height="28"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                         <color key="textColor" red="0.85882352941176465" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2863,13 +2864,13 @@ Cg
                                 <rect key="frame" x="171.66666666666663" y="0.0" width="155.33333333333337" height="91"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Uzdravení" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIl-rd-N1Z">
-                                        <rect key="frame" x="0.0" y="16" width="155.33333333333334" height="17.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="16" width="155.33333333333334" height="21"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUb-qr-j8V">
-                                        <rect key="frame" x="0.0" y="43.666666666666664" width="155.33333333333334" height="31.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="47" width="155.33333333333334" height="28"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
                                         <color key="textColor" red="0.16078431372549018" green="0.75294117647058822" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -2915,7 +2916,7 @@ Cg
         <scene sceneID="DUf-aB-h1M">
             <objects>
                 <tableViewController id="rFe-Y4-l35" customClass="SpreadListTableViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H0G-vJ-vGL">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="H0G-vJ-vGL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="WFm-B3-lsp">
@@ -3233,7 +3234,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ngf-Dj-6Ay"/>
+        <segue reference="W0W-pe-yxJ"/>
         <segue reference="lVn-o9-75q"/>
         <segue reference="Omn-hp-lVS"/>
     </inferredMetricsTieBreakers>
