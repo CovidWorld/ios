@@ -45,7 +45,7 @@ extension RegionInfo: MKAnnotation {
     }
 }
 
-final class SpreadMapViewController: UIViewController {
+final class SpreadMapViewController: ViewController {
 
     @IBOutlet private var mapView: MKMapView!
 

@@ -24,7 +24,7 @@
 import UIKit
 import SwiftyUserDefaults
 
-final class CountryCodeViewController: UIViewController {
+final class CountryCodeViewController: ViewController {
 
     @IBOutlet private weak var countryCodeLabel: UILabel!
     @IBOutlet private weak var numberTextField: UITextField!

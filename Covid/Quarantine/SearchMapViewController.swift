@@ -24,7 +24,7 @@
 import UIKit
 import MapKit
 
-final class SearchMapViewController: UIViewController {
+final class SearchMapViewController: ViewController {
     let cellID = "SearchCell"
     var matchingItems: [MKMapItem] = []
     var mapView: MKMapView?

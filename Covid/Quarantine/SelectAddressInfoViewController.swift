@@ -23,7 +23,7 @@
 
 import UIKit
 
-final class SelectAddressInfoViewController: UIViewController {
+final class SelectAddressInfoViewController: ViewController {
 
     @IBOutlet private weak var selectButton: UIButton!
 

@@ -38,7 +38,7 @@ extension MainViewController: HasStoryBoardIdentifier {
     static let storyboardIdentifier = "MainViewController"
 }
 
-final class MainViewController: UIViewController, NotificationCenterObserver {
+final class MainViewController: ViewController, NotificationCenterObserver {
 
     @IBOutlet private var protectView: UIView!
     @IBOutlet private var symptomesView: UIView!

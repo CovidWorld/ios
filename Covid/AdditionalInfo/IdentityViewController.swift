@@ -32,7 +32,7 @@ import UIKit
 import UILabel_Copyable
 import SwiftyUserDefaults
 
-final class IdentityViewController: UIViewController {
+final class IdentityViewController: ViewController {
     @IBOutlet private var idLabel: UILabel!
     @IBOutlet private var aboutAppView: UIView!
     @IBOutlet private var cooperationLabel: UILabel!

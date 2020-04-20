@@ -24,7 +24,7 @@
 import UIKit
 import SwiftyUserDefaults
 
-final class ForeignDecisionViewController: UIViewController {
+final class ForeignDecisionViewController: ViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

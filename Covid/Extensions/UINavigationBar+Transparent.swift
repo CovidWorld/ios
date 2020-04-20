@@ -20,44 +20,22 @@
  * THE SOFTWARE.
  *
  */
+//
+//  UINavigationBar+Transparent.swift
+//  Covid
+//
+//  Created by Boris Bielik on 20/04/2020.
+//  Copyright © 2020 Sygic. All rights reserved.
+//
 
+import Foundation
 import UIKit
-import CoreLocation
-import SwiftyUserDefaults
 
-extension AddressConfirmationViewController: HasStoryBoardIdentifier {
-    static let storyboardIdentifier = "AddressConfirmationViewController"
-}
-
-final class AddressConfirmationViewController: ViewController {
-
-    @IBOutlet private weak var streetLabel: UILabel!
-    @IBOutlet private weak var cityLabel: UILabel!
-
-    var streetText: String?
-    var cityText: String?
-    var location: CLLocationCoordinate2D?
-
-    private let networkService = CovidService()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        streetLabel.text = streetText
-        cityLabel.text = cityText
+extension UINavigationBar {
+    func setTransparent(_ isTransparent: Bool) {
+        let image = isTransparent ? UIImage() : nil
+        setBackgroundImage(image, for: .default)
+        shadowImage = image
+        isTranslucent = true
     }
-
-    @IBAction private func didTapConfirmButton(_ sender: Any) {
-        Defaults.quarantineCity = cityText
-        Defaults.quarantineAddress = streetText
-        Defaults.quarantineLatitude = location?.latitude
-        Defaults.quarantineLongitude = location?.longitude
-
-        performSegue(.quarantineVerifyNumber)
-    }
-
-    @IBAction private func didTapChangeButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
-    }
-
 }

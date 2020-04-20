@@ -23,7 +23,9 @@
 
 import UIKit
 
-final class PreventionViewController: UIViewController {
+final class PreventionViewController: ViewController {
+
+    @IBOutlet weak var tableView: UITableView!
 
     let datasource = [
         ("prevention01", "Často si umývajte ruky mydlom a vodou, najmenej po dobu 20 sekúnd. Môžete použiť dezinfekčný prostriedok na ruky na báze alkoholu."),
@@ -34,6 +36,11 @@ final class PreventionViewController: UIViewController {
         ("prevention06", "Pravidelne čistite a dezinfikujte povrchy a objekty s ktorými ste Vy a Vaše okolie v pravidelnom kontakte."),
         ("prevention07", "Ak ste chorý, liečte sa doma.")
     ]
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.flashScrollIndicators()
+    }
 }
 
 extension PreventionViewController: UITableViewDataSource {
