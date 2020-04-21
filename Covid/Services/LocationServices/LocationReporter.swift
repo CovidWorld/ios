@@ -53,7 +53,7 @@ final class LocationReporter {
                 approxLongitude = Double(round(accuracyFactor * (location?.coordinate.longitude ?? 0)) / accuracyFactor)
             }
 
-            return Connection(seenProfileId: Int(beaconId.id),
+            return Connection(seenProfileId: beaconId.id,
                               timestamp: timestamp,
                               duration: "",
                               latitude: approxLatitude,

@@ -133,7 +133,7 @@ struct Location: Codable {
 }
 
 struct Connection: Codable, Hashable, Equatable {
-    let seenProfileId: Int
+    let seenProfileId: UInt32
     let timestamp: Int
     let duration: String
     let latitude: Double?
