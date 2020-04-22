@@ -1043,7 +1043,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
@@ -1071,7 +1071,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "Covid AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
