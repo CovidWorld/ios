@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -51,6 +51,8 @@
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
 		21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */; };
+		21A8FBE92450F0540040D7CD /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 21A8FBE82450F0540040D7CD /* OHHTTPStubsSwift */; };
+		21A8FBEB2450F0540040D7CD /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 21A8FBEA2450F0540040D7CD /* OHHTTPStubs */; };
 		21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */; };
 		21B0F7B52438ACCC00552491 /* FaceCaptureOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */; };
 		21B0F7ED2438AF7A00552491 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7EC2438AF7A00552491 /* General.swift */; };
@@ -250,7 +252,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F99627241FAA48009C6BF5 /* MapKit.framework in Frameworks */,
+				21A8FBE92450F0540040D7CD /* OHHTTPStubsSwift in Frameworks */,
 				1EACF742EFBC189662F2C060 /* Pods_Covid.framework in Frameworks */,
+				21A8FBEB2450F0540040D7CD /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +582,10 @@
 			dependencies = (
 			);
 			name = Covid;
+			packageProductDependencies = (
+				21A8FBE82450F0540040D7CD /* OHHTTPStubsSwift */,
+				21A8FBEA2450F0540040D7CD /* OHHTTPStubs */,
+			);
 			productName = Covid;
 			productReference = 0F1181392416C70500213533 /* Covid-19_SR.app */;
 			productType = "com.apple.product-type.application";
@@ -629,6 +637,9 @@
 				Base,
 			);
 			mainGroup = 0F1181302416C70500213533;
+			packageReferences = (
+				21A8FBE72450F0540040D7CD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+			);
 			productRefGroup = 0F11813A2416C70500213533 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1034,8 +1045,8 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
 				CURRENT_PROJECT_VERSION = 137;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1161,6 +1172,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		21A8FBE72450F0540040D7CD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:AliSoftware/OHHTTPStubs.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		21A8FBE82450F0540040D7CD /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21A8FBE72450F0540040D7CD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+		21A8FBEA2450F0540040D7CD /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 21A8FBE72450F0540040D7CD /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0F1181312416C70500213533 /* Project object */;
 }
