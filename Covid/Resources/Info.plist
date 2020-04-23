@@ -45,6 +45,8 @@
 	<string>Používame Váš bluetooth s cieľom ochrany pred šírením vírusu COVID-19 za účelom zistenia potenciálneho výskytu v blízkosti nakazeného pacienta.</string>
 	<key>NSBluetoothPeripheralUsageDescription</key>
 	<string>Bluetooth</string>
+	<key>NSFileProviderDomainUsageDescription</key>
+	<string></string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.</string>
 	<key>NSLocationAlwaysUsageDescription</key>

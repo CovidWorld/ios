@@ -137,21 +137,42 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     // MARK: Permissions
 
     private func registerForPushNotifications() {
-        let current = UNUserNotificationCenter.current()
+        let permissions: [SPPermission] = [.notification,
+                                         .bluetooth,
+                                         .locationAlwaysAndWhenInUse,
+                                         .locationWhenInUse]
+                                        .filter { $0.isAuthorized }
+        guard permissions.isEmpty == false else { return }
 
-        current.getNotificationSettings { (settings) in
-            if settings.authorizationStatus == .notDetermined {
-                current.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
-                    DispatchQueue.main.async {
-                        if !Defaults.didShowForeignAlert {
-                           self?.performSegue(.foreignAlert)
-                        }
-                    }
-                }
-            }
-            // TODO: handle other cases
-        }
-        UIApplication.shared.registerForRemoteNotifications()
+        let controller = SPPermissions.dialog(permissions)
+
+        // Ovveride texts in controller
+        controller.titleText = "Title Text"
+        controller.headerText = "Header Text"
+        controller.footerText = "Footer Text"
+
+        // Set `DataSource` or `Delegate` if need.
+        // By default using project texts and icons.
+        controller.dataSource = self
+        controller.delegate = self
+
+        // Always use this method for present
+        controller.present(on: self)
+//        let current = UNUserNotificationCenter.current()
+//
+//        current.getNotificationSettings { (settings) in
+//            if settings.authorizationStatus == .notDetermined {
+//                current.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
+//                    DispatchQueue.main.async {
+//                        if !Defaults.didShowForeignAlert {
+//                           self?.performSegue(.foreignAlert)
+//                        }
+//                    }
+//                }
+//            }
+//            // TODO: handle other cases
+//        }
+//        UIApplication.shared.registerForRemoteNotifications()
     }
 
     @IBAction private func emergencyDidTap(_ sender: Any) {
@@ -191,4 +212,11 @@ extension MainViewController {
             }
         }
     }
+}
+
+extension MainViewController: SPPermissionsDelegate, SPPermissionsDataSource {
+    func configure(_ cell: SPPermissionTableViewCell, for permission: SPPermission) -> SPPermissionTableViewCell {
+        cell
+    }
+
 }
