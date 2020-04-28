@@ -64,7 +64,9 @@ final class LocationReporter {
         sendConnections()
     }
 
-    func sendConnections() {
+    func sendConnections(forceUpload: Bool = false) {
+        guard Firebase.remoteBoolValue(for: .reporting) || forceUpload else { return }
+        
         let batchTime = Firebase.remoteDoubleValue(for: .batchSendingFrequency)
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastConnectionsUpdate ?? Date().timeIntervalSince1970
