@@ -40,7 +40,7 @@ final class LocationReporter {
     private init() { }
 
     func didRangeBeacons(_ beacons: [CLBeacon], at location: CLLocation?) {
-        let timestamp = Int(Date().timeIntervalSince1970)
+        let timestamp = Int(Date().timeIntervalSince1970WithoutTime)
         let accuracy = Firebase.remoteDoubleValue(for: .iBeaconLocationAccuracy)
         var approxLatitude: Double?
         var approxLongitude: Double?
