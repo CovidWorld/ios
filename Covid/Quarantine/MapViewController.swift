@@ -47,10 +47,11 @@ final class MapViewController: ViewController {
         setupUI()
 
         locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
         locationManager.requestLocation()
 
-        if CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+        // MARK: Permissions
+        Permissions.requestLocationAuthorization()
+        if Permissions.isLocationAuthorized {
             performSegue(.searchAddress)
         }
 

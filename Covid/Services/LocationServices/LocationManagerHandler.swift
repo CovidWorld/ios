@@ -73,7 +73,7 @@ public class LocationManagerHandler: NSObject {
     }
 
     public func requestAlwaysAuthorization() {
-        manager.requestAlwaysAuthorization()
+        Permissions.requestLocationAuthorization()
     }
 
     public func startUpdatingLocation(interval: TimeInterval, acceptableLocationAccuracy: CLLocationAccuracy = 100) {

@@ -56,6 +56,7 @@ extension DefaultsKeys {
     var lastQuarantineUpdate: DefaultsKey<Double?> { .init("lastQuarantineUpdate") }
     var referenceFace: DefaultsKey<[Int8]?> { .init("dot-face") }
     var allowVerifyFaceId: DefaultsKey<Bool?> { .init("face_id") }
+    var didAskForPermissions: DefaultsKey<Bool?> { .init("didAskForPermissions")}
 }
 
 extension Int8: DefaultsSerializable {}

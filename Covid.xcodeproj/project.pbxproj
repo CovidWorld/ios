@@ -45,6 +45,12 @@
 		0FF4F220241AF21200643297 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F21F241AF21200643297 /* APIResponses.swift */; };
 		0FF4F224241AF61600643297 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F223241AF61600643297 /* APIRequests.swift */; };
 		1EACF742EFBC189662F2C060 /* Pods_Covid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E1E3496C8614E26AC81B2B /* Pods_Covid.framework */; };
+		2100DD31245611980005F539 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100DD30245611980005F539 /* UIView+CornerRadius.swift */; };
+		2100DD3624562B630005F539 /* ServicesStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100DD3524562B630005F539 /* ServicesStatusViewController.swift */; };
+		2100DD3824562E3D0005F539 /* ServiceStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100DD3724562E3D0005F539 /* ServiceStatusTableViewCell.swift */; };
+		2100DD3A24562ED60005F539 /* ServiceStatusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100DD3924562ED60005F539 /* ServiceStatusData.swift */; };
+		2100DD3C24562FC80005F539 /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2100DD3B24562FC80005F539 /* UIColor+Additions.swift */; };
+		210F200F245217F200BEF251 /* Permissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210F200E245217F200BEF251 /* Permissions.swift */; };
 		212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */; };
 		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
 		213B74DF2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */; };
@@ -82,6 +88,8 @@
 		21662F90244E481B002883E8 /* SPPermissionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662F69244E481A002883E8 /* SPPermissionsDataSource.swift */; };
 		21662F91244E481B002883E8 /* SPPermissionsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662F6A244E481A002883E8 /* SPPermissionsDelegate.swift */; };
 		21662F92244E481B002883E8 /* SPPermissionsControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662F6B244E481A002883E8 /* SPPermissionsControllerProtocol.swift */; };
+		2199AD6C245A03F10005FD7C /* IconWithCenteredLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199AD6B245A03F10005FD7C /* IconWithCenteredLabelView.swift */; };
+		2199ADA3245A04FB0005FD7C /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2199ADA2245A04FB0005FD7C /* Label.swift */; };
 		21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */; };
 		21B0F7B52438ACCC00552491 /* FaceCaptureOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */; };
 		21B0F7ED2438AF7A00552491 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7EC2438AF7A00552491 /* General.swift */; };
@@ -196,6 +204,12 @@
 		0FF4F21D241AEFBB00643297 /* CovidService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		0FF4F21F241AF21200643297 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		0FF4F223241AF61600643297 /* APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
+		2100DD30245611980005F539 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+CornerRadius.swift"; sourceTree = "<group>"; };
+		2100DD3524562B630005F539 /* ServicesStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesStatusViewController.swift; sourceTree = "<group>"; };
+		2100DD3724562E3D0005F539 /* ServiceStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusTableViewCell.swift; sourceTree = "<group>"; };
+		2100DD3924562ED60005F539 /* ServiceStatusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceStatusData.swift; sourceTree = "<group>"; };
+		2100DD3B24562FC80005F539 /* UIColor+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		210F200E245217F200BEF251 /* Permissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permissions.swift; sourceTree = "<group>"; };
 		212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		21220503244D084900CCC72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21355B35243A7B660087ADCB /* FaceIDVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDVerification.swift; sourceTree = "<group>"; };
@@ -239,6 +253,8 @@
 		2189714E24369949009987EA /* FaceIDValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDValidator.swift; sourceTree = "<group>"; };
 		2189715024369980009987EA /* FaceIDStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDStorage.swift; sourceTree = "<group>"; };
 		2189715224369CE5009987EA /* FaceIDStepVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDStepVerifier.swift; sourceTree = "<group>"; };
+		2199AD6B245A03F10005FD7C /* IconWithCenteredLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconWithCenteredLabelView.swift; sourceTree = "<group>"; };
+		2199ADA2245A04FB0005FD7C /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDUseCase.swift; sourceTree = "<group>"; };
 		21B0F7B02438A68C00552491 /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
 		21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -352,20 +368,21 @@
 		0F11813B2416C70500213533 /* Covid */ = {
 			isa = PBXGroup;
 			children = (
-				21220502244D083D00CCC72B /* UI */,
-				0F1181472416C70900213533 /* LaunchScreen.storyboard */,
-				0F1181422416C70500213533 /* Main.storyboard */,
 				0F11813C2416C70500213533 /* AppDelegate.swift */,
 				0FCB4F0A2423B3D400389493 /* PrivacyViewController.swift */,
+				21C12B32243D21EF0086AF8B /* Segue.swift */,
 				0F247F07241A63F000986740 /* WelcomeViewController.swift */,
 				0FD28B102426D4FF0015F7E7 /* AdditionalInfo */,
 				21B0F7EB2438AF5D00552491 /* Extensions */,
+				0F1181472416C70900213533 /* LaunchScreen.storyboard */,
+				0F1181422416C70500213533 /* Main.storyboard */,
 				0FCB4F0724238BA700389493 /* MainScreen */,
 				0FD28B132426EB530015F7E7 /* Map */,
 				0FCB4F0624238B7700389493 /* Quarantine */,
 				0F247F04241A617000986740 /* Resources */,
 				213B74D82437E69F005BB14F /* Services */,
-				21C12B32243D21EF0086AF8B /* Segue.swift */,
+				2100DD3424562B450005F539 /* ServicesStatus */,
+				21220502244D083D00CCC72B /* UIKit */,
 			);
 			path = Covid;
 			sourceTree = "<group>";
@@ -473,24 +490,46 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		21220502244D083D00CCC72B /* UI */ = {
+		2100DD3424562B450005F539 /* ServicesStatus */ = {
 			isa = PBXGroup;
 			children = (
+				2100DD3524562B630005F539 /* ServicesStatusViewController.swift */,
+				2100DD3724562E3D0005F539 /* ServiceStatusTableViewCell.swift */,
+				2100DD3924562ED60005F539 /* ServiceStatusData.swift */,
+			);
+			path = ServicesStatus;
+			sourceTree = "<group>";
+		};
+		210F200D245217DC00BEF251 /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				210F200E245217F200BEF251 /* Permissions.swift */,
+			);
+			name = Permissions;
+			path = ../Permissions;
+			sourceTree = "<group>";
+		};
+		21220502244D083D00CCC72B /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2199AD6B245A03F10005FD7C /* IconWithCenteredLabelView.swift */,
+				2199ADA2245A04FB0005FD7C /* Label.swift */,
+				2100DD3B24562FC80005F539 /* UIColor+Additions.swift */,
 				21220503244D084900CCC72B /* ViewController.swift */,
 			);
-			path = UI;
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		213B74D82437E69F005BB14F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				21662F30244E47E0002883E8 /* Permissions */,
 				0FB533D6243F83DF00A70E62 /* RemoteConfig.swift */,
 				0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */,
 				0FBA451D24218F0F00816388 /* Disk */,
 				2189714B24368B42009987EA /* FaceID */,
 				0F62927C241D4C6C00FF5E14 /* LocationServices */,
 				0FF4F218241AEF8100643297 /* Networking */,
+				210F200D245217DC00BEF251 /* Permissions */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -506,13 +545,6 @@
 				21355B35243A7B660087ADCB /* FaceIDVerification.swift */,
 			);
 			path = FaceID;
-			sourceTree = "<group>";
-		};
-		21662F30244E47E0002883E8 /* Permissions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Permissions;
 			sourceTree = "<group>";
 		};
 		21662F31244E47FE002883E8 /* Vendor */ = {
@@ -725,6 +757,7 @@
 				21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */,
 				21B0F8932439194100552491 /* UIStoryBoard.swift */,
 				0F4A292B2457BB48003274B0 /* DateExtensions.swift */,
+				2100DD30245611980005F539 /* UIView+CornerRadius.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1077,15 +1110,19 @@
 				C0F99635241FE632009C6BF5 /* SymptomsViewController.swift in Sources */,
 				0FD28B172426EBD30015F7E7 /* SpreadViewController.swift in Sources */,
 				0FD28B1924278C230015F7E7 /* SpreadListTableViewController.swift in Sources */,
+				2100DD3A24562ED60005F539 /* ServiceStatusData.swift in Sources */,
 				21662F74244E481B002883E8 /* SPPermissionsDialogView.swift in Sources */,
 				21662F8D244E481B002883E8 /* SPPermissionsColor.swift in Sources */,
 				C009157A241EF1FE0012F557 /* SelectAddressInfoViewController.swift in Sources */,
+				2199AD6C245A03F10005FD7C /* IconWithCenteredLabelView.swift in Sources */,
+				2100DD3624562B630005F539 /* ServicesStatusViewController.swift in Sources */,
 				21662F8E244E481B002883E8 /* SPPermissionsHaptic.swift in Sources */,
 				21662F84244E481B002883E8 /* SPRequestPermissionLocationHandler.swift in Sources */,
 				0FCB4F0924238BDC00389493 /* StatsViewController.swift in Sources */,
 				21662F73244E481B002883E8 /* SPPermissionsDialogController.swift in Sources */,
 				21662F78244E481B002883E8 /* SPPermissionsListFooterCommentView.swift in Sources */,
 				21662F70244E481B002883E8 /* SPPermissionIconView.swift in Sources */,
+				2100DD3C24562FC80005F539 /* UIColor+Additions.swift in Sources */,
 				0FF4F21C241AEF8100643297 /* NetworkService.swift in Sources */,
 				21220504244D084900CCC72B /* ViewController.swift in Sources */,
 				0FD28B1D2428F9900015F7E7 /* IdentityViewController.swift in Sources */,
@@ -1097,10 +1134,13 @@
 				21662F75244E481B002883E8 /* SPPermissionsDialogFooterCommentView.swift in Sources */,
 				0F015CA524461588004E80A1 /* hashids.c in Sources */,
 				C0F99629241FB387009C6BF5 /* ForeignDecisionViewController.swift in Sources */,
+				2199ADA3245A04FB0005FD7C /* Label.swift in Sources */,
 				21662F8B244E481B002883E8 /* SPPermissionsOpener.swift in Sources */,
+				210F200F245217F200BEF251 /* Permissions.swift in Sources */,
 				21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */,
 				21662F8A244E481B002883E8 /* SPPermissionsText.swift in Sources */,
 				0FF4F21B241AEF8100643297 /* HTTPRequest.swift in Sources */,
+				2100DD31245611980005F539 /* UIView+CornerRadius.swift in Sources */,
 				21662F79244E481B002883E8 /* SPPermissionDeniedAlertData.swift in Sources */,
 				21662F7E244E481B002883E8 /* SPLocationPermission.swift in Sources */,
 				0FB533D7243F83DF00A70E62 /* RemoteConfig.swift in Sources */,
@@ -1109,6 +1149,7 @@
 				21B0F7ED2438AF7A00552491 /* General.swift in Sources */,
 				0FD28B152426EB850015F7E7 /* SpreadMapViewController.swift in Sources */,
 				0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */,
+				2100DD3824562E3D0005F539 /* ServiceStatusTableViewCell.swift in Sources */,
 				21662F76244E481B002883E8 /* SPPermissionsListController.swift in Sources */,
 				212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */,
 				6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */,
@@ -1325,9 +1366,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 192;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SJNG272QAP;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1336,6 +1377,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.covid19;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
@@ -1364,6 +1406,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.covid19;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "Covid AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";

@@ -47,9 +47,17 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     @IBOutlet private var quarantineView: UIView!
     @IBOutlet private var statsView: UIView!
 
+    // MARK: services
+    @IBOutlet private weak var servicesButton: UIButton!
+    @IBOutlet private weak var servicesLabel: UILabel!
+    @IBOutlet private weak var serviceStatusView: UIView!
+
+
     private let networkService = CovidService()
     private var observer: DefaultsDisposable?
     private var quarantineObserver: DefaultsDisposable?
+
+    private let bluetoothServiceData = ServiceStatusData.bluetooth
 
     var notificationTokens: [NotificationToken] = []
 
@@ -89,6 +97,8 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         }
 
         showWelcomeScreenIfNeeded()
+        updateServiceView()
+        observeNotifications()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -96,6 +106,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
         observer?.dispose()
         quarantineObserver?.dispose()
+        unobserveNotifications()
 
         navigationController?.isNavigationBarHidden = false
     }
@@ -116,6 +127,24 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         diagnosedButton.layer.masksToBounds = true
 
         diagnosedButton.titleLabel?.textAlignment = .center
+
+        let borderColor = UIColor(red: 217 / 255.0,
+                                  green: 221 / 255.0,
+                                  blue: 237 / 255.0,
+                                  alpha: 1.0)
+        servicesButton.setCornerRadius(radius: 18, borderColor: borderColor, borderWidth: 1)
+    }
+
+    private func observeNotifications() {
+        observeNotification(withName: .bluetoothStatusHasChanged) { [weak self] _ in
+            self?.updateServiceView()
+        }
+    }
+
+    private func updateServiceView() {
+        let isEnabled = Permissions.isBluetoothEnabled
+        serviceStatusView.backgroundColor = isEnabled ? UIColor.tealish : UIColor.rosyPink
+        servicesLabel.text = isEnabled ? "Skenovanie okolia aktívne" : "Objavil sa problém"
     }
 
     // MARK: Welcome screen
@@ -129,6 +158,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
             Defaults.didRunApp = true
             welcomeViewController?.dismiss(animated: true) { [weak self] in
                 self?.registerForPushNotifications()
+                self?.showPermissionAlertIfNeeded()
             }
         }
         present(welcomeViewController!, animated: false, completion: nil)
@@ -136,43 +166,26 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
     // MARK: Permissions
 
-    private func registerForPushNotifications() {
-        let permissions: [SPPermission] = [.notification,
-                                         .bluetooth,
-                                         .locationAlwaysAndWhenInUse,
-                                         .locationWhenInUse]
-                                        .filter { $0.isAuthorized }
-        guard permissions.isEmpty == false else { return }
+    private func showPermissionAlertIfNeeded() {
+        guard Defaults.didRunApp else { return }
 
+        let permissions = Permissions.shared.requiredPermissions.filter { !$0.isAuthorized }
+        guard permissions.isEmpty == false else { return }
         let controller = SPPermissions.dialog(permissions)
 
         // Ovveride texts in controller
-        controller.titleText = "Title Text"
-        controller.headerText = "Header Text"
-        controller.footerText = "Footer Text"
+        controller.titleText = "Služby"
+        controller.headerText = ""
+        controller.footerText = ""
 
-        // Set `DataSource` or `Delegate` if need.
-        // By default using project texts and icons.
-        controller.dataSource = self
         controller.delegate = self
 
         // Always use this method for present
         controller.present(on: self)
-//        let current = UNUserNotificationCenter.current()
-//
-//        current.getNotificationSettings { (settings) in
-//            if settings.authorizationStatus == .notDetermined {
-//                current.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
-//                    DispatchQueue.main.async {
-//                        if !Defaults.didShowForeignAlert {
-//                           self?.performSegue(.foreignAlert)
-//                        }
-//                    }
-//                }
-//            }
-//            // TODO: handle other cases
-//        }
-//        UIApplication.shared.registerForRemoteNotifications()
+    }
+
+    private func registerForPushNotifications() {
+        Permissions.shared.requestAuthorization(for: .notification) {}
     }
 
     @IBAction private func emergencyDidTap(_ sender: Any) {
@@ -214,9 +227,17 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: SPPermissionsDelegate, SPPermissionsDataSource {
-    func configure(_ cell: SPPermissionTableViewCell, for permission: SPPermission) -> SPPermissionTableViewCell {
-        cell
+extension MainViewController: SPPermissionsDelegate {
+
+    func didHide(permissions ids: [Int]) {
+        Permissions.shared.didAskForPermissions = true
+        if !Defaults.didShowForeignAlert {
+            performSegue(.foreignAlert)
+        }
+    }
+
+    func deniedData(for permission: SPPermission) -> SPPermissionDeniedAlertData? {
+        SPPermissionDeniedAlertData()
     }
 
 }
