@@ -34,7 +34,7 @@ import UIKit
 extension UIView {
 
     @discardableResult func setCornerRadius(radius: CGFloat, borderColor: UIColor, borderWidth: CGFloat) -> CAShapeLayer {
-        let rect = self.bounds;
+        let rect = self.bounds
 
         let maskPath = UIBezierPath(roundedRect: rect,
                                     byRoundingCorners: .allCorners,
@@ -43,7 +43,7 @@ extension UIView {
         // Create the shape layer and set its path
         let maskLayer = CAShapeLayer()
         maskLayer.frame = rect
-        maskLayer.path  = maskPath.cgPath
+        maskLayer.path = maskPath.cgPath
 
         // Set the newly created shape layer as the mask for the view's layer
         self.layer.mask = maskLayer
@@ -54,11 +54,11 @@ extension UIView {
         // Create the shape layer and set its path
         let borderLayer = CAShapeLayer()
 
-        borderLayer.frame       = rect
-        borderLayer.path        = borderPath.cgPath
+        borderLayer.frame = rect
+        borderLayer.path = borderPath.cgPath
         borderLayer.strokeColor = borderColor.cgColor
-        borderLayer.fillColor   = UIColor.clear.cgColor
-        borderLayer.lineWidth   = borderWidth * UIScreen.main.scale
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.lineWidth = borderWidth * UIScreen.main.scale
 
         //Add this layer to give border.
         self.layer.addSublayer(borderLayer)

@@ -31,7 +31,7 @@
 import Foundation
 import UIKit
 
-extension UIControl.State : Hashable {
+extension UIControl.State: Hashable {
 
     public var hashValue: Int {
         Int(self.rawValue)

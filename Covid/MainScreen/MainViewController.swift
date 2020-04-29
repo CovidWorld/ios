@@ -52,7 +52,6 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     @IBOutlet private weak var servicesLabel: UILabel!
     @IBOutlet private weak var serviceStatusView: UIView!
 
-
     private let networkService = CovidService()
     private var observer: DefaultsDisposable?
     private var quarantineObserver: DefaultsDisposable?

@@ -33,43 +33,43 @@ import UIKit
 extension UIColor {
 
   @nonobjc class var lightishBlue: UIColor {
-    return UIColor(red: 80.0 / 255.0, green: 88.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
+    UIColor(red: 80.0 / 255.0, green: 88.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var slateGrey: UIColor {
-    return UIColor(red: 78.0 / 255.0, green: 78.0 / 255.0, blue: 86.0 / 255.0, alpha: 1.0)
+    UIColor(red: 78.0 / 255.0, green: 78.0 / 255.0, blue: 86.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var white: UIColor {
-    return UIColor(white: 247.0 / 255.0, alpha: 1.0)
+    UIColor(white: 247.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var lightGreyBlue: UIColor {
-    return UIColor(red: 150.0 / 255.0, green: 160.0 / 255.0, blue: 205.0 / 255.0, alpha: 1.0)
+    UIColor(red: 150.0 / 255.0, green: 160.0 / 255.0, blue: 205.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var veryLightPink: UIColor {
-    return UIColor(white: 189.0 / 255.0, alpha: 1.0)
+    UIColor(white: 189.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var tealish: UIColor {
-    return UIColor(red: 41.0 / 255.0, green: 192.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
+    UIColor(red: 41.0 / 255.0, green: 192.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var lightishBlueTwo: UIColor {
-    return UIColor(red: 59.0 / 255.0, green: 82.0 / 255.0, blue: 254.0 / 255.0, alpha: 1.0)
+    UIColor(red: 59.0 / 255.0, green: 82.0 / 255.0, blue: 254.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var paleGrey: UIColor {
-    return UIColor(red: 234.0 / 255.0, green: 240.0 / 255.0, blue: 1.0, alpha: 1.0)
+    UIColor(red: 234.0 / 255.0, green: 240.0 / 255.0, blue: 1.0, alpha: 1.0)
   }
 
   @nonobjc class var lightishRed: UIColor {
-    return UIColor(red: 237.0 / 255.0, green: 67.0 / 255.0, blue: 76.0 / 255.0, alpha: 1.0)
+    UIColor(red: 237.0 / 255.0, green: 67.0 / 255.0, blue: 76.0 / 255.0, alpha: 1.0)
   }
 
   @nonobjc class var rosyPink: UIColor {
-    return UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
+    UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
   }
 
 }
