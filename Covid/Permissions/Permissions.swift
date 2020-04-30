@@ -85,14 +85,6 @@ extension Permissions {
     }
 
     static var isLocationAuthorized: Bool {
-        isLocationAuthorizedAlways || isLocationAuthorizedWhenInUse
-    }
-
-    static var isLocationAuthorizedAlways: Bool {
-        SPPermission.locationAlwaysAndWhenInUse.isAuthorized
-    }
-
-    static var isLocationAuthorizedWhenInUse: Bool {
         SPPermission.locationAlwaysAndWhenInUse.isAuthorized
     }
 

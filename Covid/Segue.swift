@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 enum Segue: String {
+    case showServicesStatusView
     case quarantineVerifyNumber
     case startQuarantineFlow = "initQuarantine"
     case foreignAlert

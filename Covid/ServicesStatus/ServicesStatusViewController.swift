@@ -111,7 +111,7 @@ extension ServicesStatusViewController: UITableViewDataSource {
         let status = self.status(for: data)
         cell.titleLabel.attributedText = data.attributedString(for: status)
         cell.permissionView.setIcon(data.icon, text: data.statusString(for: status))
-        cell.permissionView.backgroundColor = data.style(for: status).color
+        cell.permissionView.backgroundColor = data.color(for: status)
 
         cell.onAction = { [weak self] in
             self?.resolveAction(for: data)

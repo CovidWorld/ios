@@ -31,20 +31,22 @@
 import Foundation
 import UIKit
 
+extension UIImage {
+    func resized(size:CGSize, scale: CGFloat? = nil) -> UIImage {
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale ?? self.scale)
+        draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+}
+
 enum ServiceStatusData: CaseIterable {
 
     enum ServiceStatus {
         case on
         case off
-
-        var style: RoundedButton.Style {
-            switch self {
-            case .on:
-                return .green
-            case .off:
-                return .blue
-            }
-        }
 
         func status(for data: ServiceStatusData) -> String {
             switch self {
@@ -85,8 +87,13 @@ enum ServiceStatusData: CaseIterable {
         }
     }
 
-    func style(for status: ServiceStatus) -> RoundedButton.Style {
-        status.style
+    func color(for status: ServiceStatus) -> UIColor {
+        switch status {
+        case .on:
+            return .tealish
+        case .off:
+            return .lightishBlueTwo
+        }
     }
 
     var icon: UIImage {

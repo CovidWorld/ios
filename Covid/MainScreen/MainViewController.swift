@@ -51,6 +51,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     @IBOutlet private weak var servicesButton: UIButton!
     @IBOutlet private weak var servicesLabel: UILabel!
     @IBOutlet private weak var serviceStatusView: UIView!
+    @IBOutlet private weak var serviceInfoIcon: UIImageView!
 
     private let networkService = CovidService()
     private var observer: DefaultsDisposable?
@@ -98,6 +99,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         showWelcomeScreenIfNeeded()
         updateServiceView()
         observeNotifications()
+        showPermissionAlertIfNeeded()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -139,11 +141,17 @@ final class MainViewController: ViewController, NotificationCenterObserver {
             self?.updateServiceView()
         }
     }
+ 
+    @IBAction private func didTapOnServicesView(_ sender: Any) {
+        guard Permissions.isBluetoothEnabled == false else { return }
+        performSegue(.showServicesStatusView)
+    }
 
     private func updateServiceView() {
         let isEnabled = Permissions.isBluetoothEnabled
         serviceStatusView.backgroundColor = isEnabled ? UIColor.tealish : UIColor.rosyPink
         servicesLabel.text = isEnabled ? "Skenovanie okolia aktívne" : "Objavil sa problém"
+        serviceInfoIcon.isHidden = isEnabled
     }
 
     // MARK: Welcome screen
@@ -227,6 +235,14 @@ extension MainViewController {
 }
 
 extension MainViewController: SPPermissionsDelegate {
+
+    func didAllow(permission: SPPermission) {
+        print("")
+    }
+
+    func didDenied(permission: SPPermission) {
+        print("")
+    }
 
     func didHide(permissions ids: [Int]) {
         Permissions.shared.didAskForPermissions = true

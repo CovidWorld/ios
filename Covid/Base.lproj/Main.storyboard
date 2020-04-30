@@ -1972,7 +1972,7 @@ ZostanZdravy a Sygic</string>
                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="37"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                                 <connections>
-                                                    <segue destination="DoB-zd-6eF" kind="show" id="kxb-bs-WNA"/>
+                                                    <action selector="didTapOnServicesView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wgM-zF-5eQ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2157,12 +2157,14 @@ ZostanZdravy a Sygic</string>
                         <outlet property="emergencyButton" destination="KVT-lI-6eS" id="Q5A-3s-7TE"/>
                         <outlet property="protectView" destination="IH9-TX-vzL" id="OhD-xA-fmq"/>
                         <outlet property="quarantineView" destination="Drr-EJ-rfC" id="bwr-6F-8Qh"/>
+                        <outlet property="serviceInfoIcon" destination="icB-NU-Kz6" id="MCV-QZ-GWq"/>
                         <outlet property="serviceStatusView" destination="mfb-lU-E97" id="aER-nH-pGm"/>
                         <outlet property="servicesButton" destination="fJ2-w7-EeK" id="b2E-YP-6b4"/>
                         <outlet property="servicesLabel" destination="nRD-iJ-7BK" id="xOL-GR-CR6"/>
                         <outlet property="statsView" destination="aGf-gp-ehB" id="06Q-zd-swT"/>
                         <outlet property="symptomesView" destination="ge1-Vs-7yc" id="4gP-oo-8Ac"/>
                         <segue destination="nwr-cT-rVs" kind="presentation" identifier="foreignAlert" id="2dO-QC-TQQ"/>
+                        <segue destination="DoB-zd-6eF" kind="show" identifier="showServicesStatusView" id="p5u-Tr-nvb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
