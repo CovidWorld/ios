@@ -66,9 +66,9 @@ final class BeaconManager: NSObject {
         super.init()
 
         locationManager.delegate = self
-        
+
         guard Firebase.remoteBoolValue(for: .active) else { return }
-        
+
         activateLocationTrackingForBeacons()
 
         peripheralManager = CBPeripheralManager(
