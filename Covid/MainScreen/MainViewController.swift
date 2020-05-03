@@ -99,7 +99,6 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         showWelcomeScreenIfNeeded()
         updateServiceView()
         observeNotifications()
-        showPermissionAlertIfNeeded()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -140,8 +139,12 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         observeNotification(withName: .bluetoothStatusHasChanged) { [weak self] _ in
             self?.updateServiceView()
         }
+
+        observeNotification(withName: UIApplication.willEnterForegroundNotification) { [weak self] _ in
+            self?.showPermissionAlertIfNeeded()
+        }
     }
- 
+
     @IBAction private func didTapOnServicesView(_ sender: Any) {
         guard Permissions.isBluetoothEnabled == false else { return }
         performSegue(.showServicesStatusView)
@@ -175,6 +178,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
     private func showPermissionAlertIfNeeded() {
         guard Defaults.didRunApp else { return }
+        Permissions.shared.didAskForPermissions = true
 
         let permissions = Permissions.shared.requiredPermissions.filter { !$0.isAuthorized }
         guard permissions.isEmpty == false else { return }
@@ -214,8 +218,7 @@ extension MainViewController {
                     case .success(let profile):
                         Defaults.profileId = profile.profileId
                         DispatchQueue.main.async {
-                            BeaconManager.shared.advertiseDevice(beacon: BeaconId(id: UInt32(profile.profileId)))
-                            BeaconManager.shared.startMonitoring()
+                            BeaconManager.shared.startAdvertisingAndMonitoring()
                         }
                     case .failure: break
                     }
@@ -237,15 +240,16 @@ extension MainViewController {
 extension MainViewController: SPPermissionsDelegate {
 
     func didAllow(permission: SPPermission) {
-        print("")
+        Permissions.shared.resolvePendingPermission(permission)
     }
 
     func didDenied(permission: SPPermission) {
-        print("")
+        Permissions.shared.resolvePendingPermission(permission)
     }
 
     func didHide(permissions ids: [Int]) {
-        Permissions.shared.didAskForPermissions = true
+        Permissions.shared.resolveAllPendingPermissions()
+
         if !Defaults.didShowForeignAlert {
             performSegue(.foreignAlert)
         }

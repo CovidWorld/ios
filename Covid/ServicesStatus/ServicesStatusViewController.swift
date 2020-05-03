@@ -77,6 +77,10 @@ final class ServicesStatusViewController: ViewController, NotificationCenterObse
         observeNotification(withName: .bluetoothStatusHasChanged) { [weak self] _ in
             self?.reloadData()
         }
+
+        observeNotification(withName: UIApplication.willEnterForegroundNotification) { [weak self] _ in
+            self?.reloadData()
+        }
     }
 
     private func reloadData() {
@@ -88,7 +92,7 @@ final class ServicesStatusViewController: ViewController, NotificationCenterObse
         case .bluetooth:
             return Permissions.isBluetoothEnabled ? .on : .off
         case .gps:
-            return Permissions.isLocationEnabled ? .on : .off
+            return Permissions.isLocationEnabled && Permissions.location.isAuthorized ? .on : .off
         case .deviceConnectivity:
             guard let reachability = reachability else {
                 return .off
@@ -141,6 +145,11 @@ extension ServicesStatusViewController {
             }
 
         case .gps:
+            if Permissions.location.isDenied {
+                let controller = SPPermissions.native([.locationAlwaysAndWhenInUse])
+                controller.present(on: self)
+                return
+            }
             Permissions.shared.requestAuthorization(for: .locationAlwaysAndWhenInUse) { [weak self] in
                 self?.tableView.reloadData()
             }

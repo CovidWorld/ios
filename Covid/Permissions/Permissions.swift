@@ -65,6 +65,21 @@ final class Permissions {
             pendingRequests.append(request)
         }
     }
+
+    func resolveAllPendingPermissions() {
+        pendingRequests.forEach {
+            $0.block()
+        }
+        pendingRequests.removeAll()
+    }
+
+    func resolvePendingPermission(_ permission: SPPermission) {
+        let requests = pendingRequests.filter { $0.permission == permission }
+        requests.forEach {
+            $0.block()
+        }
+        pendingRequests.removeAll { $0.permission == permission }
+    }
 }
 
 struct PermissionRequest {
@@ -85,7 +100,8 @@ extension Permissions {
     }
 
     static var isLocationAuthorized: Bool {
-        SPPermission.locationAlwaysAndWhenInUse.isAuthorized
+        let status = CLLocationManager.authorizationStatus()
+        return status == .authorizedAlways || status == .authorizedWhenInUse
     }
 
     static func requestLocationAuthorization() {
@@ -93,7 +109,7 @@ extension Permissions {
     }
 
     func requestLocationAuthorization() {
-        requestAuthorization(for: .locationAlwaysAndWhenInUse)
+        requestAuthorization(for: Self.location)
     }
 }
 

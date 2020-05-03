@@ -1366,9 +1366,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 192;
-				DEVELOPMENT_TEAM = SJNG272QAP;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1377,7 +1377,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.covid19;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
@@ -1406,7 +1406,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.covid19;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "Covid AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";

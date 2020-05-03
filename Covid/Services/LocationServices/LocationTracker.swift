@@ -43,7 +43,7 @@ final class LocationTracker: NSObject {
     private let networkService = CovidService()
 
     var isLocationServiceEnabled: Bool {
-        Permissions.isLocationAuthorized
+        CLLocationManager.authorizationStatus() != .denied
     }
 
     override init() {

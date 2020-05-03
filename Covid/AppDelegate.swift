@@ -60,18 +60,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 150 / 255.0, green: 161 / 255.0, blue: 205 / 255.0, alpha: 1)
 
         application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
-        if let profileId = Defaults.profileId {
-            BeaconManager.shared.advertiseDevice(beacon: BeaconId(id: UInt32(profileId)))
-            BeaconManager.shared.startMonitoring()
-        }
+        BeaconManager.shared.startAdvertisingAndMonitoring()
         return true
     }
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        if let profileId = Defaults.profileId {
+        if Defaults.profileId != nil {
             LocationReporter.shared.sendConnections()
-            BeaconManager.shared.advertiseDevice(beacon: BeaconId(id: UInt32(profileId)))
-            BeaconManager.shared.startMonitoring()
+            BeaconManager.shared.startAdvertisingAndMonitoring()
 
             if Defaults.quarantineActive {
                 LocationTracker.shared.startLocationTracking()
