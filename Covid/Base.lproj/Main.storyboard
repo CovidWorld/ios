@@ -2197,7 +2197,7 @@ ZostanZdravy a Sygic</string>
             </objects>
             <point key="canvasLocation" x="1210" y="1203"/>
         </scene>
-        <!--Symptoms View Controller-->
+        <!--Symptómy-->
         <scene sceneID="ldw-Ze-Jcl">
             <objects>
                 <viewController id="pNx-Fw-cfn" customClass="SymptomsViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
@@ -2209,81 +2209,75 @@ ZostanZdravy a Sygic</string>
                                 <rect key="frame" x="24" y="88" width="366" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Fi-D1-4Ov">
-                                        <rect key="frame" x="0.0" y="0.0" width="366" height="560"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="808"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptómy" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmT-s6-Qww">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="42"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
-                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DOC-character" translatesAutoresizingMaskIntoConstraints="NO" id="dVV-P1-y9E">
+                                                <rect key="frame" x="130" y="0.0" width="106" height="117"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-Ot-h5u">
+                                                <rect key="frame" x="0.0" y="133" width="366" height="143"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment>
+                                                        <string key="content">Ľudia nakazení COVID-19 udávajú široké spektrum prejavov, od miernych až po závažné.
+
+</string>
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="17" name="Poppins-Light"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                    <fragment content="Prejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕňať:">
+                                                        <attributes>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                            <font key="NSFont" size="17" name="Poppins-Light"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rozlišujte príznaky" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-QM-ZMH">
-                                                <rect key="frame" x="0.0" y="58" width="366" height="24"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
-                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9RP-Ot-h5u">
-                                                <rect key="frame" x="0.0" y="90" width="366" height="36.333333333333343"/>
-                                                <string key="text">COVID-19 zasahuje dolné dýchacie
-cesty. Prejavuje sa:</string>
-                                                <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
-                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-oK-fQ4">
-                                                <rect key="frame" x="0.0" y="134.33333333333337" width="366" height="345"/>
-                                                <string key="text">suchým, zadúšavým, dráždivým
-kašľom bez hlienov
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb9-oK-fQ4">
+                                                <rect key="frame" x="0.0" y="300" width="366" height="500"/>
+                                                <string key="text">horúčka nad 38 °C
 
-bolestami hlavy, kĺbov a svalov
+suchý dusivý kašeľ
 
-celkovou vyčerpanosťou
+ťažkosti s dýchaním alebo dýchavičnosť
 
-pocitom ťažoby a pichaním na
-hrudníku alebo pocitom tzv.
-“nedostatočného nádychu”.
+únava alebo schvátenosť
 
-vysoká teplota na hranici, alebo tesne
-za hranicou 38 stupňov, ale rovnako
-aj vysoko za hranicou 38 stupňov,
-v kombinácii s kašľom a zvyškom
-uvedených príznakov sú taktiež
-príznakom ochorenia.</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03D-UA-gZZ">
-                                                <rect key="frame" x="0.0" y="487.33333333333343" width="366" height="72.666666666666686"/>
-                                                <string key="text">Nádcha, bolesti prínosových dutín,
-hlieny v nose, aj keď s bolesťou v hrdle,
-s najväčšou pravdepodobnosťou
-nie je COVID-19.</string>
-                                                <fontDescription key="fontDescription" name="Inter_Bold" family="Inter" pointSize="15"/>
-                                                <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+zimnica alebo triaška
+
+bolesť svalov
+
+bolesť hlavy
+
+bolesť hrdla
+
+náhla strata čuchu a chuti
+
+hnačka
+
+zvracanie</string>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
+                                                <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="03D-UA-gZZ" secondAttribute="bottom" id="2Zw-UQ-T5b"/>
-                                            <constraint firstItem="pmT-s6-Qww" firstAttribute="top" secondItem="9Fi-D1-4Ov" secondAttribute="top" id="71e-XO-B63"/>
-                                            <constraint firstItem="Vb9-oK-fQ4" firstAttribute="top" secondItem="9RP-Ot-h5u" secondAttribute="bottom" constant="8" symbolic="YES" id="8H6-lH-uiA"/>
+                                            <constraint firstItem="Vb9-oK-fQ4" firstAttribute="top" secondItem="9RP-Ot-h5u" secondAttribute="bottom" constant="24" id="8H6-lH-uiA"/>
                                             <constraint firstAttribute="trailing" secondItem="Vb9-oK-fQ4" secondAttribute="trailing" id="AaA-Ni-NtU"/>
                                             <constraint firstAttribute="trailing" secondItem="9RP-Ot-h5u" secondAttribute="trailing" id="BeP-gv-6R3"/>
-                                            <constraint firstAttribute="trailing" secondItem="pmT-s6-Qww" secondAttribute="trailing" id="HPR-7w-mRd"/>
-                                            <constraint firstItem="9RP-Ot-h5u" firstAttribute="top" secondItem="tHn-QM-ZMH" secondAttribute="bottom" constant="8" id="Izh-0g-fSy"/>
-                                            <constraint firstItem="tHn-QM-ZMH" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="P4a-Mc-a2u"/>
-                                            <constraint firstAttribute="trailing" secondItem="03D-UA-gZZ" secondAttribute="trailing" id="Qep-s8-Fae"/>
-                                            <constraint firstItem="pmT-s6-Qww" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="R2y-6A-Z0i"/>
-                                            <constraint firstItem="03D-UA-gZZ" firstAttribute="top" secondItem="Vb9-oK-fQ4" secondAttribute="bottom" constant="8" id="aFE-W7-v3c"/>
-                                            <constraint firstItem="tHn-QM-ZMH" firstAttribute="top" secondItem="pmT-s6-Qww" secondAttribute="bottom" constant="16" id="afy-AW-9v1"/>
+                                            <constraint firstItem="9RP-Ot-h5u" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="D9s-Xx-TPO"/>
+                                            <constraint firstItem="9RP-Ot-h5u" firstAttribute="top" secondItem="dVV-P1-y9E" secondAttribute="bottom" constant="16" id="DYs-ON-PHe"/>
+                                            <constraint firstAttribute="bottom" secondItem="Vb9-oK-fQ4" secondAttribute="bottom" constant="8" id="IR7-gc-4gQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="9RP-Ot-h5u" secondAttribute="trailing" id="MDL-vS-4yE"/>
                                             <constraint firstItem="Vb9-oK-fQ4" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="bc9-FF-xNh"/>
-                                            <constraint firstAttribute="trailing" secondItem="pmT-s6-Qww" secondAttribute="trailing" id="d3M-jj-Uud"/>
-                                            <constraint firstAttribute="trailing" secondItem="tHn-QM-ZMH" secondAttribute="trailing" id="hgo-cK-AMY"/>
+                                            <constraint firstItem="dVV-P1-y9E" firstAttribute="centerX" secondItem="9Fi-D1-4Ov" secondAttribute="centerX" id="e6u-tt-fxH"/>
+                                            <constraint firstItem="dVV-P1-y9E" firstAttribute="top" secondItem="9Fi-D1-4Ov" secondAttribute="top" id="gFB-eT-alr"/>
                                             <constraint firstItem="9RP-Ot-h5u" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="mSq-yQ-Z8d"/>
-                                            <constraint firstItem="03D-UA-gZZ" firstAttribute="leading" secondItem="9Fi-D1-4Ov" secondAttribute="leading" id="tgH-mf-4io"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2305,9 +2299,9 @@ nie je COVID-19.</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mHw-HS-Pxm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YWw-hL-Yv1"/>
+                    <navigationItem key="navigationItem" title="Symptómy" id="YWw-hL-Yv1"/>
                     <connections>
-                        <outlet property="bodyLabel" destination="Vb9-oK-fQ4" id="Avb-pl-7sy"/>
+                        <outlet property="bodyLabel" destination="9RP-Ot-h5u" id="FAc-VL-dmz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rf0-fz-7S1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4051,6 +4045,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
         <segue reference="Rme-BJ-GTw"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="DOC-character" width="106" height="117"/>
         <image name="ID" width="26" height="27"/>
         <image name="ID-character" width="106" height="117"/>
         <image name="ZZ-logo" width="77" height="77"/>
