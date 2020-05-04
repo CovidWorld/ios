@@ -56,7 +56,7 @@ final class LocationTracker: NSObject {
 
     func startLocationTracking() {
         guard Firebase.remoteBoolValue(for: .active) else { return }
-        
+
         if CLLocationManager.authorizationStatus() == .authorizedAlways {
             manager.startUpdatingLocation(interval: timeInternal, acceptableLocationAccuracy: accuracy)
         } else if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {

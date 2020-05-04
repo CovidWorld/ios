@@ -46,7 +46,8 @@ final class IdentityViewController: ViewController {
             idLabel.text = hashids.encode(profileId)?.uppercased()
         }
 
-        uploadDataView.isHidden = Firebase.remoteBoolValue(for: .reporting)
+        // automatic upload disabled
+        uploadDataView.isHidden = false // Firebase.remoteBoolValue(for: .reporting)
 
         navigationController?.navigationBar.isHidden = true
     }
