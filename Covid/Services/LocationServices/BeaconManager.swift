@@ -68,7 +68,7 @@ final class BeaconManager: NSObject {
     private var isAdvertising = false
 
     var bluetoothIsOn: Bool {
-        peripheralManager.state == .poweredOn
+        peripheralManager?.state == .poweredOn
     }
 
     override private init() {
@@ -92,7 +92,7 @@ final class BeaconManager: NSObject {
     }
 
     func restart() {
-        peripheralManager.stopAdvertising()
+        peripheralManager?.stopAdvertising()
         configurePeripheralManager()
         startAdvertisingAndMonitoring()
     }
