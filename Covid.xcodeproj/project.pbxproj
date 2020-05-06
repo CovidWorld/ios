@@ -15,6 +15,7 @@
 		0F1181492416C70900213533 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F1181472416C70900213533 /* LaunchScreen.storyboard */; };
 		0F247F06241A61AC00986740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F247F05241A61AC00986740 /* Assets.xcassets */; };
 		0F247F08241A63F000986740 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F247F07241A63F000986740 /* WelcomeViewController.swift */; };
+		0F4A292C2457BB48003274B0 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A292B2457BB48003274B0 /* DateExtensions.swift */; };
 		0F629282241D4F5A00FF5E14 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F62927F241D4F4700FF5E14 /* LocationTracker.swift */; };
 		0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */; };
 		0F629286241D4F6F00FF5E14 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629285241D4F6F00FF5E14 /* BeaconManager.swift */; };
@@ -137,6 +138,7 @@
 		0F11814A2416C70900213533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F247F05241A61AC00986740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F247F07241A63F000986740 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		0F4A292B2457BB48003274B0 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		0F62927F241D4F4700FF5E14 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerHandler.swift; sourceTree = "<group>"; };
 		0F629285241D4F6F00FF5E14 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */,
 				21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */,
 				21B0F8932439194100552491 /* UIStoryBoard.swift */,
+				0F4A292B2457BB48003274B0 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				C009157C241EF7610012F557 /* AddressConfirmationViewController.swift in Sources */,
 				0FF4F21E241AEFBC00643297 /* CovidService.swift in Sources */,
 				21B0F85B2438D0AA00552491 /* NotificationCenterObserver.swift in Sources */,
+				0F4A292C2457BB48003274B0 /* DateExtensions.swift in Sources */,
 				0FB533D5243F82F500A70E62 /* NCZIService.swift in Sources */,
 				0FF4F224241AF61600643297 /* APIRequests.swift in Sources */,
 				21B0F8922438D37D00552491 /* FaceIDNotification.swift in Sources */,
@@ -1035,7 +1039,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				CURRENT_PROJECT_VERSION = 137;
+				CURRENT_PROJECT_VERSION = 192;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1062,7 +1066,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Distribution: Narodne centrum zdravotnickych informacii (SJNG272QAP)";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 137;
+				CURRENT_PROJECT_VERSION = 192;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;

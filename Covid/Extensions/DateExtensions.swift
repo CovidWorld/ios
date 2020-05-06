@@ -20,28 +20,21 @@
 * THE SOFTWARE.
 *
 */
+//
+//  DateExtensions.swift
+//  Covid
+//
+//  Created by Boris Kolozsi on 28/04/2020.
+//
 
-import UIKit
+import Foundation
 
-final class SymptomsViewController: ViewController {
-
-    @IBOutlet private weak var bodyLabel: UILabel!
-
-    override func loadView() {
-        super.loadView()
-
-        updateUI()
-    }
-}
-
-extension SymptomsViewController {
-
-    private func updateUI() {
-        let text = "Ľudia nakazení COVID-19 udávajú široké spektrum prejavov, od miernych až po závažné.\n\nPrejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕňať:"
-        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Poppins-Light", size: 17.0)!, .foregroundColor: UIColor.darkGray]
-        let attributedString = NSMutableAttributedString(string: text, attributes: attributes)
-        let boldRange = (attributedString.string as NSString).range(of: "2-14 dní po vystavení sa nákaze")
-        attributedString.setAttributes([.font: UIFont(name: "Poppins-Bold", size: 17.0)!], range: boldRange)
-        bodyLabel.attributedText = attributedString
+extension Date {
+    var timeIntervalSince1970WithoutTime: TimeInterval {
+        guard let date = Calendar.current.date(from: Calendar.current.dateComponents([.year, .month, .day], from: self)) else {
+            assertionFailure("wrong date")
+            return self.timeIntervalSince1970
+        }
+        return date.timeIntervalSince1970
     }
 }
