@@ -34,7 +34,7 @@ import SwiftyUserDefaults
 
 final class IdentityViewController: ViewController {
     @IBOutlet private var idLabel: UILabel!
-    @IBOutlet private var aboutAppView: UIView!
+    @IBOutlet private var uploadDataView: UIView!
     @IBOutlet private var cooperationLabel: UILabel!
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +45,9 @@ final class IdentityViewController: ViewController {
             let hashids = Hashids(salt: "COVID-19 super-secure and unguessable hashids salt", minHashLength: 6, alphabet: "ABCDEFGHJKLMNPQRSTUVXYZ23456789")
             idLabel.text = hashids.encode(profileId)?.uppercased()
         }
+
+        // automatic upload disabled
+        uploadDataView.isHidden = false // Firebase.remoteBoolValue(for: .reporting)
 
         navigationController?.navigationBar.isHidden = true
     }
@@ -57,8 +60,8 @@ final class IdentityViewController: ViewController {
 
     override func loadView() {
         super.loadView()
-        aboutAppView.layer.cornerRadius = 20
-        aboutAppView.layer.masksToBounds = true
+        uploadDataView.layer.cornerRadius = 20
+        uploadDataView.layer.masksToBounds = true
 
         idLabel.isCopyingEnabled = true
 
@@ -70,5 +73,9 @@ final class IdentityViewController: ViewController {
         attributedString.setAttributes([.font: UIFont(name: "Poppins-Bold", size: 15.0)!], range: zostanRange)
         attributedString.setAttributes([.font: UIFont(name: "Poppins-Bold", size: 15.0)!], range: sygicRange)
         cooperationLabel.attributedText = attributedString
+    }
+
+    @IBAction private func uploadDataTapped(_ sender: UIButton) {
+        LocationReporter.shared.sendConnections(forceUpload: true)
     }
 }

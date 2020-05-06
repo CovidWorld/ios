@@ -25,7 +25,7 @@ import UIKit
 
 final class PreventionViewController: ViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
 
     let datasource = [
         ("prevention01", "Často si umývajte ruky mydlom a vodou, najmenej po dobu 20 sekúnd. Môžete použiť dezinfekčný prostriedok na ruky na báze alkoholu."),
