@@ -72,7 +72,6 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         registerUser()
-        startFaceIDVerificationIfNeeded()
     }
 
     override func viewWillAppear(_ animated: Bool) {
