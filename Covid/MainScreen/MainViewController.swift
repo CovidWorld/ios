@@ -51,6 +51,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     private var observer: DefaultsDisposable?
     private var quarantineObserver: DefaultsDisposable?
 
+    private var faceCaptureCoordinator: FaceCaptureCoordinator?
     var notificationTokens: [NotificationToken] = []
 
     deinit {
@@ -60,6 +61,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        observeFaceIDRegistrationNotification()
         if Defaults.didRunApp {
             registerForPushNotifications()
         }
@@ -70,6 +72,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         registerUser()
+        startFaceIDVerificationIfNeeded()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -190,5 +193,65 @@ extension MainViewController {
                 }
             }
         }
+    }
+}
+
+extension MainViewController {
+
+    // MARK: FaceID Flow
+
+    private func observeFaceIDRegistrationNotification() {
+        observeNotification(withName: .startFaceIDRegistration) { [weak self] (notification) in
+            let navigationController = StartFaceIDRegistrationNotification.navigationController(from: notification)
+            let completion = StartFaceIDRegistrationNotification.completion(from: notification)
+
+            if let navigationController = navigationController, let completion = completion {
+                self?.showFaceRegistration(in: navigationController, completion: completion)
+            }
+        }
+    }
+
+    private func showFaceRegistration(in navigationController: UINavigationController, completion: @escaping () -> Void) {
+        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .registerFace)
+        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
+            guard let self = self else { return }
+
+            // register for quarantine
+            self.registerForQuarantine { [weak self] in
+                switch result {
+                case .success:
+                    Defaults.quarantineActive = true
+                    self?.faceCaptureCoordinator = nil
+                    self?.navigationController?.popToRootViewController(animated: true)
+                    completion()
+
+                case .failure:
+                    break
+                }
+            }
+        }
+        faceCaptureCoordinator?.showOnboarding(in: navigationController)
+    }
+
+    private func registerForQuarantine(_ completion: @escaping () -> Void) {
+        // Call only if we're registering
+        // TODO: send HTTP Request
+        completion()
+    }
+
+    private func showFaceVerification() {
+        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
+        let viewController = faceCaptureCoordinator!.startFaceCapture()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        faceCaptureCoordinator?.navigationController = navigationController
+
+        faceCaptureCoordinator?.onAlert = { alertControler in
+            navigationController.present(alertControler, animated: true, completion: nil)
+        }
+        faceCaptureCoordinator?.onCoordinatorResolution = { _ in
+            navigationController.dismiss(animated: true, completion: nil)
+        }
+        present(navigationController, animated: true, completion: nil)
     }
 }

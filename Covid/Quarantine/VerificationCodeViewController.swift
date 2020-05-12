@@ -105,7 +105,6 @@ extension VerificationCodeViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
-//                    self?.registerFaceId()
                     if let error = data.errors?.first {
                         self?.requestFailed(message: error.description)
                     } else {
@@ -114,7 +113,9 @@ extension VerificationCodeViewController {
                             let quarantineData = QuarantineRequestData(startDate: jwtData.claim(name: "qs").string ?? "",
                                                                        endDate: jwtData.claim(name: "qe").string ?? "",
                                                                        covidPass: jwtData.subject ?? "")
-                            self?.requestQuarantine(data: quarantineData)
+                            self?.requestQuarantine(data: quarantineData) {
+                                self?.showAddressConfirmationScreen()
+                            }
                         } catch {
                             self?.requestFailed(message: nil)
                         }
@@ -126,14 +127,13 @@ extension VerificationCodeViewController {
         }
     }
 
-    private func requestQuarantine(data: QuarantineRequestData) {
+    private func requestQuarantine(data: QuarantineRequestData, completion: @escaping () -> Void) {
         networkService.requestQuarantine(quarantineRequestData: data) { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success:
-                    Defaults.quarantineActive = true
                     Defaults.covidPass = data.covidPass
-                    self.navigationController?.popToRootViewController(animated: true)
+                    completion()
                 case .failure:
                     self.requestFailed(message: "Chyba pri registrovaní údajov. Skúste znova.")
                 }
@@ -152,18 +152,21 @@ extension VerificationCodeViewController {
     }
 }
 
-// extension VerificationCodeViewController {
-//    private func registerFaceId() {
-//        if let navigationController = navigationController {
-//            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) { [weak self] in
-//                self?.navigationController?.popToRootViewController(animated: true)
-//            }
-//            NotificationCenter.default.post(notification)
-//        } else {
-//            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
-//        }
-//    }
-//}
+extension VerificationCodeViewController {
+
+    private func showAddressConfirmationScreen() {
+        guard let confirmationViewController = UIStoryboard.controller(ofType: AddressConfirmationViewController.self) else {
+            return
+        }
+
+        // TODO: Read address from JWT
+//        confirmationViewController.streetText = streetText
+//        confirmationViewController.cityText = cityText
+//        confirmationViewController.location = lastPlacemark?.location?.coordinate
+
+        navigationController?.pushViewController(confirmationViewController, animated: true)
+    }
+}
 
 extension VerificationCodeViewController: UITextFieldDelegate {
 

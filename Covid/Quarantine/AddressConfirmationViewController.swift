@@ -53,11 +53,16 @@ final class AddressConfirmationViewController: ViewController {
         Defaults.quarantineLatitude = location?.latitude
         Defaults.quarantineLongitude = location?.longitude
 
-        performSegue(.quarantineVerifyNumber)
+        registerFaceId()
     }
 
-    @IBAction private func didTapChangeButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    private func registerFaceId() {
+        if let navigationController = navigationController {
+            let notification = StartFaceIDRegistrationNotification.notification(with: navigationController) {}
+            NotificationCenter.default.post(notification)
+        } else {
+            preconditionFailure("Awaited navigation controller. Please consider updating the face id flow")
+        }
     }
 
 }
