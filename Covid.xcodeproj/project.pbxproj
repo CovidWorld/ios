@@ -45,18 +45,25 @@
 		0FF4F220241AF21200643297 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F21F241AF21200643297 /* APIResponses.swift */; };
 		0FF4F224241AF61600643297 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F223241AF61600643297 /* APIRequests.swift */; };
 		1EACF742EFBC189662F2C060 /* Pods_Covid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E1E3496C8614E26AC81B2B /* Pods_Covid.framework */; };
+		2110EB35246B4DEB0007C8DA /* FaceCaptureCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */; };
+		2110EB36246B4DEB0007C8DA /* FaceCaptureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B74DC2437E7BE005BB14F /* FaceCaptureCoordinator.swift */; };
+		2110EB37246B4DEB0007C8DA /* FaceCaptureOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */; };
+		2110EB38246B4DEB0007C8DA /* FaceIDNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8912438D37D00552491 /* FaceIDNotification.swift */; };
+		2110EB39246B4DEB0007C8DA /* FaceIDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */; };
+		2110EB3B246B4E110007C8DA /* FaceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B02438A68C00552491 /* FaceID.swift */; };
+		2110EB3C246B4E110007C8DA /* FaceIDCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189714C24368B5C009987EA /* FaceIDCapture.swift */; };
+		2110EB3D246B4E110007C8DA /* FaceIDStepVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189715224369CE5009987EA /* FaceIDStepVerifier.swift */; };
+		2110EB3E246B4E110007C8DA /* FaceIDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189715024369980009987EA /* FaceIDStorage.swift */; };
+		2110EB3F246B4E110007C8DA /* FaceIDValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189714E24369949009987EA /* FaceIDValidator.swift */; };
+		2110EB41246B4F480007C8DA /* iengine.lic in Resources */ = {isa = PBXBuildFile; fileRef = 2110EB40246B4F470007C8DA /* iengine.lic */; };
 		212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */; };
 		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
-		213B74DF2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */; };
 		21591AE72439E18500495263 /* settings_version.sh in Resources */ = {isa = PBXBuildFile; fileRef = 21591AE62439E18500495263 /* settings_version.sh */; };
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
 		21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */; };
-		21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */; };
-		21B0F7B52438ACCC00552491 /* FaceCaptureOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */; };
 		21B0F7ED2438AF7A00552491 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7EC2438AF7A00552491 /* General.swift */; };
 		21B0F85B2438D0AA00552491 /* NotificationCenterObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */; };
-		21B0F8922438D37D00552491 /* FaceIDNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8912438D37D00552491 /* FaceIDNotification.swift */; };
 		21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8932439194100552491 /* UIStoryBoard.swift */; };
 		21C12B33243D21EF0086AF8B /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C12B32243D21EF0086AF8B /* Segue.swift */; };
 		21DE1B552435F5C700746CE8 /* CovidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1B542435F5C700746CE8 /* CovidTests.swift */; };
@@ -166,6 +173,7 @@
 		0FF4F21D241AEFBB00643297 /* CovidService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		0FF4F21F241AF21200643297 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		0FF4F223241AF61600643297 /* APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
+		2110EB40246B4F470007C8DA /* iengine.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iengine.lic; sourceTree = "<group>"; };
 		212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		21220503244D084900CCC72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21355B35243A7B660087ADCB /* FaceIDVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDVerification.swift; sourceTree = "<group>"; };
@@ -269,6 +277,7 @@
 		0F1181302416C70500213533 = {
 			isa = PBXGroup;
 			children = (
+				2110EB40246B4F470007C8DA /* iengine.lic */,
 				21591AE62439E18500495263 /* settings_version.sh */,
 				0F74576F241D9342000546FA /* GoogleService-Info.plist */,
 				0F11813B2416C70500213533 /* Covid */,
@@ -462,11 +471,11 @@
 			isa = PBXGroup;
 			children = (
 				212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */,
+				0F4A292B2457BB48003274B0 /* DateExtensions.swift */,
 				21B0F7EC2438AF7A00552491 /* General.swift */,
 				21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */,
 				21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */,
 				21B0F8932439194100552491 /* UIStoryBoard.swift */,
-				0F4A292B2457BB48003274B0 /* DateExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -656,6 +665,7 @@
 				C03E0A0C242013CB00B3A204 /* Inter-Italic.otf in Resources */,
 				C03E09E7242013CB00B3A204 /* Poppins-BoldItalic.otf in Resources */,
 				C03E0A05242013CB00B3A204 /* Inter-UI-MediumItalic.otf in Resources */,
+				2110EB41246B4F480007C8DA /* iengine.lic in Resources */,
 				C03E0A17242013CB00B3A204 /* Inter-LightItalic.otf in Resources */,
 				C03E0A03242013CB00B3A204 /* Inter-UI-Medium.otf in Resources */,
 				C03E0A13242013CB00B3A204 /* Inter.otf in Resources */,
@@ -815,6 +825,7 @@
 				C0F9962D241FCB04009C6BF5 /* PreventionTableViewCell.swift in Sources */,
 				21C12B33243D21EF0086AF8B /* Segue.swift in Sources */,
 				C0F99635241FE632009C6BF5 /* SymptomsViewController.swift in Sources */,
+				2110EB38246B4DEB0007C8DA /* FaceIDNotification.swift in Sources */,
 				0FD28B172426EBD30015F7E7 /* SpreadViewController.swift in Sources */,
 				0FD28B1924278C230015F7E7 /* SpreadListTableViewController.swift in Sources */,
 				C009157A241EF1FE0012F557 /* SelectAddressInfoViewController.swift in Sources */,
@@ -824,22 +835,24 @@
 				0FD28B1D2428F9900015F7E7 /* IdentityViewController.swift in Sources */,
 				0F247F08241A63F000986740 /* WelcomeViewController.swift in Sources */,
 				C0091578241ED36F0012F557 /* VerificationCodeViewController.swift in Sources */,
-				21B0F7B52438ACCC00552491 /* FaceCaptureOnboardingViewController.swift in Sources */,
+				2110EB37246B4DEB0007C8DA /* FaceCaptureOnboardingViewController.swift in Sources */,
 				C0642FB82420DA7200967E05 /* ChooseDateViewController.swift in Sources */,
 				0F015CA524461588004E80A1 /* hashids.c in Sources */,
+				2110EB36246B4DEB0007C8DA /* FaceCaptureCoordinator.swift in Sources */,
 				C0F99629241FB387009C6BF5 /* ForeignDecisionViewController.swift in Sources */,
-				21B0F7AF2438A1A900552491 /* FaceIDUseCase.swift in Sources */,
 				0FF4F21B241AEF8100643297 /* HTTPRequest.swift in Sources */,
 				0FB533D7243F83DF00A70E62 /* RemoteConfig.swift in Sources */,
 				0FBA451A24218EB900816388 /* Disk.swift in Sources */,
+				2110EB3C246B4E110007C8DA /* FaceIDCapture.swift in Sources */,
 				21B0F7ED2438AF7A00552491 /* General.swift in Sources */,
 				0FD28B152426EB850015F7E7 /* SpreadMapViewController.swift in Sources */,
+				2110EB3B246B4E110007C8DA /* FaceID.swift in Sources */,
 				0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */,
 				212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */,
 				6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */,
 				21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */,
-				213B74DF2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift in Sources */,
 				0FBA451C24218EF100816388 /* Disk+Codable.swift in Sources */,
+				2110EB35246B4DEB0007C8DA /* FaceCaptureCompletedViewController.swift in Sources */,
 				0FBA45212421916B00816388 /* Disk+Helpers.swift in Sources */,
 				0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */,
 				0FBA451F24218F2D00816388 /* Disk+InternalHelpers.swift in Sources */,
@@ -847,6 +860,7 @@
 				0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */,
 				0FCB4F0B2423B3D400389493 /* PrivacyViewController.swift in Sources */,
 				C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */,
+				2110EB39246B4DEB0007C8DA /* FaceIDUseCase.swift in Sources */,
 				0FBA45232421919200816388 /* Disk+Errors.swift in Sources */,
 				C06E2089241E651B00F3B0BF /* MapViewController.swift in Sources */,
 				C009157C241EF7610012F557 /* AddressConfirmationViewController.swift in Sources */,
@@ -855,11 +869,13 @@
 				0F4A292C2457BB48003274B0 /* DateExtensions.swift in Sources */,
 				0FB533D5243F82F500A70E62 /* NCZIService.swift in Sources */,
 				0FF4F224241AF61600643297 /* APIRequests.swift in Sources */,
-				21B0F8922438D37D00552491 /* FaceIDNotification.swift in Sources */,
+				2110EB3F246B4E110007C8DA /* FaceIDValidator.swift in Sources */,
 				0F1181412416C70500213533 /* MainViewController.swift in Sources */,
 				0F629286241D4F6F00FF5E14 /* BeaconManager.swift in Sources */,
 				C0F9962F241FCBB2009C6BF5 /* PreventionViewController.swift in Sources */,
 				0FD28B1F242942270015F7E7 /* Hashids.swift in Sources */,
+				2110EB3D246B4E110007C8DA /* FaceIDStepVerifier.swift in Sources */,
+				2110EB3E246B4E110007C8DA /* FaceIDStorage.swift in Sources */,
 				0F015CC22449B376004E80A1 /* AboutViewController.swift in Sources */,
 				0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */,
 				0FF4F220241AF21200643297 /* APIResponses.swift in Sources */,
