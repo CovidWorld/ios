@@ -29,25 +29,14 @@
 //
 
 import UIKit
-import UILabel_Copyable
 import SwiftyUserDefaults
 
 final class IdentityViewController: ViewController {
-    @IBOutlet private var idLabel: UILabel!
     @IBOutlet private var uploadDataView: UIView!
-    @IBOutlet private var cooperationLabel: UILabel!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let covidPass = Defaults.covidPass {
-            idLabel.text = covidPass
-        } else if let profileId = Defaults.profileId {
-            let hashids = Hashids(salt: "COVID-19 super-secure and unguessable hashids salt", minHashLength: 6, alphabet: "ABCDEFGHJKLMNPQRSTUVXYZ23456789")
-            idLabel.text = hashids.encode(profileId)?.uppercased()
-        }
-
-        // automatic upload disabled
-        uploadDataView.isHidden = false // Firebase.remoteBoolValue(for: .reporting)
+        uploadDataView.isHidden = Defaults.covidPass == nil
 
         navigationController?.navigationBar.isHidden = true
     }
@@ -62,20 +51,5 @@ final class IdentityViewController: ViewController {
         super.loadView()
         uploadDataView.layer.cornerRadius = 20
         uploadDataView.layer.masksToBounds = true
-
-        idLabel.isCopyingEnabled = true
-
-        let text = "Tento projekt vznikol\nako spojenie dobrovoľnej iniciatívy\nZostanZdravy a Sygic"
-        let attribbutes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Poppins-Regular", size: 15.0)!, .foregroundColor: UIColor.darkGray]
-        let attributedString = NSMutableAttributedString(string: text, attributes: attribbutes)
-        let zostanRange = (attributedString.string as NSString).range(of: "ZostanZdravy")
-        let sygicRange = (attributedString.string as NSString).range(of: "Sygic")
-        attributedString.setAttributes([.font: UIFont(name: "Poppins-Bold", size: 15.0)!], range: zostanRange)
-        attributedString.setAttributes([.font: UIFont(name: "Poppins-Bold", size: 15.0)!], range: sygicRange)
-        cooperationLabel.attributedText = attributedString
-    }
-
-    @IBAction private func uploadDataTapped(_ sender: UIButton) {
-        LocationReporter.shared.sendConnections(forceUpload: true)
     }
 }

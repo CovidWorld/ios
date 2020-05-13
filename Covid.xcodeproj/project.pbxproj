@@ -18,11 +18,12 @@
 		0F4A292C2457BB48003274B0 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A292B2457BB48003274B0 /* DateExtensions.swift */; };
 		0F629282241D4F5A00FF5E14 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F62927F241D4F4700FF5E14 /* LocationTracker.swift */; };
 		0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */; };
-		0F629286241D4F6F00FF5E14 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629285241D4F6F00FF5E14 /* BeaconManager.swift */; };
 		0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */; };
 		0F69C78E242D57E300CBE342 /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B3242013CB00B3A204 /* Poppins-Bold.otf */; };
-		0F745770241D9342000546FA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F74576F241D9342000546FA /* GoogleService-Info.plist */; };
 		0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */; };
+		0F8DFE2A246BF554004EA0D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F74576F241D9342000546FA /* GoogleService-Info.plist */; };
+		0F949674246C6575003A75A0 /* CovidPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F949673246C6575003A75A0 /* CovidPassViewController.swift */; };
+		0F949676246C66D2003A75A0 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F949675246C66D2003A75A0 /* StringExtensions.swift */; };
 		0FB533D5243F82F500A70E62 /* NCZIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB533D4243F82F500A70E62 /* NCZIService.swift */; };
 		0FB533D7243F83DF00A70E62 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB533D6243F83DF00A70E62 /* RemoteConfig.swift */; };
 		0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA4517242183EE00816388 /* LocationReporter.swift */; };
@@ -58,7 +59,6 @@
 		2110EB41246B4F480007C8DA /* iengine.lic in Resources */ = {isa = PBXBuildFile; fileRef = 2110EB40246B4F470007C8DA /* iengine.lic */; };
 		212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */; };
 		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
-		21591AE72439E18500495263 /* settings_version.sh in Resources */ = {isa = PBXBuildFile; fileRef = 21591AE62439E18500495263 /* settings_version.sh */; };
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
 		21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */; };
@@ -67,7 +67,6 @@
 		21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8932439194100552491 /* UIStoryBoard.swift */; };
 		21C12B33243D21EF0086AF8B /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C12B32243D21EF0086AF8B /* Segue.swift */; };
 		21DE1B552435F5C700746CE8 /* CovidTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DE1B542435F5C700746CE8 /* CovidTests.swift */; };
-		6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */; };
 		C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0091573241EBCD10012F557 /* CountryCodeViewController.swift */; };
 		C0091576241EC10B0012F557 /* CountryCodes.json in Resources */ = {isa = PBXBuildFile; fileRef = C0091575241EC10B0012F557 /* CountryCodes.json */; };
 		C0091578241ED36F0012F557 /* VerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0091577241ED36F0012F557 /* VerificationCodeViewController.swift */; };
@@ -111,8 +110,6 @@
 		C03E0A15242013CB00B3A204 /* Inter-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09DB242013CB00B3A204 /* Inter-ExtraBoldItalic.otf */; };
 		C03E0A16242013CB00B3A204 /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09DC242013CB00B3A204 /* Inter-BoldItalic.otf */; };
 		C03E0A17242013CB00B3A204 /* Inter-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09DD242013CB00B3A204 /* Inter-LightItalic.otf */; };
-		C0642FB82420DA7200967E05 /* ChooseDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0642FB72420DA7200967E05 /* ChooseDateViewController.swift */; };
-		C06E2089241E651B00F3B0BF /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06E2088241E651B00F3B0BF /* MapViewController.swift */; };
 		C0F99627241FAA48009C6BF5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F99626241FAA48009C6BF5 /* MapKit.framework */; };
 		C0F99629241FB387009C6BF5 /* ForeignDecisionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F99628241FB387009C6BF5 /* ForeignDecisionViewController.swift */; };
 		C0F9962D241FCB04009C6BF5 /* PreventionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */; };
@@ -148,10 +145,11 @@
 		0F4A292B2457BB48003274B0 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		0F62927F241D4F4700FF5E14 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
 		0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerHandler.swift; sourceTree = "<group>"; };
-		0F629285241D4F6F00FF5E14 /* BeaconManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 		0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarantineViewController.swift; sourceTree = "<group>"; };
 		0F74576F241D9342000546FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		0F949673246C6575003A75A0 /* CovidPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPassViewController.swift; sourceTree = "<group>"; };
+		0F949675246C66D2003A75A0 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		0FB533D4243F82F500A70E62 /* NCZIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCZIService.swift; sourceTree = "<group>"; };
 		0FB533D6243F83DF00A70E62 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		0FBA4517242183EE00816388 /* LocationReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReporter.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		21DE1B522435F5C700746CE8 /* CovidTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CovidTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		21DE1B542435F5C700746CE8 /* CovidTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidTests.swift; sourceTree = "<group>"; };
 		21DE1B562435F5C700746CE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapViewController.swift; sourceTree = "<group>"; };
 		C0091573241EBCD10012F557 /* CountryCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodeViewController.swift; sourceTree = "<group>"; };
 		C0091575241EC10B0012F557 /* CountryCodes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CountryCodes.json; sourceTree = "<group>"; };
 		C0091577241ED36F0012F557 /* VerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationCodeViewController.swift; sourceTree = "<group>"; };
@@ -243,8 +240,6 @@
 		C03E09DB242013CB00B3A204 /* Inter-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
 		C03E09DC242013CB00B3A204 /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
 		C03E09DD242013CB00B3A204 /* Inter-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-LightItalic.otf"; sourceTree = "<group>"; };
-		C0642FB72420DA7200967E05 /* ChooseDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseDateViewController.swift; sourceTree = "<group>"; };
-		C06E2088241E651B00F3B0BF /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C0F99626241FAA48009C6BF5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C0F99628241FB387009C6BF5 /* ForeignDecisionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignDecisionViewController.swift; sourceTree = "<group>"; };
 		C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreventionTableViewCell.swift; sourceTree = "<group>"; };
@@ -336,7 +331,6 @@
 		0F62927C241D4C6C00FF5E14 /* LocationServices */ = {
 			isa = PBXGroup;
 			children = (
-				0F629285241D4F6F00FF5E14 /* BeaconManager.swift */,
 				0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */,
 				0F62927F241D4F4700FF5E14 /* LocationTracker.swift */,
 				0FBA4517242183EE00816388 /* LocationReporter.swift */,
@@ -360,10 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				C009157B241EF7610012F557 /* AddressConfirmationViewController.swift */,
-				C0642FB72420DA7200967E05 /* ChooseDateViewController.swift */,
 				C0091573241EBCD10012F557 /* CountryCodeViewController.swift */,
-				C06E2088241E651B00F3B0BF /* MapViewController.swift */,
-				6BD00FEA241FEF02001BCE50 /* SearchMapViewController.swift */,
 				C0091579241EF1FE0012F557 /* SelectAddressInfoViewController.swift */,
 				C0091577241ED36F0012F557 /* VerificationCodeViewController.swift */,
 				213B74D92437E773005BB14F /* FaceID */,
@@ -394,6 +385,7 @@
 				C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */,
 				C0F9962E241FCBB2009C6BF5 /* PreventionViewController.swift */,
 				C0F99634241FE632009C6BF5 /* SymptomsViewController.swift */,
+				0F949673246C6575003A75A0 /* CovidPassViewController.swift */,
 			);
 			path = AdditionalInfo;
 			sourceTree = "<group>";
@@ -476,6 +468,7 @@
 				21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */,
 				21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */,
 				21B0F8932439194100552491 /* UIStoryBoard.swift */,
+				0F949675246C66D2003A75A0 /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -676,7 +669,6 @@
 				C03E0A16242013CB00B3A204 /* Inter-BoldItalic.otf in Resources */,
 				C03E0A00242013CB00B3A204 /* Inter-UI-BoldItalic.otf in Resources */,
 				0F247F06241A61AC00986740 /* Assets.xcassets in Resources */,
-				0F745770241D9342000546FA /* GoogleService-Info.plist in Resources */,
 				C03E09E9242013CB00B3A204 /* Poppins-SemiBold.otf in Resources */,
 				C03E09E1242013CB00B3A204 /* Poppins-SemiBoldItalic.otf in Resources */,
 				C03E09EA242013CB00B3A204 /* Poppins-Italic.otf in Resources */,
@@ -699,8 +691,8 @@
 				C03E09E6242013CB00B3A204 /* Poppins-Light.otf in Resources */,
 				C03E09F2242013CB00B3A204 /* Poppins-ExtraBold.otf in Resources */,
 				C03E0A0F242013CB00B3A204 /* Inter-ExtraBold.otf in Resources */,
+				0F8DFE2A246BF554004EA0D9 /* GoogleService-Info.plist in Resources */,
 				C03E09E5242013CB00B3A204 /* Poppins-ExtraLightItalic.otf in Resources */,
-				21591AE72439E18500495263 /* settings_version.sh in Resources */,
 				0F1181442416C70500213533 /* Main.storyboard in Resources */,
 				C03E09E3242013CB00B3A204 /* Poppins-ExtraLight.otf in Resources */,
 				C03E09F1242013CB00B3A204 /* Poppins-Regular.otf in Resources */,
@@ -836,10 +828,10 @@
 				0F247F08241A63F000986740 /* WelcomeViewController.swift in Sources */,
 				C0091578241ED36F0012F557 /* VerificationCodeViewController.swift in Sources */,
 				2110EB37246B4DEB0007C8DA /* FaceCaptureOnboardingViewController.swift in Sources */,
-				C0642FB82420DA7200967E05 /* ChooseDateViewController.swift in Sources */,
 				0F015CA524461588004E80A1 /* hashids.c in Sources */,
 				2110EB36246B4DEB0007C8DA /* FaceCaptureCoordinator.swift in Sources */,
 				C0F99629241FB387009C6BF5 /* ForeignDecisionViewController.swift in Sources */,
+				0F949676246C66D2003A75A0 /* StringExtensions.swift in Sources */,
 				0FF4F21B241AEF8100643297 /* HTTPRequest.swift in Sources */,
 				0FB533D7243F83DF00A70E62 /* RemoteConfig.swift in Sources */,
 				0FBA451A24218EB900816388 /* Disk.swift in Sources */,
@@ -849,7 +841,6 @@
 				2110EB3B246B4E110007C8DA /* FaceID.swift in Sources */,
 				0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */,
 				212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */,
-				6BD00FEB241FEF02001BCE50 /* SearchMapViewController.swift in Sources */,
 				21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */,
 				0FBA451C24218EF100816388 /* Disk+Codable.swift in Sources */,
 				2110EB35246B4DEB0007C8DA /* FaceCaptureCompletedViewController.swift in Sources */,
@@ -862,7 +853,6 @@
 				C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */,
 				2110EB39246B4DEB0007C8DA /* FaceIDUseCase.swift in Sources */,
 				0FBA45232421919200816388 /* Disk+Errors.swift in Sources */,
-				C06E2089241E651B00F3B0BF /* MapViewController.swift in Sources */,
 				C009157C241EF7610012F557 /* AddressConfirmationViewController.swift in Sources */,
 				0FF4F21E241AEFBC00643297 /* CovidService.swift in Sources */,
 				21B0F85B2438D0AA00552491 /* NotificationCenterObserver.swift in Sources */,
@@ -871,11 +861,11 @@
 				0FF4F224241AF61600643297 /* APIRequests.swift in Sources */,
 				2110EB3F246B4E110007C8DA /* FaceIDValidator.swift in Sources */,
 				0F1181412416C70500213533 /* MainViewController.swift in Sources */,
-				0F629286241D4F6F00FF5E14 /* BeaconManager.swift in Sources */,
 				C0F9962F241FCBB2009C6BF5 /* PreventionViewController.swift in Sources */,
 				0FD28B1F242942270015F7E7 /* Hashids.swift in Sources */,
 				2110EB3D246B4E110007C8DA /* FaceIDStepVerifier.swift in Sources */,
 				2110EB3E246B4E110007C8DA /* FaceIDStorage.swift in Sources */,
+				0F949674246C6575003A75A0 /* CovidPassViewController.swift in Sources */,
 				0F015CC22449B376004E80A1 /* AboutViewController.swift in Sources */,
 				0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */,
 				0FF4F220241AF21200643297 /* APIResponses.swift in Sources */,
@@ -1064,6 +1054,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.ekarantena;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";

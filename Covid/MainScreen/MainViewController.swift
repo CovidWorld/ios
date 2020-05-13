@@ -174,10 +174,6 @@ extension MainViewController {
                     switch result {
                     case .success(let profile):
                         Defaults.profileId = profile.profileId
-                        DispatchQueue.main.async {
-                            BeaconManager.shared.advertiseDevice(beacon: BeaconId(id: UInt32(profile.profileId)))
-                            BeaconManager.shared.startMonitoring()
-                        }
                     case .failure: break
                     }
                 }

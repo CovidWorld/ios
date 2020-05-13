@@ -39,63 +39,6 @@ final class LocationReporter {
 
     private init() { }
 
-    func didRangeBeacons(_ beacons: [CLBeacon], at location: CLLocation?) {
-        let timestamp = Int(Date().timeIntervalSince1970WithoutTime)
-        let accuracy = Firebase.remoteDoubleValue(for: .iBeaconLocationAccuracy)
-        var approxLatitude: Double?
-        var approxLongitude: Double?
-        var accuracyFactor = 0.0
-        let connections = beacons.compactMap { (beacon) -> Connection in
-            let beaconId = BeaconId(major: beacon.major.uint16Value, minor: beacon.minor.uint16Value)
-            if accuracy != -1 {
-                accuracyFactor = Double(truncating: pow(10, Int(accuracy)) as NSNumber)
-                approxLatitude = Double(round(accuracyFactor * (location?.coordinate.latitude ?? 0)) / accuracyFactor)
-                approxLongitude = Double(round(accuracyFactor * (location?.coordinate.longitude ?? 0)) / accuracyFactor)
-            }
-
-            return Connection(seenProfileId: beaconId.id,
-                              timestamp: timestamp,
-                              duration: "",
-                              latitude: approxLatitude,
-                              longitude: approxLongitude,
-                              accuracy: accuracyFactor)
-        }
-        try? Disk.append(connections, to: "connections.json", in: .applicationSupport)
-        sendConnections()
-    }
-
-    func sendConnections(forceUpload: Bool = false) {
-        // automatic upload disabled
-        guard /*Firebase.remoteBoolValue(for: .reporting) ||*/ forceUpload else { return }
-
-        let batchTime = Firebase.remoteDoubleValue(for: .batchSendingFrequency)
-        let currentTimestamp = Date().timeIntervalSince1970
-        let lastTimestamp = Defaults.lastConnectionsUpdate ?? Date().timeIntervalSince1970
-
-        if Defaults.lastConnectionsUpdate == nil || currentTimestamp - lastTimestamp > Double(batchTime * 60) || forceUpload {
-            guard
-                var connections = try? Disk.retrieve("connections.json",
-                                                     from: .applicationSupport,
-                                                     as: [Connection].self),
-                connections.count > 0
-                else { return }
-
-            connections = connections.sorted { abs($0.latitude ?? 0) > abs($1.latitude ?? 0) }
-            connections = Array(Set(connections))
-
-            networkService.uploadConnections(uploadConnectionsRequestData: UploadConnectionsRequestData(connections: connections)) { (result) in
-                switch result {
-                case .success:
-                    DispatchQueue.main.async {
-                        Defaults.lastConnectionsUpdate = currentTimestamp
-                        try? Disk.remove("connections.json", from: .applicationSupport)
-                    }
-                case .failure: print("batch failed")
-                }
-            }
-        }
-    }
-
     func reportLocation(_ location: CLLocation) {
         guard
             let quarantineLatitude = Defaults.quarantineLatitude,

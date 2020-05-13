@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Covid Zdravy</string>
+	<string>eKarantena</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -41,10 +41,6 @@
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Používame Váš bluetooth s cieľom ochrany pred šírením vírusu COVID-19 za účelom zistenia potenciálneho výskytu v blízkosti nakazeného pacienta.</string>
-	<key>NSBluetoothPeripheralUsageDescription</key>
-	<string>Bluetooth</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Používame Vašu kameru s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
@@ -97,8 +93,6 @@
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>
-		<string>bluetooth-central</string>
-		<string>bluetooth-peripheral</string>
 		<string>fetch</string>
 		<string>location</string>
 		<string>remote-notification</string>
