@@ -16,11 +16,10 @@
 		0F149DE9246DF2FB004345E0 /* XCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F149DE8246DF2FB004345E0 /* XCConfig.swift */; };
 		0F149DEB246E12A0004345E0 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F149DEA246E12A0004345E0 /* Crypto.swift */; };
 		0F149DED246E23E4004345E0 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F149DEC246E23E4004345E0 /* Device.swift */; };
+		0F149DEF246EB0A2004345E0 /* LocationMonitoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F149DEE246EB0A2004345E0 /* LocationMonitoring.swift */; };
 		0F247F06241A61AC00986740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F247F05241A61AC00986740 /* Assets.xcassets */; };
 		0F247F08241A63F000986740 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F247F07241A63F000986740 /* WelcomeViewController.swift */; };
 		0F4A292C2457BB48003274B0 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4A292B2457BB48003274B0 /* DateExtensions.swift */; };
-		0F629282241D4F5A00FF5E14 /* LocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F62927F241D4F4700FF5E14 /* LocationTracker.swift */; };
-		0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */; };
 		0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */; };
 		0F69C78E242D57E300CBE342 /* Poppins-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C03E09B3242013CB00B3A204 /* Poppins-Bold.otf */; };
 		0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */; };
@@ -146,6 +145,7 @@
 		0F149DE8246DF2FB004345E0 /* XCConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCConfig.swift; sourceTree = "<group>"; };
 		0F149DEA246E12A0004345E0 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		0F149DEC246E23E4004345E0 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		0F149DEE246EB0A2004345E0 /* LocationMonitoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMonitoring.swift; sourceTree = "<group>"; };
 		0F247F05241A61AC00986740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F247F07241A63F000986740 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		0F4A292B2457BB48003274B0 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -340,6 +340,7 @@
 				0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */,
 				0F62927F241D4F4700FF5E14 /* LocationTracker.swift */,
 				0FBA4517242183EE00816388 /* LocationReporter.swift */,
+				0F149DEE246EB0A2004345E0 /* LocationMonitoring.swift */,
 			);
 			path = LocationServices;
 			sourceTree = "<group>";
@@ -822,7 +823,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F629282241D4F5A00FF5E14 /* LocationTracker.swift in Sources */,
 				C0F9962D241FCB04009C6BF5 /* PreventionTableViewCell.swift in Sources */,
 				21C12B33243D21EF0086AF8B /* Segue.swift in Sources */,
 				C0F99635241FE632009C6BF5 /* SymptomsViewController.swift in Sources */,
@@ -848,6 +848,7 @@
 				0F149DEB246E12A0004345E0 /* Crypto.swift in Sources */,
 				2110EB3C246B4E110007C8DA /* FaceIDCapture.swift in Sources */,
 				21B0F7ED2438AF7A00552491 /* General.swift in Sources */,
+				0F149DEF246EB0A2004345E0 /* LocationMonitoring.swift in Sources */,
 				0FD28B152426EB850015F7E7 /* SpreadMapViewController.swift in Sources */,
 				2110EB3B246B4E110007C8DA /* FaceID.swift in Sources */,
 				0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */,
@@ -859,7 +860,6 @@
 				0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */,
 				0FBA451F24218F2D00816388 /* Disk+InternalHelpers.swift in Sources */,
 				21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */,
-				0F629284241D4F5A00FF5E14 /* LocationManagerHandler.swift in Sources */,
 				0FCB4F0B2423B3D400389493 /* PrivacyViewController.swift in Sources */,
 				0F149DED246E23E4004345E0 /* Device.swift in Sources */,
 				C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */,

@@ -36,7 +36,6 @@ final class AddressConfirmationViewController: ViewController {
 
     var streetText: String?
     var cityText: String?
-    var location: CLLocationCoordinate2D?
 
     private let networkService = CovidService()
 
@@ -48,11 +47,6 @@ final class AddressConfirmationViewController: ViewController {
     }
 
     @IBAction private func didTapConfirmButton(_ sender: Any) {
-        Defaults.quarantineCity = cityText
-        Defaults.quarantineAddress = streetText
-        Defaults.quarantineLatitude = location?.latitude
-        Defaults.quarantineLongitude = location?.longitude
-
         registerFaceId()
     }
 

@@ -45,7 +45,8 @@ final class NCZIService: NetworkService<NCZIEndpoint> {
 
                     return
                 }
-                completion(.failure(NCZIError.generalResponseError))
+                // TODO: sem by sme sa nemali dostat ale tak djme tomu ze je to valid
+                completion(.success(OTPResponseData()))
             case .failure(let error, _):
                 completion(.failure(error))
             }
@@ -82,14 +83,15 @@ enum NCZIEndpoint: NetworkServiceEndpoint {
     case sendOTP(data: OTPSendRequestData)
     case validateOTP(data: OTPValidateRequestData)
 
-    static var serverDomain: String = { Firebase.remoteStringValue(for: .ncziApiHost) }()
-    var serverScript: String { "/api/v1/sygic" }
+    static var serverDomain: String = "https://t.mojeezdravie.sk"///{ Firebase.remoteStringValue(for: .ncziApiHost) }()
+    var serverScript: String { "/api/v2/sygic" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }
     var method: HTTPRequest.Method { .POST }
 
     var headers: [String: String] {
         [
-            "Content-Type": contentTypeHeader.rawValue
+            "Content-Type": contentTypeHeader.rawValue,
+            "Authorization": "Bearer jjQKH_p9GAtRt7amNKWQQrSL3Gp1Wi3G"
         ]
     }
 

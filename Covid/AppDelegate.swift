@@ -59,8 +59,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 150 / 255.0, green: 161 / 255.0, blue: 205 / 255.0, alpha: 1)
 
-        // TODO: mock
-        Defaults.covidPass = "abc-21s-r47"
+        LocationMonitoring.monitorLocationIfNeeded()
+
+        if launchOptions?.keys.contains(.location) ?? false {
+            // register locationManager delegate to handle location updates
+            _ = LocationMonitoring.shared
+        }
 
         application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         return true
@@ -68,7 +72,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if Defaults.quarantineActive {
-            LocationTracker.shared.startLocationTracking()
+
+            // TODO: heartbeat
 
             completionHandler(.newData)
             return

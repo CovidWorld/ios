@@ -39,6 +39,41 @@ final class LocationReporter {
 
     private init() { }
 
+    func reportExit(distance: CLLocationDistance) {
+        guard Defaults.quarantineActive else { return }
+
+        let quarantineLocationPeriodMinutes = Firebase.remoteDoubleValue(for: .quarantineLocationPeriodMinutes)
+        let currentTimestamp = Date().timeIntervalSince1970
+        let lastTimestamp = Defaults.lastQuarantineUpdate ?? 0
+
+        guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return }
+
+        let message = Firebase.remoteStringValue(for: .quarantineLeftMessage)
+
+        Defaults.lastQuarantineUpdate = currentTimestamp
+
+        if UIApplication.shared.applicationState == .active {
+            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
+            alertController.addAction(cancelAction)
+
+            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        } else {
+            let content = UNMutableNotificationContent()
+            content.title = "Upozornenie"
+            content.body = message
+            content.sound = .default
+            content.categoryIdentifier = "Quarantine"
+
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest(identifier: "Quarantine", content: content, trigger: trigger)
+
+            UNUserNotificationCenter.current().add(request)
+        }
+
+//        sendAreaExitAtLocation(location)
+    }
+
     func reportLocation(_ location: CLLocation) {
         guard
             let quarantineLatitude = Defaults.quarantineLatitude,

@@ -41,11 +41,14 @@ extension DefaultsKeys {
     var FCMToken: DefaultsKey<String?> { .init("FCMToken") }
     var tempPhoneNumber: DefaultsKey<String?> { .init("tempPhoneNumber") }
     var covidPass: DefaultsKey<String?> { .init("covidPass") }
+    var QPass: DefaultsKey<String?> { .init("QPass") }
 
     var quarantineLatitude: DefaultsKey<Double?> { .init("quarantineLatitude") }
     var quarantineLongitude: DefaultsKey<Double?> { .init("quarantineLongitude") }
-    var quarantineAddress: DefaultsKey<String?> { .init("quarantineAddress") }
+    var quarantineStreet: DefaultsKey<String?> { .init("quarantineStreet") }
+    var quarantineStreetNumber: DefaultsKey<String?> { .init("quarantineStreetNumber") }
     var quarantineCity: DefaultsKey<String?> { .init("quarantineCity") }
+
     var quarantineStart: DefaultsKey<Date?> { .init("quarantineStart") }
     var quarantineEnd: DefaultsKey<Date?> { .init("quarantineEnd") }
     var quarantineActive: DefaultsKey<Bool> { .init("quarantineActive", defaultValue: false) }

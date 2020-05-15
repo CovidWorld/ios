@@ -113,6 +113,7 @@ extension CountryCodeViewController {
         }
         alert.addAction(editAction)
         alert.addAction(yesAction)
+        alert.preferredAction = yesAction
 
         present(alert, animated: true, completion: nil)
     }

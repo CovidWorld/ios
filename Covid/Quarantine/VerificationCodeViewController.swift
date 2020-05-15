@@ -101,7 +101,8 @@ extension VerificationCodeViewController {
         activationCodeTextField.resignFirstResponder()
         showLoadingIndicator()
 
-        ncziService.requestOTPValidate(data: OTPValidateRequestData(vPhoneNumber: phoneNumber ?? "", nOtp: tempToken ?? "")) { [weak self] (result) in
+        let requestData = OTPValidateRequestData(vPhoneNumber: phoneNumber ?? "", nOTP: tempToken ?? "")
+        ncziService.requestOTPValidate(data: requestData) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let data):
@@ -110,32 +111,22 @@ extension VerificationCodeViewController {
                     } else {
                         do {
                             let jwtData = try decode(jwt: data.payload?.vAccessToken ?? "")
-                            let quarantineData = QuarantineRequestData(startDate: jwtData.claim(name: "qs").string ?? "",
-                                                                       endDate: jwtData.claim(name: "qe").string ?? "",
-                                                                       covidPass: jwtData.subject ?? "")
-                            self?.requestQuarantine(data: quarantineData) {
-                                self?.showAddressConfirmationScreen()
-                            }
+
+                            Defaults.covidPass = jwtData.claim(name: "vCovid19Pass").string
+                            Defaults.QPass = jwtData.claim(name: "vQPass").string
+                            Defaults.quarantineCity = jwtData.claim(name: "vQuarantineAddressCity").string
+                            Defaults.quarantineStreet = jwtData.claim(name: "vQuarantineAddressStreetName").string
+                            Defaults.quarantineStreetNumber = jwtData.claim(name: "vQuarantineAddressStreetNumber").string
+                            Defaults.quarantineLatitude = jwtData.claim(name: "nQuarantineAddressLatitude").double
+                            Defaults.quarantineLongitude = jwtData.claim(name: "nQuarantineAddressLongitude").double
+
+                            self?.showAddressConfirmationScreen()
                         } catch {
                             self?.requestFailed(message: nil)
                         }
                     }
                 case .failure:
                     self?.requestFailed(message: nil)
-                }
-            }
-        }
-    }
-
-    private func requestQuarantine(data: QuarantineRequestData, completion: @escaping () -> Void) {
-        networkService.requestQuarantine(quarantineRequestData: data) { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success:
-                    Defaults.covidPass = data.covidPass
-                    completion()
-                case .failure:
-                    self.requestFailed(message: "Chyba pri registrovaní údajov. Skúste znova.")
                 }
             }
         }
@@ -159,10 +150,8 @@ extension VerificationCodeViewController {
             return
         }
 
-        // TODO: Read address from JWT
-//        confirmationViewController.streetText = streetText
-//        confirmationViewController.cityText = cityText
-//        confirmationViewController.location = lastPlacemark?.location?.coordinate
+        confirmationViewController.streetText = "\(Defaults.quarantineStreet ?? "") \(Defaults.quarantineStreetNumber ?? "")"
+        confirmationViewController.cityText = Defaults.quarantineCity
 
         navigationController?.pushViewController(confirmationViewController, animated: true)
     }

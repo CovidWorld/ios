@@ -78,10 +78,11 @@ extension QuarantineViewController {
     }
 
     private func updateTracking() {
+        // TODO: update
         if Defaults.quarantineActive {
-            LocationTracker.shared.startLocationTracking()
+//            LocationTracker.shared.startLocationTracking()
         } else {
-            LocationTracker.shared.stopLocationTracking()
+//            LocationTracker.shared.stopLocationTracking()
         }
     }
 
@@ -93,7 +94,7 @@ extension QuarantineViewController {
             quarantineUntilLabel.text = nil
         }
 
-        addressLabel.text = "\(Defaults.quarantineAddress ?? "")\n\(Defaults.quarantineCity ?? "")"
+        addressLabel.text = "\(Defaults.quarantineStreet ?? "") \(Defaults.quarantineStreetNumber ?? "")\n\(Defaults.quarantineCity ?? "")"
 
         updateTracking()
     }

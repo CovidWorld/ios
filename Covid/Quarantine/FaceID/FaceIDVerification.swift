@@ -25,7 +25,6 @@
 //  Covid
 //
 //  Created by Boris Bielik on 05/04/2020.
-//  Copyright © 2020 Sygic. All rights reserved.
 //
 
 import Foundation

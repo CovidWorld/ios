@@ -123,5 +123,5 @@ struct OTPSendRequestData: Codable {
 
 struct OTPValidateRequestData: Codable {
     let vPhoneNumber: String
-    let nOtp: String
+    let nOTP: String
 }

@@ -215,7 +215,6 @@ extension MainViewController {
             self.registerForQuarantine { [weak self] in
                 switch result {
                 case .success:
-                    Defaults.quarantineActive = true
                     self?.faceCaptureCoordinator = nil
                     self?.navigationController?.popToRootViewController(animated: true)
                     completion()
