@@ -40,7 +40,7 @@ final class CovidPassViewController: ViewController {
         super.viewWillAppear(animated)
         let covidPass = Defaults.covidPass
         idLabel.text = covidPass
-        qrCodeImageView.image = covidPass?.qrImage
+        qrCodeImageView.image = covidPass?.barCodeImage
     }
 
     override func loadView() {

@@ -59,6 +59,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UITabBar.appearance().unselectedItemTintColor = UIColor(red: 150 / 255.0, green: 161 / 255.0, blue: 205 / 255.0, alpha: 1)
 
+        // TODO: mock
+        Defaults.covidPass = "abc-21s-r47"
+
         application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         return true
     }
