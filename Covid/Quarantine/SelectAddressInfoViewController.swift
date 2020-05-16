@@ -51,7 +51,9 @@ final class SelectAddressInfoViewController: ViewController {
     
     @IBOutlet private weak var cameraAccessLabel: UILabel!
     @IBOutlet private weak var locationAccessLabel: UILabel!
-                    
+             
+    var onContinue: (() -> Void)?
+    
     private let locationManager = CLLocationManager()
     private var permissions: (camera: AccessPermission, location: AccessPermission) = (.error, .error)
     
@@ -78,7 +80,7 @@ final class SelectAddressInfoViewController: ViewController {
         } else if permissions.location == .error {
             presentSettings(message: "Location access is denied")
         } else {
-            performSegue(withIdentifier: "showCountryCode", sender: nil)
+            onContinue?()
         }
     }
     
@@ -145,4 +147,8 @@ final class SelectAddressInfoViewController: ViewController {
 
         present(alertController, animated: true)
     }
+}
+
+extension SelectAddressInfoViewController: HasStoryBoardIdentifier {
+    static let storyboardIdentifier = "SelectAddressInfoViewController"
 }

@@ -33,6 +33,7 @@ import CoreLocation
 import CoreBluetooth
 import SwiftyUserDefaults
 import FirebaseRemoteConfig
+import AVFoundation
 
 extension MainViewController: HasStoryBoardIdentifier {
     static let storyboardIdentifier = "MainViewController"
@@ -156,6 +157,15 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         UIApplication.shared.registerForRemoteNotifications()
     }
 
+    @IBAction private func didTapQuarantine(_ sender: Any) {
+        guard let importantViewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
+        
+        importantViewController.onContinue = {
+            importantViewController.performSegue(withIdentifier: "showCountryCode", sender: nil)
+        }
+        navigationController?.pushViewController(importantViewController, animated: true)
+    }
+    
     @IBAction private func emergencyDidTap(_ sender: Any) {
         let emergencyNumber = Firebase.remoteDictionaryValue(for: .hotlines)["SK"] as? String ?? ""
         guard let number = URL(string: "tel://\(emergencyNumber)") else { return }
@@ -224,7 +234,18 @@ extension MainViewController {
                 }
             }
         }
-        faceCaptureCoordinator?.showOnboarding(in: navigationController)
+
+        let cameraAccess = AVCaptureDevice.authorizationStatus(for: .video) == .authorized
+        let locationAccess = CLLocationManager.locationServicesEnabled() && (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse)
+        if cameraAccess && locationAccess {
+            faceCaptureCoordinator?.showOnboarding(in: navigationController)
+        } else {
+            guard let importantViewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
+            importantViewController.onContinue = {
+                self.faceCaptureCoordinator?.showOnboarding(in: navigationController)
+            }
+            navigationController.pushViewController(importantViewController, animated: true)
+        }
     }
 
     private func registerForQuarantine(_ completion: @escaping () -> Void) {
