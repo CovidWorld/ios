@@ -25,7 +25,7 @@ import UIKit
 
 final class CovidService: NetworkService<CovidEndpoint> {
     func registerUserProfile(profileRequestData: RegisterProfileRequestData, completion: @escaping (Result<RegisterProfileResponseData, Error>) -> Void) {
-        request(.profile(profileRequestData: profileRequestData)) { (response) in
+        request(.profileRegister(profileRequestData: profileRequestData)) { (response) in
             switch response {
             case .success(let data, _):
                 do {
@@ -34,6 +34,17 @@ final class CovidService: NetworkService<CovidEndpoint> {
                 } catch let error {
                     completion(.failure(error))
                 }
+            case .failure(let error, _):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func requestNoncePush(nonceRequestData: BasicRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+        request(.noncePush(nonceRequestData: nonceRequestData)) { (response) in
+            switch response {
+            case .success(let data, _):
+                completion(.success(data))
             case .failure(let error, _):
                 completion(.failure(error))
             }
@@ -82,35 +93,26 @@ final class CovidService: NetworkService<CovidEndpoint> {
             }
         }
     }
-
-    func requestLocations(locationsRequestData: LocationsRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
-        request(.locations(locationsRequestData: locationsRequestData)) { (response) in
-            switch response {
-            case .success(let data, _):
-                completion(.success(data))
-            case .failure(let error, _):
-                completion(.failure(error))
-            }
-        }
-    }
 }
 
 enum CovidEndpoint: NetworkServiceEndpoint {
 
-    case profile(profileRequestData: RegisterProfileRequestData)
+    case profileRegister(profileRequestData: RegisterProfileRequestData)
+    case profileUpdate(profileRequestData: RegisterProfileRequestData)
+    case noncePush(nonceRequestData: BasicRequestData)
+    case nonce(nonceRequestData: BasicRequestData)
     case quarantine(quarantineRequestData: QuarantineRequestData)
     case quarantineStatus(quarantineRequestData: BasicRequestData)
     case areaExit(areaExitRequestData: AreaExitRequestData)
-    case locations(locationsRequestData: LocationsRequestData)
 
-    static var serverDomain: String = { Firebase.remoteStringValue(for: .apiHost) }()
+    static var serverDomain: String = "https://corona-quarantine.azurewebsites.net" //{ Firebase.remoteStringValue(for: .apiHost) }()
     var serverScript: String { "/api" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }
     var method: HTTPRequest.Method {
         switch self {
-        case .profile:
+        case .profileUpdate:
             return .PUT
-        case .quarantine, .areaExit, .locations:
+        case .profileRegister, .noncePush, .nonce, .quarantine, .areaExit:
             return .POST
         case .quarantineStatus:
             return .GET
@@ -121,35 +123,41 @@ enum CovidEndpoint: NetworkServiceEndpoint {
         [
             "Content-Type": contentTypeHeader.rawValue,
             "User-Agent": "\(XCConfig.appName)(\(XCConfig.bundleIdentifier))/\(XCConfig.versionWithBuildNumber)(ios)",
-            "X-Signature": (try? Crypto.sign(data: httpBody)) ?? ""
+            "X-Signature": "\((try? Crypto.publicKey()) ?? ""):\((try? Crypto.sign(data: httpBody)) ?? "")"
         ]
     }
 
     var path: String {
         switch self {
-        case .profile:
+        case .profileRegister, .profileUpdate:
             return "profile"
+        case .noncePush:
+            return "pushnonce"
+        case .nonce:
+            return "nonce"
         case .quarantineStatus, .quarantine:
             return "profile/quarantine"
         case .areaExit:
-            return "profile/areaexit"
-        case .locations:
-            return "profile/location"
+            return "areaexit"
         }
     }
 
     var parameters: [String: Any] {
         switch self {
-        case .profile(let profileRequestData):
+        case .profileRegister(let profileRequestData):
             return profileRequestData.dictionary
+        case .profileUpdate(let profileRequestData):
+            return profileRequestData.dictionary
+        case .noncePush(let nonceRequestData):
+            return nonceRequestData.dictionary
+        case .nonce(let nonceRequestData):
+            return nonceRequestData.dictionary
         case .quarantine(let quarantineRequestData):
             return quarantineRequestData.dictionary
         case .quarantineStatus(let quarantineRequestData):
             return quarantineRequestData.dictionary
         case .areaExit(let areaExitRequestData):
             return areaExitRequestData.dictionary
-        case .locations(let locationsRequestData):
-            return locationsRequestData.dictionary
         }
     }
 }

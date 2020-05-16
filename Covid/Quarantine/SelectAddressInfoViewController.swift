@@ -28,7 +28,7 @@ import CoreLocation
 enum AccessPermission {
     case ok
     case error
-    
+
     var text: String {
         switch self {
         case .ok:
@@ -48,32 +48,32 @@ enum AccessPermission {
 }
 
 final class SelectAddressInfoViewController: ViewController {
-    
+
     @IBOutlet private weak var cameraAccessLabel: UILabel!
     @IBOutlet private weak var locationAccessLabel: UILabel!
-             
+
     var onContinue: (() -> Void)?
-    
+
     private let locationManager = CLLocationManager()
     private var permissions: (camera: AccessPermission, location: AccessPermission) = (.error, .error)
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(applicationDidBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         checkAccess()
     }
-    
+
     @objc
     private func applicationDidBecomeActive() {
         checkAccess()
     }
-    
+
     @IBAction func didTapContinue(_ sender: Any) {
         if permissions.camera == .error {
             presentSettings(message: "Camera access is denied")
@@ -83,7 +83,7 @@ final class SelectAddressInfoViewController: ViewController {
             onContinue?()
         }
     }
-    
+
     private func checkAccess() {
         checkCameraAccess(completion: { [weak self] result in
             self?.permissions.camera = result
@@ -96,7 +96,7 @@ final class SelectAddressInfoViewController: ViewController {
             })
         })
     }
-    
+
     private func checkCameraAccess(completion: @escaping (AccessPermission) -> Void) {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .denied, .restricted:
@@ -112,10 +112,10 @@ final class SelectAddressInfoViewController: ViewController {
                 }
             }
         @unknown default:
-            break;
+            break
         }
     }
-    
+
     private func checkLocationAccess(completion: (AccessPermission) -> Void) {
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
@@ -133,7 +133,7 @@ final class SelectAddressInfoViewController: ViewController {
             completion(.error)
         }
     }
-    
+
     private func presentSettings(message: String) {
         let alertController = UIAlertController(title: "Error",
                                       message: message,

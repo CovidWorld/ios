@@ -48,10 +48,12 @@ struct RegisterProfileRequestData: Codable {
 struct BasicRequestData: Codable {
     let deviceId: String
     let profileId: Int
+//    let covidPass: String
 
-    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId) {
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId/*, covidPass: String? = Defaults.covidPass*/) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
+//        self.covidPass = covidPass ?? ""
     }
 }
 
@@ -87,33 +89,6 @@ struct AreaExitRequestData: Codable {
         self.accuracy = accuracy
         self.recordTimestamp = Int(Date().timeIntervalSince1970)
     }
-}
-
-struct LocationsRequestData: Codable {
-    let deviceId: String
-    let profileId: Int
-    let locations: [Location]
-
-    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, locations: [Location]) {
-        self.deviceId = deviceId
-        self.profileId = profileId ?? 0
-        self.locations = locations
-    }
-}
-
-struct Location: Codable {
-    let recordTimestamp: Int
-    let latitude: Double
-    let longitude: Double
-    let accuracy: Double
-}
-
-struct Position: Codable {
-    let profileId: String
-    let deviceId: String
-    let latitude: Double
-    let longitude: Double
-    let accuracy: Double
 }
 
 // MARK: - NCZI Services -

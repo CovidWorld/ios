@@ -116,8 +116,6 @@ final class LocationReporter {
             }
 
             sendAreaExitAtLocation(location)
-        } else {
-            sendLocationUpdate(location)
         }
     }
 
@@ -128,35 +126,5 @@ final class LocationReporter {
                                        longitude: location.coordinate.longitude,
                                        accuracy: Int(location.horizontalAccuracy))
         networkService.requestAreaExit(areaExitRequestData: data) { _ in }
-    }
-
-    private func sendLocationUpdate(_ location: CLLocation) {
-        guard Firebase.remoteBoolValue(for: .reportQuarantineLocation) else { return }
-
-        let location = Location(recordTimestamp: Int(Date().timeIntervalSince1970),
-                                latitude: location.coordinate.latitude,
-                                longitude: location.coordinate.longitude,
-                                accuracy: location.horizontalAccuracy)
-        try? Disk.append(location, to: "locations.json", in: .applicationSupport)
-
-        let batchTime = Firebase.remoteDoubleValue(for: .batchSendingFrequency)
-
-        let currentTimestamp = Date().timeIntervalSince1970
-        let lastTimestamp = Defaults.lastLocationUpdate ?? 0
-
-        if currentTimestamp - lastTimestamp > Double(batchTime * 60) {
-            guard let locations = try? Disk.retrieve("locations.json", from: .applicationSupport, as: [Location].self) else { return }
-
-            networkService.requestLocations(locationsRequestData: LocationsRequestData(locations: locations)) { (result) in
-                switch result {
-                case .success:
-                    DispatchQueue.main.async {
-                        Defaults.lastLocationUpdate = currentTimestamp
-                        try? Disk.remove("locations.json", from: .applicationSupport)
-                    }
-                case .failure: print("batch failed")
-                }
-            }
-        }
     }
 }

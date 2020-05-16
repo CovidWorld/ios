@@ -4072,7 +4072,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
         <image name="ID" width="26" height="27"/>
         <image name="ID-character" width="106" height="117"/>
         <image name="arrow" width="11" height="19"/>
-        <image name="first-screen-logo" width="123" height="105"/>
+        <image name="first-screen-logo" width="375" height="321"/>
         <image name="home" width="26" height="25"/>
         <image name="howtoprotect" width="77" height="77"/>
         <image name="map-icon" width="26" height="25"/>

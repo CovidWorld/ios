@@ -67,12 +67,19 @@ final class MainViewController: ViewController, NotificationCenterObserver {
             registerForPushNotifications()
         }
 
-        tabBarController?.view.backgroundColor = view.backgroundColor
-    }
+        if Defaults.profileId == nil {
+            registerUser()
+        }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        registerUser()
+        tabBarController?.view.backgroundColor = view.backgroundColor
+
+        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { (result) in
+            switch result {
+            case .success(let data):
+                print(data)
+            case .failure: break
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +89,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         statsView?.isHidden = Defaults.quarantineActive
         diagnosedButton?.isHidden = Defaults.quarantineActive
         navigationController?.isNavigationBarHidden = true
+        showWelcomeScreenIfNeeded()
 
         quarantineObserver = Defaults.observe(\.quarantineActive) { [quarantineView, diagnosedButton, statsView] update in
             DispatchQueue.main.async {
@@ -91,13 +99,11 @@ final class MainViewController: ViewController, NotificationCenterObserver {
             }
         }
 
-        showWelcomeScreenIfNeeded()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        observer?.dispose()
         quarantineObserver?.dispose()
 
         navigationController?.isNavigationBarHidden = false
@@ -159,13 +165,13 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
     @IBAction private func didTapQuarantine(_ sender: Any) {
         guard let importantViewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
-        
+
         importantViewController.onContinue = {
             importantViewController.performSegue(withIdentifier: "showCountryCode", sender: nil)
         }
         navigationController?.pushViewController(importantViewController, animated: true)
     }
-    
+
     @IBAction private func emergencyDidTap(_ sender: Any) {
         let emergencyNumber = Firebase.remoteDictionaryValue(for: .hotlines)["SK"] as? String ?? ""
         guard let number = URL(string: "tel://\(emergencyNumber)") else { return }
@@ -177,26 +183,26 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 extension MainViewController {
 
     private func registerUser() {
-        if Defaults.profileId == nil {
-            let action = { [weak self] in
-                let data = RegisterProfileRequestData()
-                self?.networkService.registerUserProfile(profileRequestData: data) { (result) in
-                    switch result {
-                    case .success(let profile):
-                        Defaults.profileId = profile.profileId
-                    case .failure: break
-                    }
+        let action = { [weak self] in
+            let data = RegisterProfileRequestData()
+            self?.networkService.registerUserProfile(profileRequestData: data) { (result) in
+                switch result {
+                case .success(let profile):
+                    Defaults.profileId = profile.profileId
+                // TODO: registration failure
+                case .failure: break
                 }
             }
+        }
 
-            action()
-            if Defaults.FCMToken == nil {
-                observer = Defaults.observe(\.FCMToken) { _ in
-                    DispatchQueue.main.async {
-                        action()
-                    }
+        if Defaults.FCMToken == nil {
+            observer = Defaults.observe(\.FCMToken) { _ in
+                DispatchQueue.main.async {
+                    action()
                 }
             }
+        } else {
+            action()
         }
     }
 }
@@ -222,7 +228,7 @@ extension MainViewController {
             guard let self = self else { return }
 
             // register for quarantine
-            self.registerForQuarantine { [weak self] in
+            self.finishProfileRegistration { [weak self] in
                 switch result {
                 case .success:
                     self?.faceCaptureCoordinator = nil
@@ -248,10 +254,16 @@ extension MainViewController {
         }
     }
 
-    private func registerForQuarantine(_ completion: @escaping () -> Void) {
-        // Call only if we're registering
-        // TODO: send HTTP Request
-        completion()
+    private func finishProfileRegistration(_ completion: @escaping () -> Void) {
+        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { (result) in
+            switch result {
+            case .success(let data):
+                // TODO: update profile and complete onboarding
+                print(data)
+                completion()
+            case .failure: break
+            }
+        }
     }
 
     private func showFaceVerification() {
