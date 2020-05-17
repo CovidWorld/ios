@@ -27,7 +27,7 @@
 			<string>URL ID</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>sk.nczi.covid19</string>
+				<string>sk.nczi.eKarantena</string>
 			</array>
 		</dict>
 	</array>
