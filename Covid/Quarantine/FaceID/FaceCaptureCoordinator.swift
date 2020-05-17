@@ -52,8 +52,8 @@ final class FaceCaptureCoordinator {
     var onAlert: ((UIAlertController) -> Void)?
 
     private(set) var step: FaceCaptureCoordinatorStep = .initialised
-    private var retryCaptureCount = 0
     private var retryVerifyCount = 0
+    private var numberOfRetries = 1
 
     deinit {
         debugPrint("deallocated")
@@ -104,7 +104,9 @@ extension FaceCaptureCoordinator {
                 FaceIDStorage().saveReferenceFace(face)
                 completeFaceCapture(didSuccess: true)
             case .verifyFace:
-                verifyFace(face)
+                verifyFace(face, isBorderCrossing: false)
+            case .borderCrossing:
+                verifyFace(face, isBorderCrossing: true)
             }
 
         case .failedToCaptureFace:
@@ -115,7 +117,7 @@ extension FaceCaptureCoordinator {
         }
     }
 
-    private func verifyFace(_ face: FaceCaptureImage) {
+    private func verifyFace(_ face: FaceCaptureImage, isBorderCrossing: Bool) {
         let result = faceIdValidator.validateCapturedFaceToReferenceTemplate(face)
         switch result {
         case .success:
@@ -138,8 +140,8 @@ extension FaceCaptureCoordinator {
     }
 
     private func handleFailedVerification() {
-        if retryCaptureCount == 0 {
-            retryCaptureCount += 1
+        if retryVerifyCount < numberOfRetries {
+            retryVerifyCount += 1
 
             askToVerifyAgain { [weak self] _ in
                 self?.faceIdCapture.requestFaceCapture()
@@ -171,14 +173,20 @@ extension FaceCaptureCoordinator {
 
     private func completeFaceCapture(didSuccess: Bool) {
         step = .completion
-        FaceCaptureCompletedViewController.show(using: { [weak self] (viewController) in
-            guard let self = self else { return }
-            viewController.useCase = self.useCase
-            viewController.didSuccess = didSuccess
-            viewController.navigationItem.hidesBackButton = true
-            self.navigationController?.pushViewController(viewController, animated: true)
-            }, onCompletion: { [weak self] in
-                self?.onCoordinatorResolution?(.success(true))
-        })
+
+        switch useCase {
+        case .borderCrossing where didSuccess == true:
+            onCoordinatorResolution?(.success(true))
+        default:
+            FaceCaptureCompletedViewController.show(using: { [weak self] (viewController) in
+                guard let self = self else { return }
+                viewController.useCase = self.useCase
+                viewController.didSuccess = didSuccess
+                viewController.navigationItem.hidesBackButton = true
+                self.navigationController?.pushViewController(viewController, animated: true)
+                }, onCompletion: { [weak self] in
+                    self?.onCoordinatorResolution?(.success(didSuccess))
+            })
+        }
     }
 }

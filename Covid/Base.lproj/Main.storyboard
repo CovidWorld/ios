@@ -59,7 +59,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U8W-n2-gb2">
-                                <rect key="frame" x="24" y="741" width="366" height="58"/>
+                                <rect key="frame" x="24" y="744" width="366" height="58"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="yZB-g8-EdN"/>
@@ -86,7 +86,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygo-Z1-8tJ">
-                                <rect key="frame" x="92.666666666666686" y="815" width="229" height="31"/>
+                                <rect key="frame" x="105" y="818" width="204" height="28"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                 <state key="normal" title="Info o spracovaní osobných údajov">
                                     <color key="titleColor" red="0.71372549019607845" green="0.71372549019607845" blue="0.71372549019607845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1550,14 +1550,14 @@ Informácie bezplatne pripravila </string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kdW-nN-j52">
-                                <rect key="frame" x="32" y="112" width="350" height="274"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kdW-nN-j52">
+                                <rect key="frame" x="32" y="112" width="350" height="310"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ID-character" translatesAutoresizingMaskIntoConstraints="NO" id="Fol-9n-CRq">
                                         <rect key="frame" x="122" y="0.0" width="106" height="117"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-OQ-iLa">
-                                        <rect key="frame" x="21.333333333333343" y="137" width="307.33333333333326" height="56"/>
+                                        <rect key="frame" x="21.333333333333343" y="157" width="307.33333333333326" height="56"/>
                                         <string key="text">Nasledovné tlačítko odhalí Váš
 identifikátor karantény</string>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="20"/>
@@ -1565,23 +1565,22 @@ identifikátor karantény</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4W-lX-PSW">
-                                        <rect key="frame" x="0.0" y="213" width="350" height="61"/>
+                                        <rect key="frame" x="0.0" y="258" width="350" height="52"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="showID" translatesAutoresizingMaskIntoConstraints="NO" id="xWL-SA-4vd">
-                                                <rect key="frame" x="8" y="8" width="45" height="45"/>
+                                                <rect key="frame" x="8" y="8" width="45" height="36"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="1BY-QZ-vLg"/>
                                                     <constraint firstAttribute="width" constant="45" id="zvh-K8-pdr"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zobraziť identifikátor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Rd6-ic-Nty">
-                                                <rect key="frame" x="69" y="16.666666666666686" width="241" height="28"/>
-                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="20"/>
+                                                <rect key="frame" x="63" y="14" width="247" height="24"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="17"/>
                                                 <color key="textColor" red="0.23529411759999999" green="0.32156862749999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Fv1-ij-xCH">
-                                                <rect key="frame" x="318" y="22.666666666666686" width="16" height="16"/>
+                                                <rect key="frame" x="318" y="18" width="16" height="16"/>
                                                 <color key="tintColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="16" id="Cyo-dS-yqo"/>
@@ -1589,10 +1588,10 @@ identifikátor karantény</string>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-A5-l6n">
-                                                <rect key="frame" x="0.0" y="0.0" width="350" height="61"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="350" height="52"/>
                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                                 <connections>
-                                                    <segue destination="HG1-7x-uPX" kind="show" id="FNM-wc-dhS"/>
+                                                    <action selector="showCovidPass:" destination="7Bf-yh-hlf" eventType="touchUpInside" id="SLe-Sh-j1a"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1603,8 +1602,9 @@ identifikátor karantény</string>
                                             <constraint firstAttribute="trailing" secondItem="Fv1-ij-xCH" secondAttribute="trailing" constant="16" id="Kx3-si-J9j"/>
                                             <constraint firstItem="eWc-A5-l6n" firstAttribute="top" secondItem="I4W-lX-PSW" secondAttribute="top" id="L0g-T5-ecb"/>
                                             <constraint firstItem="Fv1-ij-xCH" firstAttribute="centerY" secondItem="I4W-lX-PSW" secondAttribute="centerY" id="R65-95-SY7"/>
-                                            <constraint firstItem="Rd6-ic-Nty" firstAttribute="leading" secondItem="xWL-SA-4vd" secondAttribute="trailing" constant="16" id="Tf1-mY-bRC"/>
+                                            <constraint firstItem="Rd6-ic-Nty" firstAttribute="leading" secondItem="xWL-SA-4vd" secondAttribute="trailing" constant="10" id="Tf1-mY-bRC"/>
                                             <constraint firstItem="xWL-SA-4vd" firstAttribute="leading" secondItem="I4W-lX-PSW" secondAttribute="leading" constant="8" id="UQb-Z1-yNf"/>
+                                            <constraint firstAttribute="height" constant="52" id="WHg-zq-eGd"/>
                                             <constraint firstAttribute="trailing" secondItem="eWc-A5-l6n" secondAttribute="trailing" id="hpV-zu-aiL"/>
                                             <constraint firstItem="xWL-SA-4vd" firstAttribute="top" secondItem="I4W-lX-PSW" secondAttribute="top" constant="8" id="lLC-ha-BYr"/>
                                             <constraint firstItem="Rd6-ic-Nty" firstAttribute="centerY" secondItem="I4W-lX-PSW" secondAttribute="centerY" id="rKu-Te-6fG"/>
@@ -1614,8 +1614,12 @@ identifikátor karantény</string>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="I4W-lX-PSW" secondAttribute="trailing" id="dfj-Ql-gPD"/>
-                                    <constraint firstItem="I4W-lX-PSW" firstAttribute="leading" secondItem="kdW-nN-j52" secondAttribute="leading" id="smX-6i-xcA"/>
+                                    <constraint firstItem="I4W-lX-PSW" firstAttribute="top" secondItem="zYs-OQ-iLa" secondAttribute="bottom" constant="45" id="1yE-da-V18"/>
+                                    <constraint firstItem="Fol-9n-CRq" firstAttribute="top" secondItem="kdW-nN-j52" secondAttribute="top" id="IMb-D3-3A8"/>
+                                    <constraint firstAttribute="trailing" secondItem="I4W-lX-PSW" secondAttribute="trailing" id="J8M-iJ-nXv"/>
+                                    <constraint firstAttribute="bottom" secondItem="I4W-lX-PSW" secondAttribute="bottom" id="eYB-Yl-qf4"/>
+                                    <constraint firstItem="zYs-OQ-iLa" firstAttribute="top" secondItem="Fol-9n-CRq" secondAttribute="bottom" constant="40" id="k7L-Em-8Ht"/>
+                                    <constraint firstItem="I4W-lX-PSW" firstAttribute="leading" secondItem="kdW-nN-j52" secondAttribute="leading" id="qvZ-E4-nbT"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZc-EL-gSi">
@@ -1664,34 +1668,41 @@ identifikátor karantény</string>
         <!--Covid Pass View Controller-->
         <scene sceneID="SB1-bV-pVk">
             <objects>
-                <viewController id="HG1-7x-uPX" customClass="CovidPassViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CovidPassViewController" id="HG1-7x-uPX" customClass="CovidPassViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HAP-GK-23x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="MKx-Tj-pgG">
-                                <rect key="frame" x="32" y="112.00000000000003" width="350" height="398.66666666666674"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MKx-Tj-pgG">
+                                <rect key="frame" x="32" y="68" width="350" height="417"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toto je Váš špeciálny identifikátor pre potrebu kontroly" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J1V-i4-2cs">
-                                        <rect key="frame" x="4.6666666666666572" y="0.0" width="341" height="50.666666666666664"/>
+                                        <rect key="frame" x="23" y="0.0" width="304.33333333333331" height="42"/>
                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="gyo-5y-zqU">
-                                        <rect key="frame" x="0.0" y="74.666666666666657" width="350" height="50"/>
+                                        <rect key="frame" x="35" y="62" width="280" height="50"/>
                                         <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
                                         <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iwu-Xg-5gw">
-                                        <rect key="frame" x="50" y="148.66666666666669" width="250" height="250"/>
+                                        <rect key="frame" x="15" y="167" width="320" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="250" id="BAa-mz-eJK"/>
                                             <constraint firstAttribute="height" constant="250" id="hoS-2o-7pd"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="iwu-Xg-5gw" secondAttribute="trailing" constant="15" id="BMQ-IU-sGF"/>
+                                    <constraint firstItem="gyo-5y-zqU" firstAttribute="top" secondItem="J1V-i4-2cs" secondAttribute="bottom" constant="20" id="Lwv-8r-EIZ"/>
+                                    <constraint firstItem="iwu-Xg-5gw" firstAttribute="leading" secondItem="MKx-Tj-pgG" secondAttribute="leading" constant="15" id="Pzc-XH-Tcu"/>
+                                    <constraint firstItem="J1V-i4-2cs" firstAttribute="top" secondItem="MKx-Tj-pgG" secondAttribute="top" id="SLL-Qq-yyh"/>
+                                    <constraint firstAttribute="bottom" secondItem="iwu-Xg-5gw" secondAttribute="bottom" id="hcE-YV-iVv"/>
+                                    <constraint firstItem="iwu-Xg-5gw" firstAttribute="top" secondItem="gyo-5y-zqU" secondAttribute="bottom" constant="55" id="mFT-np-Fjy"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1702,7 +1713,13 @@ identifikátor karantény</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YqA-F0-G1S"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hjP-DL-ydJ"/>
+                    <navigationItem key="navigationItem" id="hjP-DL-ydJ">
+                        <barButtonItem key="rightBarButtonItem" title="Ďalej" style="done" id="76W-xh-XM3">
+                            <connections>
+                                <action selector="onNext:" destination="HG1-7x-uPX" id="Paq-aL-3MF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="idLabel" destination="gyo-5y-zqU" id="fdi-ku-f7c"/>
                         <outlet property="qrCodeImageView" destination="iwu-Xg-5gw" id="lBR-rC-SRJ"/>
@@ -1927,11 +1944,11 @@ identifikátor karantény</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Njg-l9-GFw">
-                                <rect key="frame" x="24" y="670" width="366" height="66"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="24" y="691" width="366" height="45"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.76470588235294112" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="Bola/bol som v zahraničí alebo musím zostať v karanténe">
+                                <state key="normal" title="Overiť sa v mieste domácej karantény">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -2310,7 +2327,7 @@ zvracanie</string>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MI-rx-GXw">
                                 <rect key="frame" x="32" y="150" width="350" height="105"/>
                                 <string key="text">Aplikácia Vás žiada na overenie sa v mieste
-Vašej karantény. Je potrebné reagovať
+Vašej domácej izolácie. Je potrebné reagovať
 okamžite a pokračovať rozoznaním tváre.
 Aplikácia bude pristupovať k Vašemu
 fotoaparátu a GPS lokácii.</string>
@@ -2430,7 +2447,7 @@ fotoaparátu a GPS lokácii.</string>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Táto adresa bude počas nasledujúcich dní Vašim miestom karantény. Adresu nie je možné zmeniť." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-9b-f60">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Táto adresa bude počas nasledujúcich dní Vašim miestom domácej izolácie. Adresu nie je možné zmeniť." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ey-9b-f60">
                                 <rect key="frame" x="32" y="187" width="350" height="63"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2523,7 +2540,7 @@ fotoaparátu a GPS lokácii.</string>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Povinná karanténa, zostáva:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-ns-4pC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Povinná domáca izolácia, zostáva:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-ns-4pC">
                                 <rect key="frame" x="0.0" y="65" width="366" height="24"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2750,11 +2767,11 @@ fotoaparátu a GPS lokácii.</string>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">Táto aplikácia bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie a umožnila ľuďom zostať v teple domova namiesto štátnej karantény. Jej úloha nie je ultimátna a tak, ako každá technológia, aj táto technológia má pomôcť, ale nenahradí prácu epidemiológov, či iného personálu pri kontrole dodržiavania domácej karantény.
+                                        <string key="content">Táto aplikácia bola vytvorená slovenskými dobrovoľníkmi a odborníkmi v rekordne krátkom čase, aby pomohli s bojom proti šíreniu pandémie a umožnila ľuďom zostať v teple domova namiesto štátnej karantény. Jej úloha nie je ultimátna a tak, ako každá technológia, aj táto technológia má pomôcť, ale nenahradí prácu epidemiológov, či iného personálu pri kontrole dodržiavania domácej karantény.
  
 Jej úlohou je rýchlejšie odhaľovať možné zlyhania a zvýšiť dodržiavanie domácej karantény. Aplikácia môže mať viaceré problémy, ktoré budú za pochodu vylepšené. Z toho dôvodu sú zdieľané aj zdrojové kódy, aby pomohli odhaliť prípadné nedostatky. 
  
-</mutableString>
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -2775,11 +2792,11 @@ Jej úlohou je rýchlejšie odhaľovať možné zlyhania a zvýšiť dodržiavan
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 a pomohla ľahšie zvládať nápor na ich pracovníkov. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a pomohla spomaliť šírenie nákazy. Jej kód a know-how má slúžiť všetkým ľuďom sveta a nesmie byť majetkom žiadnej organizácie.
+                                        <string key="content">, aby pomohla zdravotníckym organizáciám prekonať nákazu Covid-19 a pomohla ľahšie zvládať nápor na ich pracovníkov. Je vyvinutá tak, aby aj v budúcnosti, pri vzniku akejkoľvek pandémie, mohla byť okamžite nasadená a pomohla spomaliť šírenie nákazy. Jej kód a know-how má slúžiť všetkým ľuďom sveta a nesmie byť majetkom žiadnej organizácie.
  
 Aplikácia funguje v Slovenskej Republike na nasledovnom princípe.
  
-</mutableString>
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -2814,11 +2831,11 @@ Aplikácia funguje v Slovenskej Republike na nasledovnom princípe.
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">, ktoré vydajú COVID-PASS. Rovnaké telefónne číslo, ktoré bude užívateľ používať na registráciu na stránkach, je potrebné používať aj v rámci aplikácie po celú dobu určenej karantény v domácom prostredí.
+                                        <string key="content">, ktoré vydajú COVID-PASS. Rovnaké telefónne číslo, ktoré bude užívateľ používať na registráciu na stránkach, je potrebné používať aj v rámci aplikácie po celú dobu určenej karantény v domácom prostredí.
  
 Funkciou aplikácie je informovať užívateľa o zostávajúcej dobe karantény, notifikovať užívateľa a overovať jeho dodržiavanie domácej izolácie prostredníctvom tvárovej biometrie a polohy tohto zariadenia. Zároveň aplikácia zobrazuje štatistické údaje o celkovom počte nakazených a prehľad chorobnosti v regiónoch.
  
-</mutableString>
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -2906,7 +2923,7 @@ Funkciou aplikácie je informovať užívateľa o zostávajúcej dobe karantény
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">  Svojimi identifikačnými údajmi, ako aj presným miestom, kde sa bude vyskytovať v domácej karanténe. Toto miesto nie je možné neskôr zmeniť. Zároveň je potrebné použiť jednotné telefónne číslo, ktoré bude užívateľ používať ako referenčné telefónne číslo v tomto telefóne po celú dobu pre aplikáciu eKarantena. </mutableString>
+                                        <string key="content">  Svojimi identifikačnými údajmi, ako aj presným miestom, kde sa bude vyskytovať v domácej karanténe. Toto miesto nie je možné neskôr zmeniť. Zároveň je potrebné použiť jednotné telefónne číslo, ktoré bude užívateľ používať ako referenčné telefónne číslo v tomto telefóne po celú dobu pre aplikáciu eKarantena. </string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -2979,8 +2996,8 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Užívateľ si stiahne aplikáciu eKarantena Slovensko a musí povoliť všetky požiadavky aplikácie vrátane GPS, ktoré musia bežať na pozadí, notifikácie, či prístup k fotoaparátu. Užívateľ musí mať k dispozícii nepretržite internet, ako aj platnú SIM kartu na telefóne, kde beží aplikácia a je registrovaný na túto SIM kartu  po celú dobu používania. Bez týchto funkcií nebude povolené užívateľovi využívať domácu karanténu a môže byť umiestnený do štátneho zariadenia.
-</mutableString>
+                                        <string key="content">Užívateľ si stiahne aplikáciu eKarantena Slovensko a musí povoliť všetky požiadavky aplikácie vrátane GPS, ktoré musia bežať na pozadí, notifikácie, či prístup k fotoaparátu. Užívateľ musí mať k dispozícii nepretržite internet, ako aj platnú SIM kartu na telefóne, kde beží aplikácia a je registrovaný na túto SIM kartu  po celú dobu používania. Bez týchto funkcií nebude povolené užívateľovi využívať domácu karanténu a môže byť umiestnený do štátneho zariadenia.
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -3159,8 +3176,8 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Následne autorite užívateľ nahlási identifikátor, alebo autorita zosníma bar kód z tejto  aplikácie, overí sa bezpečnostný kód, ktorý nadiktuje autorita a nasledovným krokom sa vygeneruje overovací kód, ktorý autorita overí a zadá do systému. Užívateľovi od tohto momentu začne plynúť 8-hodín na presunutie sa do miesta nahlásenej karantény vo webovom formulári v kroku 1. Toto miesto bude vyznačené aj v aplikácii.
-</mutableString>
+                                        <string key="content">Následne autorite užívateľ nahlási identifikátor, alebo autorita zosníma bar kód z tejto  aplikácie, overí sa bezpečnostný kód, ktorý nadiktuje autorita a nasledovným krokom sa vygeneruje overovací kód, ktorý autorita overí a zadá do systému. Užívateľovi od tohto momentu začne plynúť 8-hodín na presunutie sa do miesta nahlásenej karantény vo webovom formulári v kroku 1. Toto miesto bude vyznačené aj v aplikácii.
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -3195,8 +3212,8 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Po presune do miesta karantény sa aplikácia môže kedykoľvek dotazovať prostredníctvom SMS správ, aby sa užívateľ kedykoľvek verifikoval. Čas na verifikáciu sa môže z dňa na deň, z hodiny na hodinu meniť, preto je potrebné vykonať verifikáciu bezodkladne a mať telefón stále nabitý, prístup k GPS umožnený, ako aj k fotoaparátu aplikácie. Je vhodné pravidelne kontrolovať  pripojenie na internet a mať zapnuté zvonenie v prípade, že príde overovacia SMS. Táto SMS bude chodiť v rôznych nepravideľných intervaloch.
-</mutableString>
+                                        <string key="content">Po presune do miesta karantény sa aplikácia môže kedykoľvek dotazovať prostredníctvom SMS správ, aby sa užívateľ kedykoľvek verifikoval. Čas na verifikáciu sa môže z dňa na deň, z hodiny na hodinu meniť, preto je potrebné vykonať verifikáciu bezodkladne a mať telefón stále nabitý, prístup k GPS umožnený, ako aj k fotoaparátu aplikácie. Je vhodné pravidelne kontrolovať  pripojenie na internet a mať zapnuté zvonenie v prípade, že príde overovacia SMS. Táto SMS bude chodiť v rôznych nepravideľných intervaloch.
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -3231,8 +3248,8 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">Následne je potrebné, aby sa užívateľ overil prostredníctvom tvárovej biometrie a na server sa pošlú informácie ohľadom času, dátumu, prípadne vychýlení sa od polohy domácej karantény. Komunikácia so serverom môže obsahovať aj ďalšie údaje, ktoré sú povolené zákonom, či podmienkami ochrany súkromia užívateľa, ktoré užívateľ schválil pri inštalácii aplikácie.
-</mutableString>
+                                        <string key="content">Následne je potrebné, aby sa užívateľ overil prostredníctvom tvárovej biometrie a na server sa pošlú informácie ohľadom času, dátumu, prípadne vychýlení sa od polohy domácej karantény. Komunikácia so serverom môže obsahovať aj ďalšie údaje, ktoré sú povolené zákonom, či podmienkami ochrany súkromia užívateľa, ktoré užívateľ schválil pri inštalácii aplikácie.
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -3250,10 +3267,10 @@ Cg
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> 
+                                        <string key="content"> 
 V prípade, že bude užívateľ pravidelne reagovať bezodkladne na správy, mať prístupný internet na zariadení a mať zapnuté iné požadované systémové nastavenia na zariadení a v aplikácii, aplikáciu neodinštaľuje, či inak nevyvedie z jej funkčnosti, zníži tým pravdepodobnosť kontrol od úradov, umiestnenia do štátneho zariadenia, či iného správneho šetrenia. V každom prípade, kontroly môžu byť aj námatkové.
  
-</mutableString>
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -3504,14 +3521,14 @@ V prípade, že bude užívateľ pravidelne reagovať bezodkladne na správy, ma
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> 
+                                        <string key="content"> 
  
 Keďže pri tejto nákaze je viac ako 50% ľudí bez príznakov, treba predpokladať, že každý, kto má byť v domácej karanténe, môže byť zároveň nositeľom choroby aj v tom prípade, ak nemá žiadne príznaky. Je preto nesmierne dôležité zostať v izolácii od okolia a nenakaziť tak iných, ktorých príznaky by mohli byť naopak fatálne. Porušovanie karantény bude postihované orgánmi v správnom konaní.
  
 Veľa z nás nákazu zvládne svojou imunitou. Sú ale takí, ktorí majú iné vážne ochorenia, či mladí, či starí a budú potrebovať pomoc zdravotníctva. 
  
 Preto je nesmierne dôležité prejaviť ľudskosť mladých voči starým, zdravých voči chorým a poraziť Covid-19, spoločne.
-</mutableString>
+</string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -3557,7 +3574,7 @@ Aplikácia </string>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content"> je podľa zákona č. 362/2011 Z.z. o liekoch a zdravotníckych pomôckach a o zmene a doplnení niektorých zákonov a podľa nariadenia vlády č.582/2008 Z.z. ktorým sa ustanovujú podrobnosti o technických požiadavkách a postupoch posudzovania zhody zdravotníckych pomôcok </mutableString>
+                                        <string key="content"> je podľa zákona č. 362/2011 Z.z. o liekoch a zdravotníckych pomôckach a o zmene a doplnení niektorých zákonov a podľa nariadenia vlády č.582/2008 Z.z. ktorým sa ustanovujú podrobnosti o technických požiadavkách a postupoch posudzovania zhody zdravotníckych pomôcok </string>
                                         <attributes>
                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <font key="NSFont" size="12" name="Poppins-Regular"/>
@@ -3994,7 +4011,7 @@ na Vašom zariadení.</string>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Waa-GN-1h0">
                                 <rect key="frame" x="15" y="482" width="384" height="45"/>
-                                <string key="text">Dodržiavajte dôsledne domácu karanténu.
+                                <string key="text">Dodržiavajte dôsledne domácu izoláciu.
 Zabránite tak šíreniu vírusu COVID-19.</string>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4062,10 +4079,165 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
             </objects>
             <point key="canvasLocation" x="-597" y="1923"/>
         </scene>
+        <!--Covid Pass Challenge Result View Controller-->
+        <scene sceneID="JMx-cI-SSl">
+            <objects>
+                <viewController storyboardIdentifier="CovidPassChallengeResultViewController" id="YeF-fo-tfh" customClass="CovidPassChallengeResultViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BFc-u0-yE6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kEi-8J-rdp">
+                                <rect key="frame" x="32" y="68" width="350" height="120.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vJQ-Xc-g42">
+                                        <rect key="frame" x="111" y="0.0" width="128" height="50.666666666666664"/>
+                                        <string key="text">Vaše 6 ciferné
+číslo je:</string>
+                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="30" translatesAutoresizingMaskIntoConstraints="NO" id="1BT-sJ-LPG">
+                                        <rect key="frame" x="35" y="70.666666666666657" width="280" height="50"/>
+                                        <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
+                                        <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vJQ-Xc-g42" firstAttribute="top" secondItem="kEi-8J-rdp" secondAttribute="top" id="1uy-4c-O4E"/>
+                                    <constraint firstItem="1BT-sJ-LPG" firstAttribute="top" secondItem="vJQ-Xc-g42" secondAttribute="bottom" constant="20" id="6Nm-uQ-G8E"/>
+                                    <constraint firstAttribute="bottom" secondItem="1BT-sJ-LPG" secondAttribute="bottom" constant="2.8421709430404007e-14" id="sPl-jq-QsE"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LQf-ef-iBJ">
+                                <rect key="frame" x="24" y="794" width="366" height="52"/>
+                                <color key="backgroundColor" red="0.16790786390000001" green="0.75468677279999996" blue="0.60390573739999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
+                                <state key="normal" title="Pokračovať">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="agreeDidTap:" destination="Zak-E9-be5" eventType="touchUpInside" id="YD6-xF-0On"/>
+                                    <action selector="didTapQuarantine:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KQC-Ua-u6G"/>
+                                    <action selector="onNext:" destination="YeF-fo-tfh" eventType="touchUpInside" id="mld-2X-Sbc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kEi-8J-rdp" firstAttribute="top" secondItem="GA1-gU-wLF" secondAttribute="top" constant="24" id="4l5-mI-IVO"/>
+                            <constraint firstItem="GA1-gU-wLF" firstAttribute="bottom" secondItem="LQf-ef-iBJ" secondAttribute="bottom" constant="16" id="96h-6i-vHQ"/>
+                            <constraint firstItem="GA1-gU-wLF" firstAttribute="trailing" secondItem="kEi-8J-rdp" secondAttribute="trailing" constant="32" id="BcJ-dJ-7GZ"/>
+                            <constraint firstItem="GA1-gU-wLF" firstAttribute="trailing" secondItem="LQf-ef-iBJ" secondAttribute="trailing" constant="24" id="Laz-Kn-I8d"/>
+                            <constraint firstItem="kEi-8J-rdp" firstAttribute="leading" secondItem="GA1-gU-wLF" secondAttribute="leading" constant="32" id="ldf-hY-o2c"/>
+                            <constraint firstItem="LQf-ef-iBJ" firstAttribute="leading" secondItem="GA1-gU-wLF" secondAttribute="leading" constant="24" id="r1T-OZ-ILA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="GA1-gU-wLF"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="iLs-bV-J8x">
+                        <barButtonItem key="rightBarButtonItem" title="Ďalej" style="done" id="wwG-Db-WYf"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="challengeLabel" destination="1BT-sJ-LPG" id="bGV-At-dbT"/>
+                        <outlet property="nextButton" destination="LQf-ef-iBJ" id="WLC-UV-VVt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PFe-i9-0nS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1117" y="-1069"/>
+        </scene>
+        <!--No Random Check View Controller-->
+        <scene sceneID="bLP-FF-54u">
+            <objects>
+                <viewController storyboardIdentifier="NoRandomCheckViewController" hidesBottomBarWhenPushed="YES" id="OCT-0r-wIs" customClass="NoRandomCheckViewController" sceneMemberID="viewController">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="4Z0-sa-gci">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Informácia" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVR-Pq-wsk">
+                                <rect key="frame" x="32" y="76" width="350" height="42"/>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
+                                <color key="textColor" red="0.94509803920000002" green="0.41568627450000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deH-oB-VdW">
+                                <rect key="frame" x="24" y="150" width="366" height="63"/>
+                                <string key="text">V súčasnostni nieje požiadavka na overenie
+Vašej tváre a lokácie v karanténe. Táto požia-
+davka môže prísť však kedykoľvek.</string>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUZ-U7-9L0" userLabel="Info">
+                                <rect key="frame" x="24" y="239.66666666666666" width="366" height="20.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcG-BQ-t8T">
+                                <rect key="frame" x="32" y="776" width="350" height="70"/>
+                                <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="L22-du-FiQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="20"/>
+                                <state key="normal" title="Pokračovať">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onNext:" destination="OCT-0r-wIs" eventType="touchUpInside" id="97N-VI-yYL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrN-VY-HUU">
+                                <rect key="frame" x="32" y="229" width="358" height="42"/>
+                                <string key="text">Neopúšťajte miesto Vašej povinnej karantény.
+Môžete sa dopustiť vážneho priestupku.</string>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VrN-VY-HUU" firstAttribute="trailing" secondItem="deH-oB-VdW" secondAttribute="trailing" id="09R-uu-aoZ"/>
+                            <constraint firstItem="VrN-VY-HUU" firstAttribute="top" secondItem="deH-oB-VdW" secondAttribute="bottom" constant="16" id="0P5-2Y-zZU"/>
+                            <constraint firstItem="rUZ-U7-9L0" firstAttribute="trailing" secondItem="deH-oB-VdW" secondAttribute="trailing" id="97X-Bo-3G6"/>
+                            <constraint firstItem="8vp-e4-cbg" firstAttribute="trailing" secondItem="SVR-Pq-wsk" secondAttribute="trailing" constant="32" id="I6m-LR-Oyk"/>
+                            <constraint firstItem="VrN-VY-HUU" firstAttribute="leading" secondItem="8vp-e4-cbg" secondAttribute="leading" constant="32" id="NJy-ho-rC6"/>
+                            <constraint firstItem="rUZ-U7-9L0" firstAttribute="centerY" secondItem="VrN-VY-HUU" secondAttribute="centerY" id="S0R-XX-1c9"/>
+                            <constraint firstItem="8vp-e4-cbg" firstAttribute="bottom" secondItem="VcG-BQ-t8T" secondAttribute="bottom" constant="16" id="eZb-dX-pfp"/>
+                            <constraint firstItem="VcG-BQ-t8T" firstAttribute="leading" secondItem="8vp-e4-cbg" secondAttribute="leading" constant="32" id="f4q-w3-Swf"/>
+                            <constraint firstItem="SVR-Pq-wsk" firstAttribute="leading" secondItem="8vp-e4-cbg" secondAttribute="leading" constant="32" id="hah-io-0WR"/>
+                            <constraint firstItem="deH-oB-VdW" firstAttribute="leading" secondItem="8vp-e4-cbg" secondAttribute="leading" constant="24" id="i4O-aV-UFr"/>
+                            <constraint firstItem="rUZ-U7-9L0" firstAttribute="leading" secondItem="deH-oB-VdW" secondAttribute="leading" id="jZd-Ns-Rgm"/>
+                            <constraint firstItem="deH-oB-VdW" firstAttribute="top" secondItem="SVR-Pq-wsk" secondAttribute="bottom" constant="32" id="ji9-5P-AI5"/>
+                            <constraint firstItem="rUZ-U7-9L0" firstAttribute="top" secondItem="deH-oB-VdW" secondAttribute="bottom" constant="26.666666666666657" id="koL-JZ-EA8"/>
+                            <constraint firstAttribute="trailing" secondItem="deH-oB-VdW" secondAttribute="trailing" constant="24" id="rJ8-bw-fDt"/>
+                            <constraint firstItem="8vp-e4-cbg" firstAttribute="trailing" secondItem="VcG-BQ-t8T" secondAttribute="trailing" constant="32" id="xtt-kT-e7a"/>
+                            <constraint firstItem="SVR-Pq-wsk" firstAttribute="top" secondItem="8vp-e4-cbg" secondAttribute="top" constant="32" id="yLB-bN-YfN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8vp-e4-cbg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="jc9-EK-dQn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vaj-ca-0mo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="313" y="1862"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ngf-Dj-6Ay"/>
-        <segue reference="Omn-hp-lVS"/>
+        <segue reference="Rme-BJ-GTw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DOC-character" width="106" height="117"/>

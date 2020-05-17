@@ -10,20 +10,20 @@ import LocalAuthentication
 
 enum Device {
 
-    //To check that device has secure enclave or not
+    // To check that device has secure enclave or not
     public static var hasSecureEnclave: Bool {
         !isSimulator && hasBiometrics
     }
 
-    //To Check that this is this simulator
+    // To Check that this is this simulator
     public static var isSimulator: Bool {
         TARGET_OS_SIMULATOR == 1
     }
 
-    //Check that this device has Biometrics features available
+    // Check that this device has Biometrics features available
     private static var hasBiometrics: Bool {
 
-        //Local Authentication Context
+        // Local Authentication Context
         let localAuthContext = LAContext()
         var error: NSError?
 

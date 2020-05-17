@@ -46,7 +46,10 @@ final class LocationMonitoring: NSObject {
 
     class func monitorLocationIfNeeded() {
         // TODO: apply rules
-        LocationMonitoring.shared.setQurantineRegion(center: CLLocationCoordinate2D(latitude: 48.145842, longitude: 17.126651), radius: Firebase.remoteDoubleValue(for: .desiredPositionAccuracy))
+        // TODO: remove mock data
+        let coordinate = CLLocationCoordinate2D(latitude: 48.145842, longitude: 17.126651)
+        LocationMonitoring.shared.setQurantineRegion(center: coordinate,
+                                                     radius: Firebase.remoteDoubleValue(for: .desiredPositionAccuracy))
     }
 
     private func setQurantineRegion(center: CLLocationCoordinate2D, radius: CLLocationDistance) {

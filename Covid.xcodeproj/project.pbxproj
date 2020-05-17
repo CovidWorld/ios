@@ -61,9 +61,23 @@
 		2110EB41246B4F480007C8DA /* iengine.lic in Resources */ = {isa = PBXBuildFile; fileRef = 2110EB40246B4F470007C8DA /* iengine.lic */; };
 		212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */; };
 		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
+		2125E16C2472099600D3A526 /* NoRandomCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125E16B2472099600D3A526 /* NoRandomCheckViewController.swift */; };
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
 		21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */; };
+		219593F82471C48300937D59 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = 219593E22471C48200937D59 /* PasscodeLock.strings */; };
+		219593F92471C48300937D59 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593E42471C48200937D59 /* Functions.swift */; };
+		219593FD2471C48300937D59 /* PasscodeLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593E92471C48200937D59 /* PasscodeLock.swift */; };
+		219593FE2471C48300937D59 /* EnterPasscodeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593EA2471C48200937D59 /* EnterPasscodeState.swift */; };
+		219593FF2471C48300937D59 /* PasscodeLockView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 219593EC2471C48200937D59 /* PasscodeLockView.xib */; };
+		219594002471C48300937D59 /* PasscodeSignButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593ED2471C48200937D59 /* PasscodeSignButton.swift */; };
+		219594012471C48300937D59 /* PasscodeSignPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593EE2471C48300937D59 /* PasscodeSignPlaceholderView.swift */; };
+		219594022471C48300937D59 /* PasscodeLockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593F02471C48300937D59 /* PasscodeLockType.swift */; };
+		219594032471C48300937D59 /* PasscodeLockConfigurationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593F12471C48300937D59 /* PasscodeLockConfigurationType.swift */; };
+		219594042471C48300937D59 /* PasscodeRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593F22471C48300937D59 /* PasscodeRepositoryType.swift */; };
+		219594052471C48300937D59 /* PasscodeLockStateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593F32471C48300937D59 /* PasscodeLockStateType.swift */; };
+		219594082471C48300937D59 /* PasscodeLockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593F72471C48300937D59 /* PasscodeLockViewController.swift */; };
+		2195940E2471E0CF00937D59 /* CovidPassChallengeResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195940D2471E0CF00937D59 /* CovidPassChallengeResultViewController.swift */; };
 		21B0F7ED2438AF7A00552491 /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7EC2438AF7A00552491 /* General.swift */; };
 		21B0F85B2438D0AA00552491 /* NotificationCenterObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F85A2438D0AA00552491 /* NotificationCenterObserver.swift */; };
 		21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F8932439194100552491 /* UIStoryBoard.swift */; };
@@ -180,6 +194,7 @@
 		2110EB40246B4F470007C8DA /* iengine.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iengine.lic; sourceTree = "<group>"; };
 		212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		21220503244D084900CCC72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2125E16B2472099600D3A526 /* NoRandomCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRandomCheckViewController.swift; sourceTree = "<group>"; };
 		21355B35243A7B660087ADCB /* FaceIDVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDVerification.swift; sourceTree = "<group>"; };
 		213B74DC2437E7BE005BB14F /* FaceCaptureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCoordinator.swift; sourceTree = "<group>"; };
 		213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCompletedViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +206,19 @@
 		2189714E24369949009987EA /* FaceIDValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDValidator.swift; sourceTree = "<group>"; };
 		2189715024369980009987EA /* FaceIDStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDStorage.swift; sourceTree = "<group>"; };
 		2189715224369CE5009987EA /* FaceIDStepVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDStepVerifier.swift; sourceTree = "<group>"; };
+		219593E32471C48200937D59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
+		219593E42471C48200937D59 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		219593E92471C48200937D59 /* PasscodeLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLock.swift; sourceTree = "<group>"; };
+		219593EA2471C48200937D59 /* EnterPasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasscodeState.swift; sourceTree = "<group>"; };
+		219593EC2471C48200937D59 /* PasscodeLockView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PasscodeLockView.xib; sourceTree = "<group>"; };
+		219593ED2471C48200937D59 /* PasscodeSignButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeSignButton.swift; sourceTree = "<group>"; };
+		219593EE2471C48300937D59 /* PasscodeSignPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeSignPlaceholderView.swift; sourceTree = "<group>"; };
+		219593F02471C48300937D59 /* PasscodeLockType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockType.swift; sourceTree = "<group>"; };
+		219593F12471C48300937D59 /* PasscodeLockConfigurationType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockConfigurationType.swift; sourceTree = "<group>"; };
+		219593F22471C48300937D59 /* PasscodeRepositoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeRepositoryType.swift; sourceTree = "<group>"; };
+		219593F32471C48300937D59 /* PasscodeLockStateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockStateType.swift; sourceTree = "<group>"; };
+		219593F72471C48300937D59 /* PasscodeLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockViewController.swift; sourceTree = "<group>"; };
+		2195940D2471E0CF00937D59 /* CovidPassChallengeResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPassChallengeResultViewController.swift; sourceTree = "<group>"; };
 		21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDUseCase.swift; sourceTree = "<group>"; };
 		21B0F7B02438A68C00552491 /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
 		21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -301,20 +329,22 @@
 		0F11813B2416C70500213533 /* Covid */ = {
 			isa = PBXGroup;
 			children = (
-				21220502244D083D00CCC72B /* UI */,
-				0F1181472416C70900213533 /* LaunchScreen.storyboard */,
-				0F1181422416C70500213533 /* Main.storyboard */,
 				0F11813C2416C70500213533 /* AppDelegate.swift */,
 				0FCB4F0A2423B3D400389493 /* PrivacyViewController.swift */,
+				21C12B32243D21EF0086AF8B /* Segue.swift */,
 				0F247F07241A63F000986740 /* WelcomeViewController.swift */,
 				0FD28B102426D4FF0015F7E7 /* AdditionalInfo */,
+				2195940A2471C5E100937D59 /* BorderCrossing */,
 				21B0F7EB2438AF5D00552491 /* Extensions */,
+				0F1181472416C70900213533 /* LaunchScreen.storyboard */,
+				0F1181422416C70500213533 /* Main.storyboard */,
 				0FCB4F0724238BA700389493 /* MainScreen */,
 				0FD28B132426EB530015F7E7 /* Map */,
 				0FCB4F0624238B7700389493 /* Quarantine */,
 				0F247F04241A617000986740 /* Resources */,
 				213B74D82437E69F005BB14F /* Services */,
-				21C12B32243D21EF0086AF8B /* Segue.swift */,
+				21220502244D083D00CCC72B /* UI */,
+				219593E02471C48200937D59 /* Vendors */,
 			);
 			path = Covid;
 			sourceTree = "<group>";
@@ -372,9 +402,10 @@
 		0FCB4F0724238BA700389493 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				0F1181402416C70500213533 /* MainViewController.swift */,
-				0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */,
 				C0F99628241FB387009C6BF5 /* ForeignDecisionViewController.swift */,
+				0F1181402416C70500213533 /* MainViewController.swift */,
+				2125E16B2472099600D3A526 /* NoRandomCheckViewController.swift */,
+				0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */,
 				0FCB4F0824238BDC00389493 /* StatsViewController.swift */,
 			);
 			path = MainScreen;
@@ -392,7 +423,6 @@
 				C0F9962C241FCB04009C6BF5 /* PreventionTableViewCell.swift */,
 				C0F9962E241FCBB2009C6BF5 /* PreventionViewController.swift */,
 				C0F99634241FE632009C6BF5 /* SymptomsViewController.swift */,
-				0F949673246C6575003A75A0 /* CovidPassViewController.swift */,
 			);
 			path = AdditionalInfo;
 			sourceTree = "<group>";
@@ -431,15 +461,15 @@
 		213B74D82437E69F005BB14F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0F149DE8246DF2FB004345E0 /* XCConfig.swift */,
 				0F149DEA246E12A0004345E0 /* Crypto.swift */,
+				0F149DEC246E23E4004345E0 /* Device.swift */,
 				0FB533D6243F83DF00A70E62 /* RemoteConfig.swift */,
 				0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */,
+				0F149DE8246DF2FB004345E0 /* XCConfig.swift */,
 				0FBA451D24218F0F00816388 /* Disk */,
 				2189714B24368B42009987EA /* FaceID */,
 				0F62927C241D4C6C00FF5E14 /* LocationServices */,
 				0FF4F218241AEF8100643297 /* Networking */,
-				0F149DEC246E23E4004345E0 /* Device.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -467,6 +497,66 @@
 				2189714E24369949009987EA /* FaceIDValidator.swift */,
 			);
 			path = FaceID;
+			sourceTree = "<group>";
+		};
+		219593E02471C48200937D59 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				219593E12471C48200937D59 /* PasscodeLock */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		219593E12471C48200937D59 /* PasscodeLock */ = {
+			isa = PBXGroup;
+			children = (
+				219593E22471C48200937D59 /* PasscodeLock.strings */,
+				219593E42471C48200937D59 /* Functions.swift */,
+				219593E52471C48200937D59 /* PasscodeLock */,
+				219593EB2471C48200937D59 /* Views */,
+				219593EF2471C48300937D59 /* Protocols */,
+				219593F72471C48300937D59 /* PasscodeLockViewController.swift */,
+			);
+			path = PasscodeLock;
+			sourceTree = "<group>";
+		};
+		219593E52471C48200937D59 /* PasscodeLock */ = {
+			isa = PBXGroup;
+			children = (
+				219593E92471C48200937D59 /* PasscodeLock.swift */,
+				219593EA2471C48200937D59 /* EnterPasscodeState.swift */,
+			);
+			path = PasscodeLock;
+			sourceTree = "<group>";
+		};
+		219593EB2471C48200937D59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				219593EC2471C48200937D59 /* PasscodeLockView.xib */,
+				219593ED2471C48200937D59 /* PasscodeSignButton.swift */,
+				219593EE2471C48300937D59 /* PasscodeSignPlaceholderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		219593EF2471C48300937D59 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				219593F02471C48300937D59 /* PasscodeLockType.swift */,
+				219593F12471C48300937D59 /* PasscodeLockConfigurationType.swift */,
+				219593F22471C48300937D59 /* PasscodeRepositoryType.swift */,
+				219593F32471C48300937D59 /* PasscodeLockStateType.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2195940A2471C5E100937D59 /* BorderCrossing */ = {
+			isa = PBXGroup;
+			children = (
+				0F949673246C6575003A75A0 /* CovidPassViewController.swift */,
+				2195940D2471E0CF00937D59 /* CovidPassChallengeResultViewController.swift */,
+			);
+			path = BorderCrossing;
 			sourceTree = "<group>";
 		};
 		21B0F7EB2438AF5D00552491 /* Extensions */ = {
@@ -642,6 +732,7 @@
 			knownRegions = (
 				sk,
 				Base,
+				en,
 			);
 			mainGroup = 0F1181302416C70500213533;
 			productRefGroup = 0F11813A2416C70500213533 /* Products */;
@@ -672,6 +763,7 @@
 				C03E0A17242013CB00B3A204 /* Inter-LightItalic.otf in Resources */,
 				C03E0A03242013CB00B3A204 /* Inter-UI-Medium.otf in Resources */,
 				C03E0A13242013CB00B3A204 /* Inter.otf in Resources */,
+				219593F82471C48300937D59 /* PasscodeLock.strings in Resources */,
 				C03E09F5242013CB00B3A204 /* Inter-UI-Regular.otf in Resources */,
 				C03E09ED242013CB00B3A204 /* Poppins-LightItalic.otf in Resources */,
 				C03E09E8242013CB00B3A204 /* Poppins-Medium.otf in Resources */,
@@ -705,6 +797,7 @@
 				C03E09E5242013CB00B3A204 /* Poppins-ExtraLightItalic.otf in Resources */,
 				0F1181442416C70500213533 /* Main.storyboard in Resources */,
 				C03E09E3242013CB00B3A204 /* Poppins-ExtraLight.otf in Resources */,
+				219593FF2471C48300937D59 /* PasscodeLockView.xib in Resources */,
 				C03E09F1242013CB00B3A204 /* Poppins-Regular.otf in Resources */,
 				C03E09EF242013CB00B3A204 /* Poppins-Black.otf in Resources */,
 			);
@@ -840,12 +933,16 @@
 				0F015CA524461588004E80A1 /* hashids.c in Sources */,
 				0F149DE9246DF2FB004345E0 /* XCConfig.swift in Sources */,
 				2110EB36246B4DEB0007C8DA /* FaceCaptureCoordinator.swift in Sources */,
+				2195940E2471E0CF00937D59 /* CovidPassChallengeResultViewController.swift in Sources */,
 				C0F99629241FB387009C6BF5 /* ForeignDecisionViewController.swift in Sources */,
 				0F949676246C66D2003A75A0 /* StringExtensions.swift in Sources */,
 				0FF4F21B241AEF8100643297 /* HTTPRequest.swift in Sources */,
 				0FB533D7243F83DF00A70E62 /* RemoteConfig.swift in Sources */,
 				0FBA451A24218EB900816388 /* Disk.swift in Sources */,
 				0F149DEB246E12A0004345E0 /* Crypto.swift in Sources */,
+				2125E16C2472099600D3A526 /* NoRandomCheckViewController.swift in Sources */,
+				219594082471C48300937D59 /* PasscodeLockViewController.swift in Sources */,
+				219593F92471C48300937D59 /* Functions.swift in Sources */,
 				2110EB3C246B4E110007C8DA /* FaceIDCapture.swift in Sources */,
 				21B0F7ED2438AF7A00552491 /* General.swift in Sources */,
 				0F149DEF246EB0A2004345E0 /* LocationMonitoring.swift in Sources */,
@@ -853,23 +950,30 @@
 				2110EB3B246B4E110007C8DA /* FaceID.swift in Sources */,
 				0F6727C0241F2CDB00AD8C48 /* QuarantineViewController.swift in Sources */,
 				212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */,
+				219594032471C48300937D59 /* PasscodeLockConfigurationType.swift in Sources */,
 				21B0F8942439194100552491 /* UIStoryBoard.swift in Sources */,
 				0FBA451C24218EF100816388 /* Disk+Codable.swift in Sources */,
 				2110EB35246B4DEB0007C8DA /* FaceCaptureCompletedViewController.swift in Sources */,
 				0FBA45212421916B00816388 /* Disk+Helpers.swift in Sources */,
 				0F745773241D9A9D000546FA /* UserDefaultsKeys.swift in Sources */,
+				219594002471C48300937D59 /* PasscodeSignButton.swift in Sources */,
 				0FBA451F24218F2D00816388 /* Disk+InternalHelpers.swift in Sources */,
 				21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */,
 				0FCB4F0B2423B3D400389493 /* PrivacyViewController.swift in Sources */,
+				219594042471C48300937D59 /* PasscodeRepositoryType.swift in Sources */,
 				0F149DED246E23E4004345E0 /* Device.swift in Sources */,
+				219594052471C48300937D59 /* PasscodeLockStateType.swift in Sources */,
+				219593FD2471C48300937D59 /* PasscodeLock.swift in Sources */,
 				C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */,
 				2110EB39246B4DEB0007C8DA /* FaceIDUseCase.swift in Sources */,
 				0FBA45232421919200816388 /* Disk+Errors.swift in Sources */,
+				219594022471C48300937D59 /* PasscodeLockType.swift in Sources */,
 				C009157C241EF7610012F557 /* AddressConfirmationViewController.swift in Sources */,
 				0FF4F21E241AEFBC00643297 /* CovidService.swift in Sources */,
 				21B0F85B2438D0AA00552491 /* NotificationCenterObserver.swift in Sources */,
 				0F4A292C2457BB48003274B0 /* DateExtensions.swift in Sources */,
 				0FB533D5243F82F500A70E62 /* NCZIService.swift in Sources */,
+				219594012471C48300937D59 /* PasscodeSignPlaceholderView.swift in Sources */,
 				0FF4F224241AF61600643297 /* APIRequests.swift in Sources */,
 				2110EB3F246B4E110007C8DA /* FaceIDValidator.swift in Sources */,
 				0F1181412416C70500213533 /* MainViewController.swift in Sources */,
@@ -880,6 +984,7 @@
 				0F949674246C6575003A75A0 /* CovidPassViewController.swift in Sources */,
 				0F015CC22449B376004E80A1 /* AboutViewController.swift in Sources */,
 				0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */,
+				219593FE2471C48300937D59 /* EnterPasscodeState.swift in Sources */,
 				0FF4F220241AF21200643297 /* APIResponses.swift in Sources */,
 				0F11813D2416C70500213533 /* AppDelegate.swift in Sources */,
 			);
@@ -926,6 +1031,14 @@
 				21591AEC2439E2C000495263 /* sk */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		219593E22471C48200937D59 /* PasscodeLock.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				219593E32471C48200937D59 /* en */,
+			);
+			name = PasscodeLock.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1055,9 +1168,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 192;
+				DEVELOPMENT_TEAM = SJNG272QAP;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1083,10 +1196,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Distribution: Narodne centrum zdravotnickych informacii (SJNG272QAP)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 192;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SJNG272QAP;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1095,8 +1208,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.ekarantena;
 				PRODUCT_NAME = "Covid-19_SR";
-				PROVISIONING_PROFILE_SPECIFIER = "Covid AppStore";
+				PROVISIONING_PROFILE_SPECIFIER = "eKarantena Adhoc";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

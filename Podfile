@@ -16,7 +16,10 @@ target 'Covid' do
   pod 'Firebase/Crashlytics'#, '6.21.0'
   pod 'Firebase/RemoteConfig'#, '6.21.0'
   pod 'Firebase/Messaging'#, '4.3.0'
+  pod 'Firebase/DynamicLinks'#, '4.0.8'
 
-  pod 'dot', '2.14.5'
+  pod 'SwiftOTP', '2.0.0'
+
+  pod 'dot', '2.14.2'
 
 end
