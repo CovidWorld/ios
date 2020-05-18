@@ -34,8 +34,8 @@ final class ForeignDecisionViewController: ViewController {
 
     @IBAction private func didTapConfirm(_ sender: Any) {
         presentingViewController?.dismiss(animated: true) {
-            if let controller = (UIApplication.shared.delegate as? AppDelegate)?.visibleViewController() {
-                controller.performSegue(.startQuarantineFlow)
+            if let controller = (UIApplication.shared.delegate as? AppDelegate)?.visibleViewController() as? MainViewController {
+                controller.showQuarantineRegistration()
             }
         }
     }

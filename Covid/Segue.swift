@@ -33,7 +33,6 @@ import UIKit
 
 enum Segue: String {
     case quarantineVerifyNumber
-    case startQuarantineFlow = "initQuarantine"
     case foreignAlert
     case searchAddress = "search"
     case phoneNumberVerification = "verification"

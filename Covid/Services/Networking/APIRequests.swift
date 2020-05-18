@@ -48,12 +48,26 @@ struct RegisterProfileRequestData: Codable {
 struct BasicRequestData: Codable {
     let deviceId: String
     let profileId: Int
-//    let covidPass: String
+    let covidPass: String
 
-    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId/*, covidPass: String? = Defaults.covidPass*/) {
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, covidPass: String? = Defaults.covidPass) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
-//        self.covidPass = covidPass ?? ""
+        self.covidPass = covidPass ?? ""
+    }
+}
+
+struct ProfileNonceRequestData: Codable {
+    let deviceId: String
+    let profileId: Int
+    let covidPass: String
+    let nonce: String
+
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, covidPass: String? = Defaults.covidPass, nonce: String) {
+        self.deviceId = deviceId
+        self.profileId = profileId ?? 0
+        self.covidPass = covidPass ?? ""
+        self.nonce = nonce
     }
 }
 

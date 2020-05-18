@@ -72,14 +72,6 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         }
 
         tabBarController?.view.backgroundColor = view.backgroundColor
-
-        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { (result) in
-            switch result {
-            case .success(let data):
-                print(data)
-            case .failure: break
-            }
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -87,7 +79,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
         quarantineView?.isHidden = !Defaults.quarantineActive
         statsView?.isHidden = Defaults.quarantineActive
-        diagnosedButton?.isHidden = Defaults.quarantineActive
+        diagnosedButton?.isHidden = !(Defaults.covidPass?.isEmpty ?? true)
         navigationController?.isNavigationBarHidden = true
         showWelcomeScreenIfNeeded()
 
@@ -127,6 +119,15 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         diagnosedButton.titleLabel?.textAlignment = .center
     }
 
+    func showQuarantineRegistration() {
+        guard let importantViewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
+
+        importantViewController.onContinue = {
+            importantViewController.performSegue(withIdentifier: "showCountryCode", sender: nil)
+        }
+        navigationController?.pushViewController(importantViewController, animated: true)
+    }
+
     // MARK: Welcome screen
 
     private func showWelcomeScreenIfNeeded() {
@@ -164,12 +165,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     }
 
     @IBAction private func didTapQuarantine(_ sender: Any) {
-        guard let importantViewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
-
-        importantViewController.onContinue = {
-            importantViewController.performSegue(withIdentifier: "showCountryCode", sender: nil)
-        }
-        navigationController?.pushViewController(importantViewController, animated: true)
+        showQuarantineRegistration()
     }
 
     @IBAction private func emergencyDidTap(_ sender: Any) {
@@ -262,13 +258,27 @@ extension MainViewController {
     }
 
     private func finishProfileRegistration(_ completion: @escaping () -> Void) {
-        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { (result) in
+        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { [weak self] (result) in
             switch result {
-            case .success(let data):
-                // TODO: update profile and complete onboarding
-                print(data)
-                DispatchQueue.main.async {
-                    completion()
+            case .success:
+                self?.observer?.dispose()
+                self?.observer = Defaults.observe(\.noncePush) { update in
+                    // TODO: !
+                    guard let nonce = update.newValue! else {
+                        completion()
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self?.networkService.updateUserProfileNonce(profileRequestData: ProfileNonceRequestData(nonce: nonce)) { (result) in
+                            switch result {
+                            case .success:
+                                DispatchQueue.main.async {
+                                    completion()
+                                }
+                            case .failure: break
+                            }
+                        }
+                    }
                 }
             case .failure: break
             }

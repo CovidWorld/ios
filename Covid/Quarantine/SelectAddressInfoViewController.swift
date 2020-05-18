@@ -88,13 +88,13 @@ final class SelectAddressInfoViewController: ViewController {
     }
 
     private func checkAccess() {
-        checkCameraAccess() { [weak self] result in
+        checkCameraAccess { [weak self] result in
 
             DispatchQueue.main.async {
                 self?.permissions.camera = result
                 self?.cameraAccessLabel.text = result.text
                 self?.cameraAccessLabel.textColor = result.color
-                self?.checkLocationAccess() { result in
+                self?.checkLocationAccess { result in
                     self?.permissions.location = result
                     self?.locationAccessLabel.text = result.text
                     self?.locationAccessLabel.textColor = result.color
@@ -111,10 +111,12 @@ final class SelectAddressInfoViewController: ViewController {
             completion(.ok)
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { success in
-                if success {
-                    completion(.ok)
-                } else {
-                    completion(.error)
+                DispatchQueue.main.async {
+                    if success {
+                        completion(.ok)
+                    } else {
+                        completion(.error)
+                    }
                 }
             }
         @unknown default:

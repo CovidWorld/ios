@@ -91,23 +91,30 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        var completion: UIBackgroundFetchResult = .noData
+
+        if (userInfo["type"] as? String) == "PUSH_NONCE", let nonce = userInfo["Nonce"] as? String {
+            Defaults.noncePush = nonce
+            completion = .newData
+        }
+
         if application.applicationState == .active {
-            var message: String?
             if let aps = userInfo["aps"] as? NSDictionary {
                 if let alert = aps["alert"] as? NSDictionary {
+                    var message: String?
                     if let alertMessage = alert["body"] as? String {
                         message = alertMessage
                     }
+                    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+                    let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
+                    alertController.addAction(cancelAction)
+
+                    window?.rootViewController?.present(alertController, animated: true, completion: nil)
+                    completion = .newData
                 }
             }
-
-            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
-            alertController.addAction(cancelAction)
-
-            window?.rootViewController?.present(alertController, animated: true, completion: nil)
         }
-        completionHandler(.noData)
+        completionHandler(completion)
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

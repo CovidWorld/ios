@@ -42,6 +42,7 @@ extension DefaultsKeys {
     var tempPhoneNumber: DefaultsKey<String?> { .init("tempPhoneNumber") }
     var covidPass: DefaultsKey<String?> { .init("covidPass") }
     var QPass: DefaultsKey<String?> { .init("QPass") }
+    var noncePush: DefaultsKey<String?> { .init("noncePush") }
 
     var quarantineLatitude: DefaultsKey<Double?> { .init("quarantineLatitude") }
     var quarantineLongitude: DefaultsKey<Double?> { .init("quarantineLongitude") }

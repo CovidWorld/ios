@@ -66,11 +66,11 @@ final class QuarantineViewController: ViewController {
 
 extension QuarantineViewController {
     private func updateQuarantineStatus() {
-        networkService.requestQuarantineStatus(quarantineRequestData: BasicRequestData()) { [weak self] (result) in
+        networkService.requestQuarantine(quarantineRequestData: BasicRequestData()) { [weak self] (result) in
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
-                    self?.quarantineData = response
+//                    self?.quarantineData = response
                 }
             case .failure: break
             }

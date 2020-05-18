@@ -82,13 +82,22 @@ extension NetworkServiceEndpoint {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
-        request.allHTTPHeaderFields = headers
         request.cachePolicy = cachePolicy
+        var allHeaders = headers
+        let body = httpBody
 
         let methodsWithHttpBody: [HTTPRequest.Method] = [.POST, .PUT, .PATCH]
         if methodsWithHttpBody.contains(method) {
-            request.httpBody = httpBody
+            request.httpBody = body
+            allHeaders["X-Signature"] = "\((try? Crypto.publicKey()) ?? ""):\((try? Crypto.sign(data: body)) ?? "")"
+        } else if method == .GET {
+            if let query = components?.query {
+                let data = "?\(query)".data(using: .utf8)
+                allHeaders["X-Signature"] = "\((try? Crypto.publicKey()) ?? ""):\((try? Crypto.sign(data: data)) ?? "")"
+            }
         }
+
+        request.allHTTPHeaderFields = allHeaders
 
         return request
     }
