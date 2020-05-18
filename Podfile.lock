@@ -1,6 +1,7 @@
 PODS:
-  - dot (2.14.5):
-    - iface (= 3.8.1)
+  - CryptoSwift (1.3.1)
+  - dot (2.14.2):
+    - iface (~> 3.8.1)
   - Firebase/Analytics (6.24.0):
     - Firebase/Core
   - Firebase/Core (6.24.0):
@@ -11,6 +12,9 @@ PODS:
   - Firebase/Crashlytics (6.24.0):
     - Firebase/CoreOnly
     - FirebaseCrashlytics (~> 4.1.0)
+  - Firebase/DynamicLinks (6.24.0):
+    - Firebase/CoreOnly
+    - FirebaseDynamicLinks (~> 4.0.8)
   - Firebase/Messaging (6.24.0):
     - Firebase/CoreOnly
     - FirebaseMessaging (~> 4.4.0)
@@ -51,6 +55,9 @@ PODS:
     - GoogleDataTransportCCTSupport (~> 3.1)
     - nanopb (~> 1.30905.0)
     - PromisesObjC (~> 1.2)
+  - FirebaseDynamicLinks (4.0.8):
+    - FirebaseAnalyticsInterop (~> 1.3)
+    - FirebaseCore (~> 6.2)
   - FirebaseInstallations (1.2.0):
     - FirebaseCore (~> 6.6)
     - GoogleUtilities/Environment (~> 6.6)
@@ -117,22 +124,27 @@ PODS:
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.4)
   - ReachabilitySwift (5.0.0)
+  - SwiftOTP (2.0.0):
+    - CryptoSwift (>= 1.0.0)
   - SwiftyUserDefaults (5.0.0)
   - "UILabel+Copyable (2.0)"
 
 DEPENDENCIES:
-  - dot (= 2.14.5)
+  - dot (= 2.14.2)
   - Firebase/Analytics
   - Firebase/Crashlytics
+  - Firebase/DynamicLinks
   - Firebase/Messaging
   - Firebase/RemoteConfig
   - JWTDecode (~> 2.4)
   - ReachabilitySwift (= 5.0.0)
+  - SwiftOTP (= 2.0.0)
   - SwiftyUserDefaults (= 5.0.0)
   - "UILabel+Copyable (~> 2.0)"
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - CryptoSwift
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -141,6 +153,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
     - FirebaseCrashlytics
+    - FirebaseDynamicLinks
     - FirebaseInstallations
     - FirebaseInstanceID
     - FirebaseMessaging
@@ -154,6 +167,7 @@ SPEC REPOS:
     - PromisesObjC
     - Protobuf
     - ReachabilitySwift
+    - SwiftOTP
     - SwiftyUserDefaults
     - "UILabel+Copyable"
   https://github.com/innovatrics/innovatrics-podspecs:
@@ -161,7 +175,8 @@ SPEC REPOS:
     - iface
 
 SPEC CHECKSUMS:
-  dot: 45ce81e97cbb43ed9cd1ea0f26ed473769fc7ed7
+  CryptoSwift: f12f037f6d0fcd6d48c96db0071b653de64e6c4d
+  dot: 20df3ef7e26864a7b04c216607cb683a5089d196
   Firebase: b28e55c60efd98963cd9011fe2fac5a10c2ba124
   FirebaseABTesting: 821a3a3e4a145987e80fee3657c4de1cb9adf693
   FirebaseAnalytics: 7386fc2176e3f93ad8ef34b5b1f2b33a891e4962
@@ -170,6 +185,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 4a773a47bd83bbd5a9b1ccf1ce7caa8b2d535e67
   FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
   FirebaseCrashlytics: fff345f16a07f0b23cb342d8de5a42cec6de3492
+  FirebaseDynamicLinks: 417dc6dbb6013233c77558290d73296f429656a6
   FirebaseInstallations: 2119fb3e46b0a88bfdbf12562f855ee3252462fa
   FirebaseInstanceID: cef67c4967c7cecb56ea65d8acbb4834825c587b
   FirebaseMessaging: 58cb17277641a0084d98d4951ba1f1fb0588c8c6
@@ -184,9 +200,10 @@ SPEC CHECKSUMS:
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SwiftOTP: f5e4df69cd4d1642e4bb3cb9e12bf6e9669ea164
   SwiftyUserDefaults: 33fcb42bd1feb53a37d873feb62c82967db5f7f6
   "UILabel+Copyable": 9ccc55680d6f8162568906654ae4d26782175300
 
-PODFILE CHECKSUM: b4ad67dfac5e2882d0f544f1a6a6826dc754d7a8
+PODFILE CHECKSUM: 33b5f6ab562a9e66087ddf5ac76b628aea3a8b03
 
 COCOAPODS: 1.9.1

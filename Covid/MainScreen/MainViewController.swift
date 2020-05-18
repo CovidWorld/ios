@@ -220,6 +220,10 @@ extension MainViewController {
                 self?.showFaceRegistration(in: navigationController, completion: completion)
             }
         }
+
+        observeNotification(withName: .startRandomCheck) { [weak self] _ in
+            self?.startRandomCheck()
+        }
     }
 
     private func showFaceRegistration(in navigationController: UINavigationController, completion: @escaping () -> Void) {
@@ -242,7 +246,10 @@ extension MainViewController {
         }
 
         let cameraAccess = AVCaptureDevice.authorizationStatus(for: .video) == .authorized
-        let locationAccess = CLLocationManager.locationServicesEnabled() && (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse)
+        let authorizationStatus = CLLocationManager.authorizationStatus()
+        let isAuthorized = authorizationStatus == .authorizedAlways || authorizationStatus == .authorizedWhenInUse
+        let locationAccess = CLLocationManager.locationServicesEnabled() && isAuthorized
+
         if cameraAccess && locationAccess {
             faceCaptureCoordinator?.showOnboarding(in: navigationController)
         } else {
@@ -260,25 +267,47 @@ extension MainViewController {
             case .success(let data):
                 // TODO: update profile and complete onboarding
                 print(data)
-                completion()
+                DispatchQueue.main.async {
+                    completion()
+                }
             case .failure: break
             }
         }
     }
 
-    private func showFaceVerification() {
+    private func showFaceVerification(in navigationController: UINavigationController) {
+        guard faceCaptureCoordinator == nil else {
+            print("face coordinator is active, skipping..")
+            return
+        }
+
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
         let viewController = faceCaptureCoordinator!.startFaceCapture()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
         faceCaptureCoordinator?.navigationController = navigationController
 
         faceCaptureCoordinator?.onAlert = { alertControler in
             navigationController.present(alertControler, animated: true, completion: nil)
         }
-        faceCaptureCoordinator?.onCoordinatorResolution = { _ in
+        faceCaptureCoordinator?.onCoordinatorResolution = { result in
+            // TODO: Notify server about the result from the random check
             navigationController.dismiss(animated: true, completion: nil)
         }
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func startRandomCheck() {
+        guard FaceIDStorage().referenceFaceData != nil else {
+            print("Face template is missing. Random check can't start.")
+            return
+        }
+        guard let viewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
+
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        viewController.onContinue = { [weak self] in
+            self?.showFaceVerification(in: navigationController)
+        }
+
         present(navigationController, animated: true, completion: nil)
     }
 }

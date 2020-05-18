@@ -32,7 +32,8 @@ import Foundation
 import UIKit
 
 extension Notification.Name {
-    static let startFaceIDRegistration = Notification.Name("com.covid.startFaceIDRegistration")
+    static let startFaceIDRegistration = Notification.Name("sk.nczi.ekarantena.startFaceIDRegistration")
+    static let startRandomCheck = Notification.Name("sk.nczi.ekarantena.randomCheck")
 }
 
 struct StartFaceIDRegistrationNotification {

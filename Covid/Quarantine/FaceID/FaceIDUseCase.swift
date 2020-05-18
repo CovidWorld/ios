@@ -34,13 +34,15 @@ import UIKit
 enum FaceIDUseCase {
     case registerFace
     case verifyFace
+    case borderCrossing
 
     var title: String {
         switch self {
         case .registerFace:
             return "Odfotiť tvár"
-        case .verifyFace:
-            return "Indentifikujte sa tvárou"
+        case .verifyFace,
+             .borderCrossing:
+            return "Identifikujte sa tvárou"
         }
     }
 
@@ -57,16 +59,22 @@ enum FaceIDUseCase {
         case .verifyFace where didSuccess:
             return """
             Dodržiavajte naďalej dôsledne domácu
-            karanténu. Zabránite tak šíreniu vírusu
+            izoláciu. Zabránite tak šíreniu vírusu
             COVID-19.
             """
         case .verifyFace where didSuccess == false:
             return """
-            Nepodarilo sa dokončiť proces zadania karentény. Ak si želáte, môžete neskôr proces zopakovať z hlavného menu.
+            Nepodarilo sa dokončiť proces overenia prostredníctvom biometrie. Ak si želáte, môžete neskôr proces zopakovať z hlavného menu.
+            """
+        case .borderCrossing where didSuccess == true:
+            return ""
+        case .borderCrossing where didSuccess == false:
+            return """
+            Nepodarilo sa dokončiť proces overenia prostredníctvom biometrie.
             """
         default:
             return """
-            Dodržiavajte dôsledne domácu karanténu.
+            Dodržiavajte dôsledne domácu izoláciu.
             Zabránite tak šíreniu vírusu COVID-19.
             """
         }
@@ -76,7 +84,8 @@ enum FaceIDUseCase {
         switch self {
         case .registerFace:
             return UIColor(red: 80.0 / 255.0, green: 88.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
-        case .verifyFace:
+        case .verifyFace,
+             .borderCrossing:
             return UIColor(red: 41.0 / 255.0, green: 192.0 / 255.0, blue: 154.0 / 255.0, alpha: 1.0)
         }
     }
@@ -87,7 +96,8 @@ enum FaceIDUseCase {
         switch self {
         case .registerFace:
             return #imageLiteral(resourceName: "ic_check-green")
-        case.verifyFace:
+        case.verifyFace,
+            .borderCrossing:
             return #imageLiteral(resourceName: "ic_check-grey")
         }
     }

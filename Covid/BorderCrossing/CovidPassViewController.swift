@@ -32,15 +32,40 @@ import UIKit
 import UILabel_Copyable
 import SwiftyUserDefaults
 
+extension CovidPassViewController: HasStoryBoardIdentifier {
+    static let storyboardIdentifier = "CovidPassViewController"
+}
+
 final class CovidPassViewController: ViewController {
     @IBOutlet private var idLabel: UILabel!
     @IBOutlet private var qrCodeImageView: UIImageView!
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let covidPass = Defaults.covidPass
+        // TODO: remove mock data
+        let covidPass: String? =  "C45 - 34 - 92 - 111" //Defaults.covidPass
+
         idLabel.text = covidPass
         qrCodeImageView.image = covidPass?.barCodeImage
+    }
+
+    @IBAction private func onNext(_ sender: Any) {
+        let viewController = PasscodeLockViewController()
+        navigationController?.pushViewController(viewController, animated: true)
+        viewController.successCallback = { [weak self] passcodeString in
+            if let passCode = Int64(passcodeString) {
+                self?.showResult(for: passCode)
+            }
+        }
+    }
+
+    private func showResult(for passCode: Int64) {
+        guard let resultViewController = UIStoryboard.controller(ofType: CovidPassChallengeResultViewController.self) else {
+            return
+        }
+        resultViewController.code = passCode
+
+        navigationController?.pushViewController(resultViewController, animated: true)
     }
 
     override func loadView() {

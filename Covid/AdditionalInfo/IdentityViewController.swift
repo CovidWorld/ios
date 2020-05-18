@@ -34,9 +34,13 @@ import SwiftyUserDefaults
 final class IdentityViewController: ViewController {
     @IBOutlet private var uploadDataView: UIView!
 
+    private var faceCaptureCoordinator: FaceCaptureCoordinator?
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         uploadDataView.isHidden = Defaults.covidPass == nil
+        uploadDataView.layer.cornerRadius = 20
+        uploadDataView.layer.masksToBounds = true
 
         navigationController?.navigationBar.isHidden = true
     }
@@ -52,4 +56,47 @@ final class IdentityViewController: ViewController {
         uploadDataView.layer.cornerRadius = 20
         uploadDataView.layer.masksToBounds = true
     }
+
+    @IBAction private func showCovidPass(_ sender: Any) {
+        showFaceVerification()
+    }
+
+    private func showCovidPass(in navigationController: UINavigationController) {
+        guard let viewController = UIStoryboard.controller(ofType: CovidPassViewController.self) else {
+            return
+        }
+
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+// MARK: Border crossing
+extension IdentityViewController {
+
+    private func showFaceVerification() {
+        faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .borderCrossing)
+        let viewController = faceCaptureCoordinator!.startFaceCapture()
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        faceCaptureCoordinator?.navigationController = navigationController
+
+        faceCaptureCoordinator?.onAlert = { alertControler in
+            navigationController.present(alertControler, animated: true, completion: nil)
+        }
+        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self ] result in
+
+            switch result {
+            case .success(let isSuccess):
+                if isSuccess {
+                    self?.showCovidPass(in: navigationController)
+                    return
+                }
+            case .failure:
+                break
+            }
+            navigationController.dismiss(animated: true, completion: nil)
+        }
+        present(navigationController, animated: true, completion: nil)
+    }
+
 }
