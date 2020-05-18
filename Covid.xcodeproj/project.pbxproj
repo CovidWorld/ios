@@ -1210,7 +1210,7 @@
 				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.ekarantena;
 				PRODUCT_NAME = "Covid-19_SR";
-				PROVISIONING_PROFILE_SPECIFIER = "eKarantena Adhoc";
+				PROVISIONING_PROFILE_SPECIFIER = "eKarantena AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "Covid/AdditionalInfo/Covid-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
