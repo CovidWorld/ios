@@ -39,14 +39,15 @@ final class LocationReporter {
 
     private init() { }
 
-    func reportExit(distance: CLLocationDistance) {
-        guard Defaults.quarantineActive else { return }
+    @discardableResult
+    func reportExit(distance: CLLocationDistance) -> Bool {
+        guard Defaults.quarantineActive, Firebase.remoteDoubleValue(for: .desiredPositionAccuracy) < distance else { return false }
 
         let quarantineLocationPeriodMinutes = Firebase.remoteDoubleValue(for: .quarantineLocationPeriodMinutes)
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastQuarantineUpdate ?? 0
 
-        guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return }
+        guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return false }
 
         let message = Firebase.remoteStringValue(for: .quarantineLeftMessage)
 
@@ -71,60 +72,14 @@ final class LocationReporter {
             UNUserNotificationCenter.current().add(request)
         }
 
-//        sendAreaExitAtLocation(location)
+        sendAreaExit(distance)
+        return true
     }
 
-    func reportLocation(_ location: CLLocation) {
-        guard
-            let quarantineLatitude = Defaults.quarantineLatitude,
-            let quarantineLongitude = Defaults.quarantineLongitude,
-            Defaults.quarantineActive
-            else { return }
-
-        let quarantineLocationPeriodMinutes = Firebase.remoteDoubleValue(for: .quarantineLocationPeriodMinutes)
-        let currentTimestamp = Date().timeIntervalSince1970
-        let lastTimestamp = Defaults.lastQuarantineUpdate ?? 0
-
-        guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return }
-
-        let quarantineLocation = CLLocation(latitude: quarantineLatitude, longitude: quarantineLongitude)
-
-        let distance = Firebase.remoteDoubleValue(for: .desiredPositionAccuracy)
-        let treshold = max(location.horizontalAccuracy * 2, distance)
-        let message = Firebase.remoteStringValue(for: .quarantineLeftMessage)
-
-        Defaults.lastQuarantineUpdate = currentTimestamp
-
-        if quarantineLocation.distance(from: location) > treshold {
-            if UIApplication.shared.applicationState == .active {
-                let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
-                alertController.addAction(cancelAction)
-
-                UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
-            } else {
-                let content = UNMutableNotificationContent()
-                content.title = "Upozornenie"
-                content.body = message
-                content.sound = .default
-                content.categoryIdentifier = "Quarantine"
-
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-                let request = UNNotificationRequest(identifier: "Quarantine", content: content, trigger: trigger)
-
-                UNUserNotificationCenter.current().add(request)
-            }
-
-            sendAreaExitAtLocation(location)
-        }
-    }
-
-    private func sendAreaExitAtLocation(_ location: CLLocation) {
+    private func sendAreaExit(_ distance: CLLocationDistance) {
         guard Firebase.remoteBoolValue(for: .reportQuarantineExit) else { return }
 
-        let data = AreaExitRequestData(latitude: location.coordinate.latitude,
-                                       longitude: location.coordinate.longitude,
-                                       accuracy: Int(location.horizontalAccuracy))
+        let data = AreaExitRequestData(severity: Int(distance))
         networkService.requestAreaExit(areaExitRequestData: data) { _ in }
     }
 }

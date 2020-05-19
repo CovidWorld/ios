@@ -88,7 +88,7 @@ extension FaceCaptureCoordinator {
         let controller = faceIdCapture.createController { [weak self] (resolution) in
             self?.processFaceCaptureResolution(resolution)
         }
-        controller.navigationItem.hidesBackButton = true
+
         controller.title = useCase.title
         step = .faceCapture
 

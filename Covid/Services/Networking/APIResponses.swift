@@ -36,9 +36,25 @@ struct RegisterProfileResponseData: Codable {
 }
 
 struct QuarantineStatusResponseData: Codable {
-    let isInQuarantine: Bool
-    let quarantineBeginning: Date?
+    let covidPass: String?
+    let quarantineStart: Date?
     let quarantineEnd: Date?
+    let address: QuarantineAddress?
+    let borderCrossedAt: Date?
+}
+
+struct QuarantineAddress: Codable {
+    let latitude: Double?
+    let longitude: Double?
+    let country: String?
+    let city: String?
+    let zipCode: String?
+    let streetName: String?
+    let streetNumber: String?
+}
+
+struct NonceResponseData: Codable {
+    let nonce: String
 }
 
 struct StatsResponseData: Codable {

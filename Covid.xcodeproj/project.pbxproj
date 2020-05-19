@@ -163,13 +163,12 @@
 		0F247F05241A61AC00986740 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F247F07241A63F000986740 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		0F4A292B2457BB48003274B0 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
-		0F62927F241D4F4700FF5E14 /* LocationTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTracker.swift; sourceTree = "<group>"; };
-		0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManagerHandler.swift; sourceTree = "<group>"; };
 		0F6727BF241F2CDB00AD8C48 /* QuarantineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuarantineViewController.swift; sourceTree = "<group>"; };
 		0F74576F241D9342000546FA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F745772241D9A9D000546FA /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		0F949673246C6575003A75A0 /* CovidPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPassViewController.swift; sourceTree = "<group>"; };
 		0F949675246C66D2003A75A0 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		0F9E3AE624735EFC007D243A /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
 		0FB533D4243F82F500A70E62 /* NCZIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCZIService.swift; sourceTree = "<group>"; };
 		0FB533D6243F83DF00A70E62 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		0FBA4517242183EE00816388 /* LocationReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReporter.swift; sourceTree = "<group>"; };
@@ -206,7 +205,6 @@
 		2189714E24369949009987EA /* FaceIDValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDValidator.swift; sourceTree = "<group>"; };
 		2189715024369980009987EA /* FaceIDStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDStorage.swift; sourceTree = "<group>"; };
 		2189715224369CE5009987EA /* FaceIDStepVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDStepVerifier.swift; sourceTree = "<group>"; };
-		219593E32471C48200937D59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
 		219593E42471C48200937D59 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		219593E92471C48200937D59 /* PasscodeLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLock.swift; sourceTree = "<group>"; };
 		219593EA2471C48200937D59 /* EnterPasscodeState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterPasscodeState.swift; sourceTree = "<group>"; };
@@ -367,8 +365,6 @@
 		0F62927C241D4C6C00FF5E14 /* LocationServices */ = {
 			isa = PBXGroup;
 			children = (
-				0F629281241D4F5A00FF5E14 /* LocationManagerHandler.swift */,
-				0F62927F241D4F4700FF5E14 /* LocationTracker.swift */,
 				0FBA4517242183EE00816388 /* LocationReporter.swift */,
 				0F149DEE246EB0A2004345E0 /* LocationMonitoring.swift */,
 			);
@@ -1036,7 +1032,7 @@
 		219593E22471C48200937D59 /* PasscodeLock.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				219593E32471C48200937D59 /* en */,
+				0F9E3AE624735EFC007D243A /* sk */,
 			);
 			name = PasscodeLock.strings;
 			sourceTree = "<group>";
@@ -1169,7 +1165,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 192;
+				CURRENT_PROJECT_VERSION = 231;
 				DEVELOPMENT_TEAM = SJNG272QAP;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
@@ -1178,7 +1174,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.ekarantena;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1198,7 +1194,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 192;
+				CURRENT_PROJECT_VERSION = 231;
 				DEVELOPMENT_TEAM = SJNG272QAP;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
@@ -1207,7 +1203,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = sk.nczi.ekarantena;
 				PRODUCT_NAME = "Covid-19_SR";
 				PROVISIONING_PROFILE_SPECIFIER = "eKarantena AppStore";

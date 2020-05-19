@@ -32,6 +32,7 @@ import Foundation
 import UIKit
 import SwiftOTP
 import UILabel_Copyable
+import SwiftyUserDefaults
 
 extension CovidPassChallengeResultViewController: HasStoryBoardIdentifier {
     static let storyboardIdentifier = "CovidPassChallengeResultViewController"
@@ -50,9 +51,8 @@ final class CovidPassChallengeResultViewController: ViewController {
         nextButton.layer.cornerRadius = 20
         nextButton.layer.masksToBounds = true
 
-        if let code = code {
-            // TODO: remove mock data
-            let data = "hzQQGQkuquVAZpuXLUpErEovepgODIGl".data(using: .utf8)!
+        if let code = code, let qPass = Defaults.QPass {
+            let data = qPass.data(using: .utf8)!
             let hotp = HOTP(secret: data, digits: 6, algorithm: .sha256)!
             let counter = UInt64(code)
             let challenge = hotp.generate(counter: counter)
@@ -67,7 +67,7 @@ final class CovidPassChallengeResultViewController: ViewController {
     }
 
     @IBAction private func onNext(_ sender: Any) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
 
 }

@@ -42,22 +42,76 @@ final class LocationMonitoring: NSObject {
         super.init()
 
         manager.delegate = self
+        if Defaults.quarantineActive {
+            if CLLocationManager.authorizationStatus() == .authorizedAlways ||
+                CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                manager.startUpdatingLocation()
+            } else {
+                manager.requestAlwaysAuthorization()
+            }
+        }
     }
 
     class func monitorLocationIfNeeded() {
-        // TODO: apply rules
-        // TODO: remove mock data
-        let coordinate = CLLocationCoordinate2D(latitude: 48.145842, longitude: 17.126651)
-        LocationMonitoring.shared.setQurantineRegion(center: coordinate,
-                                                     radius: Firebase.remoteDoubleValue(for: .desiredPositionAccuracy))
+        if Defaults.quarantineActive {
+            guard let latitude = Defaults.quarantineLatitude,
+                let longitude = Defaults.quarantineLongitude else {
+                    // TODO: nieco tu nesedi
+                    return
+            }
+            LocationMonitoring.shared.verifyQuarantinePresence()
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            LocationMonitoring.shared.setQurantineRegion(center: coordinate,
+                                                         radius: Firebase.remoteDoubleValue(for: .desiredPositionAccuracy))
+        } else {
+            LocationMonitoring.shared.removeQuarantineRegion()
+        }
     }
 
-    private func setQurantineRegion(center: CLLocationCoordinate2D, radius: CLLocationDistance) {
-        if let region = manager.monitoredRegions.first(where: {$0.identifier == LocationMonitoring.quarantineRegionIdentifier}) {
-            manager.stopMonitoring(for: region)
+    @discardableResult
+    func verifyQuarantinePresence() -> Bool {
+        if Defaults.quarantineActive {
+            guard let latitude = Defaults.quarantineLatitude,
+                let longitude = Defaults.quarantineLongitude else {
+                    return false
+            }
+            let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+            let distance = manager.location?.distance(from: coordinate.location) ?? Double.greatestFiniteMagnitude
+            return !LocationReporter.shared.reportExit(distance: distance)
         }
+        return true
+    }
 
+    func didEnterBackground() {
+        if Defaults.quarantineActive {
+            if CLLocationManager.authorizationStatus() == .authorizedAlways ||
+                CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                manager.stopUpdatingLocation()
+                manager.startMonitoringSignificantLocationChanges()
+            }
+        } else {
+            manager.stopUpdatingLocation()
+            manager.stopMonitoringSignificantLocationChanges()
+        }
+    }
+
+    func didBecomeActive() {
+        if Defaults.quarantineActive {
+            if CLLocationManager.authorizationStatus() == .authorizedAlways ||
+                CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                manager.startUpdatingLocation()
+                manager.stopMonitoringSignificantLocationChanges()
+            }
+        }
+    }
+}
+
+// MARK: Private
+extension LocationMonitoring {
+    private func setQurantineRegion(center: CLLocationCoordinate2D, radius: CLLocationDistance) {
         if CLLocationManager.isMonitoringAvailable(for: CLCircularRegion.self) {
+            removeQuarantineRegion()
             let accuracy = min(manager.maximumRegionMonitoringDistance, Firebase.remoteDoubleValue(for: .desiredPositionAccuracy))
             let region = CLCircularRegion(center: center,
                                           radius: accuracy,
@@ -68,6 +122,12 @@ final class LocationMonitoring: NSObject {
             manager.startMonitoring(for: region)
         }
         // TODO: error
+    }
+
+    private func removeQuarantineRegion() {
+        if let region = manager.monitoredRegions.first(where: {$0.identifier == LocationMonitoring.quarantineRegionIdentifier}) {
+            manager.stopMonitoring(for: region)
+        }
     }
 }
 
@@ -80,6 +140,20 @@ extension LocationMonitoring: CLLocationManagerDelegate {
         if let region = region as? CLCircularRegion {
             let distance = manager.location?.distance(from: region.center.location)
             LocationReporter.shared.reportExit(distance: distance ?? 0)
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        verifyQuarantinePresence()
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if Defaults.quarantineActive {
+            if CLLocationManager.authorizationStatus() == .authorizedAlways ||
+                CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+                manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                manager.startUpdatingLocation()
+            }
         }
     }
 }

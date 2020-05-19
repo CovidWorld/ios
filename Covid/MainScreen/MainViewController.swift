@@ -44,7 +44,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     @IBOutlet private var protectView: UIView!
     @IBOutlet private var symptomesView: UIView!
     @IBOutlet private var emergencyButton: UIButton!
-    @IBOutlet private var diagnosedButton: UIButton!
+    @IBOutlet private var actionButton: UIButton!
     @IBOutlet private var quarantineView: UIView!
     @IBOutlet private var statsView: UIView!
 
@@ -77,20 +77,17 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        quarantineView?.isHidden = !Defaults.quarantineActive
-        statsView?.isHidden = Defaults.quarantineActive
-        diagnosedButton?.isHidden = !(Defaults.covidPass?.isEmpty ?? true)
-        navigationController?.isNavigationBarHidden = true
+        let showQuarantine = Defaults.quarantineActive || (Defaults.covidPass != nil && (Defaults.quarantineEnd ?? Date(timeIntervalSinceNow: 10)) > Date() )
+        updateView(showQuarantine: showQuarantine)
+
         showWelcomeScreenIfNeeded()
 
-        quarantineObserver = Defaults.observe(\.quarantineActive) { [quarantineView, diagnosedButton, statsView] update in
+        quarantineObserver = Defaults.observe(\.quarantineActive) { [weak self] update in
             DispatchQueue.main.async {
-                quarantineView?.isHidden = !(update.newValue ?? true)
-                statsView?.isHidden = update.newValue ?? false
-                diagnosedButton?.isHidden = update.newValue ?? false
+                let showQuarantine = (update.newValue ?? false) || (Defaults.covidPass != nil && (Defaults.quarantineEnd ?? Date(timeIntervalSinceNow: 10)) > Date() )
+                self?.updateView(showQuarantine: showQuarantine)
             }
         }
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,10 +110,10 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         protectView.layer.masksToBounds = true
         emergencyButton.layer.cornerRadius = 20
         emergencyButton.layer.masksToBounds = true
-        diagnosedButton.layer.cornerRadius = 20
-        diagnosedButton.layer.masksToBounds = true
+        actionButton.layer.cornerRadius = 20
+        actionButton.layer.masksToBounds = true
 
-        diagnosedButton.titleLabel?.textAlignment = .center
+        actionButton.titleLabel?.textAlignment = .center
     }
 
     func showQuarantineRegistration() {
@@ -165,7 +162,11 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     }
 
     @IBAction private func didTapQuarantine(_ sender: Any) {
-        showQuarantineRegistration()
+        if Defaults.quarantineActive {
+            startRandomCheck()
+        } else {
+            showQuarantineRegistration()
+        }
     }
 
     @IBAction private func emergencyDidTap(_ sender: Any) {
@@ -177,6 +178,19 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
 // MARK: - Private
 extension MainViewController {
+    private func updateView(showQuarantine: Bool) {
+        quarantineView?.isHidden = !showQuarantine
+        statsView?.isHidden = showQuarantine
+        actionButton?.isHidden = Defaults.covidPass != nil && Defaults.quarantineStart == nil
+        navigationController?.isNavigationBarHidden = true
+        if Defaults.covidPass == nil {
+            actionButton.setTitle("Bol som v zahraničí alebo\nmusím zostať v karanténe", for: .normal)
+            actionButton.backgroundColor = UIColor(red: 80.0 / 255.0, green: 88.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
+        } else if Defaults.quarantineStart != nil {
+            actionButton.setTitle("Overiť sa v mieste karantény", for: .normal)
+            actionButton.backgroundColor = UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 195.0 / 255.0, alpha: 1.0)
+        }
+    }
 
     private func registerUser() {
         let action = { [weak self] in
@@ -263,12 +277,11 @@ extension MainViewController {
             case .success:
                 self?.observer?.dispose()
                 self?.observer = Defaults.observe(\.noncePush) { update in
-                    // TODO: !
-                    guard let nonce = update.newValue! else {
-                        completion()
-                        return
-                    }
                     DispatchQueue.main.async {
+                        guard let nonceValue = update.newValue, let nonce = nonceValue  else {
+                            completion()
+                            return
+                        }
                         self?.networkService.updateUserProfileNonce(profileRequestData: ProfileNonceRequestData(nonce: nonce)) { (result) in
                             switch result {
                             case .success:
@@ -283,6 +296,7 @@ extension MainViewController {
             case .failure: break
             }
         }
+        // TODO: failure
     }
 
     private func showFaceVerification(in navigationController: UINavigationController) {
@@ -298,9 +312,37 @@ extension MainViewController {
         faceCaptureCoordinator?.onAlert = { alertControler in
             navigationController.present(alertControler, animated: true, completion: nil)
         }
-        faceCaptureCoordinator?.onCoordinatorResolution = { result in
-            // TODO: Notify server about the result from the random check
-            navigationController.dismiss(animated: true, completion: nil)
+        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] faceResult in
+            switch faceResult {
+            case .success(let success):
+                if success {
+                    let locationCheck = LocationMonitoring.shared.verifyQuarantinePresence()
+                    self?.networkService.requestNonce(nonceRequestData: BasicRequestData()) { [weak self] (result) in
+                        switch result {
+                        case .success(let data):
+                            var status = "LEFT"
+                            if locationCheck {
+                                status = "OK"
+                            }
+                            self?.networkService.requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData(status: status, nonce: data.nonce)) { (_) in
+                                switch result {
+                                case .success: break
+                                case .failure: break
+                                }
+                            }
+                        case .failure: break
+                        }
+                        // TODO: failure
+                    }
+                } else {
+
+                }
+            case .failure: break
+            }
+            DispatchQueue.main.async {
+                navigationController.dismiss(animated: true, completion: nil)
+            }
+
         }
         navigationController.pushViewController(viewController, animated: true)
     }

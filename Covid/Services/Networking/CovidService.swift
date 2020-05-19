@@ -44,14 +44,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
         request(.profileUpdateNonce(profileRequestData: profileRequestData)) { (response) in
             switch response {
             case .success(let data, _):
-                // TODO: do we get some data here?
                 completion(.success(data))
-//                do {
-//                    let response = try JSONDecoder().decode(RegisterProfileResponseData.self, from: data)
-//                    completion(.success(response))
-//                } catch let error {
-//                    completion(.failure(error))
-//                }
             case .failure(let error, _):
                 completion(.failure(error))
             }
@@ -69,20 +62,45 @@ final class CovidService: NetworkService<CovidEndpoint> {
         }
     }
 
-    // TODO: nonce response
-    func requestNonce(nonceRequestData: BasicRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+    func requestNonce(nonceRequestData: BasicRequestData, completion: @escaping (Result<NonceResponseData, Error>) -> Void) {
         request(.nonce(nonceRequestData: nonceRequestData)) { (response) in
             switch response {
             case .success(let data, _):
-                completion(.success(data))
+                do {
+                    let response = try JSONDecoder().decode(NonceResponseData.self, from: data)
+                    completion(.success(response))
+                } catch let error {
+                    completion(.failure(error))
+                }
             case .failure(let error, _):
                 completion(.failure(error))
             }
         }
     }
 
-    func requestQuarantine(quarantineRequestData: BasicRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+    func requestQuarantine(quarantineRequestData: BasicRequestData, completion: @escaping (Result<QuarantineStatusResponseData, Error>) -> Void) {
         request(.quarantine(quarantineRequestData: quarantineRequestData)) { (response) in
+            switch response {
+            case .success(let data, _):
+                do {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
+
+                    let response = try decoder.decode(QuarantineStatusResponseData.self, from: data)
+                    completion(.success(response))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            case .failure( let error, _):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func requestAreaExit(areaExitRequestData: AreaExitRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+        request(.areaExit(areaExitRequestData: areaExitRequestData)) { (response) in
             switch response {
             case .success(let data, _):
                 completion(.success(data))
@@ -91,30 +109,20 @@ final class CovidService: NetworkService<CovidEndpoint> {
             }
         }
     }
-//
-//    func requestQuarantineStatus(quarantineRequestData: BasicRequestData, completion: @escaping (Result<QuarantineStatusResponseData, Error>) -> Void) {
-////        request(.quarantineStatus(quarantineRequestData: quarantineRequestData)) { (response) in
-////            switch response {
-////            case .success(let data, _):
-////                do {
-////                    let dateFormatter = DateFormatter()
-////                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-////                    let decoder = JSONDecoder()
-////                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
-////
-////                    let response = try decoder.decode(QuarantineStatusResponseData.self, from: data)
-////                    completion(.success(response))
-////                } catch let error {
-////                    completion(.failure(error))
-////                }
-////            case .failure( let error, _):
-////                completion(.failure(error))
-////            }
-////        }
-//    }
 
-    func requestAreaExit(areaExitRequestData: AreaExitRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
-        request(.areaExit(areaExitRequestData: areaExitRequestData)) { (response) in
+    func requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+        request(.presenceCheck(presenceCheckRequestData: presenceCheckRequestData)) { (response) in
+            switch response {
+            case .success(let data, _):
+                completion(.success(data))
+            case .failure(let error, _):
+                completion(.failure(error))
+            }
+        }
+    }
+
+    func requestHeartBeat(heartBeatRequestData: BasicRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+        request(.heartBeat(heartBeatRequestData: heartBeatRequestData)) { (response) in
             switch response {
             case .success(let data, _):
                 completion(.success(data))
@@ -133,15 +141,17 @@ enum CovidEndpoint: NetworkServiceEndpoint {
     case nonce(nonceRequestData: BasicRequestData)
     case quarantine(quarantineRequestData: BasicRequestData)
     case areaExit(areaExitRequestData: AreaExitRequestData)
+    case presenceCheck(presenceCheckRequestData: PresenceCheckRequestData)
+    case heartBeat(heartBeatRequestData: BasicRequestData)
 
     static var serverDomain: String = "https://corona-quarantine.azurewebsites.net" //{ Firebase.remoteStringValue(for: .apiHost) }()
     var serverScript: String { "/api" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }
     var method: HTTPRequest.Method {
         switch self {
-        case .profileUpdateNonce:
+        case .profileUpdateNonce, .presenceCheck:
             return .PUT
-        case .profileRegister, .noncePush, .nonce, .areaExit:
+        case .profileRegister, .noncePush, .nonce, .areaExit, .heartBeat:
             return .POST
         case .quarantine:
             return .GET
@@ -167,6 +177,10 @@ enum CovidEndpoint: NetworkServiceEndpoint {
             return "quarantine"
         case .areaExit:
             return "areaexit"
+        case .presenceCheck:
+            return "presencecheck"
+        case .heartBeat:
+            return "heartbeat"
         }
     }
 
@@ -184,6 +198,10 @@ enum CovidEndpoint: NetworkServiceEndpoint {
             return quarantineRequestData.dictionary
         case .areaExit(let areaExitRequestData):
             return areaExitRequestData.dictionary
+        case .presenceCheck(let presenceCheckRequestData):
+            return presenceCheckRequestData.dictionary
+        case .heartBeat(let heartBeatRequestData):
+        return heartBeatRequestData.dictionary
         }
     }
 }

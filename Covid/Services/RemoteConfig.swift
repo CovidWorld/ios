@@ -73,7 +73,7 @@ enum RemoteConfigKey: String, CaseIterable {
         case .iBeaconLocationAccuracy: return NSNumber(value: -1)
         case .hotlines: return NSDictionary(dictionary: ["SK": "0800221234"])
         case .reportQuarantineLocation: return NSNumber(value: false)
-        case .reportQuarantineExit: return NSNumber(value: false)
+        case .reportQuarantineExit: return NSNumber(value: true)
         case .reporting: return NSNumber(value: false)
         case .active: return NSNumber(value: true)
         }

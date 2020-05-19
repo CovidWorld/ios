@@ -42,8 +42,7 @@ final class CovidPassViewController: ViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // TODO: remove mock data
-        let covidPass: String? =  "C45 - 34 - 92 - 111" //Defaults.covidPass
+        let covidPass = Defaults.covidPass
 
         idLabel.text = covidPass
         qrCodeImageView.image = covidPass?.barCodeImage

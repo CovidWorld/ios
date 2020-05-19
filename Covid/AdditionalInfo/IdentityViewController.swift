@@ -76,14 +76,21 @@ extension IdentityViewController {
     private func showFaceVerification() {
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .borderCrossing)
         let viewController = faceCaptureCoordinator!.startFaceCapture()
-        let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
+        let navigationController: UINavigationController
+        if let navi = self.navigationController {
+            navigationController = navi
+        } else {
+            navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            viewController.navigationItem.hidesBackButton = true
+        }
+
         faceCaptureCoordinator?.navigationController = navigationController
 
         faceCaptureCoordinator?.onAlert = { alertControler in
             navigationController.present(alertControler, animated: true, completion: nil)
         }
-        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self ] result in
+        faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
 
             switch result {
             case .success(let isSuccess):
@@ -96,7 +103,10 @@ extension IdentityViewController {
             }
             navigationController.dismiss(animated: true, completion: nil)
         }
-        present(navigationController, animated: true, completion: nil)
+        if self.navigationController != nil {
+            navigationController.pushViewController(viewController, animated: true)
+        } else {
+            present(navigationController, animated: true, completion: nil)
+        }
     }
-
 }

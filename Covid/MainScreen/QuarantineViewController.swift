@@ -31,21 +31,35 @@
 import UIKit
 import SwiftyUserDefaults
 
+extension Notification.Name {
+    static let updateQuarantine = Notification.Name("sk.nczi.ekarantena.updateQuarantine")
+}
+
 final class QuarantineViewController: ViewController {
     @IBOutlet private var addressLabel: UILabel!
     @IBOutlet private var quarantineUntilLabel: UILabel!
+    @IBOutlet private var countdownNoticeLabel: UILabel!
 
     private let networkService = CovidService()
 
     private var quarantineData: QuarantineStatusResponseData? {
         didSet {
-            Defaults.quarantineActive = quarantineData?.isInQuarantine ?? false
-            if Defaults.quarantineActive {
-                Defaults.quarantineStart = quarantineData?.quarantineBeginning
-                Defaults.quarantineEnd = quarantineData?.quarantineEnd
+            if let start = quarantineData?.quarantineStart,
+                let end = quarantineData?.quarantineEnd {
+                Defaults.quarantineActive = (start < Date() && end > Date())
             } else {
-                Defaults.quarantineStart = nil
-                Defaults.quarantineEnd = nil
+                Defaults.quarantineActive = false
+            }
+            Defaults.quarantineStart = quarantineData?.quarantineStart
+            Defaults.quarantineEnd = quarantineData?.quarantineEnd
+            Defaults.borderCrossedAt = quarantineData?.borderCrossedAt
+
+            if let address = quarantineData?.address {
+                Defaults.quarantineCity = address.city
+                Defaults.quarantineStreet = address.streetName
+                Defaults.quarantineStreetNumber = address.streetNumber
+                Defaults.quarantineLatitude = address.latitude
+                Defaults.quarantineLongitude = address.longitude
             }
 
             DispatchQueue.main.async {
@@ -59,8 +73,18 @@ final class QuarantineViewController: ViewController {
 
         guard Defaults.profileId != nil else { return }
 
+        NotificationCenter.default.addObserver(forName: .updateQuarantine, object: nil, queue: nil) { [weak self] (_) in
+            self?.updateQuarantineStatus()
+        }
+
         updateView()
         updateQuarantineStatus()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+        NotificationCenter.default.removeObserver(self, name: .updateQuarantine, object: nil)
     }
 }
 
@@ -70,33 +94,29 @@ extension QuarantineViewController {
             switch result {
             case .success(let response):
                 DispatchQueue.main.async {
-//                    self?.quarantineData = response
+                    self?.quarantineData = response
                 }
             case .failure: break
             }
         }
     }
 
-    private func updateTracking() {
-        // TODO: update
-        if Defaults.quarantineActive {
-//            LocationTracker.shared.startLocationTracking()
-        } else {
-//            LocationTracker.shared.stopLocationTracking()
-        }
-    }
-
     private func updateView() {
-        if let endDate = Defaults.quarantineEnd {
+        if let endDate = Defaults.quarantineEnd, Defaults.quarantineActive == true {
             let days = Int(abs(((endDate.timeIntervalSince1970 - Date().timeIntervalSince1970) / 86400).rounded(.awayFromZero))) + 1
             quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
+            quarantineUntilLabel.textColor = UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
+        } else if Defaults.covidPass != nil && Defaults.quarantineStart == nil {
+            quarantineUntilLabel.text = "Odpočet nebol zahájený"
+            quarantineUntilLabel.textColor = UIColor(red: 241.0 / 255.0, green: 160.0 / 255.0, blue: 106.0 / 255.0, alpha: 1.0)
         } else {
             quarantineUntilLabel.text = nil
         }
 
         addressLabel.text = "\(Defaults.quarantineStreet ?? "") \(Defaults.quarantineStreetNumber ?? "")\n\(Defaults.quarantineCity ?? "")"
 
-        updateTracking()
+        countdownNoticeLabel.isHidden = Defaults.borderCrossedAt != nil
+        LocationMonitoring.monitorLocationIfNeeded()
     }
 
     private static func daysToString(_ numberOfDays: Int) -> String {

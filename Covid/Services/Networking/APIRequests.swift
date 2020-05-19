@@ -90,18 +90,30 @@ struct QuarantineRequestData: Codable {
 struct AreaExitRequestData: Codable {
     let deviceId: String
     let profileId: Int
-    let latitude: Double
-    let longitude: Double
-    let accuracy: Int
+    let severity: Int
     let recordTimestamp: Int
 
-    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, latitude: Double, longitude: Double, accuracy: Int) {
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, severity: Int) {
         self.deviceId = deviceId
         self.profileId = profileId ?? 0
-        self.latitude = latitude
-        self.longitude = longitude
-        self.accuracy = accuracy
+        self.severity = severity
         self.recordTimestamp = Int(Date().timeIntervalSince1970)
+    }
+}
+
+struct PresenceCheckRequestData: Codable {
+    let deviceId: String
+    let profileId: Int
+    let covidPass: String
+    let status: String
+    let nonce: String
+
+    init(deviceId: String = Defaults.deviceId, profileId: Int? = Defaults.profileId, covidPass: String? = Defaults.covidPass, status: String, nonce: String) {
+        self.deviceId = deviceId
+        self.profileId = profileId ?? 0
+        self.covidPass = covidPass ?? ""
+        self.status = status
+        self.nonce = nonce
     }
 }
 

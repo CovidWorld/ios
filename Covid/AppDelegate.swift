@@ -42,7 +42,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var remoteConfig: RemoteConfig?
-    var backgroundTaskID: UIBackgroundTaskIdentifier?
+
+    private let networkService = CovidService()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
@@ -62,10 +63,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
         LocationMonitoring.monitorLocationIfNeeded()
 
-        if launchOptions?.keys.contains(.location) ?? false {
-            // register locationManager delegate to handle location updates
-            _ = LocationMonitoring.shared
-        }
+        // register locationManager delegate to handle location updates
+        _ = LocationMonitoring.shared
 
         application.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
         return true
@@ -73,11 +72,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if Defaults.quarantineActive {
-
-            // TODO: heartbeat
-
-            completionHandler(.newData)
-            return
+            LocationMonitoring.shared.verifyQuarantinePresence()
+            networkService.requestHeartBeat(heartBeatRequestData: BasicRequestData()) { (_) in
+                completionHandler(.newData)
+            }
         }
         completionHandler(.noData)
     }
@@ -92,6 +90,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         var completion: UIBackgroundFetchResult = .noData
+
+        NotificationCenter.default.post(name: .updateQuarantine, object: nil, userInfo: userInfo)
+
+        LocationMonitoring.shared.verifyQuarantinePresence()
 
         if (userInfo["type"] as? String) == "PUSH_NONCE", let nonce = userInfo["Nonce"] as? String {
             Defaults.noncePush = nonce
@@ -119,6 +121,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         setupFirebaseConfig()
+        LocationMonitoring.shared.didBecomeActive()
+    }
+
+    func applicationWillResignActive(_ application: UIApplication) {
+        LocationMonitoring.shared.didEnterBackground()
     }
 
     func visibleViewController(_ rootViewController: UIViewController? = nil) -> UIViewController? {

@@ -46,6 +46,7 @@ final class FaceCaptureCompletedViewController: UIViewController {
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var actionButton: UIButton!
     @IBOutlet private weak var iconView: UIImageView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
     static func show(using presentationBlock: @escaping (FaceCaptureCompletedViewController) -> Void, onCompletion: @escaping () -> Void) {
         if let viewController = UIStoryboard.controller(ofType: Self.self) {
@@ -70,6 +71,8 @@ final class FaceCaptureCompletedViewController: UIViewController {
     }
 
     @IBAction private func faceCaptureCompleted(_ sender: Any) {
+        actionButton.isEnabled = false
+        activityIndicator.startAnimating()
         onCompletion?()
     }
 }

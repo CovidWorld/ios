@@ -50,6 +50,7 @@ extension DefaultsKeys {
     var quarantineStreetNumber: DefaultsKey<String?> { .init("quarantineStreetNumber") }
     var quarantineCity: DefaultsKey<String?> { .init("quarantineCity") }
 
+    var borderCrossedAt: DefaultsKey<Date?> { .init("borderCrossedAt") }
     var quarantineStart: DefaultsKey<Date?> { .init("quarantineStart") }
     var quarantineEnd: DefaultsKey<Date?> { .init("quarantineEnd") }
     var quarantineActive: DefaultsKey<Bool> { .init("quarantineActive", defaultValue: false) }

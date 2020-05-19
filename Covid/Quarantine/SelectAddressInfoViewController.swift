@@ -128,7 +128,7 @@ final class SelectAddressInfoViewController: ViewController {
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined:
-                locationManager.requestWhenInUseAuthorization()
+                locationManager.requestAlwaysAuthorization()
             // netreba completion, zavola sa didBecomeActive
             case .restricted, .denied:
                 completion(.error)
