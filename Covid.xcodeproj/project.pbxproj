@@ -26,6 +26,7 @@
 		0F8DFE2A246BF554004EA0D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F74576F241D9342000546FA /* GoogleService-Info.plist */; };
 		0F949674246C6575003A75A0 /* CovidPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F949673246C6575003A75A0 /* CovidPassViewController.swift */; };
 		0F949676246C66D2003A75A0 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F949675246C66D2003A75A0 /* StringExtensions.swift */; };
+		0F9E3AE82474431B007D243A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E3AE72474431B007D243A /* Alert.swift */; };
 		0FB533D5243F82F500A70E62 /* NCZIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB533D4243F82F500A70E62 /* NCZIService.swift */; };
 		0FB533D7243F83DF00A70E62 /* RemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB533D6243F83DF00A70E62 /* RemoteConfig.swift */; };
 		0FBA4518242183EE00816388 /* LocationReporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBA4517242183EE00816388 /* LocationReporter.swift */; };
@@ -169,6 +170,7 @@
 		0F949673246C6575003A75A0 /* CovidPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPassViewController.swift; sourceTree = "<group>"; };
 		0F949675246C66D2003A75A0 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		0F9E3AE624735EFC007D243A /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
+		0F9E3AE72474431B007D243A /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		0FB533D4243F82F500A70E62 /* NCZIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NCZIService.swift; sourceTree = "<group>"; };
 		0FB533D6243F83DF00A70E62 /* RemoteConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfig.swift; sourceTree = "<group>"; };
 		0FBA4517242183EE00816388 /* LocationReporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationReporter.swift; sourceTree = "<group>"; };
@@ -966,6 +968,7 @@
 				219594022471C48300937D59 /* PasscodeLockType.swift in Sources */,
 				C009157C241EF7610012F557 /* AddressConfirmationViewController.swift in Sources */,
 				0FF4F21E241AEFBC00643297 /* CovidService.swift in Sources */,
+				0F9E3AE82474431B007D243A /* Alert.swift in Sources */,
 				21B0F85B2438D0AA00552491 /* NotificationCenterObserver.swift in Sources */,
 				0F4A292C2457BB48003274B0 /* DateExtensions.swift in Sources */,
 				0FB533D5243F82F500A70E62 /* NCZIService.swift in Sources */,
@@ -1165,7 +1168,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 231;
+				CURRENT_PROJECT_VERSION = 232;
 				DEVELOPMENT_TEAM = SJNG272QAP;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;
@@ -1194,7 +1197,7 @@
 				CODE_SIGN_ENTITLEMENTS = Covid/Covid.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 231;
+				CURRENT_PROJECT_VERSION = 232;
 				DEVELOPMENT_TEAM = SJNG272QAP;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Covid/Resources/Info.plist;

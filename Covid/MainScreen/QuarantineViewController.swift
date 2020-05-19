@@ -55,11 +55,11 @@ final class QuarantineViewController: ViewController {
             Defaults.borderCrossedAt = quarantineData?.borderCrossedAt
 
             if let address = quarantineData?.address {
-                Defaults.quarantineCity = address.city
-                Defaults.quarantineStreet = address.streetName
-                Defaults.quarantineStreetNumber = address.streetNumber
-                Defaults.quarantineLatitude = address.latitude
-                Defaults.quarantineLongitude = address.longitude
+                Defaults.quarantineCity = address.city != nil ? address.city : Defaults.quarantineCity
+                Defaults.quarantineStreet = address.streetName != nil ? address.streetName : Defaults.quarantineStreet
+                Defaults.quarantineStreetNumber = address.streetNumber != nil ? address.streetNumber : Defaults.quarantineStreetNumber
+                Defaults.quarantineLatitude = address.latitude != nil ? address.latitude : Defaults.quarantineLatitude
+                Defaults.quarantineLongitude = address.longitude != nil ? address.longitude : Defaults.quarantineLongitude
             }
 
             DispatchQueue.main.async {
@@ -103,7 +103,7 @@ extension QuarantineViewController {
 
     private func updateView() {
         if let endDate = Defaults.quarantineEnd, Defaults.quarantineActive == true {
-            let days = Int(abs(((endDate.timeIntervalSince1970 - Date().timeIntervalSince1970) / 86400).rounded(.awayFromZero))) + 1
+            let days = Int(abs(((endDate.timeIntervalSince1970 - Date().timeIntervalSince1970) / 86400).rounded(.awayFromZero)))
             quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
             quarantineUntilLabel.textColor = UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
         } else if Defaults.covidPass != nil && Defaults.quarantineStart == nil {

@@ -195,12 +195,17 @@ extension MainViewController {
     private func registerUser() {
         let action = { [weak self] in
             let data = RegisterProfileRequestData()
-            self?.networkService.registerUserProfile(profileRequestData: data) { (result) in
+            self?.networkService.registerUserProfile(profileRequestData: data) { [weak self] (result) in
                 switch result {
                 case .success(let profile):
                     Defaults.profileId = profile.profileId
-                // TODO: registration failure
-                case .failure: break
+                case .failure:
+                    Alert.show(title: "Chyba",
+                               message: "Pri registrácií došlo k chybe",
+                               cancelTitle: "Zrušiť",
+                               defaultTitle: "Skúsiť znovu") { (_) in
+                                self?.registerUser()
+                    }
                 }
             }
         }
@@ -296,14 +301,23 @@ extension MainViewController {
             case .failure: break
             }
         }
-        // TODO: failure
+        Alert.show(title: "Chyba",
+                   message: "Pri registrácií došlo k chybe. Skúste znovu.",
+                   cancelTitle: "Zavrieť",
+                   defaultTitle: nil,
+                   cancelAction: { (_) in
+                        DispatchQueue.main.async {
+                            completion()
+                        }
+        })
     }
 
     private func showFaceVerification(in navigationController: UINavigationController) {
-        guard faceCaptureCoordinator == nil else {
-            print("face coordinator is active, skipping..")
-            return
-        }
+        // TODO: why?
+//        guard faceCaptureCoordinator == nil else {
+//            print("face coordinator is active, skipping..")
+//            return
+//        }
 
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
         let viewController = faceCaptureCoordinator!.startFaceCapture()
@@ -326,23 +340,30 @@ extension MainViewController {
                             }
                             self?.networkService.requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData(status: status, nonce: data.nonce)) { (_) in
                                 switch result {
-                                case .success: break
+                                case .success:
+                                    DispatchQueue.main.async {
+                                        self?.dismiss(animated: true, completion: nil)// navigationController.popToRootViewController(animated: true)
+                                    }
+                                    return
                                 case .failure: break
                                 }
                             }
                         case .failure: break
                         }
-                        // TODO: failure
                     }
-                } else {
-
                 }
             case .failure: break
             }
-            DispatchQueue.main.async {
-                navigationController.dismiss(animated: true, completion: nil)
-            }
 
+            Alert.show(title: "Chyba",
+                       message: "Pri overovaní dodržiavania karantény došlo k chybe. Skúste zopakovať overenie znovu.",
+                       cancelTitle: "Zavrieť",
+                       defaultTitle: nil,
+                       cancelAction: { (_) in
+                            DispatchQueue.main.async {
+                                self?.dismiss(animated: true, completion: nil)
+                            }
+            })
         }
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -355,7 +376,8 @@ extension MainViewController {
         guard let viewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
 
         let navigationController = UINavigationController(rootViewController: viewController)
-        navigationController.modalPresentationStyle = .fullScreen
+        // TODO: chceme?
+//        navigationController.modalPresentationStyle = .fullScreen
         viewController.onContinue = { [weak self] in
             self?.showFaceVerification(in: navigationController)
         }

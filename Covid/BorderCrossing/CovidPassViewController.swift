@@ -46,6 +46,10 @@ final class CovidPassViewController: ViewController {
 
         idLabel.text = covidPass
         qrCodeImageView.image = covidPass?.barCodeImage
+
+        if Defaults.borderCrossedAt != nil {
+            navigationItem.rightBarButtonItem = nil
+        }
     }
 
     @IBAction private func onNext(_ sender: Any) {
