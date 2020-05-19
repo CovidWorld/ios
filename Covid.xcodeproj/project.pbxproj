@@ -567,6 +567,7 @@
 				21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */,
 				21B0F8932439194100552491 /* UIStoryBoard.swift */,
 				0F949675246C66D2003A75A0 /* StringExtensions.swift */,
+				0F9E3AE72474431B007D243A /* Alert.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
