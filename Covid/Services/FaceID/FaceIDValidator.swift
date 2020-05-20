@@ -33,8 +33,6 @@ import DOT
 
 final class FaceIDValidator {
 
-    let faceValidationTreshold = 85
-
     enum FaceIDValidatorError: Error {
         case noReferenceFaceDataFound
         case noCaptureTemplateDataFound

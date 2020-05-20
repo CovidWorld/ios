@@ -54,7 +54,8 @@ final class FaceCaptureCoordinator {
     private(set) var step: FaceCaptureCoordinatorStep = .initialised
     private var retryVerifyCount = 0
     private var numberOfRetries = 1
-
+    private var coordinator: LivenessStepCoordinator?
+    
     deinit {
         debugPrint("deallocated")
     }
@@ -122,7 +123,7 @@ extension FaceCaptureCoordinator {
         switch result {
         case .success:
             debugPrint("verify: success")
-            completeFaceCapture(didSuccess: true)
+            startVerifying()
 
         case .failure(let error):
             switch error {
@@ -187,6 +188,76 @@ extension FaceCaptureCoordinator {
                 }, onCompletion: { [weak self] in
                     self?.onCoordinatorResolution?(.success(didSuccess))
             })
+        }
+    }
+}
+
+// MARK: Verification
+
+extension FaceCaptureCoordinator {
+
+    private func startVerifying() {
+        coordinator = LivenessStepCoordinator()
+        coordinator?.delegate = self
+        if let controller = coordinator?.createVerifyController(transitionType: .move) {
+            controller.title = useCase.verifyTitle
+            controller.navigationItem.hidesBackButton = true
+            navigationController?.pushViewController(controller, animated: false)
+            step = .faceVerification
+        }
+    }
+}
+
+extension FaceCaptureCoordinator: LivenessStepDelegate {
+
+    private func validateSegmentImages(_ segmentImages: [SegmentImage]) {
+        let result = faceIdValidator.validateSegmentImagesToReferenceTemplate(segmentImages)
+        switch result {
+        case .success:
+            print("verify: success")
+            completeFaceCapture(didSuccess: true)
+        default:
+            break
+        }
+    }
+
+    func liveness(_ step: LivenessStepCoordinator, didSucceed score: Float, capturedSegmentImages segmentImages: [SegmentImage]) {
+        debugPrint(#function)
+        validateSegmentImages(segmentImages)
+        step.stopVerifying()
+    }
+
+    func liveness(_ step: LivenessStepCoordinator, didFailed score: Float, capturedSegmentImages segmentImages: [SegmentImage]) {
+        debugPrint(#function)
+        livenessFailed(step)
+        step.stopVerifying()
+    }
+
+    func livenessdidFailedWithEyesNotDetected(_ step: LivenessStepCoordinator) {
+        debugPrint(#function)
+        livenessFailed(step)
+        step.stopVerifying()
+    }
+
+    func livenessFailed(_ step: LivenessStepCoordinator) {
+        switch useCase {
+        case .registerFace:
+            askToVerifyAgain { _ in
+                step.restartVerifying()
+            }
+
+        case .verifyFace:
+            guard retryVerifyCount < 1 else {
+                completeFaceCapture(didSuccess: false)
+                return
+            }
+
+            retryVerifyCount += 1
+            askToVerifyAgain { _ in
+                step.restartVerifying()
+            }
+        case .borderCrossing:
+            break
         }
     }
 }

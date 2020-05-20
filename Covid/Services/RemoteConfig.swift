@@ -51,6 +51,7 @@ enum RemoteConfigKey: String, CaseIterable {
     case reportQuarantineExit
     case reporting
     case active
+    case faceIDLivenessScoreThreshold
 
     var defaultValue: NSObject {
         switch self {
@@ -76,6 +77,7 @@ enum RemoteConfigKey: String, CaseIterable {
         case .reportQuarantineExit: return NSNumber(value: true)
         case .reporting: return NSNumber(value: false)
         case .active: return NSNumber(value: true)
+        case .faceIDLivenessScoreThreshold: return NSNumber(value: 0.9)
         }
     }
 }

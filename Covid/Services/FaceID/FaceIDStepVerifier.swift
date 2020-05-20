@@ -51,32 +51,18 @@ final class LivenessStepCoordinator {
         let configuration: LivenessConfiguration
         let style: LivenessCheckStyle
 
-        if transitionType == .move {
-            configuration = LivenessConfiguration(transitionType: transitionType) {
-                $0.segments = [
-                    DOTSegment(targetPosition: .bottomRight, duration: 500),
-                    DOTSegment(targetPosition: .bottomLeft, duration: 500),
-                    DOTSegment(targetPosition: .topRight, duration: 500),
-                    DOTSegment(targetPosition: .bottomRight, duration: 500),
-                    DOTSegment(targetPosition: .topLeft, duration: 500),
-                    DOTSegment(targetPosition: .bottomLeft, duration: 500)
-                ]
-                $0.minValidSegmentsCount = 5
-                $0.maxFaceSizeRatio = 0.5
-                $0.dotImage = #imageLiteral(resourceName: "ZZ-logo")
+        configuration = LivenessConfiguration(transitionType: transitionType) {
+            var segments: [DOTSegment]  = []
+            for _ in 0...7 {
+                guard let position = DOTSegment.DOTSegmentPosition(rawValue: Int.random(in: 0...3)) else { continue }
+                segments.append(DOTSegment(targetPosition: position, duration: 1000))
             }
-
-            style = .init()
-            style.background = .white
-
-        } else {
-            configuration = LivenessConfiguration(transitionType: transitionType) {
-                $0.minValidSegmentsCount = 5
-                $0.maxFaceSizeRatio = 0.5
-            }
-
-            style = .init()
+            $0.minValidSegmentsCount = 5
+            $0.maxFaceSizeRatio = 0.5
         }
+
+        style = .init()
+        style.background = .white
 
         let initialController = LivenessCheckController.create(configuration: configuration, style: style)
         initialController.delegate = self
@@ -106,7 +92,7 @@ extension LivenessStepCoordinator: LivenessCheckControllerDelegate {
         controller.restartTransitionView()
         controller.startLivenessCheck()
 
-        if score > 0.99 {
+        if score > Float(Firebase.remoteDoubleValue(for: .faceIDLivenessScoreThreshold)) {
             delegate?.liveness(self, didSucceed: score, capturedSegmentImages: segmentImagesList)
         } else {
             delegate?.liveness(self, didFailed: score, capturedSegmentImages: segmentImagesList)
@@ -114,7 +100,7 @@ extension LivenessStepCoordinator: LivenessCheckControllerDelegate {
     }
 
     func livenessCheck(_ controller: LivenessCheckController, stateChanged state: LivenessContextState) {
-        debugPrint(#function, state)
+        debugPrint(#function, state.rawValue)
         switch state {
         case .lost:
             failCount += 1

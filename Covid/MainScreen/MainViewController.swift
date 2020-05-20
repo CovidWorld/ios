@@ -243,6 +243,9 @@ extension MainViewController {
 
     private func showFaceRegistration(in navigationController: UINavigationController, completion: @escaping () -> Void) {
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .registerFace)
+        faceCaptureCoordinator?.onAlert = { alertControler in
+            navigationController.present(alertControler, animated: true, completion: nil)
+        }
         faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
             guard let self = self else { return }
 

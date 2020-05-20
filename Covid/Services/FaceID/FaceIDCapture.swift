@@ -50,6 +50,7 @@ final class FaceIDCapture {
         configuration.requestCropImage = true
         configuration.requestFullImage = true
         configuration.cameraPosition = .front
+        configuration.showCheckAnimation = false
         let controller = FaceCaptureController.create(configuration: configuration, style: .init())
         controller.delegate = self
         self.controller = controller
