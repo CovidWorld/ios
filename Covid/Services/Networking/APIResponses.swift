@@ -57,6 +57,10 @@ struct NonceResponseData: Codable {
     let nonce: String
 }
 
+struct PresenceCheckNeededResponseData: Codable {
+    let isPresenceCheckPending: Bool
+}
+
 struct StatsResponseData: Codable {
     enum CodingKeys: String, CodingKey {
         case totalRecovered = "recovered"

@@ -90,13 +90,18 @@ final class QuarantineViewController: ViewController {
 
 extension QuarantineViewController {
     private func updateQuarantineStatus() {
-        networkService.requestQuarantine(quarantineRequestData: BasicRequestData()) { [weak self] (result) in
-            switch result {
-            case .success(let response):
-                DispatchQueue.main.async {
-                    self?.quarantineData = response
+        if Defaults.covidPass != nil {
+            networkService.requestQuarantine(quarantineRequestData: BasicRequestData()) { [weak self] (result) in
+                switch result {
+                case .success(let response):
+                    DispatchQueue.main.async {
+                        self?.quarantineData = response
+                    }
+                case .failure(let error):
+                    if case NetworkServiceError.notConnected = error {
+                        Alert.show(title: "Chyba pripojenia", message: "Pre správnu funkčnosť aplikácie je nevyhnutné aktívne internetové pripojenie.")
+                    }
                 }
-            case .failure: break
             }
         }
     }
@@ -106,16 +111,15 @@ extension QuarantineViewController {
             let days = Int(abs(((endDate.timeIntervalSince1970 - Date().timeIntervalSince1970) / 86400).rounded(.awayFromZero)))
             quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
             quarantineUntilLabel.textColor = UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
-        } else if Defaults.covidPass != nil && Defaults.quarantineStart == nil {
+        } else if Defaults.covidPass != nil && (Defaults.quarantineStart == nil || Defaults.quarantineStart ?? Date() >= Date()) {
             quarantineUntilLabel.text = "Odpočet nebol zahájený"
             quarantineUntilLabel.textColor = UIColor(red: 241.0 / 255.0, green: 160.0 / 255.0, blue: 106.0 / 255.0, alpha: 1.0)
         } else {
             quarantineUntilLabel.text = nil
         }
-
+        countdownNoticeLabel.isHidden = Defaults.quarantineStart != nil
         addressLabel.text = "\(Defaults.quarantineStreet ?? "") \(Defaults.quarantineStreetNumber ?? "")\n\(Defaults.quarantineCity ?? "")"
 
-        countdownNoticeLabel.isHidden = Defaults.borderCrossedAt != nil
         LocationMonitoring.monitorLocationIfNeeded()
     }
 

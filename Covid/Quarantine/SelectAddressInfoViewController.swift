@@ -79,9 +79,9 @@ final class SelectAddressInfoViewController: ViewController {
 
     @IBAction private func didTapContinue(_ sender: Any) {
         if permissions.camera == .error {
-            presentSettings(message: "Camera access is denied")
+            presentSettings(message: "Prístup ku kamere nieje povolený. Pre správnu funkčnosť povoľte prístup ku kamere v nastaveniach.")
         } else if permissions.location == .error {
-            presentSettings(message: "Location access is denied")
+            presentSettings(message: "Prístup k GPS nieje povolený. Pre správnu funkčnosť povoľte prístup k GPS v nastaveniach.")
         } else {
             onContinue?()
         }
@@ -143,15 +143,17 @@ final class SelectAddressInfoViewController: ViewController {
     }
 
     private func presentSettings(message: String) {
-        let alertController = UIAlertController(title: "Error",
+        let alertController = UIAlertController(title: "Chyba",
                                                 message: message,
                                                 preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default))
-        alertController.addAction(UIAlertAction(title: "Settings", style: .cancel) { _ in
+        alertController.addAction(UIAlertAction(title: "Zrušiť", style: .cancel))
+        let defaultAction = UIAlertAction(title: "Nastavenia", style: .default) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url, options: [:])
             }
-        })
+        }
+        alertController.addAction(defaultAction)
+        alertController.preferredAction = defaultAction
 
         present(alertController, animated: true)
     }

@@ -163,7 +163,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
     @IBAction private func didTapQuarantine(_ sender: Any) {
         if Defaults.quarantineActive {
-            startRandomCheck()
+            startRandomCheck(showInfo: true)
         } else {
             showQuarantineRegistration()
         }
@@ -246,7 +246,6 @@ extension MainViewController {
         faceCaptureCoordinator?.onCoordinatorResolution = { [weak self] result in
             guard let self = self else { return }
 
-            // register for quarantine
             self.finishProfileRegistration { [weak self] in
                 switch result {
                 case .success:
@@ -287,29 +286,40 @@ extension MainViewController {
                             completion()
                             return
                         }
-                        self?.networkService.updateUserProfileNonce(profileRequestData: ProfileNonceRequestData(nonce: nonce)) { (result) in
+                        self?.networkService.updateUserProfileNonce(profileRequestData: BasicWithNonceRequestData(nonce: nonce)) { (result) in
                             switch result {
                             case .success:
                                 DispatchQueue.main.async {
                                     completion()
                                 }
-                            case .failure: break
+                                return
+                            case .failure:
+                                Alert.show(title: "Chyba",
+                                           message: "Pri registrácií došlo k chybe. Skúste znovu.",
+                                           cancelTitle: "Zavrieť",
+                                           defaultTitle: nil,
+                                           cancelAction: { (_) in
+                                                DispatchQueue.main.async {
+                                                    completion()
+                                                }
+                                })
                             }
                         }
                     }
                 }
+                return
             case .failure: break
             }
+            Alert.show(title: "Chyba",
+                       message: "Pri registrácií došlo k chybe. Skúste znovu.",
+                       cancelTitle: "Zavrieť",
+                       defaultTitle: nil,
+                       cancelAction: { (_) in
+                            DispatchQueue.main.async {
+                                completion()
+                            }
+            })
         }
-        Alert.show(title: "Chyba",
-                   message: "Pri registrácií došlo k chybe. Skúste znovu.",
-                   cancelTitle: "Zavrieť",
-                   defaultTitle: nil,
-                   cancelAction: { (_) in
-                        DispatchQueue.main.async {
-                            completion()
-                        }
-        })
     }
 
     private func showFaceVerification(in navigationController: UINavigationController) {
@@ -338,50 +348,79 @@ extension MainViewController {
                             if locationCheck {
                                 status = "OK"
                             }
-                            self?.networkService.requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData(status: status, nonce: data.nonce)) { (_) in
+                            self?.networkService.requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData(status: status, nonce: data.nonce)) { [weak self] (_) in
                                 switch result {
                                 case .success:
                                     DispatchQueue.main.async {
-                                        self?.dismiss(animated: true, completion: nil)// navigationController.popToRootViewController(animated: true)
+                                        self?.dismiss(animated: true, completion: nil)
                                     }
                                     return
-                                case .failure: break
+                                case .failure:
+                                    self?.onError()
                                 }
                             }
-                        case .failure: break
+                        case .failure:
+                            self?.onError()
                         }
                     }
                 }
-            case .failure: break
+            case .failure:
+                self?.onError()
             }
-
-            Alert.show(title: "Chyba",
-                       message: "Pri overovaní dodržiavania karantény došlo k chybe. Skúste zopakovať overenie znovu.",
-                       cancelTitle: "Zavrieť",
-                       defaultTitle: nil,
-                       cancelAction: { (_) in
-                            DispatchQueue.main.async {
-                                self?.dismiss(animated: true, completion: nil)
-                            }
-            })
         }
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func startRandomCheck() {
-        guard FaceIDStorage().referenceFaceData != nil else {
-            print("Face template is missing. Random check can't start.")
-            return
-        }
-        guard let viewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else { return }
+    func onError() {
+        Alert.show(title: "Chyba",
+                   message: "Pri overovaní dodržiavania karantény došlo k chybe. Skúste zopakovať overenie znovu.",
+                   cancelTitle: "Zavrieť",
+                   defaultTitle: nil,
+                   cancelAction: { (_) in
+                        DispatchQueue.main.async {
+                            self.dismiss(animated: true, completion: nil)
+                        }
+        })
+    }
 
-        let navigationController = UINavigationController(rootViewController: viewController)
-        // TODO: chceme?
-//        navigationController.modalPresentationStyle = .fullScreen
-        viewController.onContinue = { [weak self] in
-            self?.showFaceVerification(in: navigationController)
-        }
+    func startRandomCheck(showInfo: Bool = false) {
+        guard FaceIDStorage().referenceFaceData != nil, Defaults.quarantineActive else { return }
 
-        present(navigationController, animated: true, completion: nil)
+        actionButton.isEnabled = false
+        networkService.requestPresenceCheckNeeded(presenceNeededRequestData: BasicRequestData()) { [weak self] (result) in
+            switch result {
+            case .success(let data):
+                DispatchQueue.main.async {
+                    if data.isPresenceCheckPending {
+                        guard let viewController = UIStoryboard.controller(ofType: SelectAddressInfoViewController.self) else {
+                            assertionFailure("this controller should exist")
+                            return
+                        }
+
+                        let navigationController = UINavigationController(rootViewController: viewController)
+                        navigationController.modalPresentationStyle = .fullScreen
+                        viewController.onContinue = { [weak self] in
+                            self?.showFaceVerification(in: navigationController)
+                        }
+                        self?.present(navigationController, animated: true, completion: nil)
+                    } else if showInfo {
+                        guard let viewController = UIStoryboard.controller(ofType: NoRandomCheckViewController.self) else {
+                            assertionFailure("this controller should exist")
+                            return
+                        }
+
+                        let navigationController = UINavigationController(rootViewController: viewController)
+                        navigationController.modalPresentationStyle = .fullScreen
+                        self?.present(navigationController, animated: true, completion: nil)
+                    }
+                    self?.actionButton.isEnabled = true
+                }
+                return
+            case .failure: break
+            }
+            DispatchQueue.main.async {
+                self?.actionButton.isEnabled = true
+            }
+        }
     }
 }

@@ -47,7 +47,7 @@ final class CovidPassViewController: ViewController {
         idLabel.text = covidPass
         qrCodeImageView.image = covidPass?.barCodeImage
 
-        if Defaults.borderCrossedAt != nil {
+        if Defaults.quarantineStart != nil {
             navigationItem.rightBarButtonItem = nil
         }
     }

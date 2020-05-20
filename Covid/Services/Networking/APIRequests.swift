@@ -57,7 +57,7 @@ struct BasicRequestData: Codable {
     }
 }
 
-struct ProfileNonceRequestData: Codable {
+struct BasicWithNonceRequestData: Codable {
     let deviceId: String
     let profileId: Int
     let covidPass: String

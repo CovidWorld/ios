@@ -28,11 +28,12 @@ final class Alert {
             alert.preferredAction = action
         }
 
-        // show alert
-        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
-        alertWindow.rootViewController = UIViewController()
-        alertWindow.windowLevel = .alert + 1
-        alertWindow.makeKeyAndVisible()
-        alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+            alertWindow.rootViewController = UIViewController()
+            alertWindow.windowLevel = .alert + 1
+            alertWindow.makeKeyAndVisible()
+            alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
 }

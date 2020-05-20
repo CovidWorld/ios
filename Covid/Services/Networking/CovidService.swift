@@ -40,7 +40,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
         }
     }
 
-    func updateUserProfileNonce(profileRequestData: ProfileNonceRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+    func updateUserProfileNonce(profileRequestData: BasicWithNonceRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
         request(.profileUpdateNonce(profileRequestData: profileRequestData)) { (response) in
             switch response {
             case .success(let data, _):
@@ -110,6 +110,22 @@ final class CovidService: NetworkService<CovidEndpoint> {
         }
     }
 
+    func requestPresenceCheckNeeded(presenceNeededRequestData: BasicRequestData, completion: @escaping (Result<PresenceCheckNeededResponseData, Error>) -> Void) {
+        request(.presenceCheckNeeded(presenceNeededRequestData: presenceNeededRequestData)) { (response) in
+            switch response {
+            case .success(let data, _):
+                do {
+                    let response = try JSONDecoder().decode(PresenceCheckNeededResponseData.self, from: data)
+                    completion(.success(response))
+                } catch let error {
+                    completion(.failure(error))
+                }
+            case .failure(let error, _):
+                completion(.failure(error))
+            }
+        }
+    }
+
     func requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
         request(.presenceCheck(presenceCheckRequestData: presenceCheckRequestData)) { (response) in
             switch response {
@@ -121,7 +137,7 @@ final class CovidService: NetworkService<CovidEndpoint> {
         }
     }
 
-    func requestHeartBeat(heartBeatRequestData: BasicRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
+    func requestHeartBeat(heartBeatRequestData: BasicWithNonceRequestData, completion: @escaping (Result<Data, Error>) -> Void) {
         request(.heartBeat(heartBeatRequestData: heartBeatRequestData)) { (response) in
             switch response {
             case .success(let data, _):
@@ -136,15 +152,16 @@ final class CovidService: NetworkService<CovidEndpoint> {
 enum CovidEndpoint: NetworkServiceEndpoint {
 
     case profileRegister(profileRequestData: RegisterProfileRequestData)
-    case profileUpdateNonce(profileRequestData: ProfileNonceRequestData)
+    case profileUpdateNonce(profileRequestData: BasicWithNonceRequestData)
     case noncePush(nonceRequestData: BasicRequestData)
     case nonce(nonceRequestData: BasicRequestData)
     case quarantine(quarantineRequestData: BasicRequestData)
     case areaExit(areaExitRequestData: AreaExitRequestData)
+    case presenceCheckNeeded(presenceNeededRequestData: BasicRequestData)
     case presenceCheck(presenceCheckRequestData: PresenceCheckRequestData)
-    case heartBeat(heartBeatRequestData: BasicRequestData)
+    case heartBeat(heartBeatRequestData: BasicWithNonceRequestData)
 
-    static var serverDomain: String = "https://corona-quarantine.azurewebsites.net" //{ Firebase.remoteStringValue(for: .apiHost) }()
+    static var serverDomain: String = { "https://corona-quarantine.azurewebsites.net" }()//Firebase.remoteStringValue(for: .ekarantenaApiHost) }()
     var serverScript: String { "/api" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }
     var method: HTTPRequest.Method {
@@ -153,7 +170,7 @@ enum CovidEndpoint: NetworkServiceEndpoint {
             return .PUT
         case .profileRegister, .noncePush, .nonce, .areaExit, .heartBeat:
             return .POST
-        case .quarantine:
+        case .quarantine, .presenceCheckNeeded:
             return .GET
         }
     }
@@ -177,6 +194,8 @@ enum CovidEndpoint: NetworkServiceEndpoint {
             return "quarantine"
         case .areaExit:
             return "areaexit"
+        case .presenceCheckNeeded(let data):
+            return "presencecheck/\(data.covidPass)"
         case .presenceCheck:
             return "presencecheck"
         case .heartBeat:
@@ -198,6 +217,8 @@ enum CovidEndpoint: NetworkServiceEndpoint {
             return quarantineRequestData.dictionary
         case .areaExit(let areaExitRequestData):
             return areaExitRequestData.dictionary
+        case .presenceCheckNeeded(let presenceNeededRequestData):
+            return presenceNeededRequestData.dictionary
         case .presenceCheck(let presenceCheckRequestData):
             return presenceCheckRequestData.dictionary
         case .heartBeat(let heartBeatRequestData):
