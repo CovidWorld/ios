@@ -40,8 +40,8 @@ enum RemoteConfigKey: String, CaseIterable {
     case quarantineLocationPeriodMinutes
     case minConnectionDuration
     case mapStatsUrl
-    case apiHost
-    case ncziApiHost
+    case ekarantenaApiHost
+    case ekarantenaNcziApiHost
     case statsUrl
     case faceIDConfidenceThreshold
     case faceIDMatchThreshold
@@ -66,9 +66,9 @@ enum RemoteConfigKey: String, CaseIterable {
         case .minConnectionDuration: return NSNumber(value: 300)
         case .mapStatsUrl:
             return NSString(string: "https://portal.minv.sk/gis/rest/services/PROD/ESISPZ_GIS_PORTAL_CovidPublic/MapServer/4/query?where=POTVRDENI%20%3E%3D%200&f=json&outFields=NM2%2C%20IDN3%2C%20NM3%2C%20POTVRDENI&returnGeometry=false&orderByFields=NM3%20ASC")
-        case .apiHost: return NSString(string: "https://covid-gateway.azurewebsites.net")
-        case .ncziApiHost: return NSString(string: "https://t.mojeezdravie.sk")
-        case .statsUrl: return NSString(string: "https://corona-stats-sk.herokuapp.com/gov")
+        case .ekarantenaApiHost: return NSString(string: "https://covid-quarantine.azurewebsites.net")
+        case .ekarantenaNcziApiHost: return NSString(string: " https://mojeezdravie.nczisk.sk")
+        case .statsUrl: return NSString(string: "https://covid-stats.azurewebsites.net/api/stats/gov")
         case .faceIDConfidenceThreshold: return NSNumber(value: 600)
         case .faceIDMatchThreshold: return NSNumber(value: 75)
         case .iBeaconLocationAccuracy: return NSNumber(value: -1)

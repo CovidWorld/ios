@@ -78,7 +78,12 @@ final class LocationMonitoring: NSObject {
             }
             let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
             let distance = manager.location?.distance(from: coordinate.location) ?? Double.greatestFiniteMagnitude
-            return !LocationReporter.shared.reportExit(distance: distance)
+            if Firebase.remoteDoubleValue(for: .desiredPositionAccuracy) < distance {
+                LocationReporter.shared.reportExit(distance: distance)
+                return false
+            } else {
+                return true
+            }
         }
         return true
     }
@@ -139,7 +144,7 @@ extension LocationMonitoring: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         if let region = region as? CLCircularRegion {
             let distance = manager.location?.distance(from: region.center.location)
-            LocationReporter.shared.reportExit(distance: distance ?? 0)
+            LocationReporter.shared.reportExit(distance: distance ?? Double.greatestFiniteMagnitude)
         }
     }
 

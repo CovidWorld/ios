@@ -39,15 +39,14 @@ final class LocationReporter {
 
     private init() { }
 
-    @discardableResult
-    func reportExit(distance: CLLocationDistance) -> Bool {
-        guard Defaults.quarantineActive, Firebase.remoteDoubleValue(for: .desiredPositionAccuracy) < distance else { return false }
+    func reportExit(distance: CLLocationDistance) {
+        guard Defaults.quarantineActive, Firebase.remoteDoubleValue(for: .desiredPositionAccuracy) < distance else { return }
 
         let quarantineLocationPeriodMinutes = Firebase.remoteDoubleValue(for: .quarantineLocationPeriodMinutes)
         let currentTimestamp = Date().timeIntervalSince1970
         let lastTimestamp = Defaults.lastQuarantineUpdate ?? 0
 
-        guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return false }
+        guard currentTimestamp - lastTimestamp > Double(quarantineLocationPeriodMinutes * 60) else { return }
 
         let message = Firebase.remoteStringValue(for: .quarantineLeftMessage)
 
@@ -73,7 +72,6 @@ final class LocationReporter {
         }
 
         sendAreaExit(distance)
-        return true
     }
 
     private func sendAreaExit(_ distance: CLLocationDistance) {

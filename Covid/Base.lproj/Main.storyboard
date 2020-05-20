@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cEZ-hQ-bIJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cEZ-hQ-bIJ">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -4162,7 +4162,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
         <!--No Random Check View Controller-->
         <scene sceneID="bLP-FF-54u">
             <objects>
-                <viewController storyboardIdentifier="NoRandomCheckViewController" hidesBottomBarWhenPushed="YES" id="OCT-0r-wIs" customClass="NoRandomCheckViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NoRandomCheckViewController" hidesBottomBarWhenPushed="YES" id="OCT-0r-wIs" customClass="NoRandomCheckViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="4Z0-sa-gci">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4240,12 +4240,12 @@ Môžete sa dopustiť vážneho priestupku.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vaj-ca-0mo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="313" y="1862"/>
+            <point key="canvasLocation" x="296" y="1923"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ngf-Dj-6Ay"/>
-        <segue reference="Rme-BJ-GTw"/>
+        <segue reference="Omn-hp-lVS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DOC-character" width="106" height="117"/>

@@ -93,6 +93,7 @@ final class HTTPRequest {
             case 200...299:
                 completion(.success(data))
             default:
+                print(urlRequest)
                 print("---- UNHANDLED STATUS CODE: \(urlResponse.statusCode)")
                 completion(.failure(.httpError(urlResponse.statusCode), data))
             }

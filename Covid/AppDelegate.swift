@@ -73,11 +73,19 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if Defaults.quarantineActive {
             LocationMonitoring.shared.verifyQuarantinePresence()
-            networkService.requestHeartBeat(heartBeatRequestData: BasicRequestData()) { (_) in
-                completionHandler(.newData)
+            networkService.requestNonce(nonceRequestData: BasicRequestData()) { [weak self] (result) in
+                switch result {
+                case .success(let data):
+                    self?.networkService.requestHeartBeat(heartBeatRequestData: BasicWithNonceRequestData(nonce: data.nonce)) { (_) in
+                        completionHandler(.newData)
+                    }
+                case .failure:
+                    completionHandler(.noData)
+                }
             }
+        } else {
+            completionHandler(.noData)
         }
-        completionHandler(.noData)
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
@@ -122,6 +130,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         setupFirebaseConfig()
         LocationMonitoring.shared.didBecomeActive()
+        NotificationCenter.default.post(name: .startRandomCheck, object: self)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -161,24 +170,24 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         return nil
     }
 
-    func application(_ application: UIApplication,
-                     continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { [weak self] (dynamiclink, _) in
-            guard dynamiclink != nil,
-                let url = userActivity.webpageURL else {
-                    return
-            }
-            self?.handleRandomCheckIfNeeded(for: url)
-        }
-
-        return handled
-    }
-
-    private func handleRandomCheckIfNeeded(for url: URL) {
-        guard url.absoluteString.contains("overenie") else { return }
-        NotificationCenter.default.post(name: .startRandomCheck, object: self)
-    }
+//    func application(_ application: UIApplication,
+//                     continue userActivity: NSUserActivity,
+//                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { [weak self] (dynamiclink, _) in
+//            guard dynamiclink != nil,
+//                let url = userActivity.webpageURL else {
+//                    return
+//            }
+//            self?.handleRandomCheckIfNeeded(for: url)
+//        }
+//
+//        return handled
+//    }
+//
+//    private func handleRandomCheckIfNeeded(for url: URL) {
+//        guard url.absoluteString.contains("overenie") else { return }
+//        NotificationCenter.default.post(name: .startRandomCheck, object: self)
+//    }
 }
 
 extension AppDelegate: MessagingDelegate {
