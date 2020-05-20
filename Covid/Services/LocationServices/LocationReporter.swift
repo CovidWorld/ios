@@ -53,11 +53,7 @@ final class LocationReporter {
         Defaults.lastQuarantineUpdate = currentTimestamp
 
         if UIApplication.shared.applicationState == .active {
-            let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
-            alertController.addAction(cancelAction)
-
-            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+            Alert.show(title: nil, message: message)
         } else {
             let content = UNMutableNotificationContent()
             content.title = "Upozornenie"

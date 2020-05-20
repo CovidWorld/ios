@@ -42,10 +42,11 @@ final class LocationMonitoring: NSObject {
         super.init()
 
         manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        manager.distanceFilter = 20
         if Defaults.quarantineActive {
             if CLLocationManager.authorizationStatus() == .authorizedAlways ||
                 CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-                manager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
                 manager.startUpdatingLocation()
             } else {
                 manager.requestAlwaysAuthorization()

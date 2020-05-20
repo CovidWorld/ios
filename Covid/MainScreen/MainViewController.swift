@@ -77,15 +77,13 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let showQuarantine = Defaults.quarantineActive || (Defaults.covidPass != nil && (Defaults.quarantineEnd ?? Date(timeIntervalSinceNow: 10)) > Date() )
-        updateView(showQuarantine: showQuarantine)
-
+        navigationController?.isNavigationBarHidden = true
+        updateView()
         showWelcomeScreenIfNeeded()
 
-        quarantineObserver = Defaults.observe(\.quarantineActive) { [weak self] update in
+        quarantineObserver = Defaults.observe(\.quarantineEnd) { [weak self] _ in
             DispatchQueue.main.async {
-                let showQuarantine = (update.newValue ?? false) || (Defaults.covidPass != nil && (Defaults.quarantineEnd ?? Date(timeIntervalSinceNow: 10)) > Date() )
-                self?.updateView(showQuarantine: showQuarantine)
+                self?.updateView()
             }
         }
     }
@@ -94,7 +92,6 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         super.viewWillDisappear(animated)
 
         quarantineObserver?.dispose()
-
         navigationController?.isNavigationBarHidden = false
     }
 
@@ -178,12 +175,13 @@ final class MainViewController: ViewController, NotificationCenterObserver {
 
 // MARK: - Private
 extension MainViewController {
-    private func updateView(showQuarantine: Bool) {
+    private func updateView() {
+        let showQuarantine = Defaults.quarantineActive || (Defaults.covidPass != nil && (Defaults.quarantineStart ?? Date(timeIntervalSinceNow: 10)) > Date() )
         quarantineView?.isHidden = !showQuarantine
         statsView?.isHidden = showQuarantine
-        actionButton?.isHidden = Defaults.covidPass != nil && Defaults.quarantineStart == nil
-        navigationController?.isNavigationBarHidden = true
-        if Defaults.covidPass == nil {
+        actionButton?.isHidden = Defaults.covidPass != nil && (Defaults.quarantineStart == nil || (Defaults.quarantineStart ?? Date()) >= Date())
+
+        if Defaults.quarantineActive == false {
             actionButton.setTitle("Bol som v zahraničí alebo\nmusím zostať v karanténe", for: .normal)
             actionButton.backgroundColor = UIColor(red: 80.0 / 255.0, green: 88.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
         } else if Defaults.quarantineStart != nil {
@@ -202,7 +200,6 @@ extension MainViewController {
                 case .failure:
                     Alert.show(title: "Chyba",
                                message: "Pri registrácií došlo k chybe",
-                               cancelTitle: "Zrušiť",
                                defaultTitle: "Skúsiť znovu") { (_) in
                                 self?.registerUser()
                     }
@@ -279,58 +276,53 @@ extension MainViewController {
     }
 
     private func finishProfileRegistration(_ completion: @escaping () -> Void) {
-        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { [weak self] (result) in
-            switch result {
-            case .success:
-                self?.observer?.dispose()
-                self?.observer = Defaults.observe(\.noncePush) { update in
-                    DispatchQueue.main.async {
-                        guard let nonceValue = update.newValue, let nonce = nonceValue  else {
+        observer?.dispose()
+        observer = Defaults.observe(\.noncePush) { [weak self] update in
+            DispatchQueue.main.async {
+                guard let nonceValue = update.newValue, let nonce = nonceValue  else {
+                    completion()
+                    return
+                }
+                self?.networkService.updateUserProfileNonce(profileRequestData: BasicWithNonceRequestData(nonce: nonce)) { (result) in
+                    switch result {
+                    case .success:
+                        DispatchQueue.main.async {
                             completion()
-                            return
                         }
-                        self?.networkService.updateUserProfileNonce(profileRequestData: BasicWithNonceRequestData(nonce: nonce)) { (result) in
-                            switch result {
-                            case .success:
+                        return
+                    case .failure:
+                        Alert.show(title: "Chyba",
+                                   message: "Pri registrácií došlo k chybe. Skúste znovu.",
+                                   cancelAction: { (_) in
+                                        DispatchQueue.main.async {
+                                            completion()
+                                        }
+                        })
+                    }
+                }
+            }
+        }
+
+        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { (result) in
+            switch result {
+            case .success: break //wait for silent push
+            case .failure:
+                Alert.show(title: "Chyba",
+                           message: "Pri registrácií došlo k chybe. Skúste znovu.",
+                           cancelAction: { (_) in
                                 DispatchQueue.main.async {
                                     completion()
                                 }
-                                return
-                            case .failure:
-                                Alert.show(title: "Chyba",
-                                           message: "Pri registrácií došlo k chybe. Skúste znovu.",
-                                           cancelTitle: "Zavrieť",
-                                           defaultTitle: nil,
-                                           cancelAction: { (_) in
-                                                DispatchQueue.main.async {
-                                                    completion()
-                                                }
-                                })
-                            }
-                        }
-                    }
-                }
-                return
-            case .failure: break
+                })
             }
-            Alert.show(title: "Chyba",
-                       message: "Pri registrácií došlo k chybe. Skúste znovu.",
-                       cancelTitle: "Zavrieť",
-                       defaultTitle: nil,
-                       cancelAction: { (_) in
-                            DispatchQueue.main.async {
-                                completion()
-                            }
-            })
         }
     }
 
     private func showFaceVerification(in navigationController: UINavigationController) {
-        // TODO: why?
-//        guard faceCaptureCoordinator == nil else {
-//            print("face coordinator is active, skipping..")
-//            return
-//        }
+        guard faceCaptureCoordinator == nil else {
+            print("face coordinator is active, skipping..")
+            return
+        }
 
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
         let viewController = faceCaptureCoordinator!.startFaceCapture()
@@ -355,7 +347,9 @@ extension MainViewController {
                                 switch result {
                                 case .success:
                                     DispatchQueue.main.async {
-                                        self?.dismiss(animated: true, completion: nil)
+                                        self?.dismiss(animated: true, completion: {
+                                            self?.faceCaptureCoordinator = nil
+                                        })
                                     }
                                     return
                                 case .failure:
@@ -377,11 +371,11 @@ extension MainViewController {
     func onError() {
         Alert.show(title: "Chyba",
                    message: "Pri overovaní dodržiavania karantény došlo k chybe. Skúste zopakovať overenie znovu.",
-                   cancelTitle: "Zavrieť",
-                   defaultTitle: nil,
                    cancelAction: { (_) in
                         DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
+                            self.dismiss(animated: true, completion: {
+                                self.faceCaptureCoordinator = nil
+                            })
                         }
         })
     }

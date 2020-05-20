@@ -97,16 +97,17 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didReceiveRemoteNotification userInfo: [AnyHashable: Any],
                      fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+
         var completion: UIBackgroundFetchResult = .noData
-
-        NotificationCenter.default.post(name: .updateQuarantine, object: nil, userInfo: userInfo)
-
-        LocationMonitoring.shared.verifyQuarantinePresence()
 
         if (userInfo["type"] as? String) == "PUSH_NONCE", let nonce = userInfo["Nonce"] as? String {
             Defaults.noncePush = nonce
-            completion = .newData
+            completionHandler(.newData)
+            return
         }
+
+        NotificationCenter.default.post(name: .updateQuarantine, object: nil, userInfo: userInfo)
+        LocationMonitoring.shared.verifyQuarantinePresence()
 
         if application.applicationState == .active {
             if let aps = userInfo["aps"] as? NSDictionary {
@@ -115,11 +116,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let alertMessage = alert["body"] as? String {
                         message = alertMessage
                     }
-                    let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                    let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel)
-                    alertController.addAction(cancelAction)
-
-                    window?.rootViewController?.present(alertController, animated: true, completion: nil)
+                    Alert.show(title: nil, message: message)
                     completion = .newData
                 }
             }

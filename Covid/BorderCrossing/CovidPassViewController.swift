@@ -50,6 +50,15 @@ final class CovidPassViewController: ViewController {
         if Defaults.quarantineStart != nil {
             navigationItem.rightBarButtonItem = nil
         }
+
+        self.navigationItem.hidesBackButton = true
+        let newBackButton = UIBarButtonItem(title: "Naspäť", style: .plain, target: self, action: #selector(CovidPassViewController.back(sender:)))
+        self.navigationItem.leftBarButtonItem = newBackButton
+    }
+
+    @objc
+    private func back(sender: UIBarButtonItem) {
+        navigationController?.popToRootViewController(animated: true)
     }
 
     @IBAction private func onNext(_ sender: Any) {
