@@ -55,7 +55,6 @@
 		2110EB3D246B4E110007C8DA /* FaceIDStepVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189715224369CE5009987EA /* FaceIDStepVerifier.swift */; };
 		2110EB3E246B4E110007C8DA /* FaceIDStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189715024369980009987EA /* FaceIDStorage.swift */; };
 		2110EB3F246B4E110007C8DA /* FaceIDValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2189714E24369949009987EA /* FaceIDValidator.swift */; };
-		2110EB41246B4F480007C8DA /* iengine.lic in Resources */ = {isa = PBXBuildFile; fileRef = 2110EB40246B4F470007C8DA /* iengine.lic */; };
 		212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */; };
 		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
 		21591AE72439E18500495263 /* settings_version.sh in Resources */ = {isa = PBXBuildFile; fileRef = 21591AE62439E18500495263 /* settings_version.sh */; };
@@ -173,7 +172,6 @@
 		0FF4F21D241AEFBB00643297 /* CovidService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		0FF4F21F241AF21200643297 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		0FF4F223241AF61600643297 /* APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
-		2110EB40246B4F470007C8DA /* iengine.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iengine.lic; sourceTree = "<group>"; };
 		212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		21220503244D084900CCC72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		21355B35243A7B660087ADCB /* FaceIDVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDVerification.swift; sourceTree = "<group>"; };
@@ -277,7 +275,6 @@
 		0F1181302416C70500213533 = {
 			isa = PBXGroup;
 			children = (
-				2110EB40246B4F470007C8DA /* iengine.lic */,
 				21591AE62439E18500495263 /* settings_version.sh */,
 				0F74576F241D9342000546FA /* GoogleService-Info.plist */,
 				0F11813B2416C70500213533 /* Covid */,
@@ -665,7 +662,6 @@
 				C03E0A0C242013CB00B3A204 /* Inter-Italic.otf in Resources */,
 				C03E09E7242013CB00B3A204 /* Poppins-BoldItalic.otf in Resources */,
 				C03E0A05242013CB00B3A204 /* Inter-UI-MediumItalic.otf in Resources */,
-				2110EB41246B4F480007C8DA /* iengine.lic in Resources */,
 				C03E0A17242013CB00B3A204 /* Inter-LightItalic.otf in Resources */,
 				C03E0A03242013CB00B3A204 /* Inter-UI-Medium.otf in Resources */,
 				C03E0A13242013CB00B3A204 /* Inter.otf in Resources */,

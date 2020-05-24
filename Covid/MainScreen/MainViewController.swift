@@ -43,8 +43,6 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     @IBOutlet private var protectView: UIView!
     @IBOutlet private var symptomesView: UIView!
     @IBOutlet private var emergencyButton: UIButton!
-    @IBOutlet private var diagnosedButton: UIButton!
-    @IBOutlet private var quarantineView: UIView!
     @IBOutlet private var statsView: UIView!
 
     private let networkService = CovidService()
@@ -77,18 +75,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        quarantineView?.isHidden = !Defaults.quarantineActive
-        statsView?.isHidden = Defaults.quarantineActive
-        diagnosedButton?.isHidden = Defaults.quarantineActive
         navigationController?.isNavigationBarHidden = true
-
-        quarantineObserver = Defaults.observe(\.quarantineActive) { [quarantineView, diagnosedButton, statsView] update in
-            DispatchQueue.main.async {
-                quarantineView?.isHidden = !(update.newValue ?? true)
-                statsView?.isHidden = update.newValue ?? false
-                diagnosedButton?.isHidden = update.newValue ?? false
-            }
-        }
 
         showWelcomeScreenIfNeeded()
     }
@@ -114,10 +101,6 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         protectView.layer.masksToBounds = true
         emergencyButton.layer.cornerRadius = 20
         emergencyButton.layer.masksToBounds = true
-        diagnosedButton.layer.cornerRadius = 20
-        diagnosedButton.layer.masksToBounds = true
-
-        diagnosedButton.titleLabel?.textAlignment = .center
     }
 
     // MARK: Welcome screen
@@ -144,14 +127,8 @@ final class MainViewController: ViewController, NotificationCenterObserver {
         current.getNotificationSettings { (settings) in
             if settings.authorizationStatus == .notDetermined {
                 current.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
-                    DispatchQueue.main.async {
-                        if !Defaults.didShowForeignAlert {
-                           self?.performSegue(.foreignAlert)
-                        }
-                    }
                 }
             }
-            // TODO: handle other cases
         }
         UIApplication.shared.registerForRemoteNotifications()
     }

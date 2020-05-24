@@ -1910,7 +1910,7 @@ ZostanZdravy a Sygic</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X20-N0-960">
-                                <rect key="frame" x="24" y="112" width="366" height="450"/>
+                                <rect key="frame" x="24" y="112" width="366" height="190"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IH9-TX-vzL">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="87"/>
@@ -2008,14 +2008,8 @@ ZostanZdravy a Sygic</string>
                                             <constraint firstAttribute="trailing" secondItem="m5O-iZ-S2T" secondAttribute="trailing" constant="16" id="yN4-mW-yuN"/>
                                         </constraints>
                                     </view>
-                                    <containerView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Drr-EJ-rfC">
-                                        <rect key="frame" x="0.0" y="206" width="366" height="244"/>
-                                        <connections>
-                                            <segue destination="hDe-QQ-cqs" kind="embed" id="wwl-Vt-G72"/>
-                                        </connections>
-                                    </containerView>
                                     <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGf-gp-ehB">
-                                        <rect key="frame" x="0.0" y="450" width="366" height="91"/>
+                                        <rect key="frame" x="0.0" y="190" width="366" height="91"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="91" id="Yf3-kZ-63x"/>
                                         </constraints>
@@ -2040,45 +2034,25 @@ ZostanZdravy a Sygic</string>
                                     <action selector="emergencyDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TIJ-ci-RGY"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Njg-l9-GFw">
-                                <rect key="frame" x="24" y="670" width="366" height="66"/>
-                                <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="12" maxX="0.0" maxY="12"/>
-                                <state key="normal" title="Bola/bol som v zahraničí alebo musím zostať v karanténe">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="agreeDidTap:" destination="Zak-E9-be5" eventType="touchUpInside" id="OWJ-bf-Mv3"/>
-                                    <segue destination="Adw-jW-flq" kind="show" identifier="initQuarantine" id="ptS-EM-6mH"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="KVT-lI-6eS" firstAttribute="top" secondItem="Njg-l9-GFw" secondAttribute="bottom" constant="8" id="1GX-5r-a7x"/>
                             <constraint firstItem="X20-N0-960" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="3pt-qv-UaF"/>
-                            <constraint firstItem="Njg-l9-GFw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="X20-N0-960" secondAttribute="bottom" constant="24" id="MKG-sg-Z6I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X20-N0-960" secondAttribute="trailing" constant="24" id="RX4-GK-UOB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KVT-lI-6eS" secondAttribute="trailing" constant="24" id="bpf-33-ZVC"/>
-                            <constraint firstItem="Njg-l9-GFw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="eTO-lV-uCP"/>
                             <constraint firstItem="KVT-lI-6eS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="f5N-5I-h6k"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KVT-lI-6eS" secondAttribute="bottom" constant="16" id="ioa-47-PD2"/>
                             <constraint firstItem="X20-N0-960" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="o7r-SE-Zql"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Njg-l9-GFw" secondAttribute="trailing" constant="24" id="qFs-ip-Rug"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="TW5-rY-n19"/>
                     <navigationItem key="navigationItem" id="aX5-ZT-U96"/>
                     <connections>
-                        <outlet property="diagnosedButton" destination="Njg-l9-GFw" id="h0Y-93-Wgb"/>
                         <outlet property="emergencyButton" destination="KVT-lI-6eS" id="Q5A-3s-7TE"/>
                         <outlet property="protectView" destination="IH9-TX-vzL" id="OhD-xA-fmq"/>
-                        <outlet property="quarantineView" destination="Drr-EJ-rfC" id="bwr-6F-8Qh"/>
                         <outlet property="statsView" destination="aGf-gp-ehB" id="06Q-zd-swT"/>
                         <outlet property="symptomesView" destination="ge1-Vs-7yc" id="4gP-oo-8Ac"/>
-                        <segue destination="nwr-cT-rVs" kind="presentation" identifier="foreignAlert" id="2dO-QC-TQQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -2199,26 +2173,27 @@ zvracanie</string>
         <!--Country Code View Controller-->
         <scene sceneID="lZS-Nf-5cX">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dj6-QZ-IAL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="g0Z-rl-3mo" customClass="CountryCodeViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D1p-t3-Va7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím zadajte vaše telefónne číslo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfE-tc-XI3">
-                                <rect key="frame" x="16" y="104" width="382" height="21"/>
+                                <rect key="frame" x="16" y="16" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7L-hd-bKY">
-                                <rect key="frame" x="0.0" y="133" width="414" height="0.66666666666665719"/>
+                                <rect key="frame" x="0.0" y="45" width="414" height="0.6666666666666643"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="Hg9-Z5-F3b"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="srM-E7-BiE">
-                                <rect key="frame" x="0.0" y="133.66666666666666" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="45.666666666666657" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="SM0-re-rVv"/>
                                 </constraints>
@@ -2232,14 +2207,14 @@ zvracanie</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nK-Me-UkN">
-                                <rect key="frame" x="16" y="177.66666666666666" width="398" height="0.33333333333334281"/>
+                                <rect key="frame" x="16" y="89.666666666666671" width="398" height="0.3333333333333286"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="fAI-PA-YrB"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+421" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OER-7S-eH6">
-                                <rect key="frame" x="15.999999999999996" y="178" width="46.666666666666657" height="44"/>
+                                <rect key="frame" x="15.999999999999996" y="90" width="46.666666666666657" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="0SO-Zp-d7M"/>
                                 </constraints>
@@ -2248,38 +2223,38 @@ zvracanie</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OeW-Bg-IRH">
-                                <rect key="frame" x="78.666666666666671" y="178" width="0.6666666666666714" height="44.666666666666657"/>
+                                <rect key="frame" x="78.666666666666671" y="90" width="0.6666666666666714" height="44.666666666666657"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="0.5" id="4k4-6O-gDW"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3P-q4-fCl">
-                                <rect key="frame" x="0.0" y="222" width="414" height="0.66666666666665719"/>
+                                <rect key="frame" x="0.0" y="134" width="414" height="0.66666666666665719"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="0.5" id="9d6-uU-c2y"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="000 000 000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ksH-i2-uOu">
-                                <rect key="frame" x="95.333333333333343" y="178" width="302.66666666666663" height="44"/>
+                                <rect key="frame" x="95.333333333333343" y="90" width="302.66666666666663" height="44"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="tel"/>
                             </textField>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G4h-qm-X3u">
-                                <rect key="frame" x="0.0" y="646" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="592" width="414" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-mx-VPD">
-                                <rect key="frame" x="24" y="262.66666666666669" width="301" height="119"/>
+                                <rect key="frame" x="24" y="174.66666666666666" width="301" height="118.99999999999997"/>
                                 <string key="text">Pokračovaním súhlasím so spracúvaním údajov o mojom zdraví na účely ochrany života a zdravia v súvislosti so šírením vírusu COVID-19</string>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-0L-uJB">
-                                <rect key="frame" x="92.666666666666686" y="405.66666666666669" width="229" height="31"/>
+                                <rect key="frame" x="92.666666666666686" y="317.66666666666669" width="229" height="31"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="13"/>
                                 <state key="normal" title="Info o spracovaní osobných údajov">
                                     <color key="titleColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2289,7 +2264,7 @@ zvracanie</string>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l9L-VN-I6e">
-                                <rect key="frame" x="341" y="306.66666666666669" width="51" height="31"/>
+                                <rect key="frame" x="341" y="218.66666666666666" width="51" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="49" id="eio-Rg-jdB"/>
                                 </constraints>
@@ -2347,7 +2322,6 @@ zvracanie</string>
                         <segue destination="FXd-Oq-pKb" kind="show" identifier="verification" id="iwo-SK-tpT"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dj6-QZ-IAL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1209" y="1203"/>
         </scene>
@@ -2356,23 +2330,23 @@ zvracanie</string>
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="FXd-Oq-pKb" customClass="VerificationCodeViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fwW-KG-Gx2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Na vaše telefónne číslo sme poslali SMS s aktivačným kódom." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgM-re-VLw">
-                                <rect key="frame" x="16" y="104" width="382" height="42"/>
+                                <rect key="frame" x="16" y="16" width="382" height="42"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zadajte prosím 6 miestny aktivačný kód:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsQ-ZR-NIX">
-                                <rect key="frame" x="16" y="162" width="382" height="21"/>
+                                <rect key="frame" x="16" y="74" width="382" height="21"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="_ _ _  _ _ _" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v7B-JV-gDl">
-                                <rect key="frame" x="62" y="199" width="290" height="49.666666666666657"/>
+                                <rect key="frame" x="62" y="111.00000000000001" width="290" height="49.666666666666671"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="290" id="Eh8-Ia-mfg"/>
@@ -2410,25 +2384,26 @@ zvracanie</string>
         <!--Select Address Info View Controller-->
         <scene sceneID="JzB-ss-hED">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ot0-Dx-UtR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController hidesBottomBarWhenPushed="YES" id="Adw-jW-flq" customClass="SelectAddressInfoViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8ve-xR-Rtt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dôležité" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1g-AG-qiQ">
-                                <rect key="frame" x="32" y="120" width="350" height="42"/>
+                                <rect key="frame" x="32" y="76" width="350" height="42"/>
                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980394" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vážený užívateľ, vyberte prosím miesto v ktorom sa budete zdržiavať počas karantény." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MI-rx-GXw">
-                                <rect key="frame" x="32" y="194" width="350" height="42"/>
+                                <rect key="frame" x="32" y="150" width="350" height="42"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toto miesto nie je možné následne zmeniť, preto sa ubezpečte, že ste správne zvolili adresu karantény." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fki-PZ-62i">
-                                <rect key="frame" x="32" y="252" width="350" height="63"/>
+                                <rect key="frame" x="32" y="208" width="350" height="63"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2476,7 +2451,6 @@ zvracanie</string>
                         <outlet property="selectButton" destination="mCk-EC-Ch7" id="mr5-Qy-cI2"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ot0-Dx-UtR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="262" y="1203"/>
         </scene>
@@ -2577,42 +2551,42 @@ zvracanie</string>
             <objects>
                 <viewController id="hDe-QQ-cqs" customClass="QuarantineViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFa-vW-BOm">
-                        <rect key="frame" x="0.0" y="0.0" width="366" height="244"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaša domáca adresa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5B-hS-xNK">
-                                <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
-                                <rect key="frame" x="0.0" y="32" width="366" height="0.0"/>
+                                <rect key="frame" x="0.0" y="32" width="414" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbo-Uw-k09">
-                                <rect key="frame" x="0.0" y="48" width="366" height="1"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="9XI-fR-dsw"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
-                                <rect key="frame" x="0.0" y="97" width="366" height="0.0"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Povinná karanténa, zostáva:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-ns-4pC">
-                                <rect key="frame" x="0.0" y="65" width="366" height="24"/>
+                                <rect key="frame" x="0.0" y="65" width="414" height="24"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpU-pX-4xN">
-                                <rect key="frame" x="0.0" y="243" width="366" height="1"/>
+                                <rect key="frame" x="0.0" y="861" width="414" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="zBM-H6-A9H"/>
@@ -2657,17 +2631,17 @@ zvracanie</string>
             <objects>
                 <viewController id="nwr-cT-rVs" customClass="ForeignDecisionViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KG8-xW-gwm">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vrátili ste sa zo zahraničia, alebo máte ostať v karanténe?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdr-Sz-bS6">
-                                <rect key="frame" x="32" y="32" width="350" height="126"/>
+                                <rect key="frame" x="32" y="76" width="350" height="126"/>
                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
                                 <color key="textColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22352941176470587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gt-yK-Pij">
-                                <rect key="frame" x="32" y="734" width="350" height="58"/>
+                                <rect key="frame" x="32" y="788" width="350" height="58"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.75294117647058822" blue="0.60392156862745094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="0jl-Rh-bPE"/>
@@ -2687,7 +2661,7 @@ zvracanie</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEj-OA-lRP">
-                                <rect key="frame" x="32" y="660" width="350" height="58"/>
+                                <rect key="frame" x="32" y="714" width="350" height="58"/>
                                 <color key="backgroundColor" red="0.94509803920000002" green="0.41568627450000001" blue="0.42745098040000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="58" id="6uW-jt-1WH"/>
@@ -3634,7 +3608,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ngf-Dj-6Ay"/>
-        <segue reference="Omn-hp-lVS"/>
+        <segue reference="LCD-tO-Hlk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="DOC-character" width="106" height="117"/>
