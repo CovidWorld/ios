@@ -1,0 +1,11 @@
+framework module DOT {
+  umbrella header "DOT.h"
+
+  export *
+  module * { export * }
+}
+
+module DOT.Swift {
+    header "DOT-Swift.h"
+    requires objc
+}

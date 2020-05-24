@@ -1,0 +1,974 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target armv7-apple-ios10.1 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name DOT
+import AVFoundation
+import AVKit
+@_exported import DOT
+import Foundation
+import Swift
+import UIKit
+import iface
+@objc public class DOTHandler : ObjectiveC.NSObject {
+  @objc public enum LogLevel : Swift.Int {
+    case error
+    case verbose
+    case none
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc public class DOTCameraAuthorizationStatus : ObjectiveC.NSObject {
+    @objc final public let authorizationStatus: AVFoundation.AVAuthorizationStatus
+    @objc override dynamic public init()
+    @objc deinit
+  }
+  @objc public static var logLevel: DOT.DOTHandler.LogLevel
+  @objc public static var localizationBundle: Foundation.Bundle
+  @objc public static func initialize(with license: DOT.License? = nil, faceDetectionConfidenceThreshold: Swift.Int = 600)
+  @objc public static func initialize(with license: DOT.License? = nil)
+  @objc public static func deinitialize()
+  @objc public static func authorizeCamera(onRequestAccess: ((AVFoundation.AVAuthorizationStatus) -> ())? = nil) -> DOT.DOTHandler.DOTCameraAuthorizationStatus?
+  @objc public static var licenseId: Swift.String?
+  @objc public static func attributeDescription(_ attr: DOT.Attribute) -> Swift.String
+  @objc public static func featureDescription(_ feature: DOT.Feature) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol LivenessCheckControllerDelegate : AnyObject {
+  @objc func livenessCheckInitialStart(_ controller: DOT.LivenessCheckController) -> Swift.Bool
+  @objc func livenessCheckCameraInitFailed(_ controller: DOT.LivenessCheckController)
+  @objc func livenessCheck(_ controller: DOT.LivenessCheckController, stateChanged state: DOT.LivenessContextState)
+  @objc func livenessCheck(_ controller: DOT.LivenessCheckController, checkDoneWith score: Swift.Float, capturedSegmentImages segmentImagesList: [DOT.SegmentImage])
+  @objc func livenessCheckNoMoreSegments(_ controller: DOT.LivenessCheckController)
+  @objc func livenessCheckNoEyesDetected(_ controller: DOT.LivenessCheckController)
+  @objc optional func livenessCheckNoCameraPermission(_ controller: DOT.LivenessCheckController)
+  @objc optional func livenessCheckDidLoad(_ controller: DOT.LivenessCheckController)
+  @objc optional func livenessCheckWillDisappear(_ controller: DOT.LivenessCheckController)
+  @objc optional func livenessCheckDidDisappear(_ controller: DOT.LivenessCheckController)
+  @objc optional func livenessCheckWillAppear(_ controller: DOT.LivenessCheckController)
+  @objc optional func livenessCheckDidAppear(_ controller: DOT.LivenessCheckController)
+}
+@objc public class LivenessCheckController : UIKit.UIViewController {
+  public enum C {
+    public static let minFaceSizeRatio: Swift.Double
+  }
+  @objc weak public var delegate: DOT.LivenessCheckControllerDelegate?
+  @objc public static func create(configuration: DOT.LivenessConfiguration, style: DOT.LivenessCheckStyle = .init()) -> DOT.LivenessCheckController
+  @objc public func startLivenessCheck()
+  @objc public func restartTransitionView()
+  @objc public func stopLivenessCheck()
+  public func liveness(capturedImage: UIKit.UIImage)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension LivenessCheckController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidLayoutSubviews()
+}
+extension LivenessCheckController : DOT.LivenessDelegate {
+  public func livenessEyesNotDetected(_ context: DOT.LivenessContext)
+  public func liveness(_ context: DOT.LivenessContext, showNextSegment segment: DOT.DOTSegment?)
+  public func liveness(_ context: DOT.LivenessContext, finishedWithScore score: Swift.Float, segmentImages: [DOT.SegmentImage])
+  public func liveness(_ context: DOT.LivenessContext, stateChanged state: DOT.LivenessContextState)
+}
+@objc public class PreviewView : UIKit.UIView {
+  @objc override dynamic public class var layerClass: Swift.AnyClass {
+    @objc get
+  }
+  @objc public var videoPreviewLayer: AVFoundation.AVCaptureVideoPreviewLayer {
+    @objc get
+  }
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc public class FaceCaptureSimpleStyle : ObjectiveC.NSObject {
+  @objc public var background: UIKit.UIColor
+  @objc public var trackingCircleOutline: UIKit.UIColor
+  @objc public var trackingCircleBackground: UIKit.UIColor
+  @objc override dynamic public init()
+  @objc public init(background: UIKit.UIColor = .white, trackingCircleOutline: UIKit.UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.1), trackingCircleBackground: UIKit.UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.45))
+  @objc deinit
+}
+public func debounce<T>(delay: Dispatch.DispatchTimeInterval, queue: Dispatch.DispatchQueue = .main, action: @escaping ((T) -> Swift.Void)) -> (T) -> Swift.Void
+public func throttle<T>(delay: Foundation.TimeInterval, queue: Dispatch.DispatchQueue = .main, action: @escaping ((T) -> Swift.Void)) -> (T) -> Swift.Void
+public protocol LivenessDelegate : AnyObject {
+  func liveness(_ context: DOT.LivenessContext, stateChanged state: DOT.LivenessContextState)
+  func liveness(_ context: DOT.LivenessContext, finishedWithScore score: Swift.Float, segmentImages: [DOT.SegmentImage])
+  func liveness(_ context: DOT.LivenessContext, showNextSegment segment: DOT.DOTSegment?)
+  func livenessEyesNotDetected(_ context: DOT.LivenessContext)
+  func liveness(capturedImage: UIKit.UIImage)
+}
+@objc public enum LivenessContextState : Swift.Int {
+  case ok
+  case noFace
+  case lost
+  case lowQuality
+  case tooClose
+  case tooFar
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class LivenessContext : ObjectiveC.NSObject {
+  weak final public var delegate: DOT.LivenessDelegate?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension LivenessContext {
+  final public func start()
+  final public func stop()
+  final public func reset()
+}
+extension LivenessContext : DOT.DOTCaptureCameraDelegate {
+  final public func dotCamera(_ camera: DOT.DOTCaptureCamera, image: UIKit.UIImage)
+}
+@objc final public class Template : ObjectiveC.NSObject {
+  @objc final public var data: [Swift.Int8]
+  @objc final public var info: DOT.TemplateInfo?
+  @objc public init(data: [Swift.Int8])
+  @objc public init(data: [Swift.Int8], info: DOT.TemplateInfo?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class TemplateInfo : ObjectiveC.NSObject {
+  @objc final public let minor: Swift.Int
+  @objc final public let major: Swift.Int
+  @objc final public let quality: Swift.Int
+  @objc public init(minor: Swift.Int, major: Swift.Int, quality: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol FaceCaptureControllerDelegate : AnyObject {
+  @objc optional func faceCaptureDidLoad(_ controller: DOT.FaceCaptureController)
+  @objc optional func faceCaptureDidAppear(_ controller: DOT.FaceCaptureController)
+  @objc optional func faceCaptureWillAppear(_ controller: DOT.FaceCaptureController)
+  @objc optional func faceCaptureWillDisappear(_ controller: DOT.FaceCaptureController)
+  @objc optional func faceCaptureDidDisappear(_ controller: DOT.FaceCaptureController)
+  @objc optional func faceCaptureCameraInitFailed(_ controller: DOT.FaceCaptureController)
+  @objc optional func faceCaptureNoCameraPermission(_ controller: DOT.FaceCaptureController)
+  @objc func faceCapture(_ controller: DOT.FaceCaptureController, didCapture faceCaptureImage: DOT.FaceCaptureImage)
+  @objc func faceCaptureDidFailed(_ controller: DOT.FaceCaptureController)
+  @objc optional func faceCapture(_ controller: DOT.FaceCaptureController, stateChanged state: DOT.FaceCaptureState, withImage image: DOT.DOTImage?)
+  @objc optional func faceCapture(_ controller: DOT.FaceCaptureController, previewSizeChanged size: CoreGraphics.CGSize)
+}
+@objc public class FaceCaptureController : UIKit.UIViewController {
+  public enum C {
+    public static let minFaceSizeRatio: Swift.Double
+    public static let maxFaceSizeRatio: Swift.Double
+  }
+  public var style: DOT.FaceCaptureStyle!
+  @objc weak public var delegate: DOT.FaceCaptureControllerDelegate?
+  @objc public static func create(configuration: DOT.FaceCaptureConfiguration = .init(), style: DOT.FaceCaptureStyle = .init()) -> DOT.FaceCaptureController
+  @objc public func requestFaceCapture()
+  @objc public func stopFaceCapture()
+  @objc public func resetController()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension FaceCaptureController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+}
+extension FaceCaptureController : DOT.DOTCaptureCameraPreviewLayerDelegate {
+  public func dotCameraPreview(_ camera: DOT.DOTCaptureCamera, width: CoreGraphics.CGFloat, height: CoreGraphics.CGFloat)
+}
+@objc final public class DetectedFace : ObjectiveC.NSObject {
+  @objc final public let face: DOT.Face
+  @objc final public let eyeDistance: Swift.Int
+  @objc final public let eyeLeft: DOT.DOTPoint?
+  @objc final public let eyeRight: DOT.DOTPoint?
+  @objc final public let noseTip: DOT.DOTPoint?
+  @objc final public let mouthLeftCorner: DOT.DOTPoint?
+  @objc final public let mouthRightCorner: DOT.DOTPoint?
+  @objc final public let faceCenter: DOT.DOTPoint?
+  @objc final public let image: DOT.DOTImage
+  @objc final public var cropedFace: UIKit.UIImage?
+  @objc final public var confidence: Swift.Double {
+    @objc get
+  }
+  @objc final public var faceTemplate: DOT.Template? {
+    @objc get
+  }
+  @objc final public func attributes(_ attributes: [DOT.AttributeWrapper]) -> [DOT.IcaoAttribute]
+  @objc final public func features(_ features: [DOT.FeatureWrapper]) -> [DOT.FeaturePoint]
+  @objc final public func deinitialize()
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol VerificationDelegate : AnyObject {
+  func verification(_ context: DOT.VerificationContext, matchingScore score: Swift.Float, multipleFaces: Swift.Bool)
+  func verificationFaceNotDetected(_ context: DOT.VerificationContext)
+  func verification(_ context: DOT.VerificationContext, validatedFace: DOT.ValidatedFace)
+  func verificationTemplateIncompatible(_ context: DOT.VerificationContext)
+}
+final public class VerificationContext {
+  weak final public var delegate: DOT.VerificationDelegate?
+  @objc deinit
+}
+extension VerificationContext {
+  final public func start()
+  final public func stop()
+  final public func changeReferenceTemplate(_ template: [Swift.Int8])
+}
+extension VerificationContext : DOT.DOTCaptureCameraDelegate {
+  final public func dotCamera(_ camera: DOT.DOTCaptureCamera, image: UIKit.UIImage)
+}
+@objc public class FaceCaptureImage : ObjectiveC.NSObject {
+  @objc final public let faceTemplate: DOT.Template?
+  @objc final public let croppedImage: UIKit.UIImage?
+  @objc final public let fullImage: UIKit.UIImage?
+  @objc public init(template: DOT.Template?, croppedImage: UIKit.UIImage?, fullImage: UIKit.UIImage?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class License : ObjectiveC.NSObject {
+  @objc public init(path: Swift.String) throws
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol FaceCaptureSimpleControllerDelegate : AnyObject {
+  @objc optional func faceCaptureSimpleDidLoad(_ controller: DOT.FaceCaptureSimpleController)
+  @objc optional func faceCaptureSimpleDidAppear(_ controller: DOT.FaceCaptureSimpleController)
+  @objc optional func faceCaptureSimpleWillAppear(_ controller: DOT.FaceCaptureSimpleController)
+  @objc optional func faceCaptureSimpleDidDisappear(_ controller: DOT.FaceCaptureSimpleController)
+  @objc optional func faceCaptureSimpleWillDisappear(_ controller: DOT.FaceCaptureSimpleController)
+  @objc optional func faceCaptureSimpleCameraInitFailed(_ controller: DOT.FaceCaptureSimpleController)
+  @objc optional func faceCaptureSimpleNoCameraPermission(_ controller: DOT.FaceCaptureSimpleController)
+  @objc func faceCaptureSimple(_ controller: DOT.FaceCaptureSimpleController, didCapture faceCaptureSimpleImage: DOT.FaceCaptureImage)
+  @objc func faceCaptureSimpleDidFailed(_ controller: DOT.FaceCaptureSimpleController)
+  @objc optional func faceCaptureSimple(_ controller: DOT.FaceCaptureSimpleController, previewSizeChanged size: CoreGraphics.CGSize)
+}
+@objc public class FaceCaptureSimpleController : UIKit.UIViewController {
+  public enum C {
+    public static let minFaceSizeRatio: Swift.Double
+    public static let maxFaceSizeRatio: Swift.Double
+  }
+  @objc weak public var delegate: DOT.FaceCaptureSimpleControllerDelegate?
+  @objc public static func create(configuration: DOT.FaceCaptureSimpleConfiguration = .init(), style: DOT.FaceCaptureSimpleStyle = .init()) -> DOT.FaceCaptureSimpleController
+  @objc public func requestFaceCapture()
+  @objc public func stopFaceCapture()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension FaceCaptureSimpleController {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+}
+extension FaceCaptureSimpleController : DOT.DOTCaptureCameraPreviewLayerDelegate {
+  public func dotCameraPreview(_ camera: DOT.DOTCaptureCamera, width: CoreGraphics.CGFloat, height: CoreGraphics.CGFloat)
+}
+@objc public class DOTDimension : ObjectiveC.NSObject {
+  final public let width: Swift.Double
+  final public let height: Swift.Double
+  @objc override dynamic public init()
+  @objc deinit
+}
+public enum DOTCameraError : Swift.Error {
+  case VideoDeviceNotAvailable(position: AVFoundation.AVCaptureDevice.Position)
+  case videoOutputConnection
+  case videoOutputOrientation
+  case videoOutputMirroring
+  case CantAddVideoInput
+  case CantAddVideoOutput
+}
+public enum DOTCameraType {
+  case video
+  case photo
+  public static func == (a: DOT.DOTCameraType, b: DOT.DOTCameraType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum DOTCameraFlashMode {
+  case torch
+  case auto
+  case on
+  case off
+  public var image: UIKit.UIImage? {
+    get
+  }
+  public static func == (a: DOT.DOTCameraFlashMode, b: DOT.DOTCameraFlashMode) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol DOTCaptureCameraDelegate : AnyObject {
+  func dotCamera(_ camera: DOT.DOTCaptureCamera, image: UIKit.UIImage)
+  func dotCameraWillPhotoCapture(_ camera: DOT.DOTCaptureCamera)
+}
+extension DOTCaptureCameraDelegate {
+  public func dotCameraWillPhotoCapture(_ camera: DOT.DOTCaptureCamera)
+}
+public protocol DOTCaptureCameraPreviewLayerDelegate : AnyObject {
+  func dotCameraPreview(_ camera: DOT.DOTCaptureCamera, width: CoreGraphics.CGFloat, height: CoreGraphics.CGFloat)
+}
+public protocol DOTCaptureCamera : AnyObject {
+  var previewDelegate: DOT.DOTCaptureCameraPreviewLayerDelegate? { get set }
+  var delegate: DOT.DOTCaptureCameraDelegate? { get set }
+  init(view: DOT.PreviewView, position: AVFoundation.AVCaptureDevice.Position, type: DOT.DOTCameraType, mirrored: Swift.Bool, sessionPreset: AVFoundation.AVCaptureSession.Preset, previewDelegate: DOT.DOTCaptureCameraPreviewLayerDelegate?) throws
+  func changePosition(_ position: AVFoundation.AVCaptureDevice.Position) throws
+  func fixOrientation()
+  func startRunning()
+  func stopRunning()
+}
+@objc final public class DOTCamera : ObjectiveC.NSObject, DOT.DOTCaptureCamera {
+  weak final public var previewDelegate: DOT.DOTCaptureCameraPreviewLayerDelegate?
+  weak final public var delegate: DOT.DOTCaptureCameraDelegate?
+  final public var previewAspectRatio: CoreGraphics.CGFloat?
+  public init(view: DOT.PreviewView, position: AVFoundation.AVCaptureDevice.Position, type: DOT.DOTCameraType, mirrored: Swift.Bool = true, sessionPreset: AVFoundation.AVCaptureSession.Preset = .photo, previewDelegate: DOT.DOTCaptureCameraPreviewLayerDelegate? = nil) throws
+  final public func startRunning()
+  final public func stopRunning()
+  @discardableResult
+  final public func toggleTorch(on: Swift.Bool) -> Swift.Bool
+  final public func capturePhoto(isHightResolutionPhotoEnabled: Swift.Bool = true, isAutoStillImageStabilizationEnabled: Swift.Bool = true, flashMode: DOT.DOTCameraFlashMode)
+  final public func changePosition(_ position: AVFoundation.AVCaptureDevice.Position)
+  final public func fixOrientation()
+  final public func supportedFlashModes() -> [DOT.DOTCameraFlashMode]
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension DOTCamera : AVFoundation.AVCaptureVideoDataOutputSampleBufferDelegate {
+  @objc final public func captureOutput(_ output: AVFoundation.AVCaptureOutput, didOutput sampleBuffer: CoreMedia.CMSampleBuffer, from connection: AVFoundation.AVCaptureConnection)
+}
+extension DOTCamera : AVFoundation.AVCapturePhotoCaptureDelegate {
+  @available(iOS 11.0, *)
+  @objc final public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVFoundation.AVCapturePhoto, error: Swift.Error?)
+  @objc final public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVFoundation.AVCaptureResolvedPhotoSettings)
+  @available(iOS 10.0, *)
+  @objc final public func photoOutput(_ output: AVFoundation.AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CoreMedia.CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CoreMedia.CMSampleBuffer?, resolvedSettings: AVFoundation.AVCaptureResolvedPhotoSettings, bracketSettings: AVFoundation.AVCaptureBracketedStillImageSettings?, error: Swift.Error?)
+}
+@objc public class LivenessCheck2Style : ObjectiveC.NSObject {
+  @objc public var font: UIKit.UIFont
+  @objc public var hintText: UIKit.UIColor
+  @objc public var hintBubble: UIKit.UIColor
+  @objc public var background: UIKit.UIColor
+  @objc public var overlayBackground: UIKit.UIColor
+  @objc public var maskBackground: UIKit.UIColor
+  @objc public var dotColor: UIKit.UIColor
+  @objc override dynamic public init()
+  @objc public init(hintText: UIKit.UIColor = .black, hintBubble: UIKit.UIColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), background: UIKit.UIColor = .white, overlayBackground: UIKit.UIColor = UIColor.white.withAlphaComponent(0.8), maskBackground: UIKit.UIColor = .white, font: UIKit.UIFont = .systemFont(ofSize: 12), dotColor: UIKit.UIColor = .black)
+  @objc deinit
+}
+@objc public protocol LivenessCheck2ControllerDelegate : AnyObject {
+  @objc func livenessCheck2InitialStart(_ controller: DOT.LivenessCheck2Controller) -> Swift.Bool
+  @objc func livenessCheck2CameraInitFailed(_ controller: DOT.LivenessCheck2Controller)
+  @objc func livenessCheck2(_ controller: DOT.LivenessCheck2Controller, livenessStateChanged state: DOT.LivenessContextState)
+  @objc func livenessCheck2(_ controller: DOT.LivenessCheck2Controller, checkDoneWith score: Swift.Float, capturedSegmentImages segmentImagesList: [DOT.SegmentImage])
+  @objc func livenessCheck2FaceCaptureFailed(_ controller: DOT.LivenessCheck2Controller)
+  @objc func livenessCheck2NoMoreSegments(_ controller: DOT.LivenessCheck2Controller)
+  @objc func livenessCheck2NoEyesDetected(_ controller: DOT.LivenessCheck2Controller)
+  @objc optional func livenessCheck2NoCameraPermission(_ controller: DOT.LivenessCheck2Controller)
+  @objc func livenessCheck2(_ controller: DOT.LivenessCheck2Controller, captureStateChanged captureState: DOT.FaceCaptureState, withImage image: DOT.DOTImage?)
+  @objc func livenessCheck2(_ controller: DOT.LivenessCheck2Controller, didSuccess detectedFace: DOT.DetectedFace)
+  @objc optional func livenessCheck2(_ controller: DOT.LivenessCheck2Controller, previewSizeChanged size: CoreGraphics.CGSize)
+  @objc optional func livenessCheck2DidLoad(_ controller: DOT.LivenessCheck2Controller)
+  @objc optional func livenessCheck2WillDisappear(_ controller: DOT.LivenessCheck2Controller)
+  @objc optional func livenessCheck2DidDisappear(_ controller: DOT.LivenessCheck2Controller)
+  @objc optional func livenessCheck2WillAppear(_ controller: DOT.LivenessCheck2Controller)
+  @objc optional func livenessCheck2DidAppear(_ controller: DOT.LivenessCheck2Controller)
+}
+@objc public class LivenessCheck2Controller : UIKit.UIViewController {
+  public enum C {
+    public static let minFaceSizeRatio: Swift.Double
+  }
+  @objc weak public var delegate: DOT.LivenessCheck2ControllerDelegate?
+  @objc public static func create(configuration: DOT.Liveness2Configuration, style: DOT.LivenessCheck2Style = .init()) -> DOT.LivenessCheck2Controller
+  @objc public func startLivenessCheck()
+  @objc public func restartTransitionView()
+  @objc public func stopLivenessCheck()
+  public func liveness(capturedImage: UIKit.UIImage)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension LivenessCheck2Controller {
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @objc override dynamic public func viewDidLayoutSubviews()
+  @objc override dynamic public func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+}
+extension LivenessCheck2Controller {
+  public func livenessEyesNotDetected(_ context: DOT.LivenessContext)
+  public func liveness(_ context: DOT.LivenessContext, showNextSegment segment: DOT.DOTSegment?)
+  public func liveness(_ context: DOT.LivenessContext, finishedWithScore score: Swift.Float, segmentImages: [DOT.SegmentImage])
+  public func liveness(_ context: DOT.LivenessContext, stateChanged state: DOT.LivenessContextState)
+}
+extension LivenessCheck2Controller : DOT.DOTCaptureCameraPreviewLayerDelegate {
+  public func dotCameraPreview(_ camera: DOT.DOTCaptureCamera, width: CoreGraphics.CGFloat, height: CoreGraphics.CGFloat)
+}
+public enum FaceImageVerificationError : Swift.Error {
+  case noFaceDetectedInReferenceImage
+  case noFaceDetectedInProbeImage
+  public static func == (a: DOT.FaceImageVerificationError, b: DOT.FaceImageVerificationError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc final public class FaceImageVerifier : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc(matchWithReferenceFaceImage:probeFaceImages:error:) final public func match(referenceFaceImage: DOT.FaceImage, probeFaceImages: [DOT.FaceImage]) throws -> [Foundation.NSNumber]
+  @objc(matchWithReferenceTemplate:probeFaceImages:error:) final public func match(referenceFaceTemplate: DOT.Template, probeFaceImages: [DOT.FaceImage]) throws -> [Foundation.NSNumber]
+  @objc(matchWithReferenceFaceImage:probeFaceImage:error:) final public func match(referenceFaceImage: DOT.FaceImage, probeFaceImage: DOT.FaceImage) throws -> Foundation.NSNumber
+  @objc(matchWithReferenceTemplate:probeFaceImage:error:) final public func match(referenceFaceTemplate: DOT.Template, probeFaceImage: DOT.FaceImage) throws -> Foundation.NSNumber
+  @objc deinit
+}
+final public class Liveness2Context {
+  @objc deinit
+}
+@objc public class FaceCaptureConfiguration : ObjectiveC.NSObject {
+  public typealias Builder = (DOT.FaceCaptureConfiguration) -> ()
+  public enum C {
+    public static let minFaceSizeRatio: Swift.Double
+    public static let maxFaceSizeRatio: Swift.Double
+    public static let lightScoreThreshold: Swift.Double
+  }
+  @objc public var minFaceSizeRatio: Swift.Double
+  @objc public var maxFaceSizeRatio: Swift.Double
+  @objc public var useAlternativeInstructions: Swift.Bool
+  @objc public var requestFullImage: Swift.Bool
+  @objc public var requestCropImage: Swift.Bool
+  @objc public var requestTemplate: Swift.Bool
+  @objc public var showCheckAnimation: Swift.Bool
+  @objc public var cameraPosition: AVFoundation.AVCaptureDevice.Position
+  @objc public var lightScoreThreshold: Swift.Double
+  @objc override dynamic public init()
+  @objc public init(minFaceSizeRatio: Swift.Double = C.minFaceSizeRatio, maxFaceSizeRatio: Swift.Double = C.maxFaceSizeRatio, useAlternativeInstructions: Swift.Bool = false, requestFullImage: Swift.Bool = false, requestCropImage: Swift.Bool = false, requestTemplate: Swift.Bool = false, showCheckAnimation: Swift.Bool = true, lightScoreThreshold: Swift.Double = C.lightScoreThreshold, cameraPosition: AVFoundation.AVCaptureDevice.Position = .front)
+  @objc public init(_ builderBlock: (DOT.FaceCaptureConfiguration) -> ())
+  @objc deinit
+}
+@available(*, deprecated, message: "Use `TemplateVerifier` or `LivenessImageVerifier` instead.")
+@objc public protocol FaceVerifierDelegate : AnyObject {
+  @objc func faceVerifier(_ faceVerifier: DOT.FaceVerifier, verifiedTemplate templateId: Swift.Int, score: Swift.Float)
+  @objc func faceVerifier(_ faceVerifier: DOT.FaceVerifier, notVerifiedTemplate templateId: Swift.Int, score: Swift.Float)
+  @objc func faceVerifier(_ faceVerifier: DOT.FaceVerifier, incompatibleTemplateId templateId: Swift.Int)
+  @objc func faceVerifier(_ faceVerifier: DOT.FaceVerifier, faceNotFoundOnProbe templateId: Swift.Int)
+  @objc func faceVerifier(_ faceVerifier: DOT.FaceVerifier, faceNotFoundOnReference templateId: Swift.Int)
+  @objc func faceVerifier(_ faceVerifier: DOT.FaceVerifier, multipleFaceFoundOnProbe count: Swift.Int, templateId: Swift.Int)
+  @objc func faceVerifier(_ faceVerifier: DOT.FaceVerifier, multipleFaceFoundOnReference count: Swift.Int, templateId: Swift.Int)
+}
+@available(*, deprecated, message: "Use `TemplateVerifier` or `LivenessImageVerifier` instead.")
+@objc final public class FaceVerifier : ObjectiveC.NSObject {
+  @objc weak final public var delegate: DOT.FaceVerifierDelegate?
+  @objc override dynamic public init()
+  @objc final public func verify(probeTemplate: DOT.Template, referenceTemplate: DOT.Template, threshold: Swift.Float, templateId: Swift.Int)
+  @objc final public func verify(probeImage: DOT.FaceImage, referenceTemplate: DOT.Template, threshold: Swift.Float, templateId: Swift.Int)
+  @discardableResult
+  @objc final public func verifyIfAvailable(probeImage: DOT.FaceImage, referenceTemplate: DOT.Template, threshold: Swift.Float, checkMultipleFaces: Swift.Bool, templateId: Swift.Int) -> Swift.Bool
+  @objc final public func verify(probeImage: DOT.FaceImage, referenceImage: DOT.FaceImage, threshold: Swift.Float, templateId: Swift.Int)
+  @discardableResult
+  @objc final public func verifyIfAvailable(probeImage: DOT.FaceImage, referenceImage: DOT.FaceImage, threshold: Swift.Float, checkMultipleFaces: Swift.Bool, templateId: Swift.Int) -> Swift.Bool
+  @objc deinit
+}
+final public class CaptureCandidate {
+  final public var croppedFaceImage: UIKit.UIImage? {
+    get
+  }
+  final public var template: DOT.Template? {
+    get
+  }
+  @objc deinit
+}
+public protocol CaptureStep : AnyObject {
+  var state: DOT.FaceCaptureState { get }
+  var id: Swift.String { get }
+  var validatedFace: DOT.ValidatedFace? { get set }
+  var isMinimalFulfilled: Swift.Bool { get }
+  var isFulfilled: Swift.Bool { get }
+  var shouldValidatePrevious: Swift.Bool { get }
+  var engageUser: Swift.Bool { get }
+  var progress: Swift.Int { get }
+  var progressColor: UIKit.UIColor { get }
+  var isActive: Swift.Bool { get set }
+  var shouldCollectCandidates: Swift.Bool { get }
+  func instructionText(useAlternativeInstructions: Swift.Bool) -> Swift.String?
+  var instructionTextColor: UIKit.UIColor { get }
+  var instructionBackgroundColor: UIKit.UIColor { get }
+  var hasProgress: Swift.Bool { get }
+}
+@objc public enum FaceCaptureState : Swift.Int {
+  case presenceStep
+  case positionStep
+  case lightStep
+  case capturingStep
+  case doneStep
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct ValidatedFace {
+}
+@objcMembers final public class TemplateVerifierError : Swift.Error {
+  @objc final public let error: DOT.FaceTemplateError
+  final public var templateIndex: Swift.Int?
+  @objc deinit
+}
+@objc @objcMembers final public class TemplateVerifier : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc final public func match(referenceTemplate: DOT.Template, probeTemplate: DOT.Template) throws -> Foundation.NSNumber
+  @objc deinit
+}
+@objc public class FaceCaptureSimpleConfiguration : ObjectiveC.NSObject {
+  public typealias Builder = (DOT.FaceCaptureSimpleConfiguration) -> ()
+  public enum C {
+    public static let minFaceSizeRatio: Swift.Double
+    public static let maxFaceSizeRatio: Swift.Double
+  }
+  @objc public var minFaceSizeRatio: Swift.Double
+  @objc public var maxFaceSizeRatio: Swift.Double
+  @objc public var requestFullImage: Swift.Bool
+  @objc public var requestCropImage: Swift.Bool
+  @objc public var requestTemplate: Swift.Bool
+  @objc public var cameraPosition: AVFoundation.AVCaptureDevice.Position
+  @objc override dynamic public init()
+  @objc public init(minFaceSizeRatio: Swift.Double = C.minFaceSizeRatio, maxFaceSizeRatio: Swift.Double = C.maxFaceSizeRatio, requestFullImage: Swift.Bool = false, requestCropImage: Swift.Bool = false, requestTemplate: Swift.Bool = false, cameraPosition: AVFoundation.AVCaptureDevice.Position = .front)
+  @objc public init(_ builderBlock: (DOT.FaceCaptureSimpleConfiguration) -> ())
+  @objc deinit
+}
+@objc public class Rectangle : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct FaceBasicInfo {
+}
+final public class FaceCaptureContext {
+  final public var useAlternativeInstructions: Swift.Bool
+  final public var currentStep: DOT.CaptureStep? {
+    get
+  }
+  @objc deinit
+}
+extension FaceCaptureContext {
+  final public func start()
+  final public func stop(stopCamera: Swift.Bool = true)
+}
+extension FaceCaptureContext : DOT.DOTCaptureCameraDelegate {
+  final public func dotCamera(_ camera: DOT.DOTCaptureCamera, image: UIKit.UIImage)
+}
+extension FaceCaptureContext : DOT.AutocaptureValidatorDelegate {
+  final public func autocapture(_ validator: DOT.AutocaptureValidator, stepDidChanged step: DOT.CaptureStep)
+  final public func autocapture(_ validator: DOT.AutocaptureValidator, captureCandidate: DOT.CaptureCandidate?)
+}
+@objc public class DOTSegment : ObjectiveC.NSObject {
+  @objc public enum DOTSegmentPosition : Swift.Int {
+    case topLeft
+    case topRight
+    case bottomLeft
+    case bottomRight
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+  @objc final public let position: DOT.DOTSegment.DOTSegmentPosition
+  @objc final public let duration: Swift.Int
+  @objc public init(targetPosition: DOT.DOTSegment.DOTSegmentPosition, duration: Swift.Int)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum DotPosition : Swift.Int {
+  case center = -1
+  case topLeft = 0
+  case topRight = 1
+  case bottomLeft = 2
+  case bottomRight = 3
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public protocol AutocaptureValidatorDelegate : AnyObject {
+  func autocapture(_ validator: DOT.AutocaptureValidator, captureCandidate: DOT.CaptureCandidate?)
+  func autocapture(_ validator: DOT.AutocaptureValidator, stepDidChanged step: DOT.CaptureStep)
+}
+public class AutocaptureValidator {
+  @objc deinit
+}
+extension AutocaptureValidator {
+  public func processNoFace()
+  public func processCandidate(_ candidate: DOT.CaptureCandidate)
+}
+@objc @objcMembers final public class SegmentImage : ObjectiveC.NSObject {
+  @objc final public let dotImage: DOT.DOTImage
+  @objc final public let isValid: Swift.Bool
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class LivenessConfiguration : ObjectiveC.NSObject {
+  public typealias Builder = (DOT.LivenessConfiguration) -> ()
+  @objc public var transitionType: DOT.TransitionType
+  @objc public var segments: [DOT.DOTSegment]?
+  @objc public var maxFaceSizeRatio: Swift.Double
+  @objc public var minFaceSizeRatio: Swift.Double
+  @objc public var minValidSegmentsCount: Swift.Int
+  @objc public var dotSize: CoreGraphics.CGFloat
+  @objc public var dotImage: UIKit.UIImage?
+  @objc public var proximityTolerance: Swift.Double
+  @objc public init(transitionType: DOT.TransitionType)
+  @objc public init(transitionType: DOT.TransitionType, segments: [DOT.DOTSegment]? = nil, minValidSegmentsCount: Swift.Int = 4, maxFaceSizeRatio: Swift.Double = 0.34, minFaceSizeRatio: Swift.Double = 0.1, dotSize: Swift.Int = 50, dotImage: UIKit.UIImage? = nil, proximityTolerance: Swift.Double = 0.7)
+  @objc public init(transitionType: DOT.TransitionType, builderBlock: (DOT.LivenessConfiguration) -> ())
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum TransitionType : Swift.Int {
+  case move
+  case fade
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+final public class FaceCaptureSimpleContext {
+  @objc deinit
+}
+extension FaceCaptureSimpleContext {
+  final public func start()
+  final public func stop()
+}
+extension FaceCaptureSimpleContext : DOT.DOTCaptureCameraDelegate {
+  final public func dotCamera(_ camera: DOT.DOTCaptureCamera, image: UIKit.UIImage)
+}
+@objc public class FaceCaptureStyle : ObjectiveC.NSObject {
+  @objc public var background: UIKit.UIColor
+  @objc public var backgroundOverlay: UIKit.UIColor
+  @objc public var circleOutline: UIKit.UIColor
+  @objc public var trackingCircleOutline: UIKit.UIColor
+  @objc public var trackingCircleBackground: UIKit.UIColor
+  @objc public var progressValid: UIKit.UIColor
+  @objc public var progressIntermediate: UIKit.UIColor
+  @objc public var progressInvalid: UIKit.UIColor
+  @objc public var tick: UIKit.UIColor
+  @objc public var font: UIKit.UIFont
+  @objc override dynamic public init()
+  @objc public init(background: UIKit.UIColor = .white, backgroundOverlay: UIKit.UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.8), circleOutline: UIKit.UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1), trackingCircleOutline: UIKit.UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.1), trackingCircleBackground: UIKit.UIColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:0.45), progressValid: UIKit.UIColor = UIColor(red:0.53, green:0.71, blue:0.38, alpha:1.0), progressIntermediate: UIKit.UIColor = UIColor(red:0.93, green:0.52, blue:0.00, alpha:1.0), progressInvalid: UIKit.UIColor = UIColor(red:0.86, green:0.26, blue:0.20, alpha:1.0), tick: UIKit.UIColor = UIColor(red:0.53, green:0.71, blue:0.38, alpha:1.0), font: UIKit.UIFont = .systemFont(ofSize: 12))
+  @objc deinit
+}
+@objc public enum FaceTemplateError : Swift.Int, Swift.Error {
+  case versionNotSupported
+  case templateIncompatible
+  case templateCorrupted
+  case other
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public static var _nsErrorDomain: Swift.String {
+    get
+  }
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class FaceImage : ObjectiveC.NSObject {
+  @objc public init(image: UIKit.UIImage)
+  @objc public init(image: UIKit.UIImage, minFaceSizeRatio: Swift.Double)
+  @objc public init(image: UIKit.UIImage, maxFaceSizeRatio: Swift.Double)
+  @objc public init(image: UIKit.UIImage, minFaceSizeRatio: Swift.Double = 0.02, maxFaceSizeRatio: Swift.Double = 0.5)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class DOTPoint : ObjectiveC.NSObject {
+  @objc final public let x: Swift.Double
+  @objc final public let y: Swift.Double
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum CaptureSide : Swift.Int {
+  case front
+  case back
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class LivenessCheckStyle : ObjectiveC.NSObject {
+  @objc public var font: UIKit.UIFont
+  @objc public var hintText: UIKit.UIColor
+  @objc public var hintBubble: UIKit.UIColor
+  @objc public var background: UIKit.UIColor
+  @objc public var dotColor: UIKit.UIColor
+  @objc override dynamic public init()
+  @objc public init(hintText: UIKit.UIColor = .black, hintBubble: UIKit.UIColor = UIColor(red:0.96, green:0.96, blue:0.96, alpha:1.0), background: UIKit.UIColor = .white, font: UIKit.UIFont = .systemFont(ofSize: 12), dotColor: UIKit.UIColor = .black)
+  @objc deinit
+}
+@objc public class Liveness2Configuration : ObjectiveC.NSObject {
+  public typealias Builder = (DOT.Liveness2Configuration) -> ()
+  @objc public var captureSide: DOT.CaptureSide
+  @objc public var transitionType: DOT.TransitionType
+  @objc public var segments: [DOT.DOTSegment]?
+  @objc public var maxFaceSizeRatio: Swift.Double
+  @objc public var minFaceSizeRatio: Swift.Double
+  @objc public var minValidSegmentsCount: Swift.Int
+  @objc public var dotSize: CoreGraphics.CGFloat
+  @objc public var dotImage: UIKit.UIImage?
+  @objc public var proximityTolerance: Swift.Double
+  @objc public var positionToTolerance: Swift.Double
+  @objc public var lightScoreThreshold: Swift.Double
+  @objc public var cameraPreviewOverlayAlpha: Swift.Double
+  @objc public init(transitionType: DOT.TransitionType, captureSide: DOT.CaptureSide = .front, segments: [DOT.DOTSegment]? = nil, minValidSegmentsCount: Swift.Int = 4, maxFaceSizeRatio: Swift.Double = 0.34, minFaceSizeRatio: Swift.Double = 0.10, dotSize: Swift.Int = 50, dotImage: UIKit.UIImage? = nil, proximityTolerance: Swift.Double = 0.7, positionToTolerance: Swift.Double = 0.25, lightScoreThreshold: Swift.Double = 0.35, cameraPreviewOverlayAlpha: Swift.Double = 1)
+  @objc public init(transitionType: DOT.TransitionType)
+  @objc public init(transitionType: DOT.TransitionType, builderBlock: (DOT.Liveness2Configuration) -> ())
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DOTNavigationController : UIKit.UINavigationController {
+  @objc public static func create() -> DOT.DOTNavigationController
+  @objc public static func create(configuration: DOT.DOTNavigationController.Configuration = Configuration.default) -> DOT.DOTNavigationController
+  @available(iOS 5.0, *)
+  @objc override dynamic public init(navigationBarClass: Swift.AnyClass?, toolbarClass: Swift.AnyClass?)
+  @objc override dynamic public init(rootViewController: UIKit.UIViewController)
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @objc deinit
+}
+extension DOTNavigationController {
+  @objc public class Configuration : ObjectiveC.NSObject {
+    public static var `default`: DOT.DOTNavigationController.Configuration {
+      get
+    }
+    @objc public var barStyle: UIKit.UIBarStyle
+    @objc public var barTintColor: UIKit.UIColor
+    @objc public var tintColor: UIKit.UIColor
+    @objc public var titleColor: UIKit.UIColor
+    @objc override dynamic public init()
+    @objc public init(barStyle: UIKit.UIBarStyle, barTintColor: UIKit.UIColor, tintColor: UIKit.UIColor, titleColor: UIKit.UIColor)
+    @objc deinit
+  }
+}
+@objc final public class Face : ObjectiveC.NSObject {
+  @objc final public func attributeScore(_ attr: DOT.Attribute) -> DOT.AttributeScore?
+  @objc final public func attributes(_ attributes: [DOT.AttributeWrapper]) -> [DOT.IcaoAttribute]
+  @objc final public func features(_ features: [DOT.FeatureWrapper]) -> [DOT.FeaturePoint]
+  @objc final public func cropFaceRect(cropMethod: DOT.CropMethod) -> DOT.Rectangle?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum CropMethod : Swift.Int {
+  case tokenFrontal
+  case fullFrontal
+  case frontalExtended
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class FeaturePoint : ObjectiveC.NSObject {
+  @objc final public let feature: DOT.Feature
+  @objc final public let point: DOT.DOTPoint
+  @objc final public let score: Swift.Float
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class FeatureWrapper : ObjectiveC.NSObject {
+  @objc public init(feature: DOT.Feature)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum Feature : Swift.Int, Swift.CustomStringConvertible {
+  case rightEyeOuterCorner
+  case rightEyeCenter
+  case rightEyeInnerCorner
+  case leftEyeOuterCorner
+  case leftEyeCenter
+  case leftEyeInnerCorner
+  case noseTip
+  case mouthRightCorner
+  case mouthCenter
+  case mouthLeftCorner
+  case mouthUpperEdge
+  case mouthLowerEdge
+  case rightEyebrowOuterEdge
+  case rightEyebrowInnerEdge
+  case leftEyebrowOuterEdge
+  case leftEyebrowInnerEdge
+  case faceRightEdge
+  case faceChinTip
+  case faceLeftEdge
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class AttributeScore : ObjectiveC.NSObject {
+  @objc final public let attribute: DOT.Attribute
+  @objc final public let value: Swift.Double
+  @objc public init(attribute: DOT.Attribute)
+  @objc public init(attribute: DOT.Attribute, value: Swift.Double)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum IcaoRangeStatus : Swift.Int {
+  case none = -2
+  case tooLow = -1
+  case inRange
+  case tooHigh
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc public class IcaoAttribute : ObjectiveC.NSObject {
+  @objc final public let score: DOT.AttributeScore
+  @objc final public let fulfilled: Swift.Bool
+  @objc final public let rangeStatus: DOT.IcaoRangeStatus
+  @objc final public let available: Swift.Bool
+  @objc public var attribute: DOT.Attribute {
+    @objc get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class AttributeWrapper : ObjectiveC.NSObject {
+  @objc public init(attribute: DOT.Attribute)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public enum Attribute : Swift.Int, Swift.CustomStringConvertible {
+  case sharpness
+  case brightness
+  case contrast
+  case intensityLevel
+  case shadow
+  case noseShadow
+  case specularity
+  case eyeGaze
+  case eyeStatusRight
+  case eyeStatusLeft
+  case glassStatus
+  case heavyFrame
+  case backgroundUniformity
+  case age
+  case redEyeRight
+  case redEyeLeft
+  case roll
+  case yaw
+  case pitch
+  case gender
+  case segmentationMask
+  case crop
+  case template
+  case eyeDistance
+  case confidence
+  case mounthStatus
+  public var description: Swift.String {
+    get
+  }
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc final public class FaceDetector : ObjectiveC.NSObject {
+  @objc(detectFaces:maximumFaces:) final public func detectFaces(faceImage image: DOT.FaceImage, maximumFaces: Swift.Int) -> [DOT.DetectedFace]
+  @objc override dynamic public init()
+  @objc deinit
+}
+final public class InnovatricsObjectTracker {
+  @objc deinit
+}
+extension InnovatricsObjectTracker {
+  public enum LivenessState : Swift.Int {
+    case notStarted
+    case finishedNotEnough
+    case finishedEnough
+    case inprogressNotEnough
+    case inprogressEnough
+    public typealias RawValue = Swift.Int
+    public init?(rawValue: Swift.Int)
+    public var rawValue: Swift.Int {
+      get
+    }
+  }
+}
+@objc final public class DOTImageWrapper : ObjectiveC.NSObject {
+  @objc final public let dotImage: DOT.DOTImage?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc final public class DOTImage : ObjectiveC.NSObject {
+  @objc final public var data: Foundation.Data
+  @objc final public var captureTimeInterval: Foundation.Date
+  @objc final public var dimenstion: DOT.DOTDimension {
+    @objc get
+  }
+  @objc final public var image: UIKit.UIImage? {
+    @objc get
+  }
+  @objc public init(image: UIKit.UIImage) throws
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension DOT.DOTHandler.LogLevel : Swift.Equatable {}
+extension DOT.DOTHandler.LogLevel : Swift.Hashable {}
+extension DOT.DOTHandler.LogLevel : Swift.RawRepresentable {}
+extension DOT.LivenessContextState : Swift.Hashable {}
+extension DOT.LivenessContextState : Swift.RawRepresentable {}
+extension DOT.DOTCameraType : Swift.Equatable {}
+extension DOT.DOTCameraType : Swift.Hashable {}
+extension DOT.DOTCameraFlashMode : Swift.Equatable {}
+extension DOT.DOTCameraFlashMode : Swift.Hashable {}
+extension DOT.LivenessCheck2Controller : DOT.LivenessDelegate {}
+extension DOT.FaceImageVerificationError : Swift.Equatable {}
+extension DOT.FaceImageVerificationError : Swift.Hashable {}
+extension DOT.FaceCaptureState : Swift.Equatable {}
+extension DOT.FaceCaptureState : Swift.Hashable {}
+extension DOT.FaceCaptureState : Swift.RawRepresentable {}
+extension DOT.DOTSegment.DOTSegmentPosition : Swift.Equatable {}
+extension DOT.DOTSegment.DOTSegmentPosition : Swift.Hashable {}
+extension DOT.DOTSegment.DOTSegmentPosition : Swift.RawRepresentable {}
+extension DOT.DotPosition : Swift.Hashable {}
+extension DOT.DotPosition : Swift.RawRepresentable {}
+extension DOT.TransitionType : Swift.Hashable {}
+extension DOT.TransitionType : Swift.RawRepresentable {}
+extension DOT.CaptureSide : Swift.Hashable {}
+extension DOT.CaptureSide : Swift.RawRepresentable {}
+extension DOT.CropMethod : Swift.Equatable {}
+extension DOT.CropMethod : Swift.Hashable {}
+extension DOT.CropMethod : Swift.RawRepresentable {}
+extension DOT.Feature : Swift.Equatable {}
+extension DOT.Feature : Swift.Hashable {}
+extension DOT.Feature : Swift.RawRepresentable {}
+extension DOT.IcaoRangeStatus : Swift.Equatable {}
+extension DOT.IcaoRangeStatus : Swift.Hashable {}
+extension DOT.IcaoRangeStatus : Swift.RawRepresentable {}
+extension DOT.Attribute : Swift.Equatable {}
+extension DOT.Attribute : Swift.Hashable {}
+extension DOT.Attribute : Swift.RawRepresentable {}
+extension DOT.InnovatricsObjectTracker.LivenessState : Swift.Hashable {}
+extension DOT.InnovatricsObjectTracker.LivenessState : Swift.RawRepresentable {}

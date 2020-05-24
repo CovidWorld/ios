@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -65,6 +65,8 @@
 		2125E16C2472099600D3A526 /* NoRandomCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125E16B2472099600D3A526 /* NoRandomCheckViewController.swift */; };
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
+		21634EC7247B14190062EC3F /* DOT.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21634EC5247B140C0062EC3F /* DOT.xcframework */; };
+		21634EC8247B14190062EC3F /* DOT.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 21634EC5247B140C0062EC3F /* DOT.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		21662E59244D87B0002883E8 /* UINavigationBar+Transparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */; };
 		219593F82471C48300937D59 /* PasscodeLock.strings in Resources */ = {isa = PBXBuildFile; fileRef = 219593E22471C48200937D59 /* PasscodeLock.strings */; };
 		219593F92471C48300937D59 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219593E42471C48200937D59 /* Functions.swift */; };
@@ -144,6 +146,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		21634EC9247B14190062EC3F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				21634EC8247B14190062EC3F /* DOT.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		01CD4C6328E539CABA0FB0E5 /* Pods-Covid.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Covid.release.xcconfig"; path = "Target Support Files/Pods-Covid/Pods-Covid.release.xcconfig"; sourceTree = "<group>"; };
 		0F015CA224461587004E80A1 /* Covid-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Covid-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -202,6 +218,7 @@
 		21591AE62439E18500495263 /* settings_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = settings_version.sh; sourceTree = "<group>"; };
 		21591AEC2439E2C000495263 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21591AEE2439E3AE00495263 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		21634EC5247B140C0062EC3F /* DOT.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = DOT.xcframework; path = Vendor/DOT.xcframework; sourceTree = SOURCE_ROOT; };
 		21662E58244D87B0002883E8 /* UINavigationBar+Transparent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Transparent.swift"; sourceTree = "<group>"; };
 		2189714C24368B5C009987EA /* FaceIDCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDCapture.swift; sourceTree = "<group>"; };
 		2189714E24369949009987EA /* FaceIDValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDValidator.swift; sourceTree = "<group>"; };
@@ -288,6 +305,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21634EC7247B14190062EC3F /* DOT.xcframework in Frameworks */,
 				C0F99627241FAA48009C6BF5 /* MapKit.framework in Frameworks */,
 				1EACF742EFBC189662F2C060 /* Pods_Covid.framework in Frameworks */,
 			);
@@ -500,6 +518,7 @@
 		219593E02471C48200937D59 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				21634EC5247B140C0062EC3F /* DOT.xcframework */,
 				219593E12471C48200937D59 /* PasscodeLock */,
 			);
 			path = Vendors;
@@ -676,6 +695,7 @@
 				B27A818B38D9B7B823051851 /* [CP] Embed Pods Frameworks */,
 				0F745771241D985E000546FA /* FabricCrashlytics */,
 				21C8FB92242C07B3003668D8 /* Swiftlint */,
+				21634EC9247B14190062EC3F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

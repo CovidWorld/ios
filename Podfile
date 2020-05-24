@@ -19,7 +19,5 @@ target 'Covid' do
   pod 'Firebase/DynamicLinks'#, '4.0.8'
 
   pod 'SwiftOTP', '2.0.0'
-
-  pod 'dot', '2.14.2'
-
+  pod 'iface', '3.8.1'
 end
