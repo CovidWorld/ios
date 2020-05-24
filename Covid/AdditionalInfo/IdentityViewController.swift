@@ -101,12 +101,10 @@ extension IdentityViewController {
             case .failure:
                 break
             }
-            navigationController.dismiss(animated: true, completion: nil)
+            navigationController.popToRootViewController(animated: true)
         }
         if self.navigationController != nil {
             navigationController.pushViewController(viewController, animated: true)
-        } else {
-            present(navigationController, animated: true, completion: nil)
         }
     }
 }

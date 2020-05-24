@@ -53,7 +53,7 @@ final class FaceCaptureCoordinator {
 
     private(set) var step: FaceCaptureCoordinatorStep = .initialised
     private var retryVerifyCount = 0
-    private var numberOfRetries = 1
+    private var numberOfRetries = 5
     private var coordinator: LivenessStepCoordinator?
 
     deinit {
@@ -107,7 +107,7 @@ extension FaceCaptureCoordinator {
             case .verifyFace:
                 verifyFace(face)
             case .borderCrossing:
-                completeFaceCapture(didSuccess: true)
+                verifyFace(face)
             }
 
         case .failedToCaptureFace:
@@ -121,9 +121,12 @@ extension FaceCaptureCoordinator {
     private func verifyFace(_ face: FaceCaptureImage) {
         let result = faceIdValidator.validateCapturedFaceToReferenceTemplate(face)
         switch result {
-        case .success:
+        case .success where useCase == .verifyFace:
             debugPrint("verify: success")
             startVerifying()
+
+        case .success where useCase == .borderCrossing:
+            completeFaceCapture(didSuccess: true)
 
         case .failure(let error):
             switch error {
@@ -137,6 +140,8 @@ extension FaceCaptureCoordinator {
             }
 
             debugPrint("failed to verify")
+        default:
+            break
         }
     }
 
