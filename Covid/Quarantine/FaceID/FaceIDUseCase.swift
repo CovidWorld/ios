@@ -39,44 +39,33 @@ enum FaceIDUseCase {
     var title: String {
         switch self {
         case .registerFace:
-            return "Odfotiť tvár"
+            return LocalizedString(forKey: "face.capture.title")
         case .verifyFace,
              .borderCrossing:
-            return "Identifikujte sa tvárou"
+            return LocalizedString(forKey: "face.identify.title")
         }
     }
 
     var verifyTitle: String {
-        "Overenie tváre"
+        LocalizedString(forKey: "face.verification.title")
     }
 
     func completionTitle(didSuccess: Bool) -> String {
-        didSuccess ? "Ďakujeme" : "Ľutujeme"
+        didSuccess ? LocalizedString(forKey: "face.verification.success") : LocalizedString(forKey: "face.verification.failure")
     }
 
     func completionDescription(didSuccess: Bool = true) -> String {
         switch self {
         case .verifyFace where didSuccess:
-            return """
-            Dodržiavajte naďalej dôsledne domácu
-            izoláciu. Zabránite tak šíreniu vírusu
-            COVID-19.
-            """
+            return LocalizedString(forKey: "face.verification.success.message")
         case .verifyFace where didSuccess == false:
-            return """
-            Nepodarilo sa dokončiť proces overenia prostredníctvom biometrie. Ak si želáte, môžete neskôr proces zopakovať z hlavného menu.
-            """
+            return LocalizedString(forKey: "face.verification.failure.message")
         case .borderCrossing where didSuccess == true:
             return ""
         case .borderCrossing where didSuccess == false:
-            return """
-            Nepodarilo sa dokončiť proces overenia prostredníctvom biometrie.
-            """
+            return LocalizedString(forKey: "face.verification.border.failure.message")
         default:
-            return """
-            Dodržiavajte dôsledne domácu izoláciu.
-            Zabránite tak šíreniu vírusu COVID-19.
-            """
+            return LocalizedString(forKey: "face.verification.success.message")
         }
     }
 

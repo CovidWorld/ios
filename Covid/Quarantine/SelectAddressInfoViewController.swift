@@ -32,9 +32,9 @@ enum AccessPermission {
     var text: String {
         switch self {
         case .ok:
-            return "OK"
+            return LocalizedString(forKey: "button.ok")
         case .error:
-            return "CHYBA"
+            return LocalizedString(forKey: "button.error")
         }
     }
     var color: UIColor {
@@ -79,9 +79,9 @@ final class SelectAddressInfoViewController: ViewController {
 
     @IBAction private func didTapContinue(_ sender: Any) {
         if permissions.camera == .error {
-            presentSettings(message: "Prístup ku kamere nieje povolený. Pre správnu funkčnosť povoľte prístup ku kamere v nastaveniach.")
+            presentSettings(message: LocalizedString(forKey: "permission.camera.denied"))
         } else if permissions.location == .error {
-            presentSettings(message: "Prístup k GPS nieje povolený. Pre správnu funkčnosť povoľte prístup k GPS v nastaveniach.")
+            presentSettings(message: LocalizedString(forKey: "permission.location.denied"))
         } else {
             onContinue?()
         }
@@ -143,11 +143,11 @@ final class SelectAddressInfoViewController: ViewController {
     }
 
     private func presentSettings(message: String) {
-        let alertController = UIAlertController(title: "Chyba",
+        let alertController = UIAlertController(title: LocalizedString(forKey: "error.title"),
                                                 message: message,
                                                 preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Zrušiť", style: .cancel))
-        let defaultAction = UIAlertAction(title: "Nastavenia", style: .default) { _ in
+        alertController.addAction(UIAlertAction(title: LocalizedString(forKey: "button.cancel"), style: .cancel))
+        let defaultAction = UIAlertAction(title: LocalizedString(forKey: "permission.settings"), style: .default) { _ in
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url, options: [:])
             }

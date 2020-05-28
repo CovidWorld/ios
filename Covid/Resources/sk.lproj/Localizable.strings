@@ -14,27 +14,23 @@
 "face_capture.instruction_step.light.second" = "Natočte tvár smerom k svetlu";
 "face_capture.instruction_step.capture" = "Nehýbte sa!";
 
-
-"face_capture.instruction_step.light.first" = "Prisuňte sa bližšie k svetlu";
-"face_capture.instruction_step.light.second" = "Natočte tvár smerom k svetlu";
-"face_capture.instruction_step.capture" = "Nehýbte sa!";
-
 "face_capture.instruction_step.position.simple" = "Vycentrujte tvár na stred kruhu";
 "face_capture.instruction_step.position.andvancedTitle" = "Vycentrujte tvár";
 "face_capture.instruction_step.position.andvancedText" = "Držte zariadenie v úrovni očí.\n Vycentrujte tvár na stred kruhu.\nUpravte vzdialenosť tváre a zariadenia.";
 
 "face_capture.instruction_step.light.simple" = "Nasmerujte tvár k svetlu";
-"face_capture.instruction_step.light.andvancedTitle" = "Rotate towards light";
+"face_capture.instruction_step.light.andvancedTitle" = "Nasmerujte tvár k svetlu";
 "face_capture.instruction_step.light.andvancedText" = "Vyhľadajte predný zdroj svetla.\nVyhnite sa svetlu vrhajúcemu ostré tiene (vrchné alebo bočné svetlo).\nVyhýbajte sa zadnému zdroju svetla.";
 
 "face_capture.alert.camera.title" = "Nie je povolená kamera";
-"face_capture.alert.camera.message" = "Vstúpiť do nastavení?";
+"face_capture.alert.camera.message" = "Vstúpiť do Nastavení?";
 "face_capture.alert.camera.option.settings" = "Nastavenia";
 "face_capture.alert.camera.option.cancel" = "Zrušiť";
 
 "face_capture.confirmation.title" = "Skontrolujte výslednú fotografiu";
 "face_capture.confirmation.accept" = "Potvrdiť";
 "face_capture.confirmation.tryAgain" = "Skúsiť znova";
+"face_capture.confirmation.close" = "Ukončiť verifikáciu";
 
 "face_capture.failedTitle" = "Zaznamenávanie";
 "face_capture.failed" = "Zaznamenávanie zlyhalo";
@@ -52,3 +48,128 @@
 "liveness.state.templateNotMatching" = "";
 "liveness.state.tooClose" = "Posuňte sa dozadu";
 "liveness.state.tooFar" = "Posuňte sa bližšie";
+"face.capture.title" = "Odfotiť tvár";
+"face.identify.title" = "Identifikujte sa tvárou";
+"face.verification.title" = "Overenie tváre";
+"face.verification.success" = "Ďakujeme";
+"face.verification.success.message" = "Dodržiavajte naďalej dôsledne domácu
+izoláciu. Zabránite tak šíreniu vírusu
+COVID-19.";
+"face.verification.failure" = "Ľutujeme";
+"face.verification.failure.message" = "Nepodarilo sa dokončiť proces overenia prostredníctvom biometrie. Ak si želáte, môžete neskôr proces zopakovať z hlavného menu.";
+"face.verification.border.failure.message" = "Nepodarilo sa dokončiť proces overenia prostredníctvom biometrie.";
+"face.registration.title" = "Skenovanie tváre
+pre karanténu";
+"face.registration.description" = "Prosím naskenujte Vašu tvár pre prípadnú verifikáciu pri dodržiavaní povinnej karantény.";
+"face.registration.warning" = "Tento krok je povinný.";
+"face.registration.info" = "Dáta sú uložené výhradne
+na Vašom zariadení.";
+"face.verification.notRequired.title" = "Informácia";
+"face.verification.notRequired.description" = "V súčasnosti nieje požiadavka na overenie Vašej tváre a lokácie v karanténe. Táto požiadavka môže prísť však kedykoľvek.";
+"face.verification.notRequired.warning" = "Neopúšťajte miesto Vašej povinnej karantény. \n Môžete sa dopustiť vážneho priestupku.";
+
+/* emergency */
+"emergency.title" = "Infolinka";
+
+/* symptoms */
+"symptoms.label.title" = "Symptómy";
+"symptoms.description" = "Ľudia nakazení COVID-19 udávajú široké spektrum prejavov, od miernych až po závažné.
+
+Prejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕňať:";
+"symptoms.symptoms" = "horúčka nad 38 °C\nsuchý dusivý kašeľ\nťažkosti s dýchaním alebo\ndýchavičnosť\núnava alebo schvátenosť\nzimnica alebo triaška\nbolesť svalov\nbolesť hlavy\nbolesť hrdla\nnáhla strata čuchu a chuti\nhnačka\nzvracanie";
+
+/* Prevention */
+"prevention.label.title" = "Ako sa chrániť";
+"prevention.title" = "Ako sa chrániť pred koronavírusom";
+"prevention.01" = "Často si umývajte ruky mydlom a vodou, najmenej po dobu 20 sekúnd. Môžete použiť dezinfekčný prostriedok na ruky na báze alkoholu.";
+"prevention.02" = "Zakrývajte si nos a ústa pri kašľaní a kýchaní jednorázovou papierovou vreckovkou a následne zahoďte.";
+"prevention.03" = "Nedotýkajte sa očí, nosa a úst neumytými rukami.";
+"prevention.04" = "Vyhýbajte sa blízkemu kontaktu s ľuďmi, ktorí javia príznak nádchy alebo chrípky.";
+"prevention.05" = "Noste ochrannú masku v prípade, že sa u Vás alebo u osôb vo Vašej blízkosti prejavujú respiračné symptómy.";
+"prevention.06" = "Pravidelne čistite a dezinfikujte povrchy a objekty s ktorými ste Vy a Vaše okolie v pravidelnom kontakte.";
+"prevention.07" = "Ak ste chorý, liečte sa doma.";
+
+/* general */
+"day" = "deň";
+"days" = "dni";
+"daysMultiple" = "dní";
+
+"homescreen.title" = "Inteligentná karanténa Slovenskej republiky";
+"user.privacy.title" = "Ochrana osobných údajov";
+
+/* buttons */
+"button.back" = "Naspäť";
+"button.backShort" = "Späť";
+"button.retry" = "Skúsiť znovu";
+"button.continue" = "Pokračovať";
+"button.confirm" = "Potvrdiť";
+"button.next" = "Ďalej";
+"button.edit" = "Upraviť";
+"button.cancel" = "Zrušiť";
+"button.agree" = "Súhlasím";
+"button.yes" = "Áno";
+"button.no" = "Nie";
+"button.ok" = "OK";
+"button.error" = "CHYBA";
+"button.close" = "Zavrieť";
+"button.start" = "Štart";
+
+/* profile */
+"profile.about.app" = "O aplikácií";
+"profile.gdpr" = "Info o spracovaní osobných údajov";
+"profile.show.identifier" = "Zobraziť identifikátor";
+"profile.discovery.info" = "Nasledovné tlačítko odhalí Váš \n identifikátor karantény";
+"profile.identifier.title" = "Toto je Váš špeciálny identifikátor pre potrebu kontroly";
+"profile.hotp.title" = "Vaše 6 ciferné číslo je:";
+
+/* stats */
+"stats.infected" = "Chorí";
+"stats.recovered" = "Uzdravení";
+
+/* permissions */
+"permission.camera.denied.title" = "Nie je povolená kamera";
+"permission.camera.denied" = "Prístup ku kamere nieje povolený. Pre správnu funkčnosť povoľte prístup ku kamere v nastaveniach.";
+"permission.location.denied" = "Prístup k GPS nieje povolený. Pre správnu funkčnosť povoľte prístup k GPS v nastaveniach.";
+"permission.settings" = "Nastavenia";
+"permission.settings.open" = "Otvoriť Nastavenia?";
+"permission.camera.access.title" = "Prístup k fotoaparátu - ";
+"permission.location.access.title" = "Prístup ku GPS lokácii - ";
+
+/* quarantine */
+"quarantine.warning.title" = "Upozornenie";
+"quarantine.registration.overview.title" = "Dôležité";
+"quarantine.registration.description" = "Aplikácia Vás žiada na overenie sa v mieste Vašej domácej izolácie. Je potrebné reagovať okamžite a pokračovať rozoznaním tváre. Aplikácia bude pristupovať k Vašemu fotoaparátu a GPS lokácii.";
+"quarantine.decision.title" = "Vraciate sa zo zahraničia a ste registrovaný pre inteligentnú karanténu?";
+"quarantine.register.title" =  "Bol som v zahraničí alebo\nmusím zostať v karanténe";
+"quarantine.check.title" = "Overiť sa v mieste karantény";
+"quarantine.pending.title" = "Odpočet nebol zahájený";
+"quarantine.pending.info" = "Udeje sa tak autoritou po overení Vášho kódu";
+"quarantine.info.title" = "Povinná domáca izolácia, zostáva:";
+
+/* Phone */
+"phone.enter.title" = "Prosím zadajte vaše telefónne číslo";
+"phone.verification.title" = "Overenie čísla";
+"phone.user.consent.disclaimer" = "Pokračovaním súhlasím so spracovaním údajov o mojom zdraví na účely ochrany života a zdravia v súvislosti so šírením vírusu COVID-19";
+"phone.user.consent" = "Pre pokračovanie musíte súhlasiť so spracovaním osobných údajov";
+"phone.user.consent.description" = "Info o spracovaní osobných údajov";
+"phone.registration.title" = "Na vaše telefónne číslo sme poslali SMS s aktivačným kódom.";
+"phone.registration.enter" = "Zadajte prosím 6 miestny aktivačný kód:";
+
+/* address */
+"address.confirmation.title" = "Vaša adresa";
+"address.chosenAddress.title" = "Vybrali ste si adresu:";
+"address.info" = "Táto adresa bude počas nasledujúcich dní Vašim miestom domácej izolácie. Adresu nie je možné zmeniť.";
+"address.title" = "Vaša domáca adresa";
+
+/* errors */
+"error.title" = "Chyba";
+"error.registration.failed" = "Pri registrácií došlo k chybe";
+"error.quarantine.check" = "Pri overovaní dodržiavania karantény došlo k chybe. Skúste zopakovať overenie znovu.";
+"error.registration.failed.retry" = "Pri registrácií došlo k chybe. Skúste znovu.";
+"error.notConnected.title" = "Chyba pripojenia";
+"error.notConnected.message" = "Pre správnu funkčnosť aplikácie je nevyhnutné aktívne internetové pripojenie.";
+"error.phone.wrongDigits" = "Zadali ste nesprávne číslo. Zadajte 9 miestne číslo bez 0 na začiatku";
+"error.phone.verification" = "Chyba pri vyžiadaní overovacieho kódu. Skúsiť znovu?";
+"error.phone.wrong.input" = "Zadané údaje sú nesprávne. Skúste znova.";
+"error.faceid.verification.failed.title" = "Neúspešná verifikácia";
+"error.faceid.verification.failed.message" = "Overenie Vašej tváre nebolo úspešné";

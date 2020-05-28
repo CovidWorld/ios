@@ -148,7 +148,7 @@ final class MainViewController: ViewController, NotificationCenterObserver {
                 current.requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] _, _ in
                     DispatchQueue.main.async {
                         if !Defaults.didShowForeignAlert {
-                           self?.performSegue(.foreignAlert)
+                            self?.performSegue(.foreignAlert)
                         }
                     }
                 }
@@ -182,11 +182,19 @@ extension MainViewController {
         actionButton?.isHidden = Defaults.covidPass != nil && (Defaults.quarantineStart == nil || (Defaults.quarantineStart ?? Date()) >= Date())
 
         if Defaults.quarantineActive == false {
-            actionButton.setTitle("Bol som v zahraničí alebo\nmusím zostať v karanténe", for: .normal)
+            actionButton.setTitle(LocalizedString(forKey: "quarantine.register.title"), for: .normal)
             actionButton.backgroundColor = UIColor(red: 80.0 / 255.0, green: 88.0 / 255.0, blue: 249.0 / 255.0, alpha: 1.0)
         } else if Defaults.quarantineStart != nil {
-            actionButton.setTitle("Overiť sa v mieste karantény", for: .normal)
+            actionButton.setTitle(LocalizedString(forKey: "quarantine.check.title"), for: .normal)
             actionButton.backgroundColor = UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 195.0 / 255.0, alpha: 1.0)
+        }
+    }
+
+    private func showRegistrationFailureAlert(_ completion: @escaping () -> Void) {
+        Alert.show(title: LocalizedString(forKey: "error.title"),
+                   message: LocalizedString(forKey: "error.registration.failed"),
+                   defaultTitle: LocalizedString(forKey: "button.retry")) { (_) in
+                    completion()
         }
     }
 
@@ -198,10 +206,8 @@ extension MainViewController {
                 case .success(let profile):
                     Defaults.profileId = profile.profileId
                 case .failure:
-                    Alert.show(title: "Chyba",
-                               message: "Pri registrácií došlo k chybe",
-                               defaultTitle: "Skúsiť znovu") { (_) in
-                                self?.registerUser()
+                    self?.showRegistrationFailureAlert {
+                        self?.registerUser()
                     }
                 }
             }
@@ -275,6 +281,16 @@ extension MainViewController {
         }
     }
 
+    func showAlertWhenNonceFails(completion: @escaping () -> Void) {
+        Alert.show(title: LocalizedString(forKey: "error.title"),
+                   message: LocalizedString(forKey: "error.registration.failed.retry"),
+                   cancelAction: { (_) in
+                    DispatchQueue.main.async {
+                        completion()
+                    }
+        })
+    }
+
     private func finishProfileRegistration(_ completion: @escaping () -> Void) {
         observer?.dispose()
         observer = Defaults.observe(\.noncePush) { [weak self] update in
@@ -291,29 +307,21 @@ extension MainViewController {
                         }
                         return
                     case .failure:
-                        Alert.show(title: "Chyba",
-                                   message: "Pri registrácií došlo k chybe. Skúste znovu.",
-                                   cancelAction: { (_) in
-                                        DispatchQueue.main.async {
-                                            completion()
-                                        }
-                        })
+                        self?.showAlertWhenNonceFails {
+                            completion()
+                        }
                     }
                 }
             }
         }
 
-        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { (result) in
+        networkService.requestNoncePush(nonceRequestData: BasicRequestData()) { [weak self] (result) in
             switch result {
             case .success: break //wait for silent push
             case .failure:
-                Alert.show(title: "Chyba",
-                           message: "Pri registrácií došlo k chybe. Skúste znovu.",
-                           cancelAction: { (_) in
-                                DispatchQueue.main.async {
-                                    completion()
-                                }
-                })
+                self?.showAlertWhenNonceFails {
+                    completion()
+                }
             }
         }
     }
@@ -335,31 +343,7 @@ extension MainViewController {
             switch faceResult {
             case .success(let success):
                 if success {
-                    let locationCheck = LocationMonitoring.shared.verifyQuarantinePresence()
-                    self?.networkService.requestNonce(nonceRequestData: BasicRequestData()) { [weak self] (result) in
-                        switch result {
-                        case .success(let data):
-                            var status = "LEFT"
-                            if locationCheck {
-                                status = "OK"
-                            }
-                            self?.networkService.requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData(status: status, nonce: data.nonce)) { [weak self] (_) in
-                                switch result {
-                                case .success:
-                                    DispatchQueue.main.async {
-                                        self?.dismiss(animated: true, completion: {
-                                            self?.faceCaptureCoordinator = nil
-                                        })
-                                    }
-                                    return
-                                case .failure:
-                                    self?.onError()
-                                }
-                            }
-                        case .failure:
-                            self?.onError()
-                        }
-                    }
+                    self?.resolveCheck()
                 }
             case .failure:
                 self?.onError()
@@ -369,14 +353,14 @@ extension MainViewController {
     }
 
     func onError() {
-        Alert.show(title: "Chyba",
-                   message: "Pri overovaní dodržiavania karantény došlo k chybe. Skúste zopakovať overenie znovu.",
+        Alert.show(title: LocalizedString(forKey: "error.title"),
+                   message: LocalizedString(forKey: "error.quarantine.check"),
                    cancelAction: { (_) in
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: {
-                                self.faceCaptureCoordinator = nil
-                            })
-                        }
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: {
+                            self.faceCaptureCoordinator = nil
+                        })
+                    }
         })
     }
 
@@ -417,6 +401,37 @@ extension MainViewController {
             }
             DispatchQueue.main.async {
                 self?.actionButton.isEnabled = true
+            }
+        }
+    }
+}
+
+extension MainViewController {
+
+    func resolveCheck() {
+        let locationCheck = LocationMonitoring.shared.verifyQuarantinePresence()
+        networkService.requestNonce(nonceRequestData: BasicRequestData()) { [weak self] (result) in
+            switch result {
+            case .success(let data):
+                var status = "LEFT"
+                if locationCheck {
+                    status = "OK"
+                }
+                self?.networkService.requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData(status: status, nonce: data.nonce)) { [weak self] (_) in
+                    switch result {
+                    case .success:
+                        DispatchQueue.main.async {
+                            self?.dismiss(animated: true, completion: {
+                                self?.faceCaptureCoordinator = nil
+                            })
+                        }
+                        return
+                    case .failure:
+                        self?.onError()
+                    }
+                }
+            case .failure:
+                self?.onError()
             }
         }
     }

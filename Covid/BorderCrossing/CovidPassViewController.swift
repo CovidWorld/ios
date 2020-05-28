@@ -52,7 +52,7 @@ final class CovidPassViewController: ViewController {
         }
 
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Naspäť", style: .plain, target: self, action: #selector(CovidPassViewController.back(sender:)))
+        let newBackButton = UIBarButtonItem(title: LocalizedString(forKey: "button.back"), style: .plain, target: self, action: #selector(CovidPassViewController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
     }
 

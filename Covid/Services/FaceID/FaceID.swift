@@ -65,16 +65,16 @@ struct FaceID {
                                onAuthorized: @escaping () -> Void,
                                onCancel: @escaping () -> Void) {
         if status != .authorized {
-            let alertController = UIAlertController(title: "Nie je povolená kamera",
-                                                    message: "Otvoriť Nastavenia?",
+            let alertController = UIAlertController(title: LocalizedString(forKey: "permission.camera.denied.title"),
+                                                    message: LocalizedString(forKey: "permission.settings.open"),
                                                     preferredStyle: .alert)
 
-            let settingsAction = UIAlertAction(title: "Nastavenia", style: .default) { (_) -> Void in
+            let settingsAction = UIAlertAction(title: LocalizedString(forKey: "permission.settings"), style: .default) { (_) -> Void in
                 let settingsUrl = URL(string: UIApplication.openSettingsURLString)!
                 UIApplication.shared.open(settingsUrl)
             }
 
-            let cancelAction = UIAlertAction(title: "Zrušiť", style: .cancel) { _ -> Void in
+            let cancelAction = UIAlertAction(title: LocalizedString(forKey: "button.cancel"), style: .cancel) { _ -> Void in
                 onCancel()
             }
 

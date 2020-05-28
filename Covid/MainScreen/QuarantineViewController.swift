@@ -99,7 +99,7 @@ extension QuarantineViewController {
                     }
                 case .failure(let error):
                     if case NetworkServiceError.notConnected = error {
-                        Alert.show(title: "Chyba pripojenia", message: "Pre správnu funkčnosť aplikácie je nevyhnutné aktívne internetové pripojenie.")
+                        Alert.show(title: LocalizedString(forKey: "error.notConnected.title"), message: LocalizedString(forKey: "error.notConnected.message"))
                     }
                 }
             }
@@ -112,7 +112,7 @@ extension QuarantineViewController {
             quarantineUntilLabel.text = QuarantineViewController.daysToString(days)
             quarantineUntilLabel.textColor = UIColor(red: 241.0 / 255.0, green: 106.0 / 255.0, blue: 109.0 / 255.0, alpha: 1.0)
         } else if Defaults.covidPass != nil && (Defaults.quarantineStart == nil || Defaults.quarantineStart ?? Date() >= Date()) {
-            quarantineUntilLabel.text = "Odpočet nebol zahájený"
+            quarantineUntilLabel.text = LocalizedString(forKey: "quarantine.pending.title")
             quarantineUntilLabel.textColor = UIColor(red: 241.0 / 255.0, green: 160.0 / 255.0, blue: 106.0 / 255.0, alpha: 1.0)
         } else {
             quarantineUntilLabel.text = nil
@@ -124,15 +124,16 @@ extension QuarantineViewController {
     }
 
     private static func daysToString(_ numberOfDays: Int) -> String {
-        let days: String
-
-        if numberOfDays == 1 {
-            days = "deň"
-        } else if numberOfDays >= 2 && numberOfDays <= 4 {
-            days = "dni"
-        } else {
-            days = "dní"
+        var localizedKey: String
+        switch numberOfDays {
+        case 1:
+            localizedKey = "day"
+        case _ where numberOfDays >= 2 && numberOfDays <= 4:
+            localizedKey = "days"
+        default:
+            localizedKey = "daysMultiple"
         }
+        let days = LocalizedString(forKey: localizedKey)
 
         return "\(numberOfDays) \(days)"
     }
