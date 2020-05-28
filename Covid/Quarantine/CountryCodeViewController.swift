@@ -61,6 +61,11 @@ final class CountryCodeViewController: ViewController {
 //        }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        numberTextField.becomeFirstResponder()
+    }
+
     @IBAction private func didTapCountryButton(_ sender: Any) {
         pickerView.isHidden = numberTextField.isFirstResponder ? false : !pickerView.isHidden
         numberTextField.resignFirstResponder()

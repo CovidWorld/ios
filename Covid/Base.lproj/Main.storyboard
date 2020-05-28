@@ -2530,8 +2530,8 @@ zvracanie</string>
                                     <constraint firstAttribute="height" constant="1" id="9XI-fR-dsw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
-                                <rect key="frame" x="0.0" y="97" width="366" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
+                                <rect key="frame" x="0.0" y="97" width="366" height="101"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -2542,9 +2542,9 @@ zvracanie</string>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Udeje sa tak autoritou po overení Vášho kódu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EO8-gS-WvO">
-                                <rect key="frame" x="0.0" y="210" width="366" height="19"/>
-                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="13"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Udeje sa tak autoritou po overení Vášho kódu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EO8-gS-WvO">
+                                <rect key="frame" x="0.0" y="208" width="366" height="21"/>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2564,6 +2564,7 @@ zvracanie</string>
                             <constraint firstItem="VpU-pX-4xN" firstAttribute="bottom" secondItem="18K-zq-ZYL" secondAttribute="bottom" id="El5-Cz-3Ce"/>
                             <constraint firstAttribute="trailing" secondItem="k5B-hS-xNK" secondAttribute="trailing" id="HFD-km-6ZC"/>
                             <constraint firstItem="k5B-hS-xNK" firstAttribute="leading" secondItem="WFa-vW-BOm" secondAttribute="leading" id="JGm-W3-Ijx"/>
+                            <constraint firstItem="EO8-gS-WvO" firstAttribute="top" secondItem="Eyt-lN-0m0" secondAttribute="bottom" constant="10" id="Kfe-vf-C7J"/>
                             <constraint firstItem="VpU-pX-4xN" firstAttribute="top" secondItem="EO8-gS-WvO" secondAttribute="bottom" constant="14" id="Kkt-uc-JF1"/>
                             <constraint firstItem="n8w-ns-4pC" firstAttribute="top" secondItem="Jbo-Uw-k09" secondAttribute="bottom" constant="16" id="Nzd-R2-g3j"/>
                             <constraint firstItem="Eyt-lN-0m0" firstAttribute="top" secondItem="n8w-ns-4pC" secondAttribute="bottom" constant="8" id="S2f-60-Aux"/>
@@ -2573,7 +2574,6 @@ zvracanie</string>
                             <constraint firstItem="VpU-pX-4xN" firstAttribute="leading" secondItem="WFa-vW-BOm" secondAttribute="leading" id="gav-g9-kdC"/>
                             <constraint firstAttribute="trailing" secondItem="EO8-gS-WvO" secondAttribute="trailing" id="hiQ-ZK-Y9T"/>
                             <constraint firstAttribute="trailing" secondItem="Eyt-lN-0m0" secondAttribute="trailing" id="jjg-2p-Vlq"/>
-                            <constraint firstItem="EO8-gS-WvO" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Eyt-lN-0m0" secondAttribute="bottom" constant="16" id="p4E-rR-VqP"/>
                             <constraint firstItem="Jbo-Uw-k09" firstAttribute="leading" secondItem="WFa-vW-BOm" secondAttribute="leading" id="p4J-FN-n2G"/>
                             <constraint firstItem="EO8-gS-WvO" firstAttribute="leading" secondItem="18K-zq-ZYL" secondAttribute="leading" id="rfy-d5-z7n"/>
                             <constraint firstAttribute="trailing" secondItem="TJR-ZP-1Lb" secondAttribute="trailing" id="vrv-Sk-f0C"/>

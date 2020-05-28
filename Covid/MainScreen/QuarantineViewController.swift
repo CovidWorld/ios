@@ -117,10 +117,18 @@ extension QuarantineViewController {
         } else {
             quarantineUntilLabel.text = nil
         }
-        countdownNoticeLabel.isHidden = Defaults.quarantineStart != nil
+        updateCountdownLabel()
         addressLabel.text = "\(Defaults.quarantineStreet ?? "") \(Defaults.quarantineStreetNumber ?? "")\n\(Defaults.quarantineCity ?? "")"
 
         LocationMonitoring.monitorLocationIfNeeded()
+    }
+
+    private func updateCountdownLabel() {
+        if let date = Defaults.quarantineStart {
+            countdownNoticeLabel.text = "Prosím, presuňte sa na Vami zvolenú adresu domácej izolácie, ktorá začne \(Date().formattedDateAndYear())"
+        } else {
+            countdownNoticeLabel.text = "Udeje sa tak autoritou po overení Vášho kódu"
+        }
     }
 
     private static func daysToString(_ numberOfDays: Int) -> String {

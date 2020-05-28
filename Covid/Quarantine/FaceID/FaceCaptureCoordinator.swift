@@ -219,10 +219,12 @@ extension FaceCaptureCoordinator: LivenessStepDelegate {
         let result = faceIdValidator.validateSegmentImagesToReferenceTemplate(segmentImages)
         switch result {
         case .success:
-            print("verify: success")
+            debugPrint("verify: success")
             completeFaceCapture(didSuccess: true)
-        default:
-            break
+
+        case .failure:
+            debugPrint("verify: failure")
+            completeFaceCapture(didSuccess: false)
         }
     }
 

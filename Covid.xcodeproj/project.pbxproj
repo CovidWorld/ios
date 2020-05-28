@@ -63,6 +63,7 @@
 		212204B8244B307B00CCC72B /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */; };
 		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
 		2125E16C2472099600D3A526 /* NoRandomCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125E16B2472099600D3A526 /* NoRandomCheckViewController.swift */; };
+		2147923224806F6100AA7D8A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147923124806F6100AA7D8A /* Date.swift */; };
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
 		21634EC7247B14190062EC3F /* DOT.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21634EC5247B140C0062EC3F /* DOT.xcframework */; };
@@ -215,6 +216,7 @@
 		21355B35243A7B660087ADCB /* FaceIDVerification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDVerification.swift; sourceTree = "<group>"; };
 		213B74DC2437E7BE005BB14F /* FaceCaptureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCoordinator.swift; sourceTree = "<group>"; };
 		213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCompletedViewController.swift; sourceTree = "<group>"; };
+		2147923124806F6100AA7D8A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		21591AE62439E18500495263 /* settings_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = settings_version.sh; sourceTree = "<group>"; };
 		21591AEC2439E2C000495263 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21591AEE2439E3AE00495263 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 				21B0F8932439194100552491 /* UIStoryBoard.swift */,
 				0F949675246C66D2003A75A0 /* StringExtensions.swift */,
 				0F9E3AE72474431B007D243A /* Alert.swift */,
+				2147923124806F6100AA7D8A /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -938,6 +941,7 @@
 				C0F9962D241FCB04009C6BF5 /* PreventionTableViewCell.swift in Sources */,
 				21C12B33243D21EF0086AF8B /* Segue.swift in Sources */,
 				C0F99635241FE632009C6BF5 /* SymptomsViewController.swift in Sources */,
+				2147923224806F6100AA7D8A /* Date.swift in Sources */,
 				2110EB38246B4DEB0007C8DA /* FaceIDNotification.swift in Sources */,
 				0FD28B172426EBD30015F7E7 /* SpreadViewController.swift in Sources */,
 				0FD28B1924278C230015F7E7 /* SpreadListTableViewController.swift in Sources */,

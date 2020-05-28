@@ -239,6 +239,7 @@ final class PasscodeLockViewController: ViewController, PasscodeLockTypeDelegate
 
     func passcodeLock(lock: PasscodeLockType, addedSignAtIndex index: Int) {
 
+        UISelectionFeedbackGenerator().selectionChanged()
         animatePlacehodlerAtIndex(index: index, toState: .Active)
         deleteSignButton?.isEnabled = true
     }
