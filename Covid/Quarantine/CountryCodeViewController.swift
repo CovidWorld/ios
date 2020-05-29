@@ -87,11 +87,11 @@ extension CountryCodeViewController {
 
         guard let countryCode = countryCodeLabel.text,
             let phoneNumber = numberTextField.text,
-            phoneNumber.count == 9,
+            phoneNumber.count >= 6,
             consentSwitch.isOn else {
 
                 let message = consentSwitch.isOn ?
-                                "Zadali ste nesprávne číslo. Zadajte 9 miestne číslo bez 0 na začiatku" :
+                                "Zadali ste nesprávne číslo. Zadajte číslo bez 0 na začiatku" :
                                 "Pre pokračovanie musíte súhlasiť so spracúvaním osobných údajov"
                 let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
                 if consentSwitch.isOn {

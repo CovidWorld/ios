@@ -83,7 +83,7 @@ enum NCZIEndpoint: NetworkServiceEndpoint {
     case sendOTP(data: OTPSendRequestData)
     case validateOTP(data: OTPValidateRequestData)
 
-    static var serverDomain: String = { "https://t.mojeezdravie.sk" }()//Firebase.remoteStringValue(for: .ekarantenaNcziApiHost) }()
+    static var serverDomain: String = { Firebase.remoteStringValue(for: .ekarantenaNcziApiHost) }()
     var serverScript: String { "/api/v2/sygic" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }
     var method: HTTPRequest.Method { .POST }

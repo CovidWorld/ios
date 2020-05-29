@@ -161,7 +161,7 @@ enum CovidEndpoint: NetworkServiceEndpoint {
     case presenceCheck(presenceCheckRequestData: PresenceCheckRequestData)
     case heartBeat(heartBeatRequestData: BasicWithNonceRequestData)
 
-    static var serverDomain: String = { "https://corona-quarantine.azurewebsites.net" }()//Firebase.remoteStringValue(for: .ekarantenaApiHost) }()
+    static var serverDomain: String = { Firebase.remoteStringValue(for: .ekarantenaApiHost) }()
     var serverScript: String { "/api" }
     var contentTypeHeader: HTTPRequest.MIMEType { .json }
     var method: HTTPRequest.Method {
