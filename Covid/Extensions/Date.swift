@@ -44,7 +44,6 @@ extension Date {
 
     ///shows date (Aug 19, 2015)
     func formattedDateAndYear() -> String {
-        return Formatters.dateAndTime.string(from: self)
+        Formatters.dateAndTime.string(from: self)
     }
 }
-

@@ -41,7 +41,7 @@ extension CovidPassChallengeResultViewController: HasStoryBoardIdentifier {
 final class CovidPassChallengeResultViewController: ViewController {
 
     var code: Int64?
-    @IBOutlet weak private var nextButton: UIButton!
+    @IBOutlet private weak var nextButton: UIButton!
     @IBOutlet private var challengeLabel: UILabel!
 
     override func loadView() {
