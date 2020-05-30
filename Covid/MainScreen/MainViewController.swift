@@ -319,10 +319,11 @@ extension MainViewController {
     }
 
     private func showFaceVerification(in navigationController: UINavigationController) {
-        guard faceCaptureCoordinator == nil else {
-            print("face coordinator is active, skipping..")
-            return
-        }
+        // TODO: toto treba nejak lepsie doladit, ale nedosiel som na case kedy by ten guard nieco zachranil
+//        guard faceCaptureCoordinator == nil else {
+//            print("face coordinator is active, skipping..")
+//            return
+//        }
 
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
         let viewController = faceCaptureCoordinator!.startFaceCapture()
