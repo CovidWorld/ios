@@ -53,12 +53,6 @@ final class CountryCodeViewController: ViewController {
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(didTapView))
         view.addGestureRecognizer(tapRecognizer)
-
-//        if presentingViewController != nil {
-//            let leftBarItem = UIBarButtonItem(title: "Preskočiť", style: .plain, target: self, action: #selector(didTapSkip(_:)))
-//            navigationItem.leftBarButtonItem = leftBarItem
-//            disclaimerLabel.isHidden = false
-//        }
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -166,25 +166,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return nil
     }
-
-//    func application(_ application: UIApplication,
-//                     continue userActivity: NSUserActivity,
-//                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-//        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { [weak self] (dynamiclink, _) in
-//            guard dynamiclink != nil,
-//                let url = userActivity.webpageURL else {
-//                    return
-//            }
-//            self?.handleRandomCheckIfNeeded(for: url)
-//        }
-//
-//        return handled
-//    }
-//
-//    private func handleRandomCheckIfNeeded(for url: URL) {
-//        guard url.absoluteString.contains("overenie") else { return }
-//        NotificationCenter.default.post(name: .startRandomCheck, object: self)
-//    }
 }
 
 extension AppDelegate: MessagingDelegate {

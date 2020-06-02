@@ -319,12 +319,6 @@ extension MainViewController {
     }
 
     private func showFaceVerification(in navigationController: UINavigationController) {
-        // TODO: toto treba nejak lepsie doladit, ale nedosiel som na case kedy by ten guard nieco zachranil
-//        guard faceCaptureCoordinator == nil else {
-//            print("face coordinator is active, skipping..")
-//            return
-//        }
-
         faceCaptureCoordinator = FaceCaptureCoordinator(useCase: .verifyFace)
         let viewController = faceCaptureCoordinator!.startFaceCapture()
         faceCaptureCoordinator?.navigationController = navigationController
@@ -340,10 +334,7 @@ extension MainViewController {
                     self?.networkService.requestNonce(nonceRequestData: BasicRequestData()) { [weak self] (result) in
                         switch result {
                         case .success(let data):
-                            var status = "LEFT"
-                            if locationCheck {
-                                status = "OK"
-                            }
+                            let status = locationCheck ? "OK" : "LEFT"
                             self?.networkService.requestPresenceCheck(presenceCheckRequestData: PresenceCheckRequestData(status: status, nonce: data.nonce)) { [weak self] (_) in
                                 switch result {
                                 case .success:
@@ -374,9 +365,9 @@ extension MainViewController {
                    message: "Pri overovaní dodržiavania karantény došlo k chybe. Skúste zopakovať overenie znovu.",
                    cancelAction: { (_) in
                         DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: {
+                            self.dismiss(animated: true) {
                                 self.faceCaptureCoordinator = nil
-                            })
+                            }
                         }
         })
     }
