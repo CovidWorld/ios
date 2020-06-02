@@ -56,7 +56,7 @@ final class LocationReporter {
             Alert.show(title: nil, message: message)
         } else {
             let content = UNMutableNotificationContent()
-            content.title = "Upozornenie"
+            content.title = LocalizedString(forKey: "quarantine.warning.title")
             content.body = message
             content.sound = .default
             content.categoryIdentifier = "Quarantine"

@@ -158,13 +158,13 @@ extension FaceCaptureCoordinator {
     }
 
     private func askToVerifyAgain(_ action: @escaping (UIAlertAction) -> Void) {
-        let alertController = UIAlertController(title: "Neúspešná verifikácia",
-                                                message: "Overenie Vašej tváre nebolo úspešné",
+        let alertController = UIAlertController(title: LocalizedString(forKey: "error.faceid.verification.failed.title"),
+                                                message: LocalizedString(forKey: "error.faceid.verification.failed.message"),
                                                 preferredStyle: .alert)
-        let retryAction = UIAlertAction(title: "Skúsiť znova", style: .default) { uiAction in
+        let retryAction = UIAlertAction(title: LocalizedString(forKey: "face_capture.confirmation.tryAgain"), style: .default) { uiAction in
             action(uiAction)
         }
-        let cancelAction = UIAlertAction(title: "Ukončiť verifikáciu", style: .cancel) { [weak self] _ in
+        let cancelAction = UIAlertAction(title: LocalizedString(forKey: "face_capture.confirmation.close"), style: .cancel) { [weak self] _ in
             self?.completeFaceCapture(didSuccess: false)
         }
 

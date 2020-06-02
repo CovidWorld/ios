@@ -49,6 +49,7 @@
 		0FF4F220241AF21200643297 /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F21F241AF21200643297 /* APIResponses.swift */; };
 		0FF4F224241AF61600643297 /* APIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF4F223241AF61600643297 /* APIRequests.swift */; };
 		1EACF742EFBC189662F2C060 /* Pods_Covid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8E1E3496C8614E26AC81B2B /* Pods_Covid.framework */; };
+		210330BF247C80110082C9CC /* NSString+Localised.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210330BE247C80110082C9CC /* NSString+Localised.swift */; };
 		2110EB35246B4DEB0007C8DA /* FaceCaptureCompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */; };
 		2110EB36246B4DEB0007C8DA /* FaceCaptureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B74DC2437E7BE005BB14F /* FaceCaptureCoordinator.swift */; };
 		2110EB37246B4DEB0007C8DA /* FaceCaptureOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */; };
@@ -209,6 +210,7 @@
 		0FF4F21D241AEFBB00643297 /* CovidService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CovidService.swift; sourceTree = "<group>"; };
 		0FF4F21F241AF21200643297 /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		0FF4F223241AF61600643297 /* APIRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequests.swift; sourceTree = "<group>"; };
+		210330BE247C80110082C9CC /* NSString+Localised.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSString+Localised.swift"; sourceTree = "<group>"; };
 		2110EB40246B4F470007C8DA /* iengine.lic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = iengine.lic; sourceTree = "<group>"; };
 		212204B7244B307B00CCC72B /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		21220503244D084900CCC72B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				0F949675246C66D2003A75A0 /* StringExtensions.swift */,
 				0F9E3AE72474431B007D243A /* Alert.swift */,
 				2147923124806F6100AA7D8A /* Date.swift */,
+				210330BE247C80110082C9CC /* NSString+Localised.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -987,6 +990,7 @@
 				0F149DED246E23E4004345E0 /* Device.swift in Sources */,
 				219594052471C48300937D59 /* PasscodeLockStateType.swift in Sources */,
 				219593FD2471C48300937D59 /* PasscodeLock.swift in Sources */,
+				210330BF247C80110082C9CC /* NSString+Localised.swift in Sources */,
 				C0091574241EBCD10012F557 /* CountryCodeViewController.swift in Sources */,
 				2110EB39246B4DEB0007C8DA /* FaceIDUseCase.swift in Sources */,
 				0FBA45232421919200816388 /* Disk+Errors.swift in Sources */,

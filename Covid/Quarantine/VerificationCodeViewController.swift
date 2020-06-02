@@ -70,7 +70,8 @@ extension VerificationCodeViewController {
                     if let error = data.errors?.first {
                         let message = error.description
                         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                        let backAction = UIAlertAction(title: "Späť", style: .cancel) { [weak self] (_) in
+                        let backAction = UIAlertAction(title: LocalizedString(forKey:
+                        "button.backShort"), style: .cancel) { [weak self] (_) in
                             self?.navigationController?.popViewController(animated: true)
                         }
                         alert.addAction(backAction)
@@ -81,10 +82,10 @@ extension VerificationCodeViewController {
                         self?.activationCodeTextField.becomeFirstResponder()
                     }
                 case .failure:
-                    let message = "Chyba pri vyžiadaní overovacieho kódu. Skúsiť znovu?"
+                    let message = LocalizedString(forKey: "error.phone.verification")
                     let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                    let editAction = UIAlertAction(title: "Nie", style: .cancel, handler: nil)
-                    let yesAction = UIAlertAction(title: "Áno", style: .default) { [weak self] (_) in
+                    let editAction = UIAlertAction(title: LocalizedString(forKey: "button.no"), style: .cancel, handler: nil)
+                    let yesAction = UIAlertAction(title: LocalizedString(forKey: "button.yes"), style: .default) { [weak self] (_) in
                         self?.requestToken()
                     }
                     alert.addAction(editAction)
@@ -133,8 +134,8 @@ extension VerificationCodeViewController {
     }
 
     private func requestFailed(message: String?) {
-        let alertController = UIAlertController(title: "Chyba", message: message ?? "Zadané údaje sú nesprávne. Skúste znova.", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Zavrieť", style: .cancel) { (_) in
+        let alertController = UIAlertController(title: LocalizedString(forKey: "error.title"), message: message ?? LocalizedString(forKey: "error.phone.wrong.input"), preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: LocalizedString(forKey: "button.close"), style: .cancel) { (_) in
             self.navigationItem.rightBarButtonItem = nil
             self.activationCodeTextField.becomeFirstResponder()
         }

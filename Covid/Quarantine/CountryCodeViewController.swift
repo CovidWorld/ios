@@ -47,8 +47,8 @@ final class CountryCodeViewController: ViewController {
 
         loadJSONToArray()
 
-        title = "Overenie čísla"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Ďalej", style: .done, target: self, action: #selector(didTapDone))
+        title = LocalizedString(forKey: "phone.verification.title")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: LocalizedString(forKey: "button.next"), style: .done, target: self, action: #selector(didTapDone))
 
         let tapRecognizer = UITapGestureRecognizer()
         tapRecognizer.addTarget(self, action: #selector(didTapView))
@@ -85,14 +85,13 @@ extension CountryCodeViewController {
             consentSwitch.isOn else {
 
                 let message = consentSwitch.isOn ?
-                                "Zadali ste nesprávne číslo. Zadajte číslo bez 0 na začiatku" :
-                                "Pre pokračovanie musíte súhlasiť so spracúvaním osobných údajov"
+                                LocalizedString(forKey: "error.phone.wrongDigits") : LocalizedString(forKey: "phone.user.consent")
                 let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
                 if consentSwitch.isOn {
-                    alert.addAction(UIAlertAction(title: "Upraviť", style: .cancel))
+                    alert.addAction(UIAlertAction(title: LocalizedString(forKey: "button.edit"), style: .cancel))
                 } else {
-                    alert.addAction(UIAlertAction(title: "Zrušiť", style: .cancel))
-                    let agreeAction = UIAlertAction(title: "Súhlasím", style: .default) { (_) in
+                    alert.addAction(UIAlertAction(title: LocalizedString(forKey: "button.cancel"), style: .cancel))
+                    let agreeAction = UIAlertAction(title: LocalizedString(forKey: "button.agree"), style: .default) { (_) in
                         self.consentSwitch.isOn = true
                     }
                     alert.addAction(agreeAction)
@@ -103,10 +102,10 @@ extension CountryCodeViewController {
         }
 
         let number = "\(countryCode) \(phoneNumber)"
-        let message = "Zadali ste správne čislo?\n\n\(number)"
+        let message = LocalizedString(forKey: "phone.registration.input.verification") + "\n\n\(number)"
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let editAction = UIAlertAction(title: "Nie", style: .cancel, handler: nil)
-        let yesAction = UIAlertAction(title: "Áno", style: .default) { [weak self] (_) in
+        let editAction = UIAlertAction(title: "button.no", style: .cancel, handler: nil)
+        let yesAction = UIAlertAction(title: "button.yes", style: .default) { [weak self] (_) in
             Defaults.tempPhoneNumber = number.replacingOccurrences(of: " ", with: "")
             self?.performSegue(.phoneNumberVerification)
         }
