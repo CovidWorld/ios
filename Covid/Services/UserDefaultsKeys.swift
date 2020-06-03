@@ -60,6 +60,7 @@ extension DefaultsKeys {
 
     var lastQuarantineUpdate: DefaultsKey<Double?> { .init("lastQuarantineUpdate") }
     var referenceFace: DefaultsKey<[Int8]?> { .init("dot-face") }
+    var referenceFaceConfidence: DefaultsKey<Double?> { .init("dot-face-confidence") }
     var referenceFaceImage: DefaultsKey<[Int8]?> { .init("dot-face-image") }
     var allowVerifyFaceId: DefaultsKey<Bool?> { .init("face_id") }
 }

@@ -37,7 +37,23 @@ final class FaceIDStorage {
     @SwiftyUserDefault(keyPath: \.referenceFace, options: [.cached, .observed])
     var referenceFaceData: [Int8]?
 
+    @SwiftyUserDefault(keyPath: \.referenceFaceConfidence, options: [.cached, .observed])
+    var referenceFaceConfidence: Double?
+
     func saveReferenceFace(_ faceCaptureImage: FaceCaptureImage) {
         referenceFaceData = faceCaptureImage.faceTemplate?.data
+
+        if let fullimage = faceCaptureImage.fullImage {
+            let config = FaceCaptureConfiguration()
+            let image = FaceImage(image: fullimage,
+                                  minFaceSizeRatio: config.minFaceSizeRatio,
+                                  maxFaceSizeRatio: config.maxFaceSizeRatio)
+            guard
+                let confidence = FaceDetector().detectFaces(faceImage: image, maximumFaces: 1).first?.confidence,
+                confidence > 0 else {
+                return
+            }
+            referenceFaceConfidence = confidence
+        }
     }
 }
