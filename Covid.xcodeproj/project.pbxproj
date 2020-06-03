@@ -240,6 +240,8 @@
 		219593F32471C48300937D59 /* PasscodeLockStateType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockStateType.swift; sourceTree = "<group>"; };
 		219593F72471C48300937D59 /* PasscodeLockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasscodeLockViewController.swift; sourceTree = "<group>"; };
 		2195940D2471E0CF00937D59 /* CovidPassChallengeResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CovidPassChallengeResultViewController.swift; sourceTree = "<group>"; };
+		21AA572F248819130099C989 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		21AA57302488378B0099C989 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PasscodeLock.strings; sourceTree = "<group>"; };
 		21B0F7AE2438A1A900552491 /* FaceIDUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDUseCase.swift; sourceTree = "<group>"; };
 		21B0F7B02438A68C00552491 /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
 		21B0F7B42438ACCC00552491 /* FaceCaptureOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureOnboardingViewController.swift; sourceTree = "<group>"; };
@@ -1057,6 +1059,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				21591AEC2439E2C000495263 /* sk */,
+				21AA572F248819130099C989 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1065,6 +1068,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0F9E3AE624735EFC007D243A /* sk */,
+				21AA57302488378B0099C989 /* en */,
 			);
 			name = PasscodeLock.strings;
 			sourceTree = "<group>";

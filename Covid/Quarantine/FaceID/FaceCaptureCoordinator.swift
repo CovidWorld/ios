@@ -130,12 +130,11 @@ extension FaceCaptureCoordinator {
 
         case .failure(let error):
             switch error {
-            case .failedToVerify:
+            case .failedToVerify, .underlyingError:
                 handleFailedVerification()
 
             case .noCaptureTemplateDataFound,
-                 .noReferenceFaceDataFound,
-                 .underlyingError:
+                 .noReferenceFaceDataFound:
                 debugPrint("failed to verify: ", error.localizedDescription)
             }
 

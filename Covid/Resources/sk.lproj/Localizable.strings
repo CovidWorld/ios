@@ -105,6 +105,7 @@ Prejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕ
 "button.confirm" = "Potvrdiť";
 "button.next" = "Ďalej";
 "button.edit" = "Upraviť";
+"button.clear" = "Zmazať";
 "button.cancel" = "Zrušiť";
 "button.agree" = "Súhlasím";
 "button.yes" = "Áno";
@@ -144,6 +145,7 @@ Prejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕ
 "quarantine.check.title" = "Overiť sa v mieste karantény";
 "quarantine.pending.title" = "Odpočet nebol zahájený";
 "quarantine.pending.info" = "Udeje sa tak autoritou po overení Vášho kódu";
+"quarantine.pending.description" = "Prosím, presuňte sa na Vami zvolenú adresu domácej izolácie, ktorá začne ";
 "quarantine.info.title" = "Povinná domáca izolácia, zostáva:";
 
 /* Phone */
@@ -174,3 +176,5 @@ Prejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕ
 "error.phone.wrong.input" = "Zadané údaje sú nesprávne. Skúste znova.";
 "error.faceid.verification.failed.title" = "Neúspešná verifikácia";
 "error.faceid.verification.failed.message" = "Overenie Vašej tváre nebolo úspešné";
+
+"face.registration.guidelines" = "Ako sa uistiť, že aplikácia eKaranténa nasníma biometriu Vašej tváre správne:\n\n* Držte telefón po celý čas vo výške očí,\n* Snažte sa otočiť tvárou k zdroju svetla, nestojte chrbtom k oknu, aby ste nemali svetlo oproti Vám, ani nestojte priamo pod lampou, môžu spôsobovať tiene v tvári,\n* Pokiaľ okuliare vytvárajú silnú reflexiu, je vhodné si dať okuliare dole.\n* Telefón držte po celý čas v jednej pozícii pokiaľ neprejdete celým procesom snímania tváre.";

@@ -1745,6 +1745,9 @@ identifikátor karantény</string>
                     </view>
                     <navigationItem key="navigationItem" id="hjP-DL-ydJ">
                         <barButtonItem key="rightBarButtonItem" title="Ďalej" style="done" id="76W-xh-XM3">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="button.next"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="onNext:" destination="HG1-7x-uPX" id="Paq-aL-3MF"/>
                             </connections>
@@ -1843,7 +1846,7 @@ identifikátor karantény</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="X20-N0-960">
-                                <rect key="frame" x="24" y="112" width="366" height="450"/>
+                                <rect key="frame" x="24" y="112" width="366" height="500"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IH9-TX-vzL">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="87"/>
@@ -1911,6 +1914,9 @@ identifikátor karantény</string>
                                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="20"/>
                                                 <color key="textColor" red="0.23529411759999999" green="0.32156862749999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="symptoms.label.title"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="Svd-ZH-cv4">
                                                 <rect key="frame" x="334" y="35.666666666666657" width="16" height="16"/>
@@ -1945,13 +1951,13 @@ identifikátor karantény</string>
                                         </constraints>
                                     </view>
                                     <containerView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Drr-EJ-rfC">
-                                        <rect key="frame" x="0.0" y="206" width="366" height="244"/>
+                                        <rect key="frame" x="0.0" y="206" width="366" height="294"/>
                                         <connections>
                                             <segue destination="hDe-QQ-cqs" kind="embed" id="wwl-Vt-G72"/>
                                         </connections>
                                     </containerView>
                                     <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aGf-gp-ehB">
-                                        <rect key="frame" x="0.0" y="450" width="366" height="91"/>
+                                        <rect key="frame" x="0.0" y="500" width="366" height="91"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="91" id="Yf3-kZ-63x"/>
                                         </constraints>
@@ -1961,7 +1967,11 @@ identifikátor karantény</string>
                                     </containerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="250" constant="450" id="gLW-oN-wBx"/>
+                                    <constraint firstAttribute="height" constant="500" id="DfR-iH-bnr"/>
+                                    <constraint firstItem="aGf-gp-ehB" firstAttribute="top" secondItem="Drr-EJ-rfC" secondAttribute="bottom" id="Rer-az-2gr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Drr-EJ-rfC" secondAttribute="trailing" id="b2w-0c-j8j"/>
+                                    <constraint firstItem="Drr-EJ-rfC" firstAttribute="leading" secondItem="X20-N0-960" secondAttribute="leading" id="iWC-0T-Mlw"/>
+                                    <constraint firstItem="Drr-EJ-rfC" firstAttribute="top" secondItem="ge1-Vs-7yc" secondAttribute="bottom" constant="16" id="uwq-jv-jow"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVT-lI-6eS">
@@ -1997,7 +2007,7 @@ identifikátor karantény</string>
                         <constraints>
                             <constraint firstItem="KVT-lI-6eS" firstAttribute="top" secondItem="Njg-l9-GFw" secondAttribute="bottom" constant="8" id="1GX-5r-a7x"/>
                             <constraint firstItem="X20-N0-960" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="3pt-qv-UaF"/>
-                            <constraint firstItem="Njg-l9-GFw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="X20-N0-960" secondAttribute="bottom" constant="24" id="MKG-sg-Z6I"/>
+                            <constraint firstItem="Njg-l9-GFw" firstAttribute="top" relation="greaterThanOrEqual" secondItem="X20-N0-960" secondAttribute="bottom" constant="16" id="MKG-sg-Z6I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X20-N0-960" secondAttribute="trailing" constant="24" id="RX4-GK-UOB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KVT-lI-6eS" secondAttribute="trailing" constant="24" id="bpf-33-ZVC"/>
                             <constraint firstItem="Njg-l9-GFw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="eTO-lV-uCP"/>
@@ -2436,12 +2446,18 @@ zvracanie</string>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="permission.camera.access.title"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prístup ku GPS lokácii - " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fd1-ea-tX8">
                                 <rect key="frame" x="32" y="246.66666666666666" width="163.66666666666666" height="17.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="15"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="permission.location.access.title"/>
+                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2586,11 +2602,11 @@ zvracanie</string>
             <objects>
                 <viewController id="hDe-QQ-cqs" customClass="QuarantineViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFa-vW-BOm">
-                        <rect key="frame" x="0.0" y="0.0" width="366" height="244"/>
+                        <rect key="frame" x="0.0" y="0.0" width="366" height="294"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaša domáca adresa" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5B-hS-xNK">
-                                <rect key="frame" x="0.0" y="0.0" width="366" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vaša domáca adresa" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5B-hS-xNK">
+                                <rect key="frame" x="0.0" y="0.0" width="366" height="24"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2599,26 +2615,26 @@ zvracanie</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJR-ZP-1Lb">
-                                <rect key="frame" x="0.0" y="28" width="366" height="0.0"/>
+                                <rect key="frame" x="0.0" y="32" width="366" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Inter_Light" family="Inter" pointSize="15"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbo-Uw-k09">
-                                <rect key="frame" x="0.0" y="44" width="366" height="1"/>
+                                <rect key="frame" x="0.0" y="48" width="366" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="9XI-fR-dsw"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
-                                <rect key="frame" x="0.0" y="89" width="366" height="112.33333333333331"/>
-                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="Eyt-lN-0m0">
+                                <rect key="frame" x="0.0" y="97.000000000000014" width="366" height="149.33333333333337"/>
+                                <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="25"/>
                                 <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Povinná domáca izolácia, zostáva:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-ns-4pC">
-                                <rect key="frame" x="0.0" y="61" width="366" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Povinná domáca izolácia, zostáva:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n8w-ns-4pC">
+                                <rect key="frame" x="0.0" y="65" width="366" height="24"/>
                                 <fontDescription key="fontDescription" name="Poppins-Bold" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2627,8 +2643,8 @@ zvracanie</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Udeje sa tak autoritou po overení Vášho kódu" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="EO8-gS-WvO">
-                                <rect key="frame" x="0.0" y="211.33333333333334" width="366" height="17.666666666666657"/>
-                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="15"/>
+                                <rect key="frame" x="0.0" y="256.33333333333331" width="366" height="22.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -2636,7 +2652,7 @@ zvracanie</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VpU-pX-4xN">
-                                <rect key="frame" x="0.0" y="243" width="366" height="1"/>
+                                <rect key="frame" x="0.0" y="293" width="366" height="1"/>
                                 <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="zBM-H6-A9H"/>
@@ -2712,6 +2728,7 @@ zvracanie</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="button.no"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapCancel:" destination="nwr-cT-rVs" eventType="touchUpInside" id="pxW-C9-5xZ"/>
@@ -2732,6 +2749,7 @@ zvracanie</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="button.yes"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="didTapConfirm:" destination="nwr-cT-rVs" eventType="touchUpInside" id="9U2-zH-2nh"/>
@@ -4019,71 +4037,10 @@ Cg
         <scene sceneID="uYl-2E-qaY">
             <objects>
                 <viewController storyboardIdentifier="faceCaptureOnboarding" id="NRD-w8-YSR" customClass="FaceCaptureOnboardingViewController" customModule="Covid_19_SR" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KVg-yd-xs9">
+                    <view key="view" contentMode="scaleToFill" id="f4r-6n-gec">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V1-dX-8zJ">
-                                <rect key="frame" x="35" y="79" width="364" height="84"/>
-                                <string key="text">Skenovanie tváre
-pre karanténu</string>
-                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
-                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.title"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím naskenujte Vašu tvár pre prípadnú verifikáciu pri dodržiavaní povinnej karantény." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHf-bD-Ik1">
-                                <rect key="frame" x="35" y="199" width="364" height="81"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="81" id="iD4-gm-zHu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.description"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tento krok je povinný." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5z-gS-Pnp">
-                                <rect key="frame" x="35" y="288" width="364" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ScF-rr-cw4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.warning"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ii9-ry-Tj4">
-                                <rect key="frame" x="35" y="347" width="364" height="45"/>
-                                <string key="text">Dáta sú uložené výhradne
-na Vašom zariadení.</string>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
-                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.info"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcV-aD-Z7x">
-                                <rect key="frame" x="35" y="410" width="364" height="309.66666666666674"/>
-                                <mutableString key="text">Ako sa uistiť, že aplikácia eKaranténa nasníma biometriu Vašej tváre správne:
-
-* Držte telefón po celý čas vo výške očí,
-* Snažte sa otočiť tvárou k zdroju svetla, nestojte chrbtom k oknu, aby ste nemali svetlo oproti Vám, ani nestojte priamo pod lampou, môžu spôsobovať tiene v tvári,
-* Pokiaľ okuliare vytvárajú silnú reflexiu, je vhodné si dať okuliare dole.
-* Telefón držte po celý čas v jednej pozícii pokiaľ neprejdete celým procesom snímania tváre.</mutableString>
-                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
-                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.info"/>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-io-p5H">
                                 <rect key="frame" x="35" y="776" width="344" height="70"/>
                                 <color key="backgroundColor" red="0.31372549020000001" green="0.34509803919999998" blue="0.97647058819999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4106,38 +4063,126 @@ na Vašom zariadení.</string>
                                     <action selector="start:" destination="9aP-WU-k0t" eventType="touchUpInside" id="icq-cF-LRx"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="ZAF-DR-Bya">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="766"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVg-yd-xs9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="766"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V1-dX-8zJ">
+                                                <rect key="frame" x="20" y="44" width="374" height="70"/>
+                                                <string key="text">Skenovanie tváre
+pre karanténu</string>
+                                                <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
+                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.title"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím naskenujte Vašu tvár pre prípadnú verifikáciu pri dodržiavaní povinnej karantény." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHf-bD-Ik1">
+                                                <rect key="frame" x="20" y="144" width="374" height="262"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.description"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tento krok je povinný." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5z-gS-Pnp">
+                                                <rect key="frame" x="20" y="414" width="374" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="ScF-rr-cw4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                <color key="textColor" red="0.94509803921568625" green="0.41568627450980389" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.warning"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ii9-ry-Tj4">
+                                                <rect key="frame" x="20" y="473" width="374" height="37.333333333333314"/>
+                                                <string key="text">Dáta sú uložené výhradne
+na Vašom zariadení.</string>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.info"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcV-aD-Z7x">
+                                                <rect key="frame" x="20" y="528.33333333333337" width="374" height="237.66666666666663"/>
+                                                <string key="text">Ako sa uistiť, že aplikácia eKaranténa nasníma biometriu Vašej tváre správne:
+
+* Držte telefón po celý čas vo výške očí,
+* Snažte sa otočiť tvárou k zdroju svetla, nestojte chrbtom k oknu, aby ste nemali svetlo oproti Vám, ani nestojte priamo pod lampou, môžu spôsobovať tiene v tvári,
+* Pokiaľ okuliare vytvárajú silnú reflexiu, je vhodné si dať okuliare dole.
+* Telefón držte po celý čas v jednej pozícii pokiaľ neprejdete celým procesom snímania tváre.</string>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
+                                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.guidelines"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="leading" secondItem="Ii9-ry-Tj4" secondAttribute="leading" id="4eU-O0-vTj"/>
+                                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="trailing" secondItem="Ii9-ry-Tj4" secondAttribute="trailing" id="5Ar-cW-nad"/>
+                                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="leading" secondItem="SHf-bD-Ik1" secondAttribute="leading" id="6Au-Ey-rbS"/>
+                                            <constraint firstItem="Hdf-sr-LVt" firstAttribute="bottom" secondItem="GcV-aD-Z7x" secondAttribute="bottom" id="6pd-ME-GMC"/>
+                                            <constraint firstItem="4V1-dX-8zJ" firstAttribute="top" secondItem="Hdf-sr-LVt" secondAttribute="top" id="7ay-aJ-Yel"/>
+                                            <constraint firstItem="4V1-dX-8zJ" firstAttribute="leading" secondItem="Hdf-sr-LVt" secondAttribute="leading" constant="20" id="FtS-xl-I8a"/>
+                                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="top" secondItem="SHf-bD-Ik1" secondAttribute="bottom" constant="8" id="M96-wj-OGD"/>
+                                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="trailing" secondItem="SHf-bD-Ik1" secondAttribute="trailing" id="PAX-SO-ZMO"/>
+                                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="trailing" secondItem="4V1-dX-8zJ" secondAttribute="trailing" id="PD4-C0-mEa"/>
+                                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="top" secondItem="O5z-gS-Pnp" secondAttribute="bottom" constant="15" id="PLC-VF-X4T"/>
+                                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="top" secondItem="Ii9-ry-Tj4" secondAttribute="bottom" constant="18" id="RQh-cv-szA"/>
+                                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="SCE-SX-hyZ"/>
+                                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="trailing" secondItem="O5z-gS-Pnp" secondAttribute="trailing" id="VhL-Va-SFb"/>
+                                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="cn6-MS-jZm"/>
+                                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="top" secondItem="4V1-dX-8zJ" secondAttribute="bottom" constant="30" id="cw3-Gi-gIY"/>
+                                            <constraint firstItem="4V1-dX-8zJ" firstAttribute="trailing" secondItem="Hdf-sr-LVt" secondAttribute="trailing" constant="-20" id="dS0-ur-SyM"/>
+                                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="leading" secondItem="4V1-dX-8zJ" secondAttribute="leading" id="eGv-uF-O5f"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="safeArea" id="Hdf-sr-LVt"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KVg-yd-xs9" firstAttribute="bottom" secondItem="ZAF-DR-Bya" secondAttribute="bottom" id="8zo-Fc-na7"/>
+                                    <constraint firstItem="KVg-yd-xs9" firstAttribute="leading" secondItem="ZAF-DR-Bya" secondAttribute="leading" id="Tyu-7y-zF7"/>
+                                    <constraint firstItem="5iC-u8-A2y" firstAttribute="top" secondItem="KVg-yd-xs9" secondAttribute="top" id="Wdr-SS-RzD"/>
+                                    <constraint firstItem="KVg-yd-xs9" firstAttribute="top" secondItem="ZAF-DR-Bya" secondAttribute="top" id="YFs-ga-WKA"/>
+                                    <constraint firstItem="KVg-yd-xs9" firstAttribute="leading" secondItem="5iC-u8-A2y" secondAttribute="leading" id="b59-pu-csE"/>
+                                    <constraint firstItem="KVg-yd-xs9" firstAttribute="trailing" secondItem="5iC-u8-A2y" secondAttribute="trailing" id="gee-rR-OIL"/>
+                                    <constraint firstItem="KVg-yd-xs9" firstAttribute="trailing" secondItem="ZAF-DR-Bya" secondAttribute="trailing" id="qgk-Se-Aif"/>
+                                    <constraint firstItem="5iC-u8-A2y" firstAttribute="bottom" secondItem="KVg-yd-xs9" secondAttribute="bottom" id="zma-t8-NPv"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="5iC-u8-A2y"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Hdf-sr-LVt" firstAttribute="trailing" secondItem="cCw-io-p5H" secondAttribute="trailing" constant="35" id="3zv-ut-naL"/>
-                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="leading" secondItem="Ii9-ry-Tj4" secondAttribute="leading" id="4eU-O0-vTj"/>
-                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="trailing" secondItem="Ii9-ry-Tj4" secondAttribute="trailing" id="5Ar-cW-nad"/>
-                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="leading" secondItem="SHf-bD-Ik1" secondAttribute="leading" id="6Au-Ey-rbS"/>
-                            <constraint firstItem="cCw-io-p5H" firstAttribute="bottom" secondItem="Hdf-sr-LVt" secondAttribute="bottom" constant="-16" id="8gz-iI-KGE"/>
-                            <constraint firstItem="4V1-dX-8zJ" firstAttribute="leading" secondItem="Hdf-sr-LVt" secondAttribute="leading" constant="35" id="FtS-xl-I8a"/>
-                            <constraint firstItem="4V1-dX-8zJ" firstAttribute="top" secondItem="Hdf-sr-LVt" secondAttribute="top" constant="35" id="Jmg-Ir-JGR"/>
-                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="top" secondItem="SHf-bD-Ik1" secondAttribute="bottom" constant="8" id="M96-wj-OGD"/>
-                            <constraint firstItem="O5z-gS-Pnp" firstAttribute="trailing" secondItem="SHf-bD-Ik1" secondAttribute="trailing" id="PAX-SO-ZMO"/>
-                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="trailing" secondItem="4V1-dX-8zJ" secondAttribute="trailing" id="PD4-C0-mEa"/>
-                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="top" secondItem="O5z-gS-Pnp" secondAttribute="bottom" constant="15" id="PLC-VF-X4T"/>
-                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="top" secondItem="Ii9-ry-Tj4" secondAttribute="bottom" constant="18" id="RQh-cv-szA"/>
-                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="SCE-SX-hyZ"/>
-                            <constraint firstItem="Hdf-sr-LVt" firstAttribute="trailing" secondItem="4V1-dX-8zJ" secondAttribute="trailing" constant="15" id="Tqc-eo-gbF"/>
-                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="trailing" secondItem="O5z-gS-Pnp" secondAttribute="trailing" id="VhL-Va-SFb"/>
-                            <constraint firstItem="cCw-io-p5H" firstAttribute="leading" secondItem="Hdf-sr-LVt" secondAttribute="leading" constant="35" id="W7m-dM-wbL"/>
-                            <constraint firstItem="cCw-io-p5H" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GcV-aD-Z7x" secondAttribute="bottom" constant="10" id="ZWc-a2-TFE"/>
-                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="cn6-MS-jZm"/>
-                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="top" secondItem="4V1-dX-8zJ" secondAttribute="bottom" constant="36" id="cw3-Gi-gIY"/>
-                            <constraint firstItem="SHf-bD-Ik1" firstAttribute="leading" secondItem="4V1-dX-8zJ" secondAttribute="leading" id="eGv-uF-O5f"/>
+                            <constraint firstAttribute="trailing" secondItem="ZAF-DR-Bya" secondAttribute="trailing" id="6r2-O9-B0F"/>
+                            <constraint firstItem="cCw-io-p5H" firstAttribute="centerX" secondItem="f4r-6n-gec" secondAttribute="centerX" id="G5D-dB-Lqz"/>
+                            <constraint firstItem="cCw-io-p5H" firstAttribute="leading" secondItem="Xb5-35-66i" secondAttribute="leading" constant="35" id="Gxy-M0-xE5"/>
+                            <constraint firstItem="Xb5-35-66i" firstAttribute="bottom" secondItem="cCw-io-p5H" secondAttribute="bottom" constant="16" id="Jv3-D0-bR6"/>
+                            <constraint firstItem="Xb5-35-66i" firstAttribute="trailing" secondItem="cCw-io-p5H" secondAttribute="trailing" constant="35" id="XE6-sN-J3q"/>
+                            <constraint firstAttribute="top" secondItem="ZAF-DR-Bya" secondAttribute="top" placeholder="YES" id="mYY-cd-TOD"/>
+                            <constraint firstAttribute="leading" secondItem="ZAF-DR-Bya" secondAttribute="leading" id="mgx-ax-i4G"/>
+                            <constraint firstItem="cCw-io-p5H" firstAttribute="top" secondItem="ZAF-DR-Bya" secondAttribute="bottom" constant="10" id="rl2-2b-s6D"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Hdf-sr-LVt"/>
+                        <viewLayoutGuide key="safeArea" id="Xb5-35-66i"/>
                     </view>
                     <navigationItem key="navigationItem" id="1ue-uL-EDx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j1R-hA-T50" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="9aP-WU-k0t" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1491" y="1923"/>
+            <point key="canvasLocation" x="-1491.304347826087" y="1922.5446428571427"/>
         </scene>
         <!--Face Capture Completed View Controller-->
         <scene sceneID="IKO-UF-nOG">
@@ -4176,6 +4221,7 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="button.continue"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="faceCaptureCompleted:" destination="4C2-Qs-Uvi" eventType="touchUpInside" id="aGm-bz-1bn"/>
@@ -4289,7 +4335,11 @@ Zabránite tak šíreniu vírusu COVID-19.</string>
                         <viewLayoutGuide key="safeArea" id="GA1-gU-wLF"/>
                     </view>
                     <navigationItem key="navigationItem" id="iLs-bV-J8x">
-                        <barButtonItem key="rightBarButtonItem" title="Ďalej" style="done" id="wwG-Db-WYf"/>
+                        <barButtonItem key="rightBarButtonItem" title="Ďalej" style="done" id="wwG-Db-WYf">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="button.next"/>
+                            </userDefinedRuntimeAttributes>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="challengeLabel" destination="1BT-sJ-LPG" id="bGV-At-dbT"/>

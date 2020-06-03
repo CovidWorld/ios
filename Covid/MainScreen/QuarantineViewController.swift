@@ -125,9 +125,9 @@ extension QuarantineViewController {
 
     private func updateCountdownLabel() {
         if let date = Defaults.quarantineStart {
-            countdownNoticeLabel.text = "Prosím, presuňte sa na Vami zvolenú adresu domácej izolácie, ktorá začne \(date.formattedDateAndYear())"
+            countdownNoticeLabel.text = LocalizedString(forKey: "quarantine.pending.description") + "\(date.formattedDateAndYear())"
         } else {
-            countdownNoticeLabel.text = "Udeje sa tak autoritou po overení Vášho kódu"
+            countdownNoticeLabel.text = LocalizedString(forKey: "quarantine.pending.info")
         }
     }
 

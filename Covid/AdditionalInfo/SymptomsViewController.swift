@@ -37,6 +37,7 @@ final class SymptomsViewController: ViewController {
 extension SymptomsViewController {
 
     private func updateUI() {
+        guard Locale.current.identifier.contains("sk_") else { return }
         let text = "Ľudia nakazení COVID-19 udávajú široké spektrum prejavov, od miernych až po závažné.\n\nPrejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕňať:"
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: "Poppins-Light", size: 17.0)!, .foregroundColor: UIColor.darkGray]
         let attributedString = NSMutableAttributedString(string: text, attributes: attributes)

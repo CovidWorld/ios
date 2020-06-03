@@ -33,6 +33,7 @@ final class VerificationCodeViewController: ViewController {
 
     private let ncziService = NCZIService()
     private let networkService = CovidService()
+    private var indicator: UIActivityIndicatorView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,14 +53,19 @@ final class VerificationCodeViewController: ViewController {
 // MARK: - Private
 extension VerificationCodeViewController {
     private func showLoadingIndicator() {
-        let indicator: UIActivityIndicatorView
         if #available(iOS 13.0, *) {
             indicator = UIActivityIndicatorView(style: .medium)
         } else {
             indicator = UIActivityIndicatorView(style: .gray)
         }
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator)
-        indicator.startAnimating()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator!)
+        indicator?.startAnimating()
+    }
+
+    private func cancel() {
+        indicator?.stopAnimating()
+        navigationItem.rightBarButtonItem = nil
+        navigationController?.popToRootViewController(animated: true)
     }
 
     private func requestToken() {
@@ -84,7 +90,9 @@ extension VerificationCodeViewController {
                 case .failure:
                     let message = LocalizedString(forKey: "error.phone.verification")
                     let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-                    let editAction = UIAlertAction(title: LocalizedString(forKey: "button.no"), style: .cancel, handler: nil)
+                    let editAction = UIAlertAction(title: LocalizedString(forKey: "button.no"), style: .cancel) { [weak self] _ in
+                        self?.cancel()
+                    }
                     let yesAction = UIAlertAction(title: LocalizedString(forKey: "button.yes"), style: .default) { [weak self] (_) in
                         self?.requestToken()
                     }
