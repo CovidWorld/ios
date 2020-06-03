@@ -4024,7 +4024,7 @@ Cg
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V1-dX-8zJ">
-                                <rect key="frame" x="35" y="79" width="364" height="70"/>
+                                <rect key="frame" x="35" y="79" width="364" height="84"/>
                                 <string key="text">Skenovanie tváre
 pre karanténu</string>
                                 <fontDescription key="fontDescription" name="Poppins-Light" family="Poppins" pointSize="30"/>
@@ -4035,7 +4035,7 @@ pre karanténu</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prosím naskenujte Vašu tvár pre prípadnú verifikáciu pri dodržiavaní povinnej karantény." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHf-bD-Ik1">
-                                <rect key="frame" x="35" y="185" width="364" height="81"/>
+                                <rect key="frame" x="35" y="199" width="364" height="81"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="81" id="iD4-gm-zHu"/>
                                 </constraints>
@@ -4047,7 +4047,7 @@ pre karanténu</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tento krok je povinný." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5z-gS-Pnp">
-                                <rect key="frame" x="35" y="274" width="364" height="44"/>
+                                <rect key="frame" x="35" y="288" width="364" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ScF-rr-cw4"/>
                                 </constraints>
@@ -4059,10 +4059,25 @@ pre karanténu</string>
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ii9-ry-Tj4">
-                                <rect key="frame" x="35" y="336" width="364" height="37.333333333333314"/>
+                                <rect key="frame" x="35" y="347" width="364" height="45"/>
                                 <string key="text">Dáta sú uložené výhradne
 na Vašom zariadení.</string>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedKey" value="face.registration.info"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcV-aD-Z7x">
+                                <rect key="frame" x="35" y="410" width="364" height="309.66666666666674"/>
+                                <mutableString key="text">Ako sa uistiť, že aplikácia eKaranténa nasníma biometriu Vašej tváre správne:
+
+* Držte telefón po celý čas vo výške očí,
+* Snažte sa otočiť tvárou k zdroju svetla, nestojte chrbtom k oknu, aby ste nemali svetlo oproti Vám, ani nestojte priamo pod lampou, môžu spôsobovať tiene v tvári,
+* Pokiaľ okuliare vytvárajú silnú reflexiu, je vhodné si dať okuliare dole.
+* Telefón držte po celý čas v jednej pozícii pokiaľ neprejdete celým procesom snímania tváre.</mutableString>
+                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="17"/>
                                 <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
@@ -4095,6 +4110,8 @@ na Vašom zariadení.</string>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Hdf-sr-LVt" firstAttribute="trailing" secondItem="cCw-io-p5H" secondAttribute="trailing" constant="35" id="3zv-ut-naL"/>
+                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="leading" secondItem="Ii9-ry-Tj4" secondAttribute="leading" id="4eU-O0-vTj"/>
+                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="trailing" secondItem="Ii9-ry-Tj4" secondAttribute="trailing" id="5Ar-cW-nad"/>
                             <constraint firstItem="O5z-gS-Pnp" firstAttribute="leading" secondItem="SHf-bD-Ik1" secondAttribute="leading" id="6Au-Ey-rbS"/>
                             <constraint firstItem="cCw-io-p5H" firstAttribute="bottom" secondItem="Hdf-sr-LVt" secondAttribute="bottom" constant="-16" id="8gz-iI-KGE"/>
                             <constraint firstItem="4V1-dX-8zJ" firstAttribute="leading" secondItem="Hdf-sr-LVt" secondAttribute="leading" constant="35" id="FtS-xl-I8a"/>
@@ -4102,11 +4119,13 @@ na Vašom zariadení.</string>
                             <constraint firstItem="O5z-gS-Pnp" firstAttribute="top" secondItem="SHf-bD-Ik1" secondAttribute="bottom" constant="8" id="M96-wj-OGD"/>
                             <constraint firstItem="O5z-gS-Pnp" firstAttribute="trailing" secondItem="SHf-bD-Ik1" secondAttribute="trailing" id="PAX-SO-ZMO"/>
                             <constraint firstItem="SHf-bD-Ik1" firstAttribute="trailing" secondItem="4V1-dX-8zJ" secondAttribute="trailing" id="PD4-C0-mEa"/>
-                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="top" secondItem="O5z-gS-Pnp" secondAttribute="bottom" constant="18" id="PLC-VF-X4T"/>
+                            <constraint firstItem="Ii9-ry-Tj4" firstAttribute="top" secondItem="O5z-gS-Pnp" secondAttribute="bottom" constant="15" id="PLC-VF-X4T"/>
+                            <constraint firstItem="GcV-aD-Z7x" firstAttribute="top" secondItem="Ii9-ry-Tj4" secondAttribute="bottom" constant="18" id="RQh-cv-szA"/>
                             <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="SCE-SX-hyZ"/>
                             <constraint firstItem="Hdf-sr-LVt" firstAttribute="trailing" secondItem="4V1-dX-8zJ" secondAttribute="trailing" constant="15" id="Tqc-eo-gbF"/>
                             <constraint firstItem="Ii9-ry-Tj4" firstAttribute="trailing" secondItem="O5z-gS-Pnp" secondAttribute="trailing" id="VhL-Va-SFb"/>
                             <constraint firstItem="cCw-io-p5H" firstAttribute="leading" secondItem="Hdf-sr-LVt" secondAttribute="leading" constant="35" id="W7m-dM-wbL"/>
+                            <constraint firstItem="cCw-io-p5H" firstAttribute="top" relation="greaterThanOrEqual" secondItem="GcV-aD-Z7x" secondAttribute="bottom" constant="10" id="ZWc-a2-TFE"/>
                             <constraint firstItem="Ii9-ry-Tj4" firstAttribute="leading" secondItem="O5z-gS-Pnp" secondAttribute="leading" id="cn6-MS-jZm"/>
                             <constraint firstItem="SHf-bD-Ik1" firstAttribute="top" secondItem="4V1-dX-8zJ" secondAttribute="bottom" constant="36" id="cw3-Gi-gIY"/>
                             <constraint firstItem="SHf-bD-Ik1" firstAttribute="leading" secondItem="4V1-dX-8zJ" secondAttribute="leading" id="eGv-uF-O5f"/>

@@ -104,8 +104,8 @@ extension CountryCodeViewController {
         let number = "\(countryCode) \(phoneNumber)"
         let message = LocalizedString(forKey: "phone.registration.input.verification") + "\n\n\(number)"
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let editAction = UIAlertAction(title: "button.no", style: .cancel, handler: nil)
-        let yesAction = UIAlertAction(title: "button.yes", style: .default) { [weak self] (_) in
+        let editAction = UIAlertAction(title: LocalizedString(forKey: "button.no"), style: .cancel, handler: nil)
+        let yesAction = UIAlertAction(title: LocalizedString(forKey: "button.yes"), style: .default) { [weak self] (_) in
             Defaults.tempPhoneNumber = number.replacingOccurrences(of: " ", with: "")
             self?.performSegue(.phoneNumberVerification)
         }

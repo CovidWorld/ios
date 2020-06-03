@@ -76,7 +76,7 @@ na Vašom zariadení.";
 "symptoms.description" = "Ľudia nakazení COVID-19 udávajú široké spektrum prejavov, od miernych až po závažné.
 
 Prejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕňať:";
-"symptoms.symptoms" = "horúčka nad 38 °C\nsuchý dusivý kašeľ\nťažkosti s dýchaním alebo\ndýchavičnosť\núnava alebo schvátenosť\nzimnica alebo triaška\nbolesť svalov\nbolesť hlavy\nbolesť hrdla\nnáhla strata čuchu a chuti\nhnačka\nzvracanie";
+"symptoms.symptoms" = "horúčka nad 38 °C\n\nsuchý dusivý kašeľ\n\nťažkosti s dýchaním alebo\n\ndýchavičnosť\n\núnava alebo schvátenosť\n\nzimnica alebo triaška\n\nbolesť svalov\n\nbolesť hlavy\n\nbolesť hrdla\n\nnáhla strata čuchu a chuti\n\nhnačka\n\nzvracanie";
 
 /* Prevention */
 "prevention.label.title" = "Ako sa chrániť";
