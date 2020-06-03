@@ -65,6 +65,7 @@
 		21220504244D084900CCC72B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21220503244D084900CCC72B /* ViewController.swift */; };
 		2125E16C2472099600D3A526 /* NoRandomCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2125E16B2472099600D3A526 /* NoRandomCheckViewController.swift */; };
 		2147923224806F6100AA7D8A /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2147923124806F6100AA7D8A /* Date.swift */; };
+		214C523524884EEF0069EB72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 214C523724884EEF0069EB72 /* InfoPlist.strings */; };
 		21591AED2439E2C100495263 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEB2439E2C000495263 /* Localizable.strings */; };
 		21591AEF2439E3AF00495263 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 21591AEE2439E3AE00495263 /* Settings.bundle */; };
 		21634EC7247B14190062EC3F /* DOT.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21634EC5247B140C0062EC3F /* DOT.xcframework */; };
@@ -219,6 +220,8 @@
 		213B74DC2437E7BE005BB14F /* FaceCaptureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCoordinator.swift; sourceTree = "<group>"; };
 		213B74DE2437F6F8005BB14F /* FaceCaptureCompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCaptureCompletedViewController.swift; sourceTree = "<group>"; };
 		2147923124806F6100AA7D8A /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		214C523624884EEF0069EB72 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		214C523824884EF10069EB72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		21591AE62439E18500495263 /* settings_version.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = settings_version.sh; sourceTree = "<group>"; };
 		21591AEC2439E2C000495263 /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21591AEE2439E3AE00495263 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 				0F247F05241A61AC00986740 /* Assets.xcassets */,
 				C03E09A4242013CA00B3A204 /* Fonts */,
 				21591AEB2439E2C000495263 /* Localizable.strings */,
+				214C523724884EEF0069EB72 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -799,6 +803,7 @@
 				C03E0A00242013CB00B3A204 /* Inter-UI-BoldItalic.otf in Resources */,
 				0F247F06241A61AC00986740 /* Assets.xcassets in Resources */,
 				C03E09E9242013CB00B3A204 /* Poppins-SemiBold.otf in Resources */,
+				214C523524884EEF0069EB72 /* InfoPlist.strings in Resources */,
 				C03E09E1242013CB00B3A204 /* Poppins-SemiBoldItalic.otf in Resources */,
 				C03E09EA242013CB00B3A204 /* Poppins-Italic.otf in Resources */,
 				C03E0A02242013CB00B3A204 /* Inter-UI-Bold.otf in Resources */,
@@ -1053,6 +1058,15 @@
 				0F1181482416C70900213533 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		214C523724884EEF0069EB72 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				214C523624884EEF0069EB72 /* sk */,
+				214C523824884EF10069EB72 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		21591AEB2439E2C000495263 /* Localizable.strings */ = {

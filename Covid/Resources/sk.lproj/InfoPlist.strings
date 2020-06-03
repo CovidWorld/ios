@@ -1,0 +1,5 @@
+
+"NSCameraUsageDescription" = "Používame Vašu kameru s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.";
+"NSLocationAlwaysUsageDescription" = "Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.";
+"NSLocationWhenInUseUsageDescription" = "Používame Vašu pozíciu s cieľom ochrany pred šírením vírusu COVID-19 za účelom informovania o karanténnej povinnosti obyvateľov.";

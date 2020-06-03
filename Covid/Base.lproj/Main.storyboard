@@ -1894,6 +1894,7 @@ identifikátor karantény</string>
                                             <constraint firstAttribute="trailing" secondItem="Uwi-Bc-ou0" secondAttribute="trailing" constant="16" id="XFl-yb-wKC"/>
                                             <constraint firstItem="DyZ-gY-Bog" firstAttribute="top" secondItem="IH9-TX-vzL" secondAttribute="top" id="YcA-ps-jon"/>
                                             <constraint firstAttribute="trailing" secondItem="2s9-Is-ANv" secondAttribute="trailing" constant="16" id="Zj0-yP-YJY"/>
+                                            <constraint firstAttribute="height" constant="87" id="bhN-qH-EsL"/>
                                             <constraint firstAttribute="bottom" secondItem="GvO-Fi-1Z1" secondAttribute="bottom" constant="16" id="cWv-3e-N4L"/>
                                             <constraint firstItem="GvO-Fi-1Z1" firstAttribute="leading" secondItem="IH9-TX-vzL" secondAttribute="leading" constant="16" id="vNb-1n-V4X"/>
                                             <constraint firstItem="2s9-Is-ANv" firstAttribute="leading" secondItem="GvO-Fi-1Z1" secondAttribute="trailing" constant="16" id="wPB-qR-rHd"/>
@@ -1936,6 +1937,7 @@ identifikátor karantény</string>
                                         </subviews>
                                         <color key="backgroundColor" red="0.92156862750000001" green="0.94117647059999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="87" id="Aff-Pr-iQu"/>
                                             <constraint firstItem="B8G-ob-JyM" firstAttribute="top" secondItem="ge1-Vs-7yc" secondAttribute="top" id="CCF-rr-d1n"/>
                                             <constraint firstItem="Vei-H8-pal" firstAttribute="leading" secondItem="ge1-Vs-7yc" secondAttribute="leading" constant="16" id="CGh-Ry-lE5"/>
                                             <constraint firstAttribute="trailing" secondItem="Svd-ZH-cv4" secondAttribute="trailing" constant="16" id="IA4-aK-jYx"/>
@@ -1967,7 +1969,7 @@ identifikátor karantény</string>
                                     </containerView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="DfR-iH-bnr"/>
+                                    <constraint firstAttribute="height" priority="750" constant="500" id="DfR-iH-bnr"/>
                                     <constraint firstItem="aGf-gp-ehB" firstAttribute="top" secondItem="Drr-EJ-rfC" secondAttribute="bottom" id="Rer-az-2gr"/>
                                     <constraint firstAttribute="trailing" secondItem="Drr-EJ-rfC" secondAttribute="trailing" id="b2w-0c-j8j"/>
                                     <constraint firstItem="Drr-EJ-rfC" firstAttribute="leading" secondItem="X20-N0-960" secondAttribute="leading" id="iWC-0T-Mlw"/>

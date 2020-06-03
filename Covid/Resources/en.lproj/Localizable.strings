@@ -95,6 +95,7 @@
 "profile.hotp.title" = "Your 6 digits are:";
 "stats.infected" = "Infected";
 "stats.recovered" = "Healed";
+"stats.numberOfCases" = "Number of cases: ";
 "permission.camera.denied.title" = "The access to your camera is denied ";
 "permission.camera.denied" = "Access to the camera is not allowed. Please, allow access to the camera in your Settings.";
 "permission.location.denied" = "Access to your GPS location is not allowed. Please, allow the access to your location in your Settings.";

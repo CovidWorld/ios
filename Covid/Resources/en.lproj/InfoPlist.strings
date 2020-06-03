@@ -1,0 +1,5 @@
+
+"NSCameraUsageDescription" = "We use your camera to protect against the spread of the COVID-19. We won't access your photo library.";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "We use your location to protect against the spread of the COVID-19. Your location data will never leave your iPhone.";
+"NSLocationAlwaysUsageDescription" = "We use your location to protect against the spread of the COVID-19. Your location data will never leave your iPhone.";
+"NSLocationWhenInUseUsageDescription" = "We use your location to protect against the spread of the COVID-19. Your location data will never leave your iPhone.";

@@ -126,6 +126,7 @@ Prejavy sa zvyčajne objavujú 2-14 dní po vystavení sa nákaze a môžu zahŕ
 /* stats */
 "stats.infected" = "Chorí";
 "stats.recovered" = "Uzdravení";
+"stats.numberOfCases" = "Počet prípadov: ";
 
 /* permissions */
 "permission.camera.denied.title" = "Nie je povolená kamera";

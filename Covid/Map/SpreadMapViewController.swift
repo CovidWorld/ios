@@ -41,7 +41,7 @@ extension RegionInfo: MKAnnotation {
     }
 
     var subtitle: String? {
-        "Počet prípadov: \(cases ?? 0)"
+        LocalizedString(forKey: "stats.numberOfCases") + "\(cases ?? 0)"
     }
 }
 
